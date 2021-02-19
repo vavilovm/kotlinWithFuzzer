@@ -24,7 +24,6 @@ import org.gradle.api.internal.FeaturePreviews
 import org.gradle.api.logging.Logger
 import org.gradle.api.logging.Logging
 import org.gradle.tooling.provider.model.ToolingModelBuilderRegistry
-import org.jetbrains.kotlin.cli.common.CompilerSystemProperties
 import org.jetbrains.kotlin.gradle.dsl.*
 import org.jetbrains.kotlin.gradle.logging.kotlinDebug
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinMetadataTarget
@@ -35,7 +34,7 @@ import org.jetbrains.kotlin.gradle.plugin.statistics.KotlinBuildStatsService
 import org.jetbrains.kotlin.gradle.targets.js.KotlinJsCompilerAttribute
 import org.jetbrains.kotlin.gradle.targets.js.KotlinJsPlugin
 import org.jetbrains.kotlin.gradle.targets.js.npm.addNpmDependencyExtension
-import org.jetbrains.kotlin.gradle.tasks.*
+import org.jetbrains.kotlin.gradle.tasks.AbstractKotlinCompile
 import org.jetbrains.kotlin.gradle.tasks.KOTLIN_COMPILER_EMBEDDABLE
 import org.jetbrains.kotlin.gradle.tasks.KOTLIN_KLIB_COMMONIZER_EMBEDDABLE
 import org.jetbrains.kotlin.gradle.tasks.KOTLIN_MODULE_GROUP
@@ -58,7 +57,7 @@ abstract class KotlinBasePluginWrapper : Plugin<Project> {
 
     override fun apply(project: Project) {
         val listenerRegistryHolder = BuildEventsListenerRegistryHolder.getInstance(project)
-        val statisticsReporter = KotlinBuildStatsService.getOrCreateInstance(project, listenerRegistryHolder)
+        val statisticsReporter = KotlinBuildStatsService.getOrCreateInstance(project)
         statisticsReporter?.report(StringMetrics.KOTLIN_COMPILER_VERSION, kotlinPluginVersion)
 
         checkGradleCompatibility()

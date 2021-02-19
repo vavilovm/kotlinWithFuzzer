@@ -471,7 +471,7 @@ internal class KotlinCompilationNpmResolver(
             }
 
             return KotlinCompilationNpmResolution(
-                if (compilation != null) project else null,
+                project,
                 npmProject,
                 compositeDependencies,
                 importedExternalGradleDependencies,
