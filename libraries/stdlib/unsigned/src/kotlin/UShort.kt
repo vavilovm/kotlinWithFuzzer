@@ -137,19 +137,6 @@ public value class UShort @PublishedApi internal constructor(@PublishedApi inter
 
     /** TODO */
     @kotlin.internal.InlineOnly
-    public inline fun mod(other: UByte): UInt = this.toUInt().mod(other.toUInt())
-    /** TODO */
-    @kotlin.internal.InlineOnly
-    public inline fun mod(other: UShort): UInt = this.toUInt().mod(other.toUInt())
-    /** TODO */
-    @kotlin.internal.InlineOnly
-    public inline fun mod(other: UInt): UInt = this.toUInt().mod(other)
-    /** TODO */
-    @kotlin.internal.InlineOnly
-    public inline fun mod(other: ULong): ULong = this.toULong().mod(other)
-
-    /** TODO */
-    @kotlin.internal.InlineOnly
     public inline fun floorDiv(other: UByte): UInt = this.toUInt().floorDiv(other.toUInt())
     /** TODO */
     @kotlin.internal.InlineOnly
@@ -160,6 +147,19 @@ public value class UShort @PublishedApi internal constructor(@PublishedApi inter
     /** TODO */
     @kotlin.internal.InlineOnly
     public inline fun floorDiv(other: ULong): ULong = this.toULong().floorDiv(other)
+
+    /** TODO */
+    @kotlin.internal.InlineOnly
+    public inline fun mod(other: UByte): UInt = this.toUInt().mod(other.toUInt())
+    /** TODO */
+    @kotlin.internal.InlineOnly
+    public inline fun mod(other: UShort): UInt = this.toUInt().mod(other.toUInt())
+    /** TODO */
+    @kotlin.internal.InlineOnly
+    public inline fun mod(other: UInt): UInt = this.toUInt().mod(other)
+    /** TODO */
+    @kotlin.internal.InlineOnly
+    public inline fun mod(other: ULong): ULong = this.toULong().mod(other)
 
     /** Increments this value. */
     @kotlin.internal.InlineOnly
