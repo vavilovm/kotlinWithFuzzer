@@ -11734,6 +11734,11 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
             runTest("compiler/testData/codegen/box/evaluate/divide.kt");
         }
 
+        @TestMetadata("floorDiv.kt")
+        public void testFloorDiv() throws Exception {
+            runTest("compiler/testData/codegen/box/evaluate/floorDiv.kt");
+        }
+
         @TestMetadata("intrinsics.kt")
         public void testIntrinsics() throws Exception {
             runTest("compiler/testData/codegen/box/evaluate/intrinsics.kt");
@@ -11762,6 +11767,11 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
         @TestMetadata("minus.kt")
         public void testMinus() throws Exception {
             runTest("compiler/testData/codegen/box/evaluate/minus.kt");
+        }
+
+        @TestMetadata("mod.kt")
+        public void testMod() throws Exception {
+            runTest("compiler/testData/codegen/box/evaluate/mod.kt");
         }
 
         @TestMetadata("multiply.kt")
