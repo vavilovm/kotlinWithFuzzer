@@ -106,6 +106,18 @@ object FirMemberPropertyChecker : FirRegularClassChecker() {
                 }
             }
         }
+
+        if (containingDeclaration.isInlineOrValueClass()) {
+            val constructorProperty = containingDeclaration.getFirstPrimaryConstructorProperty()
+
+            when {
+                property.delegate != null ->
+                    reporter.reportOn(property.delegate!!.source, FirErrors.DELEGATED_PROPERTY_INSIDE_INLINE_CLASS, context)
+
+                property != constructorProperty && property.hasBackingField ->
+                    reporter.reportOn(source, FirErrors.PROPERTY_WITH_BACKING_FIELD_INSIDE_INLINE_CLASS, context)
+            }
+        }
     }
 
     private fun checkAccessor(

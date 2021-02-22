@@ -65,5 +65,14 @@ object FirMemberFunctionChecker : FirRegularClassChecker() {
         }
 
         checkExpectDeclarationVisibilityAndBody(function, source, modifierList, reporter, context)
+
+        if (containingDeclaration.isInlineOrValueClass()) {
+            val reservedFunctions = setOf("box", "unbox", "equals", "hashCode")
+            val functionName = function.name.asString()
+
+            if (functionName in reservedFunctions) {
+                reporter.reportOn(source, FirErrors.RESERVED_MEMBER_INSIDE_INLINE_CLASS, functionName, context)
+            }
+        }
     }
 }
