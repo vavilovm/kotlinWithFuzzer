@@ -11,7 +11,10 @@ import org.jetbrains.kotlin.fir.analysis.collectors.DiagnosticCollectorDeclarati
 import org.jetbrains.kotlin.fir.analysis.diagnostics.FirPsiDiagnostic
 import org.jetbrains.kotlin.fir.declarations.FirDeclaration
 import org.jetbrains.kotlin.fir.declarations.FirFile
+import org.jetbrains.kotlin.fir.declarations.FirValueParameter
+import org.jetbrains.kotlin.fir.isFunctionTypeValueParameter
 import org.jetbrains.kotlin.idea.fir.low.level.api.util.addValueFor
+import org.jetbrains.kotlin.idea.fir.low.level.api.util.checkIsResolvedToBodyResolve
 
 internal class FileStructureElementDiagnosticsCollector private constructor(private val useExtendedCheckers: Boolean) {
     companion object {
@@ -51,11 +54,20 @@ internal class FileStructureElementDiagnosticsCollector private constructor(priv
 
         override fun getDeclarationActionOnDeclarationEnter(
             declaration: FirDeclaration,
-        ): DiagnosticCollectorDeclarationAction =
-            onDeclarationEnter.invoke(declaration)
+        ): DiagnosticCollectorDeclarationAction {
+            val action = onDeclarationEnter.invoke(declaration)
+            if (declaration !is FirFile && !declaration.isFunctionTypeValueParameter() && action.checkInCurrentDeclaration) {
+                declaration.checkIsResolvedToBodyResolve()
+            }
+            return action
+        }
 
         override fun onDeclarationExit(declaration: FirDeclaration) {
             onDeclarationExit.invoke(declaration)
         }
     }
 }
+
+
+private fun FirDeclaration.isFunctionTypeValueParameter(): Boolean =
+    (this as? FirValueParameter)?.isFunctionTypeValueParameter == true
