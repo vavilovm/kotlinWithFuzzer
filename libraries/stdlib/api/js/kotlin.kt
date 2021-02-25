@@ -413,7 +413,7 @@ public inline fun <R, T> kotlin.Result<T>.mapCatching(transform: (value: T) -> R
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Byte.mod(other: kotlin.Byte): kotlin.Int
+public inline fun kotlin.Byte.mod(other: kotlin.Byte): kotlin.Byte
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
@@ -425,11 +425,11 @@ public inline fun kotlin.Byte.mod(other: kotlin.Long): kotlin.Long
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Byte.mod(other: kotlin.Short): kotlin.Int
+public inline fun kotlin.Byte.mod(other: kotlin.Short): kotlin.Short
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Int.mod(other: kotlin.Byte): kotlin.Int
+public inline fun kotlin.Int.mod(other: kotlin.Byte): kotlin.Byte
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
@@ -441,15 +441,15 @@ public inline fun kotlin.Int.mod(other: kotlin.Long): kotlin.Long
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Int.mod(other: kotlin.Short): kotlin.Int
+public inline fun kotlin.Int.mod(other: kotlin.Short): kotlin.Short
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Long.mod(other: kotlin.Byte): kotlin.Long
+public inline fun kotlin.Long.mod(other: kotlin.Byte): kotlin.Byte
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Long.mod(other: kotlin.Int): kotlin.Long
+public inline fun kotlin.Long.mod(other: kotlin.Int): kotlin.Int
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
@@ -457,11 +457,11 @@ public inline fun kotlin.Long.mod(other: kotlin.Long): kotlin.Long
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Long.mod(other: kotlin.Short): kotlin.Long
+public inline fun kotlin.Long.mod(other: kotlin.Short): kotlin.Short
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Short.mod(other: kotlin.Byte): kotlin.Int
+public inline fun kotlin.Short.mod(other: kotlin.Byte): kotlin.Byte
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
@@ -473,7 +473,7 @@ public inline fun kotlin.Short.mod(other: kotlin.Long): kotlin.Long
 
 @kotlin.SinceKotlin(version = "1.5")
 @kotlin.internal.InlineOnly
-public inline fun kotlin.Short.mod(other: kotlin.Short): kotlin.Int
+public inline fun kotlin.Short.mod(other: kotlin.Short): kotlin.Short
 
 @kotlin.internal.InlineOnly
 @kotlin.SinceKotlin(version = "1.3")
@@ -2443,7 +2443,7 @@ public final inline class UByte : kotlin.Comparable<kotlin.UByte> {
     public final inline operator fun minus(other: kotlin.UShort): kotlin.UInt
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UByte): kotlin.UInt
+    public final inline fun mod(other: kotlin.UByte): kotlin.UByte
 
     @kotlin.internal.InlineOnly
     public final inline fun mod(other: kotlin.UInt): kotlin.UInt
@@ -2452,7 +2452,7 @@ public final inline class UByte : kotlin.Comparable<kotlin.UByte> {
     public final inline fun mod(other: kotlin.ULong): kotlin.ULong
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UShort): kotlin.UInt
+    public final inline fun mod(other: kotlin.UShort): kotlin.UShort
 
     @kotlin.internal.InlineOnly
     public final inline infix fun or(other: kotlin.UByte): kotlin.UByte
@@ -2638,7 +2638,7 @@ public final inline class UInt : kotlin.Comparable<kotlin.UInt> {
     public final inline operator fun minus(other: kotlin.UShort): kotlin.UInt
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UByte): kotlin.UInt
+    public final inline fun mod(other: kotlin.UByte): kotlin.UByte
 
     @kotlin.internal.InlineOnly
     public final inline fun mod(other: kotlin.UInt): kotlin.UInt
@@ -2647,7 +2647,7 @@ public final inline class UInt : kotlin.Comparable<kotlin.UInt> {
     public final inline fun mod(other: kotlin.ULong): kotlin.ULong
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UShort): kotlin.UInt
+    public final inline fun mod(other: kotlin.UShort): kotlin.UShort
 
     @kotlin.internal.InlineOnly
     public final inline infix fun or(other: kotlin.UInt): kotlin.UInt
@@ -2839,16 +2839,16 @@ public final inline class ULong : kotlin.Comparable<kotlin.ULong> {
     public final inline operator fun minus(other: kotlin.UShort): kotlin.ULong
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UByte): kotlin.ULong
+    public final inline fun mod(other: kotlin.UByte): kotlin.UByte
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UInt): kotlin.ULong
+    public final inline fun mod(other: kotlin.UInt): kotlin.UInt
 
     @kotlin.internal.InlineOnly
     public final inline fun mod(other: kotlin.ULong): kotlin.ULong
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UShort): kotlin.ULong
+    public final inline fun mod(other: kotlin.UShort): kotlin.UShort
 
     @kotlin.internal.InlineOnly
     public final inline infix fun or(other: kotlin.ULong): kotlin.ULong
@@ -3040,7 +3040,7 @@ public final inline class UShort : kotlin.Comparable<kotlin.UShort> {
     public final inline operator fun minus(other: kotlin.UShort): kotlin.UInt
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UByte): kotlin.UInt
+    public final inline fun mod(other: kotlin.UByte): kotlin.UByte
 
     @kotlin.internal.InlineOnly
     public final inline fun mod(other: kotlin.UInt): kotlin.UInt
@@ -3049,7 +3049,7 @@ public final inline class UShort : kotlin.Comparable<kotlin.UShort> {
     public final inline fun mod(other: kotlin.ULong): kotlin.ULong
 
     @kotlin.internal.InlineOnly
-    public final inline fun mod(other: kotlin.UShort): kotlin.UInt
+    public final inline fun mod(other: kotlin.UShort): kotlin.UShort
 
     @kotlin.internal.InlineOnly
     public final inline infix fun or(other: kotlin.UShort): kotlin.UShort
