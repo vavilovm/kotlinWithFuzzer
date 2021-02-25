@@ -21,7 +21,6 @@ import org.jetbrains.kotlin.idea.util.getElementTextInContext
 import org.jetbrains.kotlin.psi.*
 import org.jetbrains.kotlin.psi.psiUtil.containingClassOrObject
 import org.jetbrains.kotlin.psi.psiUtil.isAncestor
-import org.jetbrains.kotlin.psi2ir.deparenthesize
 
 /**
  * Maps [KtElement] to [FirElement]
@@ -30,9 +29,8 @@ import org.jetbrains.kotlin.psi2ir.deparenthesize
 @ThreadSafe
 internal class FirElementBuilder {
     fun getPsiAsFirElementSource(element: KtElement): KtElement {
-        val deparenthesized = if (element is KtPropertyDelegate) element.deparenthesize() else element
+        val deparenthesized = if (element is KtParenthesizedExpression) KtPsiUtil.deparenthesize(element) else element
         return when {
-            deparenthesized is KtParenthesizedExpression -> deparenthesized.deparenthesize()
             deparenthesized is KtPropertyDelegate -> deparenthesized.expression ?: element
             deparenthesized is KtQualifiedExpression && deparenthesized.selectorExpression is KtCallExpression -> {
                 /*
@@ -41,7 +39,7 @@ internal class FirElementBuilder {
                  */
                 deparenthesized.selectorExpression ?: error("Incomplete code:\n${element.getElementTextInContext()}")
             }
-            else -> deparenthesized
+            else -> deparenthesized ?: element
         }
     }
 
