@@ -86,12 +86,13 @@ open class JvmForeignAnnotationsConfigurator(testServices: TestServices) : Envir
             val state = ReportLevel.findByDescription(stateDescription) ?: return@mapNotNull null
             name to state
         }.toMap()
+        val jSpecifyReportLevel = directives.singleOrZeroValue(JSPECIFY_STATE) ?: ReportLevel.STRICT
         return mapOf(
             JvmAnalysisFlags.javaTypeEnhancementState to JavaTypeEnhancementState(
                 globalState,
                 migrationState,
                 userAnnotationsState,
-                jspecifyReportLevel = directives.singleValue(JSPECIFY_STATE)
+                jspecifyReportLevel = jSpecifyReportLevel
             )
         )
     }
