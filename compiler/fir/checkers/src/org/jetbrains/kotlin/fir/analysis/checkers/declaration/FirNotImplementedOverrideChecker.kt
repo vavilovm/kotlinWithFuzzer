@@ -17,10 +17,12 @@ import org.jetbrains.kotlin.fir.analysis.diagnostics.reportOn
 import org.jetbrains.kotlin.fir.declarations.*
 import org.jetbrains.kotlin.fir.scopes.*
 import org.jetbrains.kotlin.fir.scopes.impl.unwrapDelegateTarget
-import org.jetbrains.kotlin.fir.symbols.CallableId
 import org.jetbrains.kotlin.fir.symbols.impl.*
 import org.jetbrains.kotlin.fir.types.*
+import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.Name
+import org.jetbrains.kotlin.util.OperatorNameConventions.EQUALS
+import org.jetbrains.kotlin.util.OperatorNameConventions.TO_STRING
 
 object FirNotImplementedOverrideChecker : FirClassChecker() {
     // TODO: differentiate members with different annotations, e.g., @Api...(x) @Api...(y)
@@ -128,11 +130,11 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
                 returnTypeRef.coneType.isString
 
     private val FirSimpleFunction.matchesDataClassSyntheticMemberSignatures: Boolean
-        get() = (this.name == EQUALS_NAME && matchesEqualsSignature) ||
+        get() = (this.name == EQUALS && matchesEqualsSignature) ||
                 (this.name == HASHCODE_NAME && matchesHashCodeSignature) ||
-                (this.name == TOSTRING_NAME && matchesToStringSignature)
+                (this.name == TO_STRING && matchesToStringSignature)
 
-    private val SYNTHETIC_NAMES = listOf(EQUALS_NAME, HASHCODE_NAME, TOSTRING_NAME)
+    private val SYNTHETIC_NAMES = listOf(EQUALS, HASHCODE_NAME, TO_STRING)
 
     // See [DataClassMembersGenerator#generate]
     // But, this one doesn't create IR counterparts. We just need what synthetic members would be generated for data/inline classes.
