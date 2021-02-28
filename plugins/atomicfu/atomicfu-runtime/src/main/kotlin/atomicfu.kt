@@ -5,126 +5,126 @@
 
 package kotlinx.atomicfu
 
-internal inline fun <T> atomicfu_getValue(getter: () -> T, setter: (T) -> Unit): T {
-    return getter()
+internal inline fun <T> atomicfu_getValue(`atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): T {
+    return `atomicfu$getter`()
 }
 
-internal inline fun <T> atomicfu_setValue(value: T, getter: () -> T, setter: (T) -> Unit): Unit {
-    setter(value)
+internal inline fun <T> atomicfu_setValue(value: T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): Unit {
+    `atomicfu$setter`(value)
 }
 
-internal inline fun <T> atomicfu_lazySet(value: T, getter: () -> T, setter: (T) -> Unit): Unit {
-    setter(value)
+internal inline fun <T> atomicfu_lazySet(value: T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): Unit {
+    `atomicfu$setter`(value)
 }
 
-internal inline fun <T> atomicfu_compareAndSet(expect: T, update: T, getter: () -> T, setter: (T) -> Unit): Boolean {
-    if (getter() == expect) {
-        setter(update)
+internal inline fun <T> atomicfu_compareAndSet(expect: T, update: T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): Boolean {
+    if (`atomicfu$getter`() == expect) {
+        `atomicfu$setter`(update)
         return true
     } else {
         return false
     }
 }
 
-internal inline fun <T> atomicfu_getAndSet(value: T, getter: () -> T, setter: (T) -> Unit): T {
-    val oldValue = getter()
-    setter(value)
+internal inline fun <T> atomicfu_getAndSet(value: T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): T {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(value)
     return oldValue
 }
 
-internal inline fun atomicfu_getAndIncrement(getter: () -> Int, setter: (Int) -> Unit): Int {
-    val oldValue = getter()
-    setter(oldValue + 1)
+internal inline fun atomicfu_getAndIncrement(`atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue + 1)
     return oldValue
 }
 
-internal inline fun atomicfu_getAndIncrement(getter: () -> Long, setter: (Long) -> Unit): Long {
-    val oldValue = getter()
-    setter(oldValue + 1)
+internal inline fun atomicfu_getAndIncrement(`atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue + 1)
     return oldValue
 }
 
-internal inline fun atomicfu_incrementAndGet(getter: () -> Int, setter: (Int) -> Unit): Int {
-    setter(getter() + 1)
-    return getter()
+internal inline fun atomicfu_incrementAndGet(`atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    `atomicfu$setter`(`atomicfu$getter`() + 1)
+    return `atomicfu$getter`()
 }
 
-internal inline fun atomicfu_incrementAndGet(getter: () -> Long, setter: (Long) -> Unit): Long {
-    setter(getter() + 1)
-    return getter()
+internal inline fun atomicfu_incrementAndGet(`atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    `atomicfu$setter`(`atomicfu$getter`() + 1)
+    return `atomicfu$getter`()
 }
 
-internal inline fun atomicfu_getAndDecrement(getter: () -> Int, setter: (Int) -> Unit): Int {
-    val oldValue = getter()
-    setter(oldValue - 1)
+internal inline fun atomicfu_getAndDecrement(`atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue - 1)
     return oldValue
 }
 
-internal inline fun atomicfu_getAndDecrement(getter: () -> Long, setter: (Long) -> Unit): Long {
-    val oldValue = getter()
-    setter(oldValue - 1)
+internal inline fun atomicfu_getAndDecrement(`atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue - 1)
     return oldValue
 }
 
-internal inline fun atomicfu_decrementAndGet(getter: () -> Int, setter: (Int) -> Unit): Int {
-    setter(getter() - 1)
-    return getter()
+internal inline fun atomicfu_decrementAndGet(`atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    `atomicfu$setter`(`atomicfu$getter`() - 1)
+    return `atomicfu$getter`()
 }
 
-internal inline fun atomicfu_decrementAndGet(getter: () -> Long, setter: (Long) -> Unit): Long {
-    setter(getter() - 1)
-    return getter()
+internal inline fun atomicfu_decrementAndGet(`atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    `atomicfu$setter`(`atomicfu$getter`() - 1)
+    return `atomicfu$getter`()
 }
 
-internal inline fun atomicfu_getAndAdd(value: Int, getter: () -> Int, setter: (Int) -> Unit): Int {
-    val oldValue = getter()
-    setter(oldValue + value)
+internal inline fun atomicfu_getAndAdd(value: Int, `atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue + value)
     return oldValue
 }
 
-internal inline fun atomicfu_getAndAdd(value: Long, getter: () -> Long, setter: (Long) -> Unit): Long {
-    val oldValue = getter()
-    setter(oldValue + value)
+internal inline fun atomicfu_getAndAdd(value: Long, `atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    val oldValue = `atomicfu$getter`()
+    `atomicfu$setter`(oldValue + value)
     return oldValue
 }
 
-internal inline fun atomicfu_addAndGet(value: Int, getter: () -> Int, setter: (Int) -> Unit): Int {
-    setter(getter() + value)
-    return getter()
+internal inline fun atomicfu_addAndGet(value: Int, `atomicfu$getter`: () -> Int, `atomicfu$setter`: (Int) -> Unit): Int {
+    `atomicfu$setter`(`atomicfu$getter`() + value)
+    return `atomicfu$getter`()
 }
 
-internal inline fun atomicfu_addAndGet(value: Long, getter: () -> Long, setter: (Long) -> Unit): Long {
-    setter(getter() + value)
-    return getter()
+internal inline fun atomicfu_addAndGet(value: Long, `atomicfu$getter`: () -> Long, `atomicfu$setter`: (Long) -> Unit): Long {
+    `atomicfu$setter`(`atomicfu$getter`() + value)
+    return `atomicfu$getter`()
 }
 
-internal inline fun <T> atomicfu_loop(action: (T) -> Unit, getter: () -> T, setter: (T) -> Unit): Nothing {
-    val cur = getter()
+internal inline fun <T> atomicfu_loop(action: (T) -> Unit, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): Nothing {
+    val cur = `atomicfu$getter`()
     while (true) {
         action(cur)
     }
 }
 
-internal inline fun <T> atomicfu_update(function: (T) -> T, getter: () -> T, setter: (T) -> Unit) {
+internal inline fun <T> atomicfu_update(function: (T) -> T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit) {
     while (true) {
-        val cur = getter()
+        val cur = `atomicfu$getter`()
         val upd = function(cur)
-        if (atomicfu_compareAndSet(cur, upd, getter, setter)) return
+        if (atomicfu_compareAndSet(cur, upd, `atomicfu$getter`, `atomicfu$setter`)) return
     }
 }
 
-internal inline fun <T> atomicfu_getAndUpdate(function: (T) -> T, getter: () -> T, setter: (T) -> Unit): T {
+internal inline fun <T> atomicfu_getAndUpdate(function: (T) -> T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): T {
     while (true) {
-        val cur = getter()
+        val cur = `atomicfu$getter`()
         val upd = function(cur)
-        if (atomicfu_compareAndSet(cur, upd, getter, setter)) return cur
+        if (atomicfu_compareAndSet(cur, upd, `atomicfu$getter`, `atomicfu$setter`)) return cur
     }
 }
 
-internal inline fun <T> atomicfu_updateAndGet(function: (T) -> T, getter: () -> T, setter: (T) -> Unit): T {
+internal inline fun <T> atomicfu_updateAndGet(function: (T) -> T, `atomicfu$getter`: () -> T, `atomicfu$setter`: (T) -> Unit): T {
     while (true) {
-        val cur = getter()
+        val cur = `atomicfu$getter`()
         val upd = function(cur)
-        if (atomicfu_compareAndSet(cur, upd, getter, setter)) return upd
+        if (atomicfu_compareAndSet(cur, upd, `atomicfu$getter`, `atomicfu$setter`)) return upd
     }
 }

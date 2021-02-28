@@ -21,9 +21,6 @@ import org.jetbrains.kotlin.ir.types.*
 import org.jetbrains.kotlin.ir.types.impl.IrSimpleTypeImpl
 import org.jetbrains.kotlin.ir.util.*
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
-import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
-import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
-import org.jetbrains.kotlin.ir.visitors.acceptVoid
 import org.jetbrains.kotlin.name.*
 
 private const val KOTLIN = "kotlin"
@@ -99,17 +96,22 @@ class AtomicFUTransformer(override val context: IrPluginContext) : IrElementTran
         return super.visitAnonymousInitializer(declaration)
     }
 
-    private fun transformDeclarationBody(body: IrBody?, parent: IrDeclaration) {
+    private fun transformDeclarationBody(body: IrBody?, parent: IrDeclaration, lambda: IrFunction? = null) {
         if (body is IrBlockBody) {
             body.statements.forEachIndexed { i, stmt ->
-                body.statements[i] = stmt.transformStatement(parent)
+                val transformedStmt = stmt.transformStatement(parent, lambda)
+                body.statements[i] = transformedStmt
+                if (transformedStmt is IrCall && transformedStmt.symbol.owner.name.asString() == "atomicfu_loop") { // todo add update
+                    val lambdaLoop = (transformedStmt.getValueArgument(0) as IrFunctionExpression).function
+                    transformDeclarationBody(lambdaLoop.body, parent, lambdaLoop)
+                }
             }
         }
     }
 
-    private fun IrExpression.transformAtomicValueInitializer(parentDeclaration: IrDeclaration) =
+    private fun IrExpression.transformAtomicValueInitializer(parentDeclaration: IrDeclaration, lambda: IrFunction? = null) =
         when {
-            type.isAtomicValueType() -> getPureTypeValue().transformAtomicFunctionCall(parentDeclaration)
+            type.isAtomicValueType() -> getPureTypeValue().transformAtomicFunctionCall(parentDeclaration, lambda)
             type.isAtomicArrayType() -> buildPureTypeArrayConstructor()
             type.isReentrantLockType() -> buildConstNull()
             else -> this
@@ -163,18 +165,6 @@ class AtomicFUTransformer(override val context: IrPluginContext) : IrElementTran
             return res
         }
         return null
-    }
-
-    private class ChangeDeclarationParentsVisitor(val parent: IrDeclarationParent, val newParent: IrDeclarationParent) :
-        IrElementVisitorVoid {
-        override fun visitElement(element: IrElement) {
-            element.acceptVoid(this)
-        }
-
-        override fun visitDeclaration(declaration: IrDeclarationBase) {
-            if (declaration.parent == parent) declaration.parent = newParent
-            super.visitDeclaration(declaration)
-        }
     }
 
     private fun IrType.wrapClassTypeDescriptor(typeArguments: List<IrTypeArgument>): IrType {
@@ -240,123 +230,132 @@ class AtomicFUTransformer(override val context: IrPluginContext) : IrElementTran
         )
     }
 
-    private fun IrStatement.transformStatement(parentDeclaration: IrDeclaration) =
+    private fun IrStatement.transformStatement(parentDeclaration: IrDeclaration, lambda: IrFunction? = null) =
         when (this) {
-            is IrExpression -> transformAtomicFunctionCall(parentDeclaration)
+            is IrExpression -> transformAtomicFunctionCall(parentDeclaration, lambda)
             is IrVariable -> {
-                apply { initializer = initializer?.transformAtomicFunctionCall(parentDeclaration) }
+                apply { initializer = initializer?.transformAtomicFunctionCall(parentDeclaration, lambda) }
             }
             else -> this
         }
 
-    private fun IrExpression.transformAtomicFunctionCall(parentDeclaration: IrDeclaration): IrExpression {
+    private fun IrExpression.transformAtomicFunctionCall(parentDeclaration: IrDeclaration, lambda: IrFunction? = null): IrExpression {
         // erase unchecked cast to the Atomic* type
         if (this is IrTypeOperatorCall && operator == IrTypeOperator.CAST && typeOperand.isAtomicValueType()) {
             return argument
         }
         if (isAtomicValueInitializerCall()) {
-            return transformAtomicValueInitializer(parentDeclaration)
+            return transformAtomicValueInitializer(parentDeclaration, lambda)
         }
         when (this) {
             is IrTypeOperatorCall -> {
-                return apply { argument = argument.transformAtomicFunctionCall(parentDeclaration) }
+                return apply { argument = argument.transformAtomicFunctionCall(parentDeclaration, lambda) }
             }
             is IrStringConcatenationImpl -> {
                 return apply {
                     arguments.forEachIndexed { i, arg ->
-                        arguments[i] = arg.transformAtomicFunctionCall(parentDeclaration)
+                        arguments[i] = arg.transformAtomicFunctionCall(parentDeclaration, lambda)
                     }
                 }
             }
             is IrReturn -> {
-                return apply { value = value.transformAtomicFunctionCall(parentDeclaration) }
+                return apply { value = value.transformAtomicFunctionCall(parentDeclaration, lambda) }
             }
             is IrSetValue -> {
-                return apply { value = value.transformAtomicFunctionCall(parentDeclaration) }
+                return apply { value = value.transformAtomicFunctionCall(parentDeclaration, lambda) }
             }
             is IrSetField -> {
-                return apply { value = value.transformAtomicFunctionCall(parentDeclaration) }
+                return apply { value = value.transformAtomicFunctionCall(parentDeclaration, lambda) }
             }
             is IrIfThenElseImpl -> {
                 return apply {
                     branches.forEachIndexed { i, branch ->
                         branches[i] = branch.apply {
-                            condition = condition.transformAtomicFunctionCall(parentDeclaration)
-                            result = result.transformAtomicFunctionCall(parentDeclaration)
+                            condition = condition.transformAtomicFunctionCall(parentDeclaration, lambda)
+                            result = result.transformAtomicFunctionCall(parentDeclaration, lambda)
+                        }
+                    }
+                }
+            }
+            is IrWhenImpl -> {
+                return apply {
+                    branches.forEachIndexed { i, branch ->
+                        branches[i] = branch.apply {
+                            condition = condition.transformAtomicFunctionCall(parentDeclaration, lambda)
+                            result = result.transformAtomicFunctionCall(parentDeclaration, lambda)
                         }
                     }
                 }
             }
             is IrTry -> {
                 return apply {
-                    tryResult = tryResult.transformAtomicFunctionCall(parentDeclaration)
+                    tryResult = tryResult.transformAtomicFunctionCall(parentDeclaration, lambda)
                     catches.forEach {
-                        it.result = it.result.transformAtomicFunctionCall(parentDeclaration)
+                        it.result = it.result.transformAtomicFunctionCall(parentDeclaration, lambda)
                     }
-                    finallyExpression = finallyExpression?.transformAtomicFunctionCall(parentDeclaration)
+                    finallyExpression = finallyExpression?.transformAtomicFunctionCall(parentDeclaration, lambda)
                 }
             }
             is IrBlock -> {
                 return apply {
                     statements.forEachIndexed { i, stmt ->
-                        statements[i] = stmt.transformStatement(parentDeclaration)
+                        statements[i] = stmt.transformStatement(parentDeclaration, lambda)
                     }
                 }
             }
             is IrGetValue -> {
-                if (symbol is IrValueParameterSymbol && symbol.owner.parent is IrFunction) {
-                    val parentFunction = symbol.owner.parent as IrFunction
+                if (symbol is IrValueParameterSymbol && parentDeclaration is IrFunction &&
+                    parentDeclaration.hasReceiverAccessorParameters()) {
+                    // replace use site of the value parameter with it's copy from the transformed declaration
                     val index = (symbol.owner as IrValueParameter).index
                     if (index >= 0) { // index == -1 for `this` parameter
-                        val transformedValueParameter = parentFunction.valueParameters[index]
+                        val transformedValueParameter = parentDeclaration.valueParameters[index]
                         return buildGetValue(transformedValueParameter.symbol)
                     }
                 }
             }
             is IrCall -> {
                 if (dispatchReceiver != null) {
-                    dispatchReceiver = dispatchReceiver!!.transformAtomicFunctionCall(parentDeclaration)
+                    dispatchReceiver = dispatchReceiver!!.transformAtomicFunctionCall(parentDeclaration, lambda)
                 }
                 getValueArguments().forEachIndexed { i, arg ->
-                    putValueArgument(i, arg?.transformAtomicFunctionCall(parentDeclaration))
+                    putValueArgument(i, arg?.transformAtomicFunctionCall(parentDeclaration, lambda))
                 }
                 val isInline = symbol.owner.isInline
-                val callReceiver = extensionReceiver ?: dispatchReceiver ?: return this
-                if (symbol.isKotlinxAtomicfuPackage() && callReceiver.type.isAtomicValueType()) {
-                    // 1. transform function call on the atomic class field
-                    if (callReceiver is IrCall) {
-                        val accessors = callReceiver.getPropertyAccessors(parentDeclaration)
-                        return runtimeInlineAtomicFunctionCall(callReceiver.type.atomicToValueType(), accessors)
+                val field = extensionReceiver ?: dispatchReceiver ?: return this
+                if (symbol.isKotlinxAtomicfuPackage() && field.type.isAtomicValueType()) { // invocation of the atomic function
+                    // 1. transform atomic function call on the atomic field
+                    if (field is IrCall) { // property accessor <get-field>
+                        val accessors = field.getPropertyAccessors(lambda ?: parentDeclaration) // todo if lambda != null -> pass lambda otherwise find loop
+                        return runtimeInlineAtomicFunctionCall(field.type.atomicToValueType(), accessors)
                     }
-                    // 2. transform function call on the atomic `this` extension receiver
+                    // 2. transform atomic function call on the atomic `this` extension receiver
                     // inline fun Atomic*.foo() { CAS(expect, update) } -> { atomicfu_compareAndSet(expect, update, getter, setter) }
-                    if (callReceiver is IrGetValue) { // todo name <this> isThisRef()
-                        // only for transformed parent declarations
-                        if (parentDeclaration is IrFunction && parentDeclaration.hasReceiverAccessorParameters()) {
-                            val accessorParameters = parentDeclaration.valueParameters.takeLast(2).map { it.capture() }
-                            return runtimeInlineAtomicFunctionCall(callReceiver.type.atomicToValueType(), accessorParameters)
-                        }
+                    if (field is IrGetValue && parentDeclaration is IrFunction && parentDeclaration.hasReceiverAccessorParameters()) { // todo name <this> isThisRef()
+                        val accessorParameters = parentDeclaration.valueParameters.takeLast(2).map { it.capture() }
+                        return runtimeInlineAtomicFunctionCall(field.type.atomicToValueType(), accessorParameters)
                     }
-                }
-                // 3. transform invocation of an inline Atomic* extension function call: a.foo()
-                if (isInline && callReceiver is IrCall && callReceiver.type.isAtomicValueType()) {
-                    val accessors = callReceiver.getPropertyAccessors(parentDeclaration)
-                    val dispatch = dispatchReceiver
-                    val args = getValueArguments()
-                    val transformedTarget = symbol.owner.getDeclarationWithAccessorParameters()
-                    return buildCall(
-                        target = transformedTarget.symbol,
-                        type = type,
-                        origin = IrStatementOrigin.INVOKE,
-                        valueArguments = args + accessors
-                    ).apply {
-                        dispatchReceiver = dispatch
+                } else {
+                    // 3. transform invocation of an inline Atomic* extension function call: a.foo()
+                    if (isInline && field is IrCall && field.type.isAtomicValueType()) {
+                        val accessors = field.getPropertyAccessors(lambda ?: parentDeclaration) //todo pass lambda
+                        val dispatch = dispatchReceiver
+                        val args = getValueArguments()
+                        val transformedTarget = symbol.owner.getDeclarationWithAccessorParameters()
+                        return buildCall(
+                            target = transformedTarget.symbol,
+                            type = type,
+                            origin = IrStatementOrigin.INVOKE,
+                            valueArguments = args + accessors
+                        ).apply {
+                            dispatchReceiver = dispatch
+                        }
                     }
                 }
             }
             is IrConstructorCall -> {
                 getValueArguments().forEachIndexed { i, arg ->
-                    putValueArgument(i, arg?.transformAtomicFunctionCall(parentDeclaration))
+                    putValueArgument(i, arg?.transformAtomicFunctionCall(parentDeclaration, lambda))
                 }
             }
         }
@@ -366,7 +365,7 @@ class AtomicFUTransformer(override val context: IrPluginContext) : IrElementTran
     private fun IrFunction.hasReceiverAccessorParameters(): Boolean {
         if (valueParameters.size < 2) return false
         val params = valueParameters.takeLast(2)
-        return params[0].name.asString() == GETTER && params[1].name.asString() == SETTER
+        return params[0].name.asString() == GETTER && params[1].name.asString() == SETTER // todo check on type or mangle names in atomicfu runtime
     }
 
     private fun IrFunction.getDeclarationWithAccessorParameters(): IrSimpleFunction {
@@ -412,7 +411,6 @@ class AtomicFUTransformer(override val context: IrPluginContext) : IrElementTran
         val name = if (isSetter) setterName(getterCall.symbol.owner.name.getFieldName())
             else getterName(getterCall.symbol.owner.name.getFieldName())
         val returnType = if (isSetter) context.irBuiltIns.unitType else valueType
-
         val accessorFunction = buildFunction(
             parent = parentDeclaration as IrDeclarationParent,
             origin = IrDeclarationOrigin.DEFAULT_PROPERTY_ACCESSOR,

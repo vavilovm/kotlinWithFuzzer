@@ -11,12 +11,30 @@ class LoopTest {
     private inline fun casLoop(to: Int): Int {
         a.loop { cur ->
             if (a.compareAndSet(cur, to)) return a.value
+            return 777
         }
     }
 
     private inline fun AtomicInt.extensionLoop(to: Int): Int {
         loop { cur ->
             if (compareAndSet(cur, to)) return value
+            return 777
+        }
+    }
+
+    private inline fun AtomicInt.extensionLoopMixedReceivers(to: Int): Int {
+        loop { cur ->
+            compareAndSet(cur, to)
+            a.compareAndSet(cur, to)
+            return value
+        }
+    }
+
+    private inline fun AtomicInt.extensionLoopRecursive(to: Int): Int {
+        loop { cur ->
+            compareAndSet(cur, to)
+            a.extensionLoop(5)
+            return value
         }
     }
 
