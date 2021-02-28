@@ -369,4 +369,60 @@ public:
     virtual ~ExceptionObjHolder() = default;
 };
 
+// We need to access to some parts of the new MM in the C++ part of the stdlib.
+// So we have to declare such parts in this header.
+namespace kotlin {
+namespace mm {
+
+class ThreadData;
+
+enum class ThreadState {
+    kRunnable, kNative
+};
+
+// Scopely sets the given thread state for the given thread.
+class ThreadStateGuard final : private Pinned {
+public:
+    // Set the state for the given thread.
+    ALWAYS_INLINE ThreadStateGuard(ThreadData* thread, ThreadState state) noexcept;
+    ALWAYS_INLINE ThreadStateGuard(MemoryState* thread, ThreadState state) noexcept;
+
+    // Sets the state for the current thread.
+    explicit ALWAYS_INLINE ThreadStateGuard(ThreadState state) noexcept;
+
+    ALWAYS_INLINE ~ThreadStateGuard() noexcept;
+private:
+// These fields are used in the new MM and unused in the legacy MM.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-private-field"
+    ThreadData* threadData_;
+    ThreadState oldState_;
+#pragma clang diagnostic pop
+};
+
+// Asserts that the current thread is in the the given state.
+ALWAYS_INLINE void AssertThreadState(ThreadState expected) noexcept;
+
+// Asserts that the given thread is in the given state.
+ALWAYS_INLINE void AssertThreadState(MemoryState* thread, ThreadState expected) noexcept;
+
+} // namespace mm
+
+// Calls the given function in the `Runnable` thread state.
+template <typename... Args, typename R>
+ALWAYS_INLINE inline R callKotlin(R(*kotlinFunction)(Args...), Args... args) {
+    mm::ThreadStateGuard guard(mm::ThreadState::kRunnable);
+    return kotlinFunction(args...);
+}
+
+// Calls the given function in the `Runnable` thread state. The function must be marked as RUNTIME_NORETURN.
+// If the function returns, behaviour is undefined.
+template <typename... Args>
+ALWAYS_INLINE RUNTIME_NORETURN inline void callKotlinNoReturn(void(*noreturnKotlinFunction)(Args...), Args... args) {
+    callKotlin(noreturnKotlinFunction, args...);
+    __builtin_unreachable();
+}
+
+} // namespace kotlin
+
 #endif // RUNTIME_MEMORY_H

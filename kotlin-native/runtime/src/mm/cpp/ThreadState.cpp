@@ -3,6 +3,7 @@
  * that can be found in the LICENSE file.
  */
 
+#include "MemoryPrivate.hpp"
 #include "ThreadData.hpp"
 #include "ThreadState.hpp"
 
@@ -42,11 +43,25 @@ ALWAYS_INLINE void mm::AssertThreadState(ThreadData* threadData, ThreadState exp
                   stateToString(expected), stateToString(actual));
 }
 
-mm::ThreadStateGuard::ThreadStateGuard(ThreadData* threadData, ThreadState state) noexcept : threadData_(threadData) {
+ALWAYS_INLINE void mm::AssertThreadState(ThreadState expected) noexcept {
+    AssertThreadState(ThreadRegistry::Instance().CurrentThreadData(), expected);
+}
+
+ALWAYS_INLINE void mm::AssertThreadState(MemoryState* thread, ThreadState expected) noexcept {
+    AssertThreadState(thread->GetThreadData(), expected);
+}
+
+ALWAYS_INLINE mm::ThreadStateGuard::ThreadStateGuard(ThreadData* threadData, ThreadState state) noexcept : threadData_(threadData) {
     oldState_ = SwitchThreadState(threadData, state);
 }
 
-mm::ThreadStateGuard::~ThreadStateGuard() noexcept {
+ALWAYS_INLINE mm::ThreadStateGuard::ThreadStateGuard(MemoryState* thread, ThreadState state) noexcept
+    : ThreadStateGuard(thread->GetThreadData(), state) {};
+
+ALWAYS_INLINE mm::ThreadStateGuard::ThreadStateGuard(ThreadState state) noexcept
+    : ThreadStateGuard(ThreadRegistry::Instance().CurrentThreadData(), state) {};
+
+ALWAYS_INLINE mm::ThreadStateGuard::~ThreadStateGuard() noexcept {
     SwitchThreadState(threadData_, oldState_);
 }
 

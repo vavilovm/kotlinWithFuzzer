@@ -3675,3 +3675,27 @@ ALWAYS_INLINE ObjHeader* ExceptionObjHolder::GetExceptionObject() noexcept {
     return static_cast<ExceptionObjHolderImpl*>(this)->obj();
 }
 #endif
+
+ALWAYS_INLINE void kotlin::mm::AssertThreadState(ThreadState expected) noexcept {
+    // no-op, used by the new MM only.
+}
+
+ALWAYS_INLINE void kotlin::mm::AssertThreadState(MemoryState* thread, ThreadState expected) noexcept {
+    // no-op, used by the new MM only.
+}
+
+ALWAYS_INLINE kotlin::mm::ThreadStateGuard::ThreadStateGuard(ThreadData* threadData, ThreadState state) noexcept {
+    // no-op, used by the new MM only.
+}
+
+ALWAYS_INLINE kotlin::mm::ThreadStateGuard::ThreadStateGuard(MemoryState* thread, ThreadState state) noexcept {
+    // no-op, used by the new MM only.
+}
+
+ALWAYS_INLINE kotlin::mm::ThreadStateGuard::ThreadStateGuard(ThreadState state) noexcept {
+    // no-op, used by the new MM only.
+};
+
+ALWAYS_INLINE kotlin::mm::ThreadStateGuard::~ThreadStateGuard() noexcept {
+    // no-op, used by the new MM only.
+}
