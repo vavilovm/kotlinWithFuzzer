@@ -43,7 +43,7 @@ class JavaClassUseSiteMemberScope(
 ) {
     private val typeParameterStack = klass.javaTypeParameterStack
     private val specialFunctions = hashMapOf<Name, Collection<FirNamedFunctionSymbol>>()
-    private val accessorByNameMap = hashMapOf<Name, FirAccessorSymbol>()
+    private val propertyByNameMap = hashMapOf<Name, Collection<FirVariableSymbol<*>>>()
 
     override fun getCallableNames(): Set<Name> {
         return declaredMemberScope.getContainingCallableNamesIfPresent() + superTypesScope.getCallableNames()
@@ -58,28 +58,30 @@ class JavaClassUseSiteMemberScope(
         setterSymbol: FirNamedFunctionSymbol?,
         syntheticPropertyName: Name,
     ): FirAccessorSymbol {
-        return accessorByNameMap.getOrPut(syntheticPropertyName) {
-            buildSyntheticProperty {
-                session = this@JavaClassUseSiteMemberScope.session
-                name = syntheticPropertyName
-                symbol = FirAccessorSymbol(
-                    accessorId = getterSymbol.callableId,
-                    callableId = CallableId(getterSymbol.callableId.packageName, getterSymbol.callableId.className, syntheticPropertyName)
-                )
-                delegateGetter = getterSymbol.fir
-                delegateSetter = setterSymbol?.fir
-            }.symbol
-        }
+        return buildSyntheticProperty {
+            session = this@JavaClassUseSiteMemberScope.session
+            name = syntheticPropertyName
+            symbol = FirAccessorSymbol(
+                accessorId = getterSymbol.callableId,
+                callableId = CallableId(getterSymbol.callableId.packageName, getterSymbol.callableId.className, syntheticPropertyName)
+            )
+            delegateGetter = getterSymbol.fir
+            delegateSetter = setterSymbol?.fir
+        }.symbol
     }
 
     override fun processPropertiesByName(name: Name, processor: (FirVariableSymbol<*>) -> Unit) {
-        val fields = mutableSetOf<FirCallableSymbol<*>>()
+        propertyByNameMap[name]?.let {
+            it.forEach(processor)
+            return
+        }
+        val allProperties = mutableSetOf<FirVariableSymbol<*>>()
         val fieldNames = mutableSetOf<Name>()
 
         // fields
         declaredMemberScope.processPropertiesByName(name) processor@{ variableSymbol ->
             if (variableSymbol.isStatic) return@processor
-            fields += variableSymbol
+            allProperties += variableSymbol
             fieldNames += variableSymbol.fir.name
             processor(variableSymbol)
         }
@@ -90,6 +92,7 @@ class JavaClassUseSiteMemberScope(
             if (propertyFromSupertype is FirFieldSymbol) {
                 if (propertyFromSupertype.fir.name !in fieldNames) {
                     processor(propertyFromSupertype)
+                    allProperties += propertyFromSupertype
                 }
                 continue
             }
@@ -100,10 +103,15 @@ class JavaClassUseSiteMemberScope(
                     directOverriddenProperties.getOrPut(overrideInClass) { mutableListOf() }.add(propertyFromSupertype)
                     overrideByBase[propertyFromSupertype] = overrideInClass
                     processor(overrideInClass)
+                    allProperties += overrideInClass
                 }
-                else -> processor(propertyFromSupertype)
+                else -> {
+                    processor(propertyFromSupertype)
+                    allProperties += propertyFromSupertype
+                }
             }
         }
+        propertyByNameMap[name] = allProperties
     }
 
     private fun FirVariableSymbol<*>.createOverridePropertyIfExists(scope: FirScope): FirPropertySymbol? {
