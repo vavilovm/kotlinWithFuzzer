@@ -335,6 +335,11 @@ class GenerationState private constructor(
         else
             null
 
+    // In loadClassBytesByInternalName, outputFile.asByteArray() call eventually leads to ClassWriter.toByteArray() invocation, which,
+    // if performed concurrently for the same class, leads to errors. We need to protect the call by a lock; moreover, we have
+    // no way to get a separate lock for each class, so have to use a global one.
+    val classWriterLock = Any()
+
     init {
         this.interceptedBuilderFactory = builderFactory
             .wrapWith(

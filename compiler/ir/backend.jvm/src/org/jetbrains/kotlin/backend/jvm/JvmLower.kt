@@ -436,6 +436,9 @@ private val jvmLoweringPhases = NamedCompilerPhase(
             validateIrAfterLowering
 )
 
+// Generate multifile facades first, to compute and store JVM signatures of const properties which are later used
+// when serializing metadata in the multifile parts.
+// TODO: consider dividing codegen itself into separate phases (bytecode generation, metadata serialization) to avoid this
 private val jvmCodegenPhases = NamedCompilerPhase(
     name = "Codegen",
     description = "Code generation",
