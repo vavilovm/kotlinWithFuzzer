@@ -166,7 +166,7 @@ internal class FirLazyDeclarationResolver(
         )
 
         firFileBuilder.firPhaseRunner.runPhaseWithCustomResolve(phase) {
-            containerFirFile.accept<FirFile, ResolutionMode>(transformer, ResolutionMode.ContextDependent)
+            containerFirFile.accept(transformer, ResolutionMode.ContextDependent)
         }
     }
 
