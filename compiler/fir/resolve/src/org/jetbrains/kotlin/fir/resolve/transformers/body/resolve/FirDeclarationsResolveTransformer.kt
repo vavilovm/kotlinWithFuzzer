@@ -474,11 +474,9 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
             val expectedReturnType =
                 lambdaResolution.expectedReturnTypeRef ?: anonymousFunction.returnTypeRef.takeUnless { it is FirImplicitTypeRef }
 
-            val result = context.withLambdaBeingAnalyzedInDependentContext(anonymousFunction.symbol) {
-                transformFunction(anonymousFunction, withExpectedType(expectedReturnType)).single as FirAnonymousFunction
-            }
-
+            val result = transformFunction(anonymousFunction, withExpectedType(expectedReturnType)).single as FirAnonymousFunction
             val body = result.body
+
             if (result.returnTypeRef is FirImplicitTypeRef && body != null) {
                 // TODO: This part seems unnecessary because for lambdas in dependent context will be completed and their type
                 //  should be replaced there properly

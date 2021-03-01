@@ -6,6 +6,7 @@
 package org.jetbrains.kotlin.fir.resolve.transformers.body.resolve
 
 import org.jetbrains.kotlin.fir.FirTargetElement
+import org.jetbrains.kotlin.fir.declarations.FirAnonymousFunction
 import org.jetbrains.kotlin.fir.diagnostics.ConeSimpleDiagnostic
 import org.jetbrains.kotlin.fir.diagnostics.DiagnosticKind
 import org.jetbrains.kotlin.fir.expressions.*
@@ -196,16 +197,12 @@ class FirControlFlowStatementsResolveTransformer(transformer: FirBodyResolveTran
         data: ResolutionMode
     ): CompositeTransformResult<FirStatement> {
         val labeledElement = returnExpression.target.labeledElement
-        val expectedTypeRef = labeledElement.returnTypeRef
-        @Suppress("IntroduceWhenSubject")
-        val mode = when {
-            labeledElement.symbol in context.anonymousFunctionsAnalyzedInDependentContext -> {
+        val mode =
+            if (labeledElement is FirAnonymousFunction && labeledElement in context.containers.asReversed()) {
                 ResolutionMode.ContextDependent
+            } else {
+                ResolutionMode.WithExpectedType(labeledElement.returnTypeRef)
             }
-            else -> {
-                ResolutionMode.WithExpectedType(expectedTypeRef)
-            }
-        }
 
         return transformJump(returnExpression, mode)
     }
