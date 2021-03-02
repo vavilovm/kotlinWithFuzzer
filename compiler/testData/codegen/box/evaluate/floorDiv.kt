@@ -22,5 +22,3 @@ fun box(): String {
     if (annotation.l != 1L) return "fail 4"
     return "OK"
 }
-
-// EXPECTED: Ann[b = IntegerValueType(1): IntegerValueType(1), i = IntegerValueType(1): IntegerValueType(1), l = IntegerValueType(1): IntegerValueType(1), s = IntegerValueType(1): IntegerValueType(1)]
