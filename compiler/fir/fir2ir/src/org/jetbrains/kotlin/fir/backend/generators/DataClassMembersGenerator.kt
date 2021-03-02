@@ -191,18 +191,21 @@ class DataClassMembersGenerator(val components: Fir2IrComponents) {
                 } else
                     null
             }
+            val scope = klass.unsubstitutedScope(
+                components.session,
+                components.scopeSession,
+                withForcedTypeCalculator = true
+            )
             val contributedFunctionsInSupertypes =
                 @OptIn(ExperimentalStdlibApi::class)
                 buildMap<Name, FirSimpleFunction> {
                     for (name in listOf(EQUALS, HASHCODE_NAME, TO_STRING)) {
-                        klass.unsubstitutedScope(
-                            components.session,
-                            components.scopeSession,
-                            withForcedTypeCalculator = true
-                        ).processFunctionsByName(name) {
+                        scope.processFunctionsByName(name) {
                             val declaration = it.fir
                             if (declaration.matchesDataClassSyntheticMemberSignatures) {
-                                putIfAbsent(declaration.name, declaration)
+                                if (putIfAbsent(declaration.name, declaration) == null) {
+                                    return@processFunctionsByName
+                                }
                             }
                         }
                     }
