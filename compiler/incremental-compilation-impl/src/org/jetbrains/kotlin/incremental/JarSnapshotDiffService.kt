@@ -22,11 +22,17 @@ class JarSnapshotDiffService() {
         fun compareJarsInternal(
             snapshotJar: JarSnapshot, newJar: JarSnapshot,
             caches: IncrementalCacheCommon
-        ) = diffCache.computeIfAbsent(Pair(snapshotJar, newJar)) { (snapshot, actual) ->
+        ) = diffCache.computeIfAbsent(Pair(snapshotJar, newJar)) { (snapshot, actual) -> doCompute(snapshot, actual, caches, emptyList()) }
+
+        fun inScope(fqName: FqName, scopes: Collection<String>) = scopes.any { scope -> fqName.toString().startsWith(scope) }
+
+        fun doCompute(snapshot: JarSnapshot, actual: JarSnapshot, caches: IncrementalCacheCommon, scopes: Collection<String>): DirtyData {
+
             val dirtyFqNames = mutableListOf<FqName>()
             val dirtyLookupSymbols = mutableListOf<LookupSymbol>()
 
             for ((fqName, protoData) in snapshot.protos) {
+                if (!inScope(fqName, scopes)) continue
                 val newProtoData = actual.protos[fqName]
                 if (newProtoData == null) {
                     val (fqNames, symbols) = addProtoInfo(protoData, fqName)
@@ -73,10 +79,13 @@ class JarSnapshotDiffService() {
                 }
             }
 
-
 //                fqNames.addAll(snapshot.protos.keys.removeAll(actual.protos.keys))
-
             DirtyData(dirtyLookupSymbols, dirtyFqNames)
+            // .removeAll(actual.protos.keys)
+            val oldFqNames = snapshot.protos.keys
+            dirtyFqNames.addAll(actual.protos.keys.filter { !oldFqNames.contains(it) })
+            return DirtyData(dirtyLookupSymbols, dirtyFqNames)
+
         }
 
         //TODO change to return type
