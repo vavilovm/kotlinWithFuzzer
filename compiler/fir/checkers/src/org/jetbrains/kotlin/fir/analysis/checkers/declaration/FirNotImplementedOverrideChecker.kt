@@ -147,7 +147,9 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
             classScope.processFunctionsByName(name) {
                 val declaration = it.fir
                 if (declaration.matchesDataClassSyntheticMemberSignatures && declaration.modality != Modality.FINAL) {
-                    contributedInSupertypes.putIfAbsent(declaration.name, declaration)
+                    if (contributedInSupertypes.putIfAbsent(declaration.name, declaration) == null) {
+                        return@processFunctionsByName
+                    }
                 }
             }
         }
@@ -204,7 +206,7 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
         val result = mutableListOf<FirCallableDeclaration<*>>()
         val classScope = firClass.unsubstitutedScope(context)
 
-        fun checkFunctionSymbolAndAddToResult(originalSymbol: FirCallableSymbol<*>) {
+        fun checkFunctionSymbolAndAddToResult(originalSymbol: FirCallableSymbol<*>) =
             computeBaseDeclarations(
                 firClass,
                 originalSymbol,
@@ -214,9 +216,8 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
                 FirTypeScope::getDirectOverriddenFunctions,
                 context
             )
-        }
 
-        fun checkPropertySymbolAndAddToResult(originalSymbol: FirCallableSymbol<*>) {
+        fun checkPropertySymbolAndAddToResult(originalSymbol: FirCallableSymbol<*>) =
             computeBaseDeclarations(
                 firClass,
                 originalSymbol,
@@ -226,7 +227,6 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
                 FirTypeScope::getDirectOverriddenProperties,
                 context
             )
-        }
 
         val superTypesCallableNames = classScope.getCallableNames()
         for (name in superTypesCallableNames) {
@@ -235,7 +235,9 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
                 //if (functionSymbol is FirIntersectionOverrideFunctionSymbol)
                 //    functionSymbol.intersections.forEach(::checkFunctionSymbolAndAddToResult)
                 //else
-                checkFunctionSymbolAndAddToResult(functionSymbol)
+                if (checkFunctionSymbolAndAddToResult(functionSymbol)) {
+                    return@processFunctionsByName
+                }
             }
 
             classScope.processPropertiesByName(name) { propertySymbol ->
@@ -243,7 +245,9 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
                 //if (propertySymbol is FirIntersectionOverridePropertySymbol)
                 //    propertySymbol.intersections.forEach(::checkPropertySymbolAndAddToResult)
                 //else
-                checkPropertySymbolAndAddToResult(propertySymbol)
+                if (checkPropertySymbolAndAddToResult(propertySymbol)) {
+                    return@processPropertiesByName
+                }
             }
         }
 
@@ -251,6 +255,7 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
     }
 
     // See [FakeOverrideGenerator#createFakeOverriddenIfNeeded]
+    // Returns [true] if base declarations for (potential) fake overrides have been updated. With that, member processing can stop there.
     private inline fun <reified D : FirCallableMemberDeclaration<D>, reified S : FirCallableSymbol<D>> computeBaseDeclarations(
         firClass: FirClass<*>,
         originalSymbol: FirCallableSymbol<*>,
@@ -259,23 +264,26 @@ object FirNotImplementedOverrideChecker : FirClassChecker() {
         scope: FirTypeScope,
         computeDirectOverridden: FirTypeScope.(S) -> List<S>,
         context: CheckerContext
-    ) {
-        if (originalSymbol !is S || originalSymbol.fir in contributedDeclarations) return
+    ): Boolean {
+        if (originalSymbol !is S || originalSymbol.fir in contributedDeclarations) return false
         val classLookupTag = firClass.symbol.toLookupTag()
         val originalDeclaration = originalSymbol.fir
-        if (originalSymbol.dispatchReceiverClassOrNull() == classLookupTag && !originalDeclaration.origin.fromSupertypes) return
-        if (originalDeclaration.visibility == Visibilities.Private) return
-        when {
+        if (originalSymbol.dispatchReceiverClassOrNull() == classLookupTag && !originalDeclaration.origin.fromSupertypes) return false
+        if (originalDeclaration.visibility == Visibilities.Private) return false
+        return when {
             originalSymbol.shouldHaveComputedBaseSymbolsForClass(classLookupTag) -> {
                 // Substitution or intersection case.
                 // The current one is a FIR declaration for that fake override, and we can compute base symbols from it.
                 computeBaseSymbols(originalSymbol, computeDirectOverridden, scope, classLookupTag)
+                true
             }
             originalDeclaration.allowsToHaveFakeOverrideIn(firClass, context) -> {
                 // Trivial fake override case.
                 // FIR2IR will create a fake override in BE IR directly, and the current one _is_ the base declaration.
                 result.add(originalSymbol.fir)
+                true
             }
+            else -> false
         }
     }
 
