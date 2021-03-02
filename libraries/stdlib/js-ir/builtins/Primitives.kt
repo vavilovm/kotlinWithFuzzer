@@ -118,13 +118,13 @@ public class Byte private constructor() : Number(), Comparable<Byte> {
     /** Multiplies this value by the other value. */
     public operator fun times(other: Double): Double
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Byte): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Short): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Int): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Long): Long
     /** Divides this value by the other value. */
     public operator fun div(other: Float): Float
@@ -358,13 +358,13 @@ public class Short private constructor() : Number(), Comparable<Short> {
     /** Multiplies this value by the other value. */
     public operator fun times(other: Double): Double
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Byte): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Short): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Int): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Long): Long
     /** Divides this value by the other value. */
     public operator fun div(other: Float): Float
@@ -596,13 +596,13 @@ public class Int private constructor() : Number(), Comparable<Int> {
     /** Multiplies this value by the other value. */
     public operator fun times(other: Double): Double
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Byte): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Short): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Int): Int
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Long): Long
     /** Divides this value by the other value. */
     public operator fun div(other: Float): Float

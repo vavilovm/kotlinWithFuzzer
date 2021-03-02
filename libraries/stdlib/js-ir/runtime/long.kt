@@ -135,16 +135,16 @@ public class Long internal constructor(
     /** Multiplies this value by the other value. */
     public inline operator fun times(other: Double): Double = toDouble() * other
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public inline operator fun div(other: Byte): Long = div(other.toLong())
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public inline operator fun div(other: Short): Long = div(other.toLong())
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public inline operator fun div(other: Int): Long = div(other.toLong())
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     public operator fun div(other: Long): Long = divide(other)
 
     /** Divides this value by the other value. */
