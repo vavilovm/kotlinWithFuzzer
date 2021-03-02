@@ -204,8 +204,13 @@ class IncrementalJvmCompilerRunner(
         reporter.reportVerbose { "Last Kotlin Build info -- $lastBuildInfo" }
 
         val classpathChanges = reporter.measure(BuildTime.IC_ANALYZE_CHANGES_IN_DEPENDENCIES) {
+            val scopes = caches.lookupCache.lookupMap.keys.map { if (it.scope.isBlank()) it.name else it.scope }.distinct()
             getClasspathChanges(args.classpathAsList, changedFiles, lastBuildInfo, modulesApiHistory, reporter,
-                                jarSnapshots, withSnapshot, caches.platformCache)
+                                jarSnapshots, withSnapshot, caches.platformCache, scopes)
+        }
+
+        if (System.currentTimeMillis() > 2) {
+            System.out.println("test")
         }
 
         @Suppress("UNUSED_VARIABLE") // for sealed when
