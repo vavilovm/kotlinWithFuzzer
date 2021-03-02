@@ -71,7 +71,7 @@ class FakeOverrideGenerator(
         val isLocal = klass !is FirRegularClass || klass.isLocal
         for (name in superTypesCallableNames) {
             useSiteMemberScope.processFunctionsByName(name) { functionSymbol ->
-                createFakeOverriddenIfNeeded(
+                val updated = createFakeOverriddenIfNeeded(
                     klass, this, isLocal, functionSymbol,
                     declarationStorage::getCachedIrFunction,
                     declarationStorage::createIrFunction,
@@ -92,10 +92,13 @@ class FakeOverrideGenerator(
                     FirTypeScope::getDirectOverriddenFunctions,
                     useSiteMemberScope,
                 )
+                if (updated) {
+                    return@processFunctionsByName
+                }
             }
 
             useSiteMemberScope.processPropertiesByName(name) { propertySymbol ->
-                createFakeOverriddenIfNeeded(
+                val updated = createFakeOverriddenIfNeeded(
                     klass, this, isLocal, propertySymbol,
                     declarationStorage::getCachedIrProperty,
                     declarationStorage::createIrProperty,
@@ -117,6 +120,9 @@ class FakeOverrideGenerator(
                     FirTypeScope::getDirectOverriddenProperties,
                     useSiteMemberScope,
                 )
+                if (updated) {
+                    return@processPropertiesByName
+                }
             }
         }
         return result
@@ -138,7 +144,9 @@ class FakeOverrideGenerator(
         baseFunctionSymbols[fakeOverride] = baseFirSymbolsForFakeOverride
     }
 
-    private inline fun <reified D : FirCallableMemberDeclaration<D>, reified S : FirCallableSymbol<D>, reified I : IrDeclaration> createFakeOverriddenIfNeeded(
+    // Returns [true] if base declarations for fake overrides have been updated. With that, member processing can stop there.
+    private inline fun <reified D : FirCallableMemberDeclaration<D>, reified S : FirCallableSymbol<D>, reified I : IrDeclaration>
+            createFakeOverriddenIfNeeded(
         klass: FirClass<*>,
         irClass: IrClass,
         isLocal: Boolean,
@@ -152,12 +160,12 @@ class FakeOverrideGenerator(
         realDeclarationSymbols: Set<AbstractFirBasedSymbol<*>>,
         computeDirectOverridden: FirTypeScope.(S) -> List<S>,
         scope: FirTypeScope,
-    ) {
-        if (originalSymbol !is S || originalSymbol in realDeclarationSymbols) return
+    ): Boolean {
+        if (originalSymbol !is S || originalSymbol in realDeclarationSymbols) return false
         val classLookupTag = klass.symbol.toLookupTag()
         val originalDeclaration = originalSymbol.fir
-        if (originalSymbol.dispatchReceiverClassOrNull() == classLookupTag && !originalDeclaration.origin.fromSupertypes) return
-        if (originalDeclaration.visibility == Visibilities.Private) return
+        if (originalSymbol.dispatchReceiverClassOrNull() == classLookupTag && !originalDeclaration.origin.fromSupertypes) return false
+        if (originalDeclaration.visibility == Visibilities.Private) return false
 
         val origin = IrDeclarationOrigin.FAKE_OVERRIDE
         val baseSymbol = originalSymbol.unwrapSubstitutionAndIntersectionOverrides() as S
@@ -177,7 +185,7 @@ class FakeOverrideGenerator(
                 fakeOverrideSymbol.fir to listOf(originalSymbol)
             }
             else -> {
-                return
+                return false
             }
         }
         val irDeclaration = cachedIrDeclaration(fakeOverrideFirDeclaration) {
@@ -195,10 +203,11 @@ class FakeOverrideGenerator(
                 isLocal
             )
         if (containsErrorTypes(irDeclaration)) {
-            return
+            return false
         }
         baseSymbols[irDeclaration] = baseFirSymbolsForFakeOverride
         result += irDeclaration
+        return true
     }
 
     internal fun getOverriddenSymbolsForFakeOverride(function: IrSimpleFunction): List<IrSimpleFunctionSymbol>? {
