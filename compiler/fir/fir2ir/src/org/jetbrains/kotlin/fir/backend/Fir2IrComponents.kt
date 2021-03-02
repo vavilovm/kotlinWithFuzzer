@@ -23,10 +23,10 @@ interface Fir2IrComponents {
     val irBuiltIns: IrBuiltIns
     val builtIns: Fir2IrBuiltIns
     val irFactory: IrFactory
+    val lock: IrLock
 
     val classifierStorage: Fir2IrClassifierStorage
     val declarationStorage: Fir2IrDeclarationStorage
-    val lock: IrLock
 
     val typeConverter: Fir2IrTypeConverter
     val signatureComposer: Fir2IrSignatureComposer

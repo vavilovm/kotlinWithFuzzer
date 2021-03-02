@@ -23,7 +23,6 @@ class Fir2IrComponentsStorage(
     override val symbolTable: SymbolTable,
     override val irBuiltIns: IrBuiltIns,
     override val irFactory: IrFactory,
-    override val lock: IrLock,
     mangler: FirMangler
 ) : Fir2IrComponents {
     override lateinit var classifierStorage: Fir2IrClassifierStorage
@@ -38,4 +37,7 @@ class Fir2IrComponentsStorage(
     override lateinit var annotationGenerator: AnnotationGenerator
     override lateinit var callGenerator: CallAndReferenceGenerator
     override lateinit var fakeOverrideGenerator: FakeOverrideGenerator
+
+    override val lock: IrLock
+        get() = symbolTable.lock
 }

@@ -45,10 +45,12 @@ class DeclarationStubGenerator(
     val moduleDescriptor: ModuleDescriptor,
     val symbolTable: SymbolTable,
     languageVersionSettings: LanguageVersionSettings,
-    val lock: IrLock = IrLock(),
     val extensions: StubGeneratorExtensions = StubGeneratorExtensions.EMPTY,
 ) : IrProvider {
     private val lazyTable = symbolTable.lazyWrapper
+
+    val lock: IrLock
+        get() = symbolTable.lock
 
     var unboundSymbolGeneration: Boolean
         get() = lazyTable.stubGenerator != null

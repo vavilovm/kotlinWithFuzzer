@@ -64,8 +64,9 @@ class SymbolTable(
     val signaturer: IdSignatureComposer,
     val irFactory: IrFactory,
     val nameProvider: NameProvider = NameProvider.DEFAULT,
-    val lock: IrLock = IrLock()
 ) : ReferenceSymbolTable {
+
+    val lock = IrLock()
 
     @Suppress("LeakingThis")
     val lazyWrapper = IrLazySymbolTable(this)
