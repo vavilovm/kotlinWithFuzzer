@@ -38,7 +38,7 @@ class UnsignedTypeGenerator(val type: UnsignedType, out: PrintWriter) : BuiltIns
     internal fun binaryOperatorDoc(operator: String, operand1: UnsignedType, operand2: UnsignedType): String = when (operator) {
         "floorDiv" ->
             """
-            Divides this value by the other value flooring the result to an integer that is closer to negative infinity.
+            Divides this value by the other value, flooring the result to an integer that is closer to negative infinity.
             
             For unsigned types, the results of flooring division and truncating division are the same.
             """.trimIndent()

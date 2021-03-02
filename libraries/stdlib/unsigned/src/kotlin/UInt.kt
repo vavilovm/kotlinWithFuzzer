@@ -109,16 +109,16 @@ public value class UInt @PublishedApi internal constructor(@PublishedApi interna
     @kotlin.internal.InlineOnly
     public inline operator fun times(other: ULong): ULong = this.toULong().times(other)
 
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     @kotlin.internal.InlineOnly
     public inline operator fun div(other: UByte): UInt = this.div(other.toUInt())
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     @kotlin.internal.InlineOnly
     public inline operator fun div(other: UShort): UInt = this.div(other.toUInt())
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     @kotlin.internal.InlineOnly
     public inline operator fun div(other: UInt): UInt = uintDivide(this, other)
-    /** Divides this value by the other value truncating the result to an integer that is closer to zero. */
+    /** Divides this value by the other value, truncating the result to an integer that is closer to zero. */
     @kotlin.internal.InlineOnly
     public inline operator fun div(other: ULong): ULong = this.toULong().div(other)
 
@@ -152,28 +152,28 @@ public value class UInt @PublishedApi internal constructor(@PublishedApi interna
     public inline operator fun rem(other: ULong): ULong = this.toULong().rem(other)
 
     /**
-     * Divides this value by the other value flooring the result to an integer that is closer to negative infinity.
+     * Divides this value by the other value, flooring the result to an integer that is closer to negative infinity.
      * 
      * For unsigned types, the results of flooring division and truncating division are the same.
      */
     @kotlin.internal.InlineOnly
     public inline fun floorDiv(other: UByte): UInt = this.floorDiv(other.toUInt())
     /**
-     * Divides this value by the other value flooring the result to an integer that is closer to negative infinity.
+     * Divides this value by the other value, flooring the result to an integer that is closer to negative infinity.
      * 
      * For unsigned types, the results of flooring division and truncating division are the same.
      */
     @kotlin.internal.InlineOnly
     public inline fun floorDiv(other: UShort): UInt = this.floorDiv(other.toUInt())
     /**
-     * Divides this value by the other value flooring the result to an integer that is closer to negative infinity.
+     * Divides this value by the other value, flooring the result to an integer that is closer to negative infinity.
      * 
      * For unsigned types, the results of flooring division and truncating division are the same.
      */
     @kotlin.internal.InlineOnly
     public inline fun floorDiv(other: UInt): UInt = div(other)
     /**
-     * Divides this value by the other value flooring the result to an integer that is closer to negative infinity.
+     * Divides this value by the other value, flooring the result to an integer that is closer to negative infinity.
      * 
      * For unsigned types, the results of flooring division and truncating division are the same.
      */

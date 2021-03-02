@@ -53,12 +53,12 @@ class GeneratePrimitives(out: PrintWriter) : BuiltInsSourceGenerator(out) {
             "times" -> "Multiplies this value by the other value."
             "div" -> {
                 if (operand1.isIntegral && operand2.isIntegral)
-                    "Divides this value by the other value truncating the result to an integer that is closer to zero."
+                    "Divides this value by the other value, truncating the result to an integer that is closer to zero."
                 else
                     "Divides this value by the other value."
             }
             "floorDiv" ->
-                "Divides this value by the other value flooring the result to an integer that is closer to negative infinity."
+                "Divides this value by the other value, flooring the result to an integer that is closer to negative infinity."
             "rem" -> {
                 """
                 Calculates the remainder of truncating division of this value by the other value.

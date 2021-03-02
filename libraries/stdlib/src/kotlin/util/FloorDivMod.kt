@@ -11,7 +11,7 @@ package kotlin
 
 import kotlin.math.sign
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Byte.floorDiv(other: Byte): Int = 
@@ -27,7 +27,7 @@ public inline fun Byte.floorDiv(other: Byte): Int =
 public inline fun Byte.mod(other: Byte): Byte = 
     this.toInt().mod(other.toInt()).toByte()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Byte.floorDiv(other: Short): Int = 
@@ -43,7 +43,7 @@ public inline fun Byte.floorDiv(other: Short): Int =
 public inline fun Byte.mod(other: Short): Short = 
     this.toInt().mod(other.toInt()).toShort()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Byte.floorDiv(other: Int): Int = 
@@ -59,7 +59,7 @@ public inline fun Byte.floorDiv(other: Int): Int =
 public inline fun Byte.mod(other: Int): Int = 
     this.toInt().mod(other)
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Byte.floorDiv(other: Long): Long = 
@@ -75,7 +75,7 @@ public inline fun Byte.floorDiv(other: Long): Long =
 public inline fun Byte.mod(other: Long): Long = 
     this.toLong().mod(other)
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Short.floorDiv(other: Byte): Int = 
@@ -91,7 +91,7 @@ public inline fun Short.floorDiv(other: Byte): Int =
 public inline fun Short.mod(other: Byte): Byte = 
     this.toInt().mod(other.toInt()).toByte()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Short.floorDiv(other: Short): Int = 
@@ -107,7 +107,7 @@ public inline fun Short.floorDiv(other: Short): Int =
 public inline fun Short.mod(other: Short): Short = 
     this.toInt().mod(other.toInt()).toShort()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Short.floorDiv(other: Int): Int = 
@@ -123,7 +123,7 @@ public inline fun Short.floorDiv(other: Int): Int =
 public inline fun Short.mod(other: Int): Int = 
     this.toInt().mod(other)
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Short.floorDiv(other: Long): Long = 
@@ -139,7 +139,7 @@ public inline fun Short.floorDiv(other: Long): Long =
 public inline fun Short.mod(other: Long): Long = 
     this.toLong().mod(other)
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Int.floorDiv(other: Byte): Int = 
@@ -155,7 +155,7 @@ public inline fun Int.floorDiv(other: Byte): Int =
 public inline fun Int.mod(other: Byte): Byte = 
     this.mod(other.toInt()).toByte()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Int.floorDiv(other: Short): Int = 
@@ -171,7 +171,7 @@ public inline fun Int.floorDiv(other: Short): Int =
 public inline fun Int.mod(other: Short): Short = 
     this.mod(other.toInt()).toShort()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Int.floorDiv(other: Int): Int {
@@ -192,7 +192,7 @@ public inline fun Int.mod(other: Int): Int {
     return r + (other and (((r xor other) and (r or -r)) shr 31))
 }
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Int.floorDiv(other: Long): Long = 
@@ -208,7 +208,7 @@ public inline fun Int.floorDiv(other: Long): Long =
 public inline fun Int.mod(other: Long): Long = 
     this.toLong().mod(other)
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Long.floorDiv(other: Byte): Long = 
@@ -224,7 +224,7 @@ public inline fun Long.floorDiv(other: Byte): Long =
 public inline fun Long.mod(other: Byte): Byte = 
     this.mod(other.toLong()).toByte()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Long.floorDiv(other: Short): Long = 
@@ -240,7 +240,7 @@ public inline fun Long.floorDiv(other: Short): Long =
 public inline fun Long.mod(other: Short): Short = 
     this.mod(other.toLong()).toShort()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Long.floorDiv(other: Int): Long = 
@@ -256,7 +256,7 @@ public inline fun Long.floorDiv(other: Int): Long =
 public inline fun Long.mod(other: Int): Int = 
     this.mod(other.toLong()).toInt()
 
-/** Divides this value by the other value flooring the result to an integer that is closer to negative infinity. */
+/** Divides this value by the other value, flooring the result to an integer that is closer to negative infinity. */
 @SinceKotlin("1.5")
 @kotlin.internal.InlineOnly
 public inline fun Long.floorDiv(other: Long): Long {
