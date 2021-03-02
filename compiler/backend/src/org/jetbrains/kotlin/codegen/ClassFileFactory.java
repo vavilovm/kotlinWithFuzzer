@@ -59,7 +59,7 @@ import static org.jetbrains.kotlin.codegen.JvmCodegenUtil.getMappingFileName;
 public class ClassFileFactory implements OutputFileCollection {
     private final GenerationState state;
     private final ClassBuilderFactory builderFactory;
-    private final Map<String, OutAndSourceFileList> generators = new ConcurrentHashMap<>();
+    private final Map<String, OutAndSourceFileList> generators = Collections.synchronizedMap(new LinkedHashMap<>());
 
     private boolean isDone = false;
 
