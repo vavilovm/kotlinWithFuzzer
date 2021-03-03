@@ -81,6 +81,7 @@ class Kapt3GradleSubplugin @Inject internal constructor(private val registry: To
         private val INCLUDE_COMPILE_CLASSPATH = "kapt.include.compile.classpath"
         private val INCREMENTAL_APT = "kapt.incremental.apt"
         private val CLASSLOADERS_CACHE_SIZE = "kapt.classloaders.cache.size"
+        private val CLASSLOADERS_CACHE_DISABLE_FOR_PROCESSORS = "kapt.classloaders.cache.disableForProcessors"
 
         const val KAPT_WORKER_DEPENDENCIES_CONFIGURATION_NAME = "kotlinKaptWorkerDependencies"
 
@@ -122,6 +123,15 @@ class Kapt3GradleSubplugin @Inject internal constructor(private val registry: To
             project.findProperty(INCLUDE_COMPILE_CLASSPATH)?.run { toString().toBoolean() }
 
         fun Project.classLoadersCacheSize(): Int = findProperty(CLASSLOADERS_CACHE_SIZE)?.toString()?.toInt() ?: 0
+
+        fun Project.disableClassloaderCacheForProcessors(): Set<String> {
+            val value = findProperty(CLASSLOADERS_CACHE_DISABLE_FOR_PROCESSORS)?.toString() ?: ""
+            return value
+                .split(",")
+                .map { it.trim() }
+                .filter { it.isNotEmpty() }
+                .toSet()
+        }
 
         fun findMainKaptConfiguration(project: Project) = project.findKaptConfiguration(SourceSet.MAIN_SOURCE_SET_NAME)
 
@@ -520,6 +530,7 @@ class Kapt3GradleSubplugin @Inject internal constructor(private val registry: To
                 it.annotationProcessorFqNames = kaptExtension.processors.split(',').filter { it.isNotEmpty() }
                 it.javacOptions = dslJavacOptions.get()
                 it.classLoadersCacheSize = project.classLoadersCacheSize()
+                it.disableClassloaderCacheForProcessors = project.disableClassloaderCacheForProcessors()
             }
 
             val subpluginOptions = getAPOptions()
