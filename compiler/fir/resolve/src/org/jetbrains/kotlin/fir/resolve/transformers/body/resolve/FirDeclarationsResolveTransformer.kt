@@ -152,11 +152,13 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
                             }
                         }
                     }
-                    withNewLocalScope {
-                        if (property.receiverTypeRef == null && property.returnTypeRef !is FirImplicitTypeRef) {
-                            context.storeBackingField(property)
+                    if (property.delegate == null) {
+                        withNewLocalScope {
+                            if (property.receiverTypeRef == null && property.returnTypeRef !is FirImplicitTypeRef) {
+                                context.storeBackingField(property)
+                            }
+                            property.transformAccessors()
                         }
-                        property.transformAccessors()
                     }
                 }
                 transformer.replaceDeclarationResolvePhaseIfNeeded(property, transformerPhase)
