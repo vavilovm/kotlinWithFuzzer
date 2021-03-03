@@ -658,11 +658,11 @@ class GeneralNativeIT : BaseGradleIT() {
             assertTasksSkipped(*testsToSkip.toTypedArray())
 
 
-            fun assertStacktrace(taskName: String) {
+            fun assertStacktrace(taskName: String, targetName: String) {
                 val testReport = projectDir.resolve("build/test-results/$taskName/TEST-org.foo.test.TestKt.xml")
                 val stacktrace = SAXBuilder().build(testReport).rootElement
                     .getChildren("testcase")
-                    .single { it.getAttribute("name").value == "fail" }
+                    .single { it.getAttribute("name").value == "fail" || it.getAttribute("name").value == "fail[$targetName]" }
                     .getChild("failure")
                     .text
                 assertTrue(stacktrace.contains("""at org\.foo\.test#fail\(.*test\.kt:24\)""".toRegex()))
@@ -698,14 +698,14 @@ class GeneralNativeIT : BaseGradleIT() {
             assertTestResults(expectedTestResults.first(), hostTestTask)
             // K/N doesn't report line numbers correctly on Linux (see KT-35408).
             // TODO: Uncomment when this is fixed.
-            //assertStacktrace(hostTestTask)
+            //assertStacktrace(hostTestTask, "host")
             if (hostIsMac) {
                 assertTestResultsAnyOf(
                     expectedTestResults[0],
                     expectedTestResults[1],
                     "iosTest"
                 )
-                assertStacktrace("iosTest")
+                assertStacktrace("iosTest", "ios")
             }
         }
 
