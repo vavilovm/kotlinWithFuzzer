@@ -22,10 +22,12 @@ import org.jetbrains.kotlin.descriptors.*
 import org.jetbrains.kotlin.descriptors.annotations.Annotations
 import org.jetbrains.kotlin.resolve.DescriptorUtils
 import org.jetbrains.kotlin.resolve.calls.inference.isCaptured
+import org.jetbrains.kotlin.resolve.constants.IntegerLiteralTypeConstructor
 import org.jetbrains.kotlin.resolve.descriptorUtil.builtIns
 import org.jetbrains.kotlin.types.*
 import org.jetbrains.kotlin.types.checker.*
 import org.jetbrains.kotlin.types.model.TypeVariableTypeConstructorMarker
+import org.jetbrains.kotlin.types.model.isIntegerLiteralTypeConstructor
 import org.jetbrains.kotlin.utils.addToStdlib.safeAs
 import java.util.*
 
@@ -307,5 +309,5 @@ private fun NewCapturedType.unCaptureTopLevelType(): UnwrappedType {
 }
 
 fun KotlinType?.canBeUpdated() = this == null || contains {
-    it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.isError
+    it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.constructor is IntegerLiteralTypeConstructor
 }
