@@ -44,11 +44,7 @@ open class JsonFormatRedundantDiagnostic : CallChecker {
     }
 
     private fun isJsonFormatCreation(descriptor: SimpleFunctionDescriptor): Boolean {
-        if (!(descriptor.name == jsonFunName && descriptor.extensionReceiverParameter == null && descriptor.valueParameters.size == 2)) {
-            return false
-        }
-        val packageDescriptor = descriptor.containingDeclaration as? PackageFragmentDescriptor ?: return false
-        return packageDescriptor.fqName == jsonPackageFqName
+        return descriptor.importableFqName == jsonFqName
     }
 
     private fun isDefaultFormat(resolvedCall: ResolvedCall<*>): Boolean {
