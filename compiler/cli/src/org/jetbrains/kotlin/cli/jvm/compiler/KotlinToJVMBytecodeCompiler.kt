@@ -57,8 +57,8 @@ import org.jetbrains.kotlin.fir.analysis.FirAnalyzerFacade
 import org.jetbrains.kotlin.fir.backend.jvm.FirJvmBackendClassResolver
 import org.jetbrains.kotlin.fir.backend.jvm.FirJvmBackendExtension
 import org.jetbrains.kotlin.fir.checkers.registerExtendedCommonCheckers
-import org.jetbrains.kotlin.fir.java.FirProjectSessionProvider
 import org.jetbrains.kotlin.fir.firLookupTracker
+import org.jetbrains.kotlin.fir.java.FirProjectSessionProvider
 import org.jetbrains.kotlin.fir.session.FirJvmModuleInfo
 import org.jetbrains.kotlin.fir.session.FirSessionFactory
 import org.jetbrains.kotlin.ir.backend.jvm.jvmResolveLibraries
@@ -335,18 +335,19 @@ object KotlinToJVMBytecodeCompiler {
 
             val librariesModuleInfo = FirJvmModuleInfo.createForLibraries()
             val librariesScope = ProjectScope.getLibrariesScope(project)
+            FirSessionFactory.createLibrarySession(
+                librariesModuleInfo, provider, librariesScope,
+                project, environment.createPackagePartProvider(librariesScope)
+            )
+
+            val moduleInfo = FirJvmModuleInfo(module, listOf(librariesModuleInfo))
             val packagePartProvider = environment.createPackagePartProvider(librariesScope).let { fragment ->
                 if (targetIds == null || incrementalComponents == null) fragment
                 else IncrementalPackagePartProvider(fragment, targetIds.map(incrementalComponents::getIncrementalCache))
             }
-            FirSessionFactory.createLibrarySession(
-                librariesModuleInfo, provider, librariesScope,
-                project, packagePartProvider
-            )
 
-            val moduleInfo = FirJvmModuleInfo(module, listOf(librariesModuleInfo))
             val session = FirSessionFactory.createJavaModuleBasedSession(
-                moduleInfo, provider, scope, project,
+                moduleInfo, provider, scope, project, packagePartProvider, librariesScope,
                 lookupTracker = environment.configuration.get(CommonConfigurationKeys.LOOKUP_TRACKER)
             ) {
                 if (extendedAnalysisMode) {
