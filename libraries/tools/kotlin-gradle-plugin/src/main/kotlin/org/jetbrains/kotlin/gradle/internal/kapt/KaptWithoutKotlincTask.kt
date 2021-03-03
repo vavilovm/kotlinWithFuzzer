@@ -10,7 +10,7 @@ import org.gradle.api.tasks.incremental.IncrementalTaskInputs
 import org.gradle.workers.IsolationMode
 import org.gradle.workers.WorkerExecutor
 import org.jetbrains.kotlin.gradle.internal.Kapt3GradleSubplugin.Companion.KAPT_WORKER_DEPENDENCIES_CONFIGURATION_NAME
-import org.jetbrains.kotlin.gradle.internal.kapt.classloaders.CachingClassLoadersProvider
+import org.jetbrains.kotlin.gradle.internal.kapt.classloaders.ClassLoadersCache
 import org.jetbrains.kotlin.gradle.internal.kapt.incremental.KaptIncrementalChanges
 import org.jetbrains.kotlin.gradle.plugin.KotlinAndroidPluginWrapper
 import org.jetbrains.kotlin.gradle.tasks.CompilerPluginOptions
@@ -169,7 +169,7 @@ private class KaptExecution @Inject constructor(
 
         private fun kaptClass(classLoader: ClassLoader) = Class.forName("org.jetbrains.kotlin.kapt3.base.Kapt", true, classLoader)
 
-        private var classLoadersProvider: CachingClassLoadersProvider? = null
+        private var classLoadersCache: ClassLoadersCache? = null
 
         private var cachedKaptClassLoader: ClassLoader? = null
     }
@@ -190,9 +190,9 @@ private class KaptExecution @Inject constructor(
         }
         val kaptClassLoader = cachedKaptClassLoader!!
 
-        if (classLoadersProvider == null && classloadersCacheSize > 0) {
+        if (classLoadersCache == null && classloadersCacheSize > 0) {
             logger.info("Initializing KAPT classloaders cache with size = $classloadersCacheSize")
-            classLoadersProvider = CachingClassLoadersProvider(classloadersCacheSize, kaptClassLoader)
+            classLoadersCache = ClassLoadersCache(classloadersCacheSize, kaptClassLoader)
         }
 
         val kaptMethod = kaptClass(kaptClassLoader).declaredMethods.single { it.name == "kapt" }
@@ -219,7 +219,7 @@ private class KaptExecution @Inject constructor(
         //in case cache was enabled and then disabled
         val processingClassLoader =
             if (classloadersCacheSize > 0) {
-                classLoadersProvider!!.getSplitted(processingClasspath - processingExternalClasspath, processingExternalClasspath)
+                classLoadersCache!!.getForSplittedPaths(processingClasspath - processingExternalClasspath, processingExternalClasspath)
             } else {
                 null
             }
