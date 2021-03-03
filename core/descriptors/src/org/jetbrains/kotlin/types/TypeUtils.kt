@@ -309,5 +309,5 @@ private fun NewCapturedType.unCaptureTopLevelType(): UnwrappedType {
 }
 
 fun KotlinType?.canBeUpdated() = this == null || contains {
-    it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.constructor is IntegerLiteralTypeConstructor
+    it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.isError || it.constructor is IntegerLiteralTypeConstructor
 }
