@@ -20,8 +20,7 @@ import org.jetbrains.kotlin.resolve.calls.model.ResolvedCall
 import org.jetbrains.kotlin.resolve.calls.model.ResolvedValueArgument
 
 open class JsonFormatRedundantDiagnostic : CallChecker {
-    private val jsonFunName = Name.identifier("Json")
-    private val jsonPackageFqName = FqName("kotlinx.serialization.json")
+    private val jsonFqName = FqName("kotlinx.serialization.json.Json")`
     private val parameterNameFrom = Name.identifier("from")
     private val parameterNameBuilderAction = Name.identifier("builderAction")
 
