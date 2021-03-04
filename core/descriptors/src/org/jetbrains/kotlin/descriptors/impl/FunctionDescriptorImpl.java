@@ -147,7 +147,6 @@ public abstract class FunctionDescriptorImpl extends DeclarationDescriptorNonRoo
     }
 
     public void setReturnType(@NotNull KotlinType unsubstitutedReturnType) {
-        assert TypeUtilsKt.canBeUpdated(this.unsubstitutedReturnType);
         this.unsubstitutedReturnType = unsubstitutedReturnType;
     }
 

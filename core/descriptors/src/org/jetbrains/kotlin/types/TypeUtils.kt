@@ -308,6 +308,17 @@ private fun NewCapturedType.unCaptureTopLevelType(): UnwrappedType {
     return constructor.projection.type.unwrap()
 }
 
-fun KotlinType?.canBeUpdated() = this == null || contains {
-    it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.isError || it.constructor is IntegerLiteralTypeConstructor
+fun KotlinType?.canBeUpdatedTo(newType: KotlinType?): Boolean {
+    if (this == null) return true
+
+    val containsNonTerminalType = contains {
+        it is StubType || it.constructor is TypeVariableTypeConstructorMarker || it.isError || it.constructor is IntegerLiteralTypeConstructor
+    }
+
+    if (containsNonTerminalType) return true
+
+    if (newType == null) return false
+
+    return FlexibleTypeBoundsChecker.areTypesMayBeLowerAndUpperBoundsOfSameFlexibleTypeByMutability(this, newType)
+            || FlexibleTypeBoundsChecker.areTypesPairOfFlexibleAndNotByNullability(this, newType)
 }

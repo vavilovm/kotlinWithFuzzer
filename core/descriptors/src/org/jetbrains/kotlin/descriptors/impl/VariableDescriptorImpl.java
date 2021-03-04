@@ -50,7 +50,7 @@ public abstract class VariableDescriptorImpl extends DeclarationDescriptorNonRoo
     }
 
     public void setOutType(KotlinType outType) {
-        assert TypeUtilsKt.canBeUpdated(this.outType);
+        assert TypeUtilsKt.canBeUpdatedTo(this.outType, outType);
         this.outType = outType;
     }
 

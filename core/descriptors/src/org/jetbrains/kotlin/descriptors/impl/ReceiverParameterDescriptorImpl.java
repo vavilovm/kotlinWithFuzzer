@@ -57,7 +57,7 @@ public class ReceiverParameterDescriptorImpl extends AbstractReceiverParameterDe
     }
 
     public void setOutType(@NotNull KotlinType outType) {
-        assert TypeUtilsKt.canBeUpdated(this.value.getType());
+        assert TypeUtilsKt.canBeUpdatedTo(this.value.getType(), outType);
         this.value = value.replaceType(outType);
     }
 }

@@ -172,6 +172,9 @@ object FlexibleTypeBoundsChecker {
         return possiblePairBound == b.constructor.declarationDescriptor?.fqNameSafe
     }
 
+    fun areTypesPairOfFlexibleAndNotByNullability(a: KotlinType, b: KotlinType) =
+        a.constructor == b.constructor && a.isNullabilityFlexible() != b.isNullabilityFlexible()
+
     // We consider base bounds as not mutable collections
     fun getBaseBoundFqNameByMutability(a: KotlinType): FqName? {
         val fqName = a.constructor.declarationDescriptor?.fqNameSafe ?: return null

@@ -47,7 +47,7 @@ import org.jetbrains.kotlin.types.expressions.typeInfoFactory.createTypeInfo
 import org.jetbrains.kotlin.types.typeUtil.asTypeProjection
 import org.jetbrains.kotlin.types.typeUtil.contains
 import org.jetbrains.kotlin.types.typeUtil.isUnit
-import org.jetbrains.kotlin.types.typeUtil.canBeUpdated
+import org.jetbrains.kotlin.types.typeUtil.canBeUpdatedTo
 import org.jetbrains.kotlin.utils.addToStdlib.safeAs
 
 class ResolvedAtomCompleter(
@@ -222,13 +222,12 @@ class ResolvedAtomCompleter(
         val receiverType = lambda.receiver
 
         val approximatedValueParameterTypes = lambda.parameters.map { parameterType ->
-            if (parameterType.canBeUpdated()) {
-                typeApproximator.approximateDeclarationType(
-                    resultSubstitutor.safeSubstitute(parameterType),
-                    local = true,
-                    languageVersionSettings = topLevelCallContext.languageVersionSettings
-                )
-            } else parameterType
+            val resultType = typeApproximator.approximateDeclarationType(
+                resultSubstitutor.safeSubstitute(parameterType),
+                local = true,
+                languageVersionSettings = topLevelCallContext.languageVersionSettings
+            )
+            if (parameterType.canBeUpdatedTo(resultType)) resultType else parameterType
         }
 
         val approximatedReturnType =
@@ -292,18 +291,20 @@ class ResolvedAtomCompleter(
         val functionDescriptor = trace.bindingContext.get(BindingContext.FUNCTION, ktFunction) as? FunctionDescriptorImpl
             ?: throw AssertionError("No function descriptor for resolved lambda argument")
 
-        if (functionDescriptor.returnType.canBeUpdated()) {
+        if (functionDescriptor.returnType.canBeUpdatedTo(returnType)) {
             functionDescriptor.setReturnType(returnType)
+        } else {
+            println(1)
         }
 
         val extensionReceiverParameter = functionDescriptor.extensionReceiverParameter
 
-        if (receiverType != null && extensionReceiverParameter is ReceiverParameterDescriptorImpl && extensionReceiverParameter.type.canBeUpdated()) {
+        if (receiverType != null && extensionReceiverParameter is ReceiverParameterDescriptorImpl && extensionReceiverParameter.type.canBeUpdatedTo(receiverType)) {
             extensionReceiverParameter.setOutType(receiverType)
         }
 
         for ((i, valueParameter) in functionDescriptor.valueParameters.withIndex()) {
-            if (valueParameter !is ValueParameterDescriptorImpl || !valueParameter.type.canBeUpdated()) continue
+            if (valueParameter !is ValueParameterDescriptorImpl || !valueParameter.type.canBeUpdatedTo(valueParameters[i])) continue
             valueParameter.setOutType(valueParameters[i])
         }
 
