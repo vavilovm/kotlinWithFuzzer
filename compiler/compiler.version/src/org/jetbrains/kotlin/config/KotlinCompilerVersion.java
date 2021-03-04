@@ -60,7 +60,7 @@ public class KotlinCompilerVersion {
 
         if (!VERSION.equals("@snapshot@") && !VERSION.contains("-") && IS_PRE_RELEASE) {
             throw new IllegalStateException(
-                    "IS_PRE_RELEASE cannot be true for a compiler without '-' in its version.\n" +
+                    "IS_PRE_RELEASE cannot be true for a compiler without '-' in its version `" + VERSION + "`.\n" +
                     "Please change IS_PRE_RELEASE to false, commit and push this change to master"
             );
         }
