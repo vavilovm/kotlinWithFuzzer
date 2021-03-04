@@ -7,6 +7,7 @@
 #include <thread>
 
 #include "Memory.h"
+#include "Runtime.h"
 
 namespace kotlin {
 
@@ -31,26 +32,31 @@ MemoryState* InitMemoryForTests();
 //  - For the legacy MM: does nothing.
 void DeinitMemoryForTests(MemoryState* state);
 
-// Scopely initializes the memory subsystem using the functions above.
-class ScopedMemoryInit : private kotlin::Pinned {
+// Scopely initializes the runtime for tests.
+class ScopedRuntimeInit : private kotlin::Pinned {
 public:
-    ScopedMemoryInit() : memoryState_(InitMemoryForTests()) {}
-    ~ScopedMemoryInit() { DeinitMemoryForTests(memoryState_); }
+    ScopedRuntimeInit() : memoryState_(InitMemoryForTests()) {
+        test_support::InitRuntimeForTests(memoryState());
+    }
+    ~ScopedRuntimeInit() {
+        test_support::DeinitRuntimeForTests();
+        DeinitMemoryForTests(memoryState_);
+    }
 
     MemoryState* memoryState() { return memoryState_; }
 private:
     MemoryState* memoryState_;
 };
 
-// Runs the given function in a separate thread with minimally initialized memory subsystem.
+// Runs the given function in a separate thread with minimally initialized runtime.
 inline void RunInNewThread(std::function<void(MemoryState*)> f) {
     std::thread([&f]() {
-        ScopedMemoryInit init;
+        ScopedRuntimeInit init;
         f(init.memoryState());
     }).join();
 }
 
-// Runs the given function in a separate thread with minimally initialized memory subsystem.
+// Runs the given function in a separate thread with minimally initialized runtime.
 inline void RunInNewThread(std::function<void()> f) {
     RunInNewThread([&f](MemoryState* unused) {
         f();

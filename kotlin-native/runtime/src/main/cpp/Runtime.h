@@ -52,7 +52,22 @@ bool Kotlin_cleanersLeakCheckerEnabled();
 bool Kotlin_forceCheckedShutdown();
 
 #ifdef __cplusplus
-}
+} // extern "C"
 #endif
+
+// We use C++ for tests.
+#ifdef __cplusplus
+namespace kotlin {
+namespace test_support {
+
+// Performs minimal initialization of the runtime for the current thread using the given MemoryState.
+void InitRuntimeForTests(MemoryState* state);
+
+// Deinitializes the test runtime for the current thread.
+void DeinitRuntimeForTests();
+
+} // namespace test_support
+} // namespace kotlin
+#endif // __cplusplus
 
 #endif // RUNTIME_RUNTIME_H

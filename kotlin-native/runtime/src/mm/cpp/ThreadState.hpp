@@ -10,14 +10,12 @@
 #include <Utils.hpp>
 
 namespace kotlin {
-namespace mm {
 
-// Switches the state of the current thread to `newState` and returns the previous thread state.
-ALWAYS_INLINE ThreadState SwitchThreadState(ThreadData* threadData, ThreadState newState) noexcept;
+// Switches the state of the given thread to `newState` and returns the previous thread state.
+ALWAYS_INLINE ThreadState SwitchThreadState(mm::ThreadData* threadData, ThreadState newState) noexcept;
 
-ALWAYS_INLINE void AssertThreadState(ThreadData* threadData, ThreadState expected) noexcept;
+ALWAYS_INLINE void AssertThreadState(mm::ThreadData* threadData, ThreadState expected) noexcept;
 
-} // namespace mm
 } // namespace kotlin
 
 #endif // RUNTIME_MM_THREAD_STATE_H

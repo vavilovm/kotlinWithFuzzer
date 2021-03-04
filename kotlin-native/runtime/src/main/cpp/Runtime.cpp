@@ -371,3 +371,17 @@ void Kotlin_Debugging_setForceCheckedShutdown(KBoolean value) {
 }
 
 }  // extern "C"
+
+MemoryState* kotlin::mm::GetMemoryState() {
+    return ::runtimeState->memoryState;
+}
+
+void kotlin::test_support::InitRuntimeForTests(MemoryState* state) {
+    auto result = konanConstructInstance<RuntimeState>();
+    ::runtimeState = result;
+    result->memoryState = state;
+}
+
+void kotlin::test_support::DeinitRuntimeForTests() {
+    konanDestructInstance(::runtimeState);
+}
