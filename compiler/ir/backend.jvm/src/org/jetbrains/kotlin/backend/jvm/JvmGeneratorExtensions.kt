@@ -61,7 +61,7 @@ class JvmGeneratorExtensions(private val generateFacades: Boolean = true) : Gene
             JavaSingleAbstractMethodUtils.isSamType(type)
 
         override fun getSamTypeForValueParameter(valueParameter: ValueParameterDescriptor): KotlinType? =
-            JvmSamTypeFactory.INSTANCE.createByValueParameter(valueParameter)?.type
+            JvmSamTypeFactory.createByValueParameter(valueParameter)?.type
 
         companion object Instance : JvmSamConversion()
     }

@@ -7,12 +7,8 @@ package org.jetbrains.kotlin.codegen
 
 import org.jetbrains.kotlin.load.java.sam.JavaSingleAbstractMethodUtils
 import org.jetbrains.kotlin.types.KotlinType
-import org.jetbrains.kotlin.types.SamTypeFactory
+import org.jetbrains.kotlin.backend.common.SamTypeFactory
 
-class JvmSamTypeFactory : SamTypeFactory() {
+object JvmSamTypeFactory : SamTypeFactory() {
     override fun isSamType(type: KotlinType) = JavaSingleAbstractMethodUtils.isSamType(type)
-
-    companion object {
-        val INSTANCE = JvmSamTypeFactory()
-    }
 }

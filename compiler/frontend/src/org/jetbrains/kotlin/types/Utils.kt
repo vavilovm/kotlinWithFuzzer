@@ -53,8 +53,3 @@ fun getEffectiveVariance(parameterVariance: Variance, projectionKind: Variance):
     // Out<in X> = Out<*>
     return Variance.OUT_VARIANCE
 }
-
-fun KotlinType.removeExternalProjections(): KotlinType {
-    val newArguments = arguments.map { TypeProjectionImpl(Variance.INVARIANT, it.type) }
-    return replace(newArguments)
-}

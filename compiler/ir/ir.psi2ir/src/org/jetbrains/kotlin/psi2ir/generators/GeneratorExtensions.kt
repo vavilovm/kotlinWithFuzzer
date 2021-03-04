@@ -14,7 +14,7 @@ import org.jetbrains.kotlin.ir.util.StubGeneratorExtensions
 import org.jetbrains.kotlin.psi.KtPureClassOrObject
 import org.jetbrains.kotlin.resolve.scopes.MemberScope
 import org.jetbrains.kotlin.types.KotlinType
-import org.jetbrains.kotlin.types.SamTypeFactory
+import org.jetbrains.kotlin.backend.common.SamTypeFactory
 
 open class GeneratorExtensions : StubGeneratorExtensions() {
     open val samConversion: SamConversion
