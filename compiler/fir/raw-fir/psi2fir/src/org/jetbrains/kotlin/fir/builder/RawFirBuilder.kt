@@ -1377,7 +1377,9 @@ class RawFirBuilder(
                         // TODO: probably implicit type should not be here
                         returnTypeRef = unwrappedElement.returnTypeReference.toFirOrErrorType()
                         for (valueParameter in unwrappedElement.parameters) {
-                            valueParameters += valueParameter.convert<FirValueParameter>()
+                            val firFunctionValueParameter = valueParameter.convert<FirValueParameter>()
+                            firFunctionValueParameter.isFunctionTypeValueParameter = true
+                            valueParameters += firFunctionValueParameter
                         }
                         if (receiverTypeRef != null) {
                             annotations += extensionFunctionAnnotation
