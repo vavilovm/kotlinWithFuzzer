@@ -7,8 +7,8 @@
 #include "TestSupport.hpp"
 
 
-// No-op, requires for the new MM only.
+// No-op, required for the new MM only.
 MemoryState* kotlin::InitMemoryForTests() { return nullptr; }
 
-// No-op, requires for the new MM only.
+// No-op, required for the new MM only.
 void kotlin::DeinitMemoryForTests(MemoryState* state) {}
