@@ -47,7 +47,7 @@ testing::MockFunction<int32_t(int32_t)>* ThreadStateTest::globalKotlinFunctionMo
 } // namespace
 
 TEST_F(ThreadStateTest, StateSwitch) {
-    mm::RunInNewThread([](mm::ThreadData& threadData) {
+    RunInNewThread([](mm::ThreadData& threadData) {
         auto initialState = threadData.state();
         EXPECT_EQ(mm::ThreadState::kRunnable, initialState);
 
@@ -65,7 +65,7 @@ TEST_F(ThreadStateTest, StateSwitch) {
 }
 
 TEST_F(ThreadStateTest, StateGuard) {
-    mm::RunInNewThread([](mm::ThreadData& threadData) {
+    RunInNewThread([](mm::ThreadData& threadData) {
         auto initialState = threadData.state();
         EXPECT_EQ(mm::ThreadState::kRunnable, initialState);
         {
@@ -77,7 +77,7 @@ TEST_F(ThreadStateTest, StateGuard) {
 }
 
 TEST_F(ThreadStateTest, CallKotlin) {
-    mm::RunInNewThread([this](mm::ThreadData& threadData) {
+    RunInNewThread([this](mm::ThreadData& threadData) {
         mm::SwitchThreadState(&threadData, mm::ThreadState::kNative);
         ASSERT_THAT(threadData.state(), mm::ThreadState::kNative);
 
@@ -93,7 +93,7 @@ TEST_F(ThreadStateTest, CallKotlin) {
 }
 
 TEST_F(ThreadStateTest, CallKotlinNoReturn) {
-    mm::RunInNewThread([this](mm::ThreadData& threadData) {
+    RunInNewThread([this](mm::ThreadData& threadData) {
         mm::SwitchThreadState(&threadData, mm::ThreadState::kNative);
         ASSERT_THAT(threadData.state(), mm::ThreadState::kNative);
 
@@ -109,14 +109,14 @@ TEST_F(ThreadStateTest, CallKotlinNoReturn) {
 }
 
 TEST(ThreadStateDeathTest, StateAsserts) {
-    mm::RunInNewThread([](mm::ThreadData& threadData) {
+    RunInNewThread([](mm::ThreadData& threadData) {
         EXPECT_DEATH(mm::AssertThreadState(&threadData, mm::ThreadState::kNative),
                      "runtime assert: Unexpected thread state. Expected: NATIVE. Actual: RUNNABLE");
     });
 }
 
 TEST(ThreadStateDeathTest, IncorrectStateSwitch) {
-    mm::RunInNewThread([](mm::ThreadData& threadData) {
+    RunInNewThread([](mm::ThreadData& threadData) {
         EXPECT_DEATH(mm::SwitchThreadState(&threadData, kotlin::mm::ThreadState::kRunnable),
                      "runtime assert: Illegal thread state switch. Old state: RUNNABLE. New state: RUNNABLE");
         EXPECT_DEATH(Kotlin_mm_switchThreadStateRunnable(),

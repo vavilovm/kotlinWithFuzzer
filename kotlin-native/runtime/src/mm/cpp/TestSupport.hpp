@@ -9,13 +9,11 @@
 #include "ThreadData.hpp"
 
 namespace kotlin {
-namespace mm {
 
-inline void RunInNewThread(std::function<void(ThreadData&)> f) {
+inline void RunInNewThread(std::function<void(mm::ThreadData&)> f) {
     kotlin::RunInNewThread([&f](MemoryState* state) {
         f(*state->GetThreadData());
     });
 }
 
-} // namespace mm
 } // namespace kotlin
