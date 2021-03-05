@@ -160,7 +160,7 @@ class JvmGeneratorExtensionsImpl(private val generateFacades: Boolean = true) : 
         )
     }
 
-    override val shouldPreventDeprecatedUnaryOperatorIntegerValueTypeConversion: Boolean
+    override val shouldPreventDeprecatedIntegerValueTypeLiteralConversion: Boolean
         get() = true
 
     private val flexibleNullabilityAnnotationClass =

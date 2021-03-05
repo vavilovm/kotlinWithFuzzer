@@ -37,6 +37,6 @@ open class GeneratorExtensions : StubGeneratorExtensions() {
         context: GeneratorContext,
     ): IrDelegatingConstructorCall? = null
 
-    open val shouldPreventDeprecatedUnaryOperatorIntegerValueTypeConversion: Boolean
+    open val shouldPreventDeprecatedIntegerValueTypeLiteralConversion: Boolean
         get() = false
 }

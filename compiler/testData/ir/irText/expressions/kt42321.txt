@@ -24,18 +24,73 @@ FILE fqName:<root> fileName:/kt42321.kt
       $this: VALUE_PARAMETER name:<this> type:kotlin.Any
   FUN name:test visibility:public modality:FINAL <> () returnType:kotlin.Unit
     BLOCK_BODY
-      VAR name:long type:<root>.C<kotlin.Long> [val]
+      VAR name:c type:<root>.C<kotlin.Long> [val]
         CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in <root>.C' type=<root>.C<kotlin.Long> origin=null
           <class: L>: kotlin.Long
       CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
-        $this: GET_VAR 'val long: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
-        x: CALL 'public final fun inv (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
           $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
       CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
-        $this: GET_VAR 'val long: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun minus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun times (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun div (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun rem (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
         x: CALL 'public final fun unaryPlus (): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
           $this: CONST Int type=kotlin.Int value=1
       CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
-        $this: GET_VAR 'val long: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
         x: CALL 'public final fun unaryMinus (): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun shl (bitCount: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          bitCount: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun shr (bitCount: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          bitCount: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun ushr (bitCount: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          bitCount: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun and (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun or (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun xor (other: kotlin.Int): kotlin.Int [infix] declared in kotlin.Int' type=kotlin.Int origin=null
+          $this: CONST Int type=kotlin.Int value=1
+          other: CONST Int type=kotlin.Int value=2
+      CALL 'public final fun takeT (x: L of <root>.C): kotlin.Unit declared in <root>.C' type=kotlin.Unit origin=null
+        $this: GET_VAR 'val c: <root>.C<kotlin.Long> [val] declared in <root>.test' type=<root>.C<kotlin.Long> origin=null
+        x: CALL 'public final fun inv (): kotlin.Int declared in kotlin.Int' type=kotlin.Int origin=null
           $this: CONST Int type=kotlin.Int value=1

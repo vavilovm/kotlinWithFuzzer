@@ -35,9 +35,12 @@ import org.jetbrains.kotlin.ir.expressions.impl.IrCallImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrConstImpl
 import org.jetbrains.kotlin.ir.expressions.impl.IrTypeOperatorCallImpl
 import org.jetbrains.kotlin.ir.symbols.IrConstructorSymbol
-import org.jetbrains.kotlin.ir.types.*
+import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.impl.originalKotlinType
-import org.jetbrains.kotlin.ir.util.*
+import org.jetbrains.kotlin.ir.types.toKotlinType
+import org.jetbrains.kotlin.ir.util.SymbolTable
+import org.jetbrains.kotlin.ir.util.TypeTranslator
+import org.jetbrains.kotlin.ir.util.render
 import org.jetbrains.kotlin.ir.visitors.IrElementTransformerVoid
 import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
 import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
@@ -404,8 +407,8 @@ internal class InsertImplicitCasts(
         if (!type.originalKotlinType!!.isInt()) throw AssertionError("Expression of type 'kotlin.Int' expected: $this")
         if (targetType.isInt()) return this
 
-        if (generatorExtensions.shouldPreventDeprecatedUnaryOperatorIntegerValueTypeConversion &&
-            this is IrCall && preventDeprecatedUnaryOperatorIntegerValueTypeConversion(symbol.descriptor)
+        if (generatorExtensions.shouldPreventDeprecatedIntegerValueTypeLiteralConversion &&
+            this is IrCall && preventDeprecatedIntegerValueTypeLiteralConversion(symbol.descriptor)
         ) return this
 
         return if (this is IrConst<*>) {
@@ -435,15 +438,17 @@ internal class InsertImplicitCasts(
         }
     }
 
-    private fun preventDeprecatedUnaryOperatorIntegerValueTypeConversion(descriptor: CallableDescriptor): Boolean {
+    private fun preventDeprecatedIntegerValueTypeLiteralConversion(descriptor: CallableDescriptor): Boolean {
         // in JVM, we don't convert values resulted from calling unary operators 'inv', 'unaryPlus', 'unaryMinus' to another integer type.
-        // The reason is that doing so would change behavior which we want to avoid, see KT-42321.
+        // The reason is that doing so would change behavior, which we want to avoid, see KT-42321.
         // At the same time, such structure seems possible to achieve only via the magical integer value type, but inferring the result of
-        // the unary call based on an expected type is deprecated behavior which is going to be removed in the future, see KT-38895.
-        val name = descriptor.name
-        return (name == OperatorNameConventions.INV || name == OperatorNameConventions.UNARY_MINUS ||
-                name == OperatorNameConventions.UNARY_PLUS) &&
+        // the operator call based on an expected type is deprecated behavior which is going to be removed in the future, see KT-38895.
+        return descriptor.name in operatorsWithDeprecatedIntegerValueTypeLiteralConversion &&
                 descriptor.dispatchReceiverParameter?.type?.let { KotlinBuiltIns.isPrimitiveType(it) } == true
+    }
+
+    private val operatorsWithDeprecatedIntegerValueTypeLiteralConversion = with(OperatorNameConventions) {
+        setOf(PLUS, MINUS, TIMES, DIV, REM, UNARY_PLUS, UNARY_MINUS, SHL, SHR, USHR, AND, OR, XOR, INV)
     }
 
     private fun IrExpression.invokeIntegerCoercionFunction(targetType: KotlinType, coercionFunName: String): IrExpression {
