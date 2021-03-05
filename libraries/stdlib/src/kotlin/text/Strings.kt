@@ -1378,3 +1378,31 @@ public fun CharSequence.lineSequence(): Sequence<String> = splitToSequence("\r\n
  * The lines returned do not include terminating line separators.
  */
 public fun CharSequence.lines(): List<String> = lineSequence().toList()
+
+/**
+ * Returns `true` if the content of this string is equal to the word "true", `false` if it is equal to "false",
+ * and throws an exception otherwise.
+ *
+ * Note that this function is case-sensitive.
+ *
+ * @sample samples.text.Strings.toBooleanStrict
+ */
+@SinceKotlin("1.5")
+public fun String.toBooleanStrict(): Boolean {
+    return toBooleanStrictOrNull() ?: throw IllegalArgumentException("Invalid boolean literal: $this")
+}
+
+/**
+ * Returns `true` if the content of this string is equal to the word "true", `false` if it is equal to "false",
+ * and `null` otherwise.
+ *
+ * Note that this function is case-sensitive.
+ *
+ * @sample samples.text.Strings.toBooleanStrictOrNull
+ */
+@SinceKotlin("1.5")
+public fun String.toBooleanStrictOrNull(): Boolean? = when (this) {
+    "true" -> true
+    "false" -> false
+    else -> null
+}
