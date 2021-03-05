@@ -767,6 +767,7 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
                                 val name = Name.identifier("it")
                                 val itParam = buildValueParameter {
                                     source = lambda.source?.fakeElement(FirFakeSourceElementKind.ItLambdaParameter)
+                                    resolvePhase = transformerPhase
                                     session = this@FirDeclarationsResolveTransformer.session
                                     origin = FirDeclarationOrigin.Source
                                     returnTypeRef = buildResolvedTypeRef { type = singleParameterType }
@@ -790,6 +791,7 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
                                                 resolvedLambdaAtom.parameters[index]
                                             )
                                         )
+                                        param.replaceResolvePhase(transformerPhase)
                                         param
                                     }
                                 }
@@ -849,6 +851,7 @@ open class FirDeclarationsResolveTransformer(transformer: FirBodyResolveTransfor
                         isSuspend = expectedTypeRef.coneTypeSafe<ConeKotlinType>()?.isSuspendFunctionType(session) == true
                     )
                 )
+                lambda.replaceResolvePhase(transformerPhase)
                 lambda.addReturn().compose()
             }
             is ResolutionMode.WithStatus -> {
