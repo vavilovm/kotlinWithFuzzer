@@ -178,22 +178,14 @@ public class Long internal constructor(
     public inline operator fun rem(other: Double): Double = toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Long = this + 1L
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */

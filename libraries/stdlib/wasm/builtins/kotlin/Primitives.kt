@@ -210,11 +210,7 @@ public class Byte private constructor(public val value: Byte) : Number(), Compar
         this.toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -222,11 +218,7 @@ public class Byte private constructor(public val value: Byte) : Number(), Compar
         (this + 1).toByte()
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */
@@ -562,11 +554,7 @@ public class Short private constructor(public val value: Short) : Number(), Comp
         this.toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -574,11 +562,7 @@ public class Short private constructor(public val value: Short) : Number(), Comp
         (this + 1).toShort()
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */
@@ -918,11 +902,7 @@ public class Int private constructor(val value: Int) : Number(), Comparable<Int>
         this.toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -930,11 +910,7 @@ public class Int private constructor(val value: Int) : Number(), Comparable<Int>
         this + 1
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */
@@ -1324,11 +1300,7 @@ public class Long private constructor(val value: Long) : Number(), Comparable<Lo
         this.toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -1336,11 +1308,7 @@ public class Long private constructor(val value: Long) : Number(), Comparable<Lo
         this + 1L
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */
@@ -1716,11 +1684,7 @@ public class Float private constructor(public val value: Float) : Number(), Comp
         this.toDouble() % other
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -1728,11 +1692,7 @@ public class Float private constructor(public val value: Float) : Number(), Comp
         this + 1.0f
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */
@@ -2038,11 +1998,7 @@ public class Double private constructor(public val value: Double) : Number(), Co
         this - (wasm_f64_nearest(this / other) * other)
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      *
      * @sample samples.misc.Builtins.inc
      */
@@ -2050,11 +2006,7 @@ public class Double private constructor(public val value: Double) : Number(), Co
         this + 1.0
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      *
      * @sample samples.misc.Builtins.dec
      */

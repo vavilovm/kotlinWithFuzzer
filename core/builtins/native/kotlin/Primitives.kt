@@ -150,22 +150,14 @@ public class Byte private constructor() : Number(), Comparable<Byte> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Byte
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */
@@ -380,22 +372,14 @@ public class Short private constructor() : Number(), Comparable<Short> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Short
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */
@@ -608,22 +592,14 @@ public class Int private constructor() : Number(), Comparable<Int> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Int
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */
@@ -873,22 +849,14 @@ public class Long private constructor() : Number(), Comparable<Long> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Long
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */
@@ -1155,22 +1123,14 @@ public class Float private constructor() : Number(), Comparable<Float> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Float
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */
@@ -1386,22 +1346,14 @@ public class Double private constructor() : Number(), Comparable<Double> {
     public operator fun rem(other: Double): Double
 
     /**
-     * Returns this value plus 1.
-     *
-     * The returned value will be assigned to the variable on which the `++` operation was used.
-     * If the prefix version of the `++` operation was used (e.g. `++a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a++`), the expression will result to this value.
+     * Returns this value incremented by one.
      * 
      * @sample samples.misc.Builtins.inc
      */
     public operator fun inc(): Double
 
     /**
-     * Returns this value minus 1.
-     *
-     * The returned value will be assigned to the variable on which the `--` operation was used.
-     * If the prefix version of the `--` operation was used (e.g. `--a`), the expression will result to the value this function returns.
-     * If the postfix version was used (e.g. `a--`), the expression will result to this value.
+     * Returns this value decremented by one.
      * 
      * @sample samples.misc.Builtins.dec
      */

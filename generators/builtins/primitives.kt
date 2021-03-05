@@ -44,15 +44,11 @@ class GeneratePrimitives(out: PrintWriter) : BuiltInsSourceGenerator(out) {
         }
 
         internal fun incDecOperatorsDoc(name: String): String {
-            val (diff, operator) = if (name == "inc") Pair("plus", "++") else Pair("minus", "--")
+            val diff = if (name == "inc") "incremented" else "decremented"
 
             return """
                 /**
-                 * Returns this value $diff 1.
-                 *
-                 * The returned value will be assigned to the variable on which the `$operator` operation was used.
-                 * If the prefix version of the `$operator` operation was used (e.g. `${operator}a`), the expression will result to the value this function returns.
-                 * If the postfix version was used (e.g. `a$operator`), the expression will result to this value.
+                 * Returns this value $diff by one.
                  * 
                  * @sample samples.misc.Builtins.$name
                  */
