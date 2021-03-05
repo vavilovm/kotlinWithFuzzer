@@ -285,6 +285,9 @@ internal class KClassImpl<T : Any>(
     override val isFun: Boolean
         get() = descriptor.isFun
 
+    override val isValue: Boolean
+        get() = descriptor.isValue
+
     override fun equals(other: Any?): Boolean =
         other is KClassImpl<*> && javaObjectType == other.javaObjectType
 
