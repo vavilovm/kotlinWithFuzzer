@@ -1388,8 +1388,10 @@ public fun CharSequence.lines(): List<String> = lineSequence().toList()
  * @sample samples.text.Strings.toBooleanStrict
  */
 @SinceKotlin("1.5")
-public fun String.toBooleanStrict(): Boolean {
-    return toBooleanStrictOrNull() ?: throw IllegalArgumentException("Invalid boolean literal: $this")
+public fun String.toBooleanStrict(): Boolean = when (this) {
+    "true" -> true
+    "false" -> false
+    else -> throw IllegalArgumentException("Invalid boolean literal: $this")
 }
 
 /**
