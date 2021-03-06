@@ -18,9 +18,9 @@ private inline val storageUnit get() = DurationUnit.NANOSECONDS
  * A negative duration is possible in a situation when the second instant is earlier than the first one.
  * An infinite duration value [Duration.INFINITE] can be used to represent infinite timeouts.
  *
- * To construct a duration use either the extension function [toDuration],
- * or the extension properties [hours], [minutes], [seconds], and so on,
- * available on [Int], [Long], and [Double] numeric types.
+ * To construct a duration use either the extension function [toDuration] available on [Int], [Long], and [Double] numeric types,
+ * or the `Duration` companion object functions [Duration.hours], [Duration.minutes], [Duration.seconds], and so on,
+ * taking [Int], [Long], or [Double] numbers as parameters.
  *
  * To get the value of this duration expressed in a particular [duration units][DurationUnit]
  * use the functions [toInt], [toLong], and [toDouble]
@@ -45,114 +45,114 @@ public value class Duration internal constructor(internal val value: Double) : C
         public fun convert(value: Double, sourceUnit: DurationUnit, targetUnit: DurationUnit): Double =
             convertDurationUnit(value, sourceUnit, targetUnit)
 
-        /** Returns a [Duration] equal to this [Int] number of nanoseconds. */
+        /** Returns a [Duration] representing the specified [value] number of nanoseconds. */
         @SinceKotlin("1.5")
         public fun nanoseconds(value: Int): Duration = value.toDuration(DurationUnit.NANOSECONDS)
 
-        /** Returns a [Duration] equal to this [Long] number of nanoseconds. */
+        /** Returns a [Duration] representing the specified [value] number of nanoseconds. */
         @SinceKotlin("1.5")
         public fun nanoseconds(value: Long): Duration = value.toDuration(DurationUnit.NANOSECONDS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of nanoseconds.
+         * Returns a [Duration] representing the specified [value] number of nanoseconds.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun nanoseconds(value: Double): Duration = value.toDuration(DurationUnit.NANOSECONDS)
 
-        /** Returns a [Duration] equal to this [Int] number of microseconds. */
+        /** Returns a [Duration] representing the specified [value] number of microseconds. */
         @SinceKotlin("1.5")
         public fun microseconds(value: Int): Duration = value.toDuration(DurationUnit.MICROSECONDS)
 
-        /** Returns a [Duration] equal to this [Long] number of microseconds. */
+        /** Returns a [Duration] representing the specified [value] number of microseconds. */
         @SinceKotlin("1.5")
         public fun microseconds(value: Long): Duration = value.toDuration(DurationUnit.MICROSECONDS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of microseconds.
+         * Returns a [Duration] representing the specified [value] number of microseconds.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun microseconds(value: Double): Duration = value.toDuration(DurationUnit.MICROSECONDS)
 
-        /** Returns a [Duration] equal to this [Int] number of milliseconds. */
+        /** Returns a [Duration] representing the specified [value] number of milliseconds. */
         @SinceKotlin("1.5")
         public fun milliseconds(value: Int): Duration = value.toDuration(DurationUnit.MILLISECONDS)
 
-        /** Returns a [Duration] equal to this [Long] number of milliseconds. */
+        /** Returns a [Duration] representing the specified [value] number of milliseconds. */
         @SinceKotlin("1.5")
         public fun milliseconds(value: Long): Duration = value.toDuration(DurationUnit.MILLISECONDS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of milliseconds.
+         * Returns a [Duration] representing the specified [value] number of milliseconds.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun milliseconds(value: Double): Duration = value.toDuration(DurationUnit.MILLISECONDS)
 
-        /** Returns a [Duration] equal to this [Int] number of seconds. */
+        /** Returns a [Duration] representing the specified [value] number of seconds. */
         @SinceKotlin("1.5")
         public fun seconds(value: Int): Duration = value.toDuration(DurationUnit.SECONDS)
 
-        /** Returns a [Duration] equal to this [Long] number of seconds. */
+        /** Returns a [Duration] representing the specified [value] number of seconds. */
         @SinceKotlin("1.5")
         public fun seconds(value: Long): Duration = value.toDuration(DurationUnit.SECONDS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of seconds.
+         * Returns a [Duration] representing the specified [value] number of seconds.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun seconds(value: Double): Duration = value.toDuration(DurationUnit.SECONDS)
 
-        /** Returns a [Duration] equal to this [Int] number of minutes. */
+        /** Returns a [Duration] representing the specified [value] number of minutes. */
         @SinceKotlin("1.5")
         public fun minutes(value: Int): Duration = value.toDuration(DurationUnit.MINUTES)
 
-        /** Returns a [Duration] equal to this [Long] number of minutes. */
+        /** Returns a [Duration] representing the specified [value] number of minutes. */
         @SinceKotlin("1.5")
         public fun minutes(value: Long): Duration = value.toDuration(DurationUnit.MINUTES)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of minutes.
+         * Returns a [Duration] representing the specified [value] number of minutes.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun minutes(value: Double): Duration = value.toDuration(DurationUnit.MINUTES)
 
-        /** Returns a [Duration] equal to this [Int] number of hours. */
+        /** Returns a [Duration] representing the specified [value] number of hours. */
         @SinceKotlin("1.5")
         public fun hours(value: Int): Duration = value.toDuration(DurationUnit.HOURS)
 
-        /** Returns a [Duration] equal to this [Long] number of hours. */
+        /** Returns a [Duration] representing the specified [value] number of hours. */
         @SinceKotlin("1.5")
         public fun hours(value: Long): Duration = value.toDuration(DurationUnit.HOURS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of hours.
+         * Returns a [Duration] representing the specified [value] number of hours.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun hours(value: Double): Duration = value.toDuration(DurationUnit.HOURS)
 
-        /** Returns a [Duration] equal to this [Int] number of days. */
+        /** Returns a [Duration] representing the specified [value] number of days. */
         @SinceKotlin("1.5")
         public fun days(value: Int): Duration = value.toDuration(DurationUnit.DAYS)
 
-        /** Returns a [Duration] equal to this [Long] number of days. */
+        /** Returns a [Duration] representing the specified [value] number of days. */
         @SinceKotlin("1.5")
         public fun days(value: Long): Duration = value.toDuration(DurationUnit.DAYS)
 
         /**
-         * Returns a [Duration] equal to this [Double] number of days.
+         * Returns a [Duration] representing the specified [value] number of days.
          *
-         * @throws IllegalArgumentException if this `Double` value is `NaN`.
+         * @throws IllegalArgumentException if the provided `Double` [value] is `NaN`.
          */
         @SinceKotlin("1.5")
         public fun days(value: Double): Duration = value.toDuration(DurationUnit.DAYS)
