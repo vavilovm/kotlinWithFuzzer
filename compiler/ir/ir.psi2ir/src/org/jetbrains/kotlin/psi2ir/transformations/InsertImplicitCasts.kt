@@ -24,10 +24,8 @@ import org.jetbrains.kotlin.descriptors.*
 import org.jetbrains.kotlin.incremental.components.NoLookupLocation
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.IrStatement
-import org.jetbrains.kotlin.ir.declarations.IrClass
-import org.jetbrains.kotlin.ir.declarations.IrField
-import org.jetbrains.kotlin.ir.declarations.IrFunction
-import org.jetbrains.kotlin.ir.declarations.IrVariable
+import org.jetbrains.kotlin.ir.PsiIrFileEntry
+import org.jetbrains.kotlin.ir.declarations.*
 import org.jetbrains.kotlin.ir.descriptors.IrBasedDeclarationDescriptor
 import org.jetbrains.kotlin.ir.descriptors.IrBuiltIns
 import org.jetbrains.kotlin.ir.expressions.*
@@ -46,10 +44,12 @@ import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
 import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
 import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 import org.jetbrains.kotlin.name.Name
+import org.jetbrains.kotlin.psi.KtBinaryExpression
 import org.jetbrains.kotlin.psi2ir.containsNull
 import org.jetbrains.kotlin.psi2ir.findSingleFunction
 import org.jetbrains.kotlin.psi2ir.generators.GeneratorContext
 import org.jetbrains.kotlin.psi2ir.generators.GeneratorExtensions
+import org.jetbrains.kotlin.psi2ir.generators.OPERATORS_DESUGARED_TO_CALLS
 import org.jetbrains.kotlin.psi2ir.generators.getSubstitutedFunctionTypeForSamType
 import org.jetbrains.kotlin.resolve.descriptorUtil.module
 import org.jetbrains.kotlin.types.*
@@ -57,15 +57,16 @@ import org.jetbrains.kotlin.types.checker.KotlinTypeChecker
 import org.jetbrains.kotlin.types.typeUtil.*
 import org.jetbrains.kotlin.util.OperatorNameConventions
 
-fun insertImplicitCasts(element: IrElement, context: GeneratorContext) {
+fun insertImplicitCasts(file: IrFile, context: GeneratorContext) {
     InsertImplicitCasts(
         context.builtIns,
         context.irBuiltIns,
         context.typeTranslator,
         context.callToSubstitutedDescriptorMap,
         context.extensions,
-        context.symbolTable
-    ).run(element)
+        context.symbolTable,
+        file,
+    ).run(file)
 }
 
 internal class InsertImplicitCasts(
@@ -74,7 +75,8 @@ internal class InsertImplicitCasts(
     private val typeTranslator: TypeTranslator,
     private val callToSubstitutedDescriptorMap: Map<IrDeclarationReference, CallableDescriptor>,
     private val generatorExtensions: GeneratorExtensions,
-    private val symbolTable: SymbolTable
+    private val symbolTable: SymbolTable,
+    private val file: IrFile,
 ) : IrElementTransformerVoid() {
 
     private val expectedFunctionExpressionReturnType = hashMapOf<FunctionDescriptor, IrType>()
@@ -408,7 +410,7 @@ internal class InsertImplicitCasts(
         if (targetType.isInt()) return this
 
         if (generatorExtensions.shouldPreventDeprecatedIntegerValueTypeLiteralConversion &&
-            this is IrCall && preventDeprecatedIntegerValueTypeLiteralConversion(symbol.descriptor)
+            this is IrCall && preventDeprecatedIntegerValueTypeLiteralConversion()
         ) return this
 
         return if (this is IrConst<*>) {
@@ -438,13 +440,23 @@ internal class InsertImplicitCasts(
         }
     }
 
-    private fun preventDeprecatedIntegerValueTypeLiteralConversion(descriptor: CallableDescriptor): Boolean {
-        // in JVM, we don't convert values resulted from calling unary operators 'inv', 'unaryPlus', 'unaryMinus' to another integer type.
-        // The reason is that doing so would change behavior, which we want to avoid, see KT-42321.
-        // At the same time, such structure seems possible to achieve only via the magical integer value type, but inferring the result of
-        // the operator call based on an expected type is deprecated behavior which is going to be removed in the future, see KT-38895.
-        return descriptor.name in operatorsWithDeprecatedIntegerValueTypeLiteralConversion &&
-                descriptor.dispatchReceiverParameter?.type?.let { KotlinBuiltIns.isPrimitiveType(it) } == true
+    // In JVM, we don't convert values resulted from calling built-in operators on integer literals to another integer type.
+    // The reason is that doing so would change behavior, which we want to avoid, see KT-42321.
+    // At the same time, such structure seems possible to achieve only via the magical integer value type, but inferring the result of
+    // the operator call based on an expected type is deprecated behavior which is going to be removed in the future, see KT-38895.
+    private fun IrCall.preventDeprecatedIntegerValueTypeLiteralConversion(): Boolean {
+        val descriptor = symbol.descriptor
+        if (descriptor.name !in operatorsWithDeprecatedIntegerValueTypeLiteralConversion) return false
+
+        // This bug is only reproducible for non-operator calls, for example "1.plus(2)", NOT "1 + 2".
+        if (origin in OPERATORS_DESUGARED_TO_CALLS) return false
+
+        // For infix methods, this bug is only reproducible for non-infix calls, for example "1.shl(2)", NOT "1 shl 2".
+        if (descriptor.isInfix) {
+            if ((file.fileEntry as? PsiIrFileEntry)?.findPsiElement(this) is KtBinaryExpression) return false
+        }
+
+        return descriptor.dispatchReceiverParameter?.type?.let { KotlinBuiltIns.isPrimitiveType(it) } == true
     }
 
     private val operatorsWithDeprecatedIntegerValueTypeLiteralConversion = with(OperatorNameConventions) {

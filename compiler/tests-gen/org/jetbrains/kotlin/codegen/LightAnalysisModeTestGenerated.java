@@ -1186,9 +1186,9 @@ public class LightAnalysisModeTestGenerated extends AbstractLightAnalysisModeTes
             runTest("compiler/testData/codegen/box/binaryOp/bitwiseOpNullable.kt");
         }
 
-        @TestMetadata("boxWithIntegerValueTypeReceiver.kt")
-        public void testBoxWithIntegerValueTypeReceiver() throws Exception {
-            runTest("compiler/testData/codegen/box/binaryOp/boxWithIntegerValueTypeReceiver.kt");
+        @TestMetadata("boxingOfLiteralReceiverWithIntegerValueType.kt")
+        public void testBoxingOfLiteralReceiverWithIntegerValueType() throws Exception {
+            runTest("compiler/testData/codegen/box/binaryOp/boxingOfLiteralReceiverWithIntegerValueType.kt");
         }
 
         @TestMetadata("call.kt")
