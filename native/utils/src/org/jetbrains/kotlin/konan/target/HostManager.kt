@@ -95,7 +95,7 @@ open class HostManager(
         MACOS_ARM64 to setOf(
             MACOS_ARM64,
             IOS_ARM64
-        ),
+        )
     )
 
     private val enabledExperimentalByHost: Map<KonanTarget, Set<KonanTarget>> = mapOf(
@@ -166,7 +166,7 @@ open class HostManager(
             Pair("osx", "x86_64") to MACOS_X64,
             Pair("osx", "aarch64") to MACOS_ARM64,
             Pair("linux", "x86_64") to LINUX_X64,
-            Pair("windows", "x86_64") to MINGW_X64,
+            Pair("windows", "x86_64") to MINGW_X64
         )
 
         val host: KonanTarget = hostMapping[hostOs() to hostArchitecture()]
