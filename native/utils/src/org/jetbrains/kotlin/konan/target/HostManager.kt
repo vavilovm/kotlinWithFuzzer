@@ -147,7 +147,8 @@ open class HostManager(
 
         val jniHostPlatformIncludeDir: String
             get() = when (host) {
-                MACOS_X64 -> "darwin"
+                MACOS_X64,
+                MACOS_ARM64 -> "darwin"
                 LINUX_X64 -> "linux"
                 MINGW_X64 -> "win32"
                 else -> throw TargetSupportException("Unknown host: $host.")
