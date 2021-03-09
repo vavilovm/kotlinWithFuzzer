@@ -17,6 +17,7 @@ import org.jetbrains.gradle.plugins.tools.lib
 import org.jetbrains.gradle.plugins.tools.solib
 import org.jetbrains.kotlin.*
 import org.jetbrains.kotlin.konan.target.HostManager
+import org.jetbrains.kotlin.konan.target.KonanTarget
 import java.io.ByteArrayOutputStream
 
 val kotlinVersion = project.bootstrapKotlinVersion
@@ -34,8 +35,13 @@ native {
     val obj = if (isWindows) "obj" else "o"
     val host = rootProject.project(":kotlin-native").extra["hostName"]
     val hostLibffiDir = rootProject.project(":kotlin-native").extra["${host}LibffiDir"]
-    val cflags = mutableListOf("-I$hostLibffiDir/include",
-                               *platformManager.hostPlatform.clang.hostCompilerArgsForJni)
+    // TODO: Depends on homebrew installation.
+    val libffiCFlags = when (HostManager.host) {
+        KonanTarget.MACOS_ARM64 -> "-I/opt/homebrew/opt/libffi/include"
+        else -> "-I$hostLibffiDir/include"
+    }
+
+    val cflags = mutableListOf(libffiCFlags, *platformManager.hostPlatform.clang.hostCompilerArgsForJni)
     if (!HostManager.hostIsMingw) {
         cflags += "-fPIC"
     }
@@ -51,13 +57,17 @@ native {
         }
     }
     val objSet = sourceSets["callbacks"]!!.transform(".c" to ".$obj")
-
+    // TODO: Depends on homebrew installation.
+    val libffiLibrary = when (HostManager.host) {
+        KonanTarget.MACOS_ARM64 -> "/opt/homebrew/opt/libffi/lib/libffi.a"
+        else -> "$hostLibffiDir/lib/libffi.a"
+    }
     target(solib("callbacks"), objSet) {
         tool(*platformManager.hostPlatform.clang.clangCXX("").toTypedArray())
         flags("-shared",
               "-o",ruleOut(), *ruleInAll(),
               "-L${project(":kotlin-native:libclangext").buildDir}",
-              "$hostLibffiDir/lib/libffi.a",
+                libffiLibrary,
               "-lclangext")
     }
     tasks.named(solib("callbacks")).configure {
