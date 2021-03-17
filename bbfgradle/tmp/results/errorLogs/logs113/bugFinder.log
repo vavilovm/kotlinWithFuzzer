@@ -1,0 +1,31 @@
+2021-03-12 10:47:04,462 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/simpleProperty1.kt
+2021-03-12 10:47:08,528 [main:53] - Start to mutate
+2021-03-12 10:47:08,529 [main:54] - BEFORE = interface Test {
+    @JvmDefault
+    val test: String
+        get() = "O"
+
+    val testDelegated: String
+        get() = "fail"
+
+}
+
+class Delegate : Test {
+    override val test: String
+        get() = "fail"
+
+    override val testDelegated: String
+        get() = "K"
+}
+
+class TestClass(val foo: Test) : Test by foo
+
+fun box(): String {
+    val testClass = TestClass(Delegate())
+    return testClass.test + testClass.testDelegated
+}
+2021-03-12 10:47:09,260 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:47:09,625 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:47:12,802 [main:19] - Cur transformation LocalTCE
+2021-03-12 10:47:31,409 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 10:47:31,418 [main:19] - Cur transformation TCETransformation

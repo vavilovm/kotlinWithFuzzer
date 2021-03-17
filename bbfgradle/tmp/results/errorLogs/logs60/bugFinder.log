@@ -1,0 +1,23 @@
+2021-03-12 01:11:43,771 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/map2.kt
+2021-03-12 01:11:48,727 [main:53] - Start to mutate
+2021-03-12 01:11:48,727 [main:54] - BEFORE = 
+
+inline fun stub(f: () -> String): String = f()
+
+class A(val z: String) {
+    fun map(s: String) = z + s
+}
+
+
+fun box(): String {
+    val a = A("O")
+    val s = arrayOf("K")
+    return s.map(a::map).first()
+}
+
+
+2021-03-12 01:11:49,322 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 01:11:49,609 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 01:11:53,947 [main:19] - Cur transformation LocalTCE
+2021-03-12 01:12:08,874 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 01:12:08,882 [main:19] - Cur transformation TCETransformation

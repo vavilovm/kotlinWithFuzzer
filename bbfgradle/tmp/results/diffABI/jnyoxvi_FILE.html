@@ -1,0 +1,89 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS test/Ori</h1>
+<p><p><b>JVM </b>
+: [package-private, interface, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [package-private, interface, abstract]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getViit()J</code><br></td>
+<td><code>  // jvmGetterSignature: getViit-s-VKNKU()J</code><br></td>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getTkxf(Lkotlin/collections/ArrayDeque;)J</code><br></td>
+<td><code>  // jvmGetterSignature: getTkxf-s-VKNKU(Lkotlin/collections/ArrayDeque;)J</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>getTkxf(Lkotlin/collections/ArrayDeque;)J [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getTkxf-s-VKNKU(Lkotlin/collections/ArrayDeque;)J [public, abstract]</code></td>
+</tr>
+<tr><td><code>getViit()J [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getViit-s-VKNKU()J [public, abstract]</code></td>
+</tr>
+</table>
+&nbsp;
+<h1>CLASS test/Ori$DefaultImpls</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>getTkxf(Ltest/Ori;Lkotlin/collections/ArrayDeque;)J [public, static]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getTkxf-s-VKNKU(Ltest/Ori;Lkotlin/collections/ArrayDeque;)J [public, static]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

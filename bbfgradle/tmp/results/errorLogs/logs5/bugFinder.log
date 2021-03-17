@@ -1,0 +1,5 @@
+2021-03-11 11:18:36,302 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/inlinedSamWrapper0.kt
+2021-03-11 11:18:41,724 [main:53] - Start to mutate
+2021-03-11 11:18:41,725 [main:54] - BEFORE = public interface MyRunnable {
+    public void run();
+}

@@ -1,0 +1,87 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS Cil</h1>
+<p><p><b>JVM </b>
+: [package-private, interface, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [package-private, interface, abstract]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getHugm()J</code><br></td>
+<td><code>  // jvmGetterSignature: getHugm-s-VKNKU()J</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>getHugm()J [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getHugm-s-VKNKU()J [public, abstract]</code></td>
+</tr>
+</table>
+&nbsp;
+<h1>CLASS Cil$DefaultImpls</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<h2>&gt; METHOD putAll(LCil;Ljava/util/Map;)V</h2>
+<p><p><b>JVM </b>
+: [public, static]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, static]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.signature</td>
+<td><code>&lt;T:Ljava/lang/Object;S:Lkotlin/ULong;&gt;(LCil&lt;TT;TS;&gt;;Ljava/util/Map&lt;+LA;+LA;&gt;;)V</code></td>
+<td><code>&lt;T:Ljava/lang/Object;S:Lkotlin/ULong;&gt;(LCil&lt;TT;TS;&gt;;Ljava/util/Map&lt;+LA;LA;&gt;;)V</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

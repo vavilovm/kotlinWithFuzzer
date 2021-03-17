@@ -1,0 +1,18 @@
+2021-03-12 10:55:27,565 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/fpNonConstValProperlyInitialized.kt
+2021-03-12 10:55:31,683 [main:53] - Start to mutate
+2021-03-12 10:55:31,683 [main:54] - BEFORE = import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+2021-03-12 10:55:32,341 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:55:32,713 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:55:32,947 [main:19] - Cur transformation LocalTCE
+2021-03-12 10:55:41,773 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 10:55:41,781 [main:19] - Cur transformation TCETransformation

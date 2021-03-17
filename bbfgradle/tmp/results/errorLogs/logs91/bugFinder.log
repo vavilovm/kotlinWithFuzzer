@@ -1,0 +1,36 @@
+2021-03-12 06:18:46,746 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/enumInsideClassObject.kt
+2021-03-12 06:18:50,701 [main:53] - Start to mutate
+2021-03-12 06:18:50,701 [main:54] - BEFORE = import kotlin.test.assertEquals
+
+class A {
+    companion object {
+        enum class Season {
+            WINTER,
+            SPRING,
+            SUMMER,
+            AUTUMN
+        }
+    }
+}
+
+fun foo(x : A.Companion.Season) : String {
+    return when (x) {
+        A.Companion.Season.WINTER -> "winter"
+        A.Companion.Season.SPRING -> "spring"
+        A.Companion.Season.SUMMER -> "summer"
+        else -> "other"
+    }
+}
+
+fun box() : String {
+    assertEquals("winter", foo(A.Companion.Season.WINTER))
+    assertEquals("spring", foo(A.Companion.Season.SPRING))
+    assertEquals("summer", foo(A.Companion.Season.SUMMER))
+    assertEquals("other", foo(A.Companion.Season.AUTUMN))
+    return "OK"
+}
+2021-03-12 06:18:51,510 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 06:18:51,931 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 06:18:53,013 [main:19] - Cur transformation LocalTCE
+2021-03-12 06:19:10,200 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 06:19:10,208 [main:19] - Cur transformation TCETransformation

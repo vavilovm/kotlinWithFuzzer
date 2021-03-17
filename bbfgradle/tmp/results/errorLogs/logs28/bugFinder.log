@@ -1,0 +1,14 @@
+2021-03-11 20:11:35,040 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/mixedParams0.kt
+2021-03-11 20:11:38,990 [main:53] - Start to mutate
+2021-03-11 20:11:38,991 [main:54] - BEFORE = data class A(var x: Int, val z: Int?)
+
+fun box(): String {
+    val a = A(1, null)
+    if("$a" != "A(x=1, z=null)") return "$a"
+    return "OK"
+}
+2021-03-11 20:11:39,794 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 20:11:40,135 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 20:11:44,562 [main:19] - Cur transformation LocalTCE
+2021-03-11 20:11:50,926 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 20:11:50,935 [main:19] - Cur transformation TCETransformation

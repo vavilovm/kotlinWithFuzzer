@@ -1,0 +1,1986 @@
+2021-03-12 10:55:31,685 [main:66] - Compilation checking started
+2021-03-12 10:55:33,691 [main:45] - Trying to change 11 nodes
+2021-03-12 10:55:33,695 [main:53] - replacing (-0.0, Double)
+2021-03-12 10:55:33,695 [main:50] - replacing -0.0 Double
+2021-03-12 10:55:33,695 [main:54] - Getting value of type Double
+2021-03-12 10:55:33,810 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:33,813 [main:58] - GENERATED VALUE OF TYPE Double = 0.11781284276942061
+2021-03-12 10:55:33,814 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:34,569 [main:67] - randomType = Long
+2021-03-12 10:55:34,680 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:34,879 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5b9ed45]
+2021-03-12 10:55:34,965 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:34,966 [main:149] - GENERATING call of type public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]
+2021-03-12 10:55:34,969 [main:78] - Generated call from random type = (-2815137836289863700).div(0.8317450336375107).inc()
+2021-03-12 10:55:34,969 [main:106] - GETTING Double from Double
+2021-03-12 10:55:35,062 [main:113] - Case = [@kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f], public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@7153164a]]
+2021-03-12 10:55:35,062 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f]
+2021-03-12 10:55:35,063 [main:149] - GENERATING call of type public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@7153164a]
+2021-03-12 10:55:35,064 [main:117] - GENERATED CALL = (minus0D).toShort().times(minus0D)
+2021-03-12 10:55:35,064 [main:113] - Case = [public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]]
+2021-03-12 10:55:35,064 [main:149] - GENERATING call of type public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]
+2021-03-12 10:55:35,065 [main:117] - GENERATED CALL = (minus0D).inc()
+2021-03-12 10:55:35,065 [main:113] - Case = [public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72], @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@37aa7ede]]
+2021-03-12 10:55:35,065 [main:149] - GENERATING call of type public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72]
+2021-03-12 10:55:35,066 [main:149] - GENERATING call of type @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@37aa7ede]
+2021-03-12 10:55:35,067 [main:117] - GENERATED CALL = (minus0D).toLong().rem(minus0D)
+2021-03-12 10:55:35,068 [main:113] - Case = [@kotlin.SinceKotlin public fun kotlin.Double.nextTowards(to: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@58e35006]]
+2021-03-12 10:55:35,068 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Double.nextTowards(to: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@58e35006]
+2021-03-12 10:55:35,069 [main:117] - GENERATED CALL = (minus0D).nextTowards(minus0D)
+2021-03-12 10:55:35,069 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], @kotlin.SinceKotlin public val kotlin.Double.ulp: kotlin.Double defined in kotlin.math[DeserializedPropertyDescriptor@291dbe83]]
+2021-03-12 10:55:35,069 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:35,070 [main:117] - GENERATED CALL = (minus0D).toDouble().ulp
+2021-03-12 10:55:35,070 [main:113] - Case = [public open fun toFloat(): kotlin.Float defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@5bb0de2a], public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@5e4bff45]]
+2021-03-12 10:55:35,071 [main:149] - GENERATING call of type public open fun toFloat(): kotlin.Float defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@5bb0de2a]
+2021-03-12 10:55:35,071 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@5e4bff45]
+2021-03-12 10:55:35,072 [main:117] - GENERATED CALL = (minus0D).toFloat().plus(minus0D)
+2021-03-12 10:55:35,072 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b], public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1e09e115]]
+2021-03-12 10:55:35,072 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b]
+2021-03-12 10:55:35,153 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:35,154 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1e09e115]
+2021-03-12 10:55:35,243 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:35,245 [main:117] - GENERATED CALL = (minus0D).compareTo(-74).minus(0.29720325424678573)
+2021-03-12 10:55:35,245 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Double.pow(x: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@7b165203]]
+2021-03-12 10:55:35,245 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:35,246 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Double.pow(x: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@7b165203]
+2021-03-12 10:55:35,344 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:35,346 [main:117] - GENERATED CALL = (minus0D).toDouble().pow(0.12112764265939768)
+2021-03-12 10:55:35,346 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun unaryMinus(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@1f15fb2c]]
+2021-03-12 10:55:35,346 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:35,346 [main:149] - GENERATING call of type public final operator fun unaryMinus(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@1f15fb2c]
+2021-03-12 10:55:35,347 [main:117] - GENERATED CALL = (minus0D).toDouble().unaryMinus()
+2021-03-12 10:55:35,347 [main:113] - Case = [public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72], public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5b9ed45]]
+2021-03-12 10:55:35,347 [main:149] - GENERATING call of type public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72]
+2021-03-12 10:55:35,348 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5b9ed45]
+2021-03-12 10:55:35,349 [main:117] - GENERATED CALL = (minus0D).toLong().div(minus0D)
+2021-03-12 10:55:35,349 [main:61] - replacement of -0.0 of type Double is (minus0D).toDouble().ulp
+2021-03-12 10:55:35,456 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:35,457 [main:66] - Compilation checking started
+2021-03-12 10:55:35,819 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals((minus0D).toDouble().ulp, minus0D)
+
+    return "OK"
+}
+2021-03-12 10:55:35,821 [main:53] - replacing (-0.0, Double)
+2021-03-12 10:55:35,821 [main:50] - replacing -0.0 Double
+2021-03-12 10:55:35,821 [main:54] - Getting value of type Double
+2021-03-12 10:55:35,978 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:35,978 [main:58] - GENERATED VALUE OF TYPE Double = 0.03753780392399897
+2021-03-12 10:55:35,979 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:36,349 [main:67] - randomType = HashMap<UShort, Byte>
+2021-03-12 10:55:36,430 [main:302] - generating value of type = HashMap<UShort, Byte> false depth = 0
+2021-03-12 10:55:36,547 [main:43] - GENERATING CALL OF fun <K, V> hashMapOf(): HashMap<UShort, Byte> = TODO()
+2021-03-12 10:55:36,550 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> hashMapOf(): HashMap<UShort, Byte> = TODO()
+2021-03-12 10:55:36,643 [main:95] - GENERATED = hashMapOf<UShort, Byte>()
+2021-03-12 10:55:36,880 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.OverloadResolutionByLambdaReturnType @kotlin.internal.InlineOnly public inline fun <K, V> kotlin.collections.Map<out K, V>.maxOf(selector: (kotlin.collections.Map.Entry<K, V>) -> kotlin.Double): kotlin.Double defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@262cf9]
+2021-03-12 10:55:36,966 [main:302] - generating value of type = Function1<Entry<K, V>, Double> false depth = 0
+2021-03-12 10:55:36,967 [main:302] - generating value of type = Double true depth = 1
+2021-03-12 10:55:36,971 [main:78] - Generated call from random type = (hashMapOf<UShort, Byte>()).maxOf({a: Entry<K, V> -> 0.32819097746890025})
+2021-03-12 10:55:36,971 [main:106] - GETTING Double from Double
+2021-03-12 10:55:37,029 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f], public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]]
+2021-03-12 10:55:37,029 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f]
+2021-03-12 10:55:37,030 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]
+2021-03-12 10:55:37,031 [main:117] - GENERATED CALL = (minus0D).toInt().div(minus0D)
+2021-03-12 10:55:37,031 [main:113] - Case = [@kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f], public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@7153164a]]
+2021-03-12 10:55:37,031 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f]
+2021-03-12 10:55:37,032 [main:149] - GENERATING call of type public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@7153164a]
+2021-03-12 10:55:37,033 [main:117] - GENERATED CALL = (minus0D).toShort().times(minus0D)
+2021-03-12 10:55:37,033 [main:113] - Case = [@kotlin.SinceKotlin public fun kotlin.Double.nextUp(): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@5d2ffabd]]
+2021-03-12 10:55:37,034 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Double.nextUp(): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@5d2ffabd]
+2021-03-12 10:55:37,035 [main:117] - GENERATED CALL = (minus0D).nextUp()
+2021-03-12 10:55:37,036 [main:113] - Case = [@kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af], public open fun toDouble(): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@16a1057e]]
+2021-03-12 10:55:37,036 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af]
+2021-03-12 10:55:37,036 [main:149] - GENERATING call of type public open fun toDouble(): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@16a1057e]
+2021-03-12 10:55:37,037 [main:117] - GENERATED CALL = (minus0D).toByte().toDouble()
+2021-03-12 10:55:37,037 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun times(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@2bb42c81]]
+2021-03-12 10:55:37,037 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:37,038 [main:149] - GENERATING call of type public final operator fun times(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@2bb42c81]
+2021-03-12 10:55:37,137 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:37,139 [main:117] - GENERATED CALL = (minus0D).toDouble().times(6)
+2021-03-12 10:55:37,139 [main:113] - Case = [@kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f], @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@136bb4b]]
+2021-03-12 10:55:37,139 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f]
+2021-03-12 10:55:37,139 [main:149] - GENERATING call of type @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@136bb4b]
+2021-03-12 10:55:37,140 [main:117] - GENERATED CALL = (minus0D).toShort().rem(minus0D)
+2021-03-12 10:55:37,140 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b], public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@35f5a342]]
+2021-03-12 10:55:37,140 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b]
+2021-03-12 10:55:37,226 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:37,226 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@35f5a342]
+2021-03-12 10:55:37,227 [main:117] - GENERATED CALL = (minus0D).compareTo(-4).plus(minus0D)
+2021-03-12 10:55:37,228 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Double.pow(x: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@7b165203]]
+2021-03-12 10:55:37,228 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Double.pow(x: kotlin.Double): kotlin.Double defined in kotlin.math[DeserializedSimpleFunctionDescriptor@7b165203]
+2021-03-12 10:55:37,229 [main:117] - GENERATED CALL = (minus0D).pow(minus0D)
+2021-03-12 10:55:37,229 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]]
+2021-03-12 10:55:37,229 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:37,229 [main:149] - GENERATING call of type public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]
+2021-03-12 10:55:37,230 [main:117] - GENERATED CALL = (minus0D).toDouble().inc()
+2021-03-12 10:55:37,230 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b], public open fun toDouble(): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@4789e2bc]]
+2021-03-12 10:55:37,230 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b]
+2021-03-12 10:55:37,306 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:37,307 [main:149] - GENERATING call of type public open fun toDouble(): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@4789e2bc]
+2021-03-12 10:55:37,308 [main:117] - GENERATED CALL = (minus0D).compareTo(94).toDouble()
+2021-03-12 10:55:37,308 [main:61] - replacement of -0.0 of type Double is (minus0D).toInt().div(minus0D)
+2021-03-12 10:55:37,398 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:37,399 [main:66] - Compilation checking started
+2021-03-12 10:55:37,684 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = (minus0D).toInt().div(minus0D)
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:37,685 [main:53] - replacing (0.0, Double)
+2021-03-12 10:55:37,685 [main:50] - replacing 0.0 Double
+2021-03-12 10:55:37,685 [main:54] - Getting value of type Double
+2021-03-12 10:55:37,767 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:37,767 [main:58] - GENERATED VALUE OF TYPE Double = 0.30083653227156026
+2021-03-12 10:55:37,767 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:37,872 [main:67] - randomType = Long
+2021-03-12 10:55:37,988 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:38,062 [main:149] - GENERATING call of type public abstract fun toFloat(): kotlin.Float defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@44ef4e6d]
+2021-03-12 10:55:38,063 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@5e4bff45]
+2021-03-12 10:55:38,157 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:38,158 [main:78] - Generated call from random type = (5187659174741367508).toFloat().plus(0.23996305924613148)
+2021-03-12 10:55:38,158 [main:106] - GETTING Double from Double
+2021-03-12 10:55:38,198 [main:113] - Case = [@kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af], public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@79eaabdc]]
+2021-03-12 10:55:38,198 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af]
+2021-03-12 10:55:38,199 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@79eaabdc]
+2021-03-12 10:55:38,200 [main:117] - GENERATED CALL = (minus0D).toByte().div(minus0D)
+2021-03-12 10:55:38,200 [main:113] - Case = [public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72], public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5ddca270]]
+2021-03-12 10:55:38,200 [main:149] - GENERATING call of type public open fun toLong(): kotlin.Long defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@55e60c72]
+2021-03-12 10:55:38,200 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5ddca270]
+2021-03-12 10:55:38,201 [main:117] - GENERATED CALL = (minus0D).toLong().minus(minus0D)
+2021-03-12 10:55:38,201 [main:113] - Case = [@kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af], public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@477cd83e]]
+2021-03-12 10:55:38,201 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af]
+2021-03-12 10:55:38,202 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@477cd83e]
+2021-03-12 10:55:38,202 [main:117] - GENERATED CALL = (minus0D).toByte().minus(minus0D)
+2021-03-12 10:55:38,202 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b], public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]]
+2021-03-12 10:55:38,203 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b]
+2021-03-12 10:55:38,276 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:38,277 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]
+2021-03-12 10:55:38,352 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:38,353 [main:117] - GENERATED CALL = (minus0D).compareTo(121).div(0.21959524746700687)
+2021-03-12 10:55:38,353 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun minus(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@53e23286]]
+2021-03-12 10:55:38,353 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:38,353 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@53e23286]
+2021-03-12 10:55:38,457 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:38,459 [main:117] - GENERATED CALL = (minus0D).toDouble().minus(38)
+2021-03-12 10:55:38,460 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f], public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]]
+2021-03-12 10:55:38,460 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f]
+2021-03-12 10:55:38,460 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@798d656d]
+2021-03-12 10:55:38,463 [main:117] - GENERATED CALL = (minus0D).toInt().div(minus0D)
+2021-03-12 10:55:38,463 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@34137044], public final fun toDouble(): kotlin.Double defined in kotlin.Char[DeserializedSimpleFunctionDescriptor@30393db8]]
+2021-03-12 10:55:38,463 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@34137044]
+2021-03-12 10:55:38,464 [main:149] - GENERATING call of type public final fun toDouble(): kotlin.Double defined in kotlin.Char[DeserializedSimpleFunctionDescriptor@30393db8]
+2021-03-12 10:55:38,466 [main:117] - GENERATED CALL = (minus0D).toChar().toDouble()
+2021-03-12 10:55:38,467 [main:113] - Case = [@kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af], public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@27eda07]]
+2021-03-12 10:55:38,467 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toByte(): kotlin.Byte defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@447cb6af]
+2021-03-12 10:55:38,468 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@27eda07]
+2021-03-12 10:55:38,470 [main:117] - GENERATED CALL = (minus0D).toByte().plus(minus0D)
+2021-03-12 10:55:38,470 [main:113] - Case = [@kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f], public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@72810bac]]
+2021-03-12 10:55:38,470 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@218c547f]
+2021-03-12 10:55:38,471 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@72810bac]
+2021-03-12 10:55:38,472 [main:117] - GENERATED CALL = (minus0D).toShort().minus(minus0D)
+2021-03-12 10:55:38,473 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]]
+2021-03-12 10:55:38,473 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:38,473 [main:149] - GENERATING call of type public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]
+2021-03-12 10:55:38,475 [main:117] - GENERATED CALL = (minus0D).toDouble().inc()
+2021-03-12 10:55:38,475 [main:61] - replacement of 0.0 of type Double is (minus0D).toByte().minus(minus0D)
+2021-03-12 10:55:38,592 [main:33] - Trying to replace Element(FLOAT_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:38,593 [main:66] - Compilation checking started
+2021-03-12 10:55:38,847 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -(minus0D).toByte().minus(minus0D)
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:38,848 [main:53] - replacing (-0.0, Double)
+2021-03-12 10:55:38,848 [main:50] - replacing -0.0 Double
+2021-03-12 10:55:38,849 [main:54] - Getting value of type Double
+2021-03-12 10:55:38,929 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:38,930 [main:58] - GENERATED VALUE OF TYPE Double = 0.3427310315383848
+2021-03-12 10:55:38,930 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:38,930 [main:67] - randomType = Float
+2021-03-12 10:55:39,011 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 10:55:39,065 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@412311a2]
+2021-03-12 10:55:39,066 [main:149] - GENERATING call of type public fun kotlin.Double.coerceIn(minimumValue: kotlin.Double, maximumValue: kotlin.Double): kotlin.Double defined in kotlin.ranges[DeserializedSimpleFunctionDescriptor@1005364f]
+2021-03-12 10:55:39,160 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:39,162 [main:78] - Generated call from random type = (0.8499178f).div(minus0D).coerceIn(minus0D, 0.9468021832118898)
+2021-03-12 10:55:39,164 [main:106] - GETTING Double from Float
+2021-03-12 10:55:39,237 [main:113] - Case = [@kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@786a7b], public open fun toDouble(): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@243deeda]]
+2021-03-12 10:55:39,237 [main:149] - GENERATING call of type @kotlin.Deprecated public open fun toShort(): kotlin.Short defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@786a7b]
+2021-03-12 10:55:39,238 [main:149] - GENERATING call of type public open fun toDouble(): kotlin.Double defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@243deeda]
+2021-03-12 10:55:39,239 [main:117] - GENERATED CALL = (minus0F).toShort().toDouble()
+2021-03-12 10:55:39,239 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]]
+2021-03-12 10:55:39,239 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:39,239 [main:149] - GENERATING call of type public final operator fun inc(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@60caf876]
+2021-03-12 10:55:39,240 [main:117] - GENERATED CALL = (minus0F).toDouble().inc()
+2021-03-12 10:55:39,240 [main:113] - Case = [public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@412311a2], public final operator fun minus(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@53e23286]]
+2021-03-12 10:55:39,240 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@412311a2]
+2021-03-12 10:55:39,335 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:39,336 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@53e23286]
+2021-03-12 10:55:39,435 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:39,437 [main:117] - GENERATED CALL = (minus0F).div(0.2561615330425764).minus(58)
+2021-03-12 10:55:39,437 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f], public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1e09e115]]
+2021-03-12 10:55:39,437 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f]
+2021-03-12 10:55:39,438 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1e09e115]
+2021-03-12 10:55:39,534 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:39,536 [main:117] - GENERATED CALL = (minus0F).toInt().minus(0.9203445249329546)
+2021-03-12 10:55:39,536 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@66e9f5fe], public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@8eeb409]]
+2021-03-12 10:55:39,536 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@66e9f5fe]
+2021-03-12 10:55:39,628 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:39,629 [main:149] - GENERATING call of type public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@8eeb409]
+2021-03-12 10:55:39,630 [main:117] - GENERATED CALL = (minus0F).compareTo(-43).times(minus0D)
+2021-03-12 10:55:39,630 [main:113] - Case = [public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@66e9f5fe], @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@3d4fc9f5]]
+2021-03-12 10:55:39,630 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@66e9f5fe]
+2021-03-12 10:55:39,713 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:39,714 [main:149] - GENERATING call of type @kotlin.SinceKotlin public final operator fun rem(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@3d4fc9f5]
+2021-03-12 10:55:39,715 [main:117] - GENERATED CALL = (minus0F).compareTo(37).rem(minus0D)
+2021-03-12 10:55:39,715 [main:113] - Case = [public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@5aa1ba39]]
+2021-03-12 10:55:39,715 [main:149] - GENERATING call of type public final operator fun times(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@5aa1ba39]
+2021-03-12 10:55:39,813 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:39,814 [main:117] - GENERATED CALL = (minus0F).times(0.4479312359559421)
+2021-03-12 10:55:39,814 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f], public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@35f5a342]]
+2021-03-12 10:55:39,814 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f]
+2021-03-12 10:55:39,815 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Double): kotlin.Double defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@35f5a342]
+2021-03-12 10:55:39,816 [main:117] - GENERATED CALL = (minus0F).toInt().plus(minus0D)
+2021-03-12 10:55:39,816 [main:113] - Case = [public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@412311a2], @kotlin.SinceKotlin public val kotlin.Double.ulp: kotlin.Double defined in kotlin.math[DeserializedPropertyDescriptor@291dbe83]]
+2021-03-12 10:55:39,816 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@412311a2]
+2021-03-12 10:55:39,817 [main:117] - GENERATED CALL = (minus0F).div(minus0D).ulp
+2021-03-12 10:55:39,817 [main:113] - Case = [public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public val kotlin.Double.sign: kotlin.Double defined in kotlin.math[DeserializedPropertyDescriptor@50ebfc4f]]
+2021-03-12 10:55:39,818 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:39,819 [main:117] - GENERATED CALL = (minus0F).toDouble().sign
+2021-03-12 10:55:39,819 [main:61] - replacement of -0.0 of type Double is (minus0F).times(0.4479312359559421)
+2021-03-12 10:55:39,920 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:39,921 [main:66] - Compilation checking started
+2021-03-12 10:55:40,307 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = (minus0F).times(0.4479312359559421)
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:40,307 [main:53] - replacing (-0.0, Double)
+2021-03-12 10:55:40,307 [main:50] - replacing -0.0 Double
+2021-03-12 10:55:40,307 [main:54] - Getting value of type Double
+2021-03-12 10:55:40,417 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:40,418 [main:58] - GENERATED VALUE OF TYPE Double = 0.42285405784172736
+2021-03-12 10:55:40,418 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:40,513 [main:67] - randomType = Byte
+2021-03-12 10:55:40,607 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:40,673 [main:149] - GENERATING call of type public abstract fun toDouble(): kotlin.Double defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@24991011]
+2021-03-12 10:55:40,673 [main:149] - GENERATING call of type public final operator fun unaryPlus(): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@40e5736f]
+2021-03-12 10:55:40,675 [main:78] - Generated call from random type = (-121).toDouble().unaryPlus()
+2021-03-12 10:55:40,675 [main:61] - replacement of -0.0 of type Double is (-121).toDouble().unaryPlus()
+2021-03-12 10:55:40,793 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:40,794 [main:53] - replacing (-0.0, Double)
+2021-03-12 10:55:40,794 [main:50] - replacing -0.0 Double
+2021-03-12 10:55:40,794 [main:54] - Getting value of type Double
+2021-03-12 10:55:40,875 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:40,876 [main:58] - GENERATED VALUE OF TYPE Double = 0.6038341958156866
+2021-03-12 10:55:40,876 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:40,966 [main:67] - randomType = Long
+2021-03-12 10:55:41,043 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:41,081 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Double): kotlin.Double defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5b9ed45]
+2021-03-12 10:55:41,158 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:41,158 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Byte): kotlin.Double defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@2ab254ca]
+2021-03-12 10:55:41,264 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:41,265 [main:78] - Generated call from random type = (764322457893721567).div(0.08695423032167837).div(-101)
+2021-03-12 10:55:41,265 [main:61] - replacement of -0.0 of type Double is (764322457893721567).div(0.08695423032167837).div(-101)
+2021-03-12 10:55:41,339 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:41,416 [main:119] - TRYING TO REPLACE CONSTANT 0.4479312359559421
+2021-03-12 10:55:41,505 [main:33] - Trying to replace Element(FLOAT_CONSTANT) on Element(FLOAT_CONSTANT)
+2021-03-12 10:55:41,506 [main:66] - Compilation checking started
+2021-03-12 10:55:41,757 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = (minus0F).times(0.0)
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:41,781 [main:41] - AFTER TRY 0 res = import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+2021-03-12 10:55:42,106 [main:43] - Try №0
+2021-03-12 10:55:44,027 [main:69] - Trying to insert fun box526(): String {
+    val prope0 = fu1(1.toLong())
+    if (prope0 != 1.toLong()) return "fail1: ${prope0}"
+
+    val prope1 = fu1(2)
+    if (prope1 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+2021-03-12 10:55:44,155 [main:66] - Compilation checking started
+2021-03-12 10:55:44,696 [main:103] - Trying to change 29 nodes
+2021-03-12 10:55:44,696 [main:107] - replacing (prope0, Long)
+2021-03-12 10:55:44,699 [main:50] - replacing prope0 Long
+2021-03-12 10:55:44,699 [main:54] - Getting value of type Long
+2021-03-12 10:55:44,792 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:44,792 [main:58] - GENERATED VALUE OF TYPE Long = -6789706328845171331
+2021-03-12 10:55:44,792 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:45,226 [main:67] - randomType = Function1<HashSet<UByte>, Double?>
+2021-03-12 10:55:45,226 [main:114] - replacement of prope0 of type Long is -6789706328845171331
+2021-03-12 10:55:45,322 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:55:45,323 [main:66] - Compilation checking started
+2021-03-12 10:55:45,674 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    return fu0 {
+        s
+    }
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if (prope0 != 1.toLong()) return "fail1: ${-6789706328845171331}"
+
+    val prope1 = fu1(2)
+    if (prope1 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:45,675 [main:107] - replacing ("fail1: ${-6789706328845171331}", String)
+2021-03-12 10:55:45,675 [main:50] - replacing "fail1: ${-6789706328845171331}" String
+2021-03-12 10:55:45,675 [main:54] - Getting value of type String
+2021-03-12 10:55:45,778 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:55:45,781 [main:58] - GENERATED VALUE OF TYPE String = "tdkfc"
+2021-03-12 10:55:45,781 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:45,782 [main:67] - randomType = Boolean
+2021-03-12 10:55:45,885 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:45,901 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@7d194ace]
+2021-03-12 10:55:46,012 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:46,013 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@71f6ce63]
+2021-03-12 10:55:46,114 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:46,115 [main:78] - Generated call from random type = (true).compareTo(false).toString(-492589313)
+2021-03-12 10:55:46,115 [main:114] - replacement of "fail1: ${-6789706328845171331}" of type String is (true).compareTo(false).toString(-492589313)
+2021-03-12 10:55:46,203 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:46,204 [main:66] - Compilation checking started
+2021-03-12 10:55:46,670 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    return fu0 {
+        s
+    }
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if (prope0 != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1(2)
+    if (prope1 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:46,671 [main:107] - replacing (prope1, Int)
+2021-03-12 10:55:46,671 [main:50] - replacing prope1 Int
+2021-03-12 10:55:46,671 [main:54] - Getting value of type Int
+2021-03-12 10:55:46,788 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:46,788 [main:58] - GENERATED VALUE OF TYPE Int = 766694669
+2021-03-12 10:55:46,789 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:47,429 [main:67] - randomType = Collection<HashSet<Byte?>?>?
+2021-03-12 10:55:47,430 [main:114] - replacement of prope1 of type Int is 766694669
+2021-03-12 10:55:47,533 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 10:55:47,534 [main:66] - Compilation checking started
+2021-03-12 10:55:47,938 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    return fu0 {
+        s
+    }
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if (prope0 != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1(2)
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:47,939 [main:107] - replacing (fu0 {
+        s
+    }, Int)
+2021-03-12 10:55:47,941 [main:50] - replacing fu0 {
+        s
+    } Int
+2021-03-12 10:55:47,942 [main:54] - Getting value of type Int
+2021-03-12 10:55:48,046 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:48,046 [main:58] - GENERATED VALUE OF TYPE Int = -2113967868
+2021-03-12 10:55:48,047 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:48,168 [main:67] - randomType = UInt
+2021-03-12 10:55:48,269 [main:302] - generating value of type = UInt true depth = 0
+2021-03-12 10:55:48,312 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.UInt[DeserializedSimpleFunctionDescriptor@2f343053]
+2021-03-12 10:55:48,314 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.UShort.countTrailingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@9be847b]
+2021-03-12 10:55:48,314 [main:78] - Generated call from random type = (256737685.toUInt()).toUShort().countTrailingZeroBits()
+2021-03-12 10:55:48,314 [main:114] - replacement of fu0 {
+        s
+    } of type Int is -2113967868
+2021-03-12 10:55:48,417 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:55:48,418 [main:66] - Compilation checking started
+2021-03-12 10:55:48,797 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if (prope0 != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1(2)
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:48,798 [main:107] - replacing (prope0, Long)
+2021-03-12 10:55:48,798 [main:50] - replacing prope0 Long
+2021-03-12 10:55:48,799 [main:54] - Getting value of type Long
+2021-03-12 10:55:48,912 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:48,913 [main:58] - GENERATED VALUE OF TYPE Long = -9012108543688381557
+2021-03-12 10:55:48,913 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:49,017 [main:67] - randomType = ULong
+2021-03-12 10:55:49,116 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 10:55:49,157 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@37539486]
+2021-03-12 10:55:49,158 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.UShort[DeserializedSimpleFunctionDescriptor@4248a096]
+2021-03-12 10:55:49,158 [main:78] - Generated call from random type = (1288282710870198938.toULong()).toUShort().toLong()
+2021-03-12 10:55:49,158 [main:114] - replacement of prope0 of type Long is (1288282710870198938.toULong()).toUShort().toLong()
+2021-03-12 10:55:49,246 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:49,247 [main:66] - Compilation checking started
+2021-03-12 10:55:49,657 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1(2)
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:49,658 [main:107] - replacing (2, Int)
+2021-03-12 10:55:49,658 [main:50] - replacing 2 Int
+2021-03-12 10:55:49,658 [main:54] - Getting value of type Int
+2021-03-12 10:55:49,754 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:49,754 [main:58] - GENERATED VALUE OF TYPE Int = -1035509613
+2021-03-12 10:55:49,754 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:49,755 [main:67] - randomType = Double
+2021-03-12 10:55:49,850 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 10:55:49,901 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@62fd809b]
+2021-03-12 10:55:50,003 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:50,004 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@5bc11e3c]
+2021-03-12 10:55:50,101 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:50,101 [main:78] - Generated call from random type = (0.001642330927305924).compareTo(-83).compareTo(106)
+2021-03-12 10:55:50,102 [main:114] - replacement of 2 of type Int is (0.001642330927305924).compareTo(-83).compareTo(106)
+2021-03-12 10:55:50,199 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:50,199 [main:66] - Compilation checking started
+2021-03-12 10:55:50,609 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:50,610 [main:107] - replacing ({f()}, Function0<Ty0>)
+2021-03-12 10:55:50,613 [main:50] - replacing {f()} Function0<Ty0>
+2021-03-12 10:55:50,613 [main:54] - Getting value of type Function0<Ty0>
+2021-03-12 10:55:50,714 [main:302] - generating value of type = Function0<Ty0> false depth = 0
+2021-03-12 10:55:50,715 [main:302] - generating value of type = Ty0 false depth = 1
+2021-03-12 10:55:50,722 [main:58] - GENERATED VALUE OF TYPE Function0<Ty0> = { }
+2021-03-12 10:55:50,722 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:51,309 [main:67] - randomType = Function2<Double, Sequence<Char?>, Triple<UShort, String, UShort>>
+2021-03-12 10:55:51,309 [main:114] - replacement of {f()} of type Function0<Ty0> is { }
+2021-03-12 10:55:51,429 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-12 10:55:51,430 [main:66] - Compilation checking started
+2021-03-12 10:55:51,702 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return { } ()
+}
+
+fun fu1(s: Long): Long {
+    return fu0 {
+        s
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:51,703 [main:107] - replacing (s, Long)
+2021-03-12 10:55:51,705 [main:50] - replacing s Long
+2021-03-12 10:55:51,705 [main:54] - Getting value of type Long
+2021-03-12 10:55:51,796 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:51,797 [main:58] - GENERATED VALUE OF TYPE Long = 1174734609476024647
+2021-03-12 10:55:51,797 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:51,893 [main:67] - randomType = Float?
+2021-03-12 10:55:51,992 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 10:55:52,059 [main:149] - GENERATING call of type public open fun toLong(): kotlin.Long defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@51623da1]
+2021-03-12 10:55:52,060 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Long.rotateRight(bitCount: kotlin.Int): kotlin.Long defined in kotlin[DeserializedSimpleFunctionDescriptor@28584bcc]
+2021-03-12 10:55:52,163 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:52,164 [main:78] - Generated call from random type = (0.9908924f)?.toLong().rotateRight(444251357)
+2021-03-12 10:55:52,164 [main:114] - replacement of s of type Long is (0.9908924f)?.toLong().rotateRight(444251357)
+2021-03-12 10:55:52,281 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:52,281 [main:66] - Compilation checking started
+2021-03-12 10:55:52,752 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = fu1(1.toLong())
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:52,753 [main:107] - replacing (fu1(1.toLong()), Long)
+2021-03-12 10:55:52,753 [main:50] - replacing fu1(1.toLong()) Long
+2021-03-12 10:55:52,753 [main:54] - Getting value of type Long
+2021-03-12 10:55:52,886 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:52,887 [main:58] - GENERATED VALUE OF TYPE Long = -182260545263806262
+2021-03-12 10:55:52,887 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:53,347 [main:67] - randomType = Function1<Byte, HashSet<UInt>>
+2021-03-12 10:55:53,347 [main:114] - replacement of fu1(1.toLong()) of type Long is -182260545263806262
+2021-03-12 10:55:53,461 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:55:53,462 [main:66] - Compilation checking started
+2021-03-12 10:55:53,823 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return "fail2: ${prope1}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:53,823 [main:107] - replacing ("fail2: ${prope1}", String)
+2021-03-12 10:55:53,824 [main:50] - replacing "fail2: ${prope1}" String
+2021-03-12 10:55:53,824 [main:54] - Getting value of type String
+2021-03-12 10:55:53,924 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:55:53,925 [main:58] - GENERATED VALUE OF TYPE String = "kxgab"
+2021-03-12 10:55:53,925 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:54,032 [main:67] - randomType = Float?
+2021-03-12 10:55:54,119 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 10:55:54,152 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@66e9f5fe]
+2021-03-12 10:55:54,245 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:54,245 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@71f6ce63]
+2021-03-12 10:55:54,333 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:54,333 [main:78] - Generated call from random type = (0.35978675f)?.compareTo(-118).toString(-702374132)
+2021-03-12 10:55:54,334 [main:114] - replacement of "fail2: ${prope1}" of type String is (0.35978675f)?.compareTo(-118).toString(-702374132)
+2021-03-12 10:55:54,436 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:54,436 [main:66] - Compilation checking started
+2021-03-12 10:55:54,815 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 1.toLong()) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:54,815 [main:107] - replacing (1.toLong(), Long)
+2021-03-12 10:55:54,816 [main:50] - replacing 1.toLong() Long
+2021-03-12 10:55:54,816 [main:54] - Getting value of type Long
+2021-03-12 10:55:54,912 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:54,912 [main:58] - GENERATED VALUE OF TYPE Long = 221305577860402081
+2021-03-12 10:55:54,912 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:54,913 [main:67] - randomType = Long
+2021-03-12 10:55:55,018 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:55,068 [main:149] - GENERATING call of type public final infix fun shl(bitCount: kotlin.Int): kotlin.Long defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@6cb21878]
+2021-03-12 10:55:55,156 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:55,157 [main:78] - Generated call from random type = (-8964062166155843922).shl(939479005)
+2021-03-12 10:55:55,157 [main:114] - replacement of 1.toLong() of type Long is 221305577860402081
+2021-03-12 10:55:55,245 [main:33] - Trying to replace Element(DOT_QUALIFIED_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 10:55:55,246 [main:66] - Compilation checking started
+2021-03-12 10:55:55,601 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return "OK"
+}
+
+
+2021-03-12 10:55:55,601 [main:107] - replacing ("OK", String)
+2021-03-12 10:55:55,602 [main:50] - replacing "OK" String
+2021-03-12 10:55:55,602 [main:54] - Getting value of type String
+2021-03-12 10:55:55,695 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:55:55,696 [main:58] - GENERATED VALUE OF TYPE String = "sidqp"
+2021-03-12 10:55:55,696 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:55,791 [main:67] - randomType = Byte
+2021-03-12 10:55:55,877 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:55,917 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@702bb00f]
+2021-03-12 10:55:55,918 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@71f6ce63]
+2021-03-12 10:55:56,005 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:56,006 [main:78] - Generated call from random type = (-75).toInt().toString(745740455)
+2021-03-12 10:55:56,006 [main:114] - replacement of "OK" of type String is (-75).toInt().toString(745740455)
+2021-03-12 10:55:56,100 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:56,100 [main:66] - Compilation checking started
+2021-03-12 10:55:56,465 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != 2) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:55:56,466 [main:107] - replacing (2, Int)
+2021-03-12 10:55:56,466 [main:50] - replacing 2 Int
+2021-03-12 10:55:56,466 [main:54] - Getting value of type Int
+2021-03-12 10:55:56,552 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:56,552 [main:58] - GENERATED VALUE OF TYPE Int = -1622044243
+2021-03-12 10:55:56,553 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:56,554 [main:67] - randomType = Long
+2021-03-12 10:55:56,648 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:56,678 [main:149] - GENERATING call of type public final operator fun compareTo(other: kotlin.Byte): kotlin.Int defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@5dd94cfd]
+2021-03-12 10:55:56,764 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 10:55:56,765 [main:149] - GENERATING call of type public final infix fun shr(bitCount: kotlin.Int): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@50599a7e]
+2021-03-12 10:55:56,854 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:56,855 [main:78] - Generated call from random type = (-2378729859471231042).compareTo(84).shr(1720374155)
+2021-03-12 10:55:56,855 [main:114] - replacement of 2 of type Int is (-2378729859471231042).compareTo(84).shr(1720374155)
+2021-03-12 10:55:56,942 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:56,942 [main:66] - Compilation checking started
+2021-03-12 10:55:57,290 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = fu1((0.001642330927305924).compareTo(-83).compareTo(106))
+    if (766694669 != (-2378729859471231042).compareTo(84).shr(1720374155)) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:55:57,290 [main:107] - replacing (f(), Ty0)
+2021-03-12 10:55:57,290 [main:50] - replacing f() Ty0
+2021-03-12 10:55:57,290 [main:54] - Getting value of type Ty0
+2021-03-12 10:55:57,378 [main:302] - generating value of type = Ty0 false depth = 0
+2021-03-12 10:55:57,382 [main:58] - GENERATED VALUE OF TYPE Ty0 = 
+2021-03-12 10:55:57,478 [main:67] - randomType = Boolean?
+2021-03-12 10:55:57,582 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:57,593 [main:111] - Cant find and generate replacement for f() type Ty0
+2021-03-12 10:55:57,593 [main:107] - replacing (fu1((0.001642330927305924).compareTo(-83).compareTo(106)), Int)
+2021-03-12 10:55:57,593 [main:50] - replacing fu1((0.001642330927305924).compareTo(-83).compareTo(106)) Int
+2021-03-12 10:55:57,593 [main:54] - Getting value of type Int
+2021-03-12 10:55:57,677 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:57,677 [main:58] - GENERATED VALUE OF TYPE Int = 358970351
+2021-03-12 10:55:57,677 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:57,678 [main:67] - randomType = Boolean
+2021-03-12 10:55:57,763 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:57,772 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@7d194ace]
+2021-03-12 10:55:57,863 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:57,864 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Int.rotateRight(bitCount: kotlin.Int): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@277c10c2]
+2021-03-12 10:55:57,954 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:55:57,955 [main:78] - Generated call from random type = (false).compareTo(true).rotateRight(-74047230)
+2021-03-12 10:55:57,955 [main:114] - replacement of fu1((0.001642330927305924).compareTo(-83).compareTo(106)) of type Int is (false).compareTo(true).rotateRight(-74047230)
+2021-03-12 10:55:58,044 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:55:58,044 [main:66] - Compilation checking started
+2021-03-12 10:55:58,387 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (766694669 != (-2378729859471231042).compareTo(84).shr(1720374155)) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:55:58,388 [main:107] - replacing (766694669 != (-2378729859471231042).compareTo(84).shr(1720374155), Boolean)
+2021-03-12 10:55:58,388 [main:50] - replacing 766694669 != (-2378729859471231042).compareTo(84).shr(1720374155) Boolean
+2021-03-12 10:55:58,388 [main:54] - Getting value of type Boolean
+2021-03-12 10:55:58,487 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:55:58,487 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 10:55:58,487 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:58,604 [main:67] - randomType = Collection<Long>
+2021-03-12 10:55:58,604 [main:114] - replacement of 766694669 != (-2378729859471231042).compareTo(84).shr(1720374155) of type Boolean is true
+2021-03-12 10:55:58,705 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(BOOLEAN_CONSTANT)
+2021-03-12 10:55:58,705 [main:66] - Compilation checking started
+2021-03-12 10:55:59,174 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:55:59,175 [main:107] - replacing ({
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    }, Function0<Long>)
+2021-03-12 10:55:59,175 [main:50] - replacing {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    } Function0<Long>
+2021-03-12 10:55:59,175 [main:54] - Getting value of type Function0<Long>
+2021-03-12 10:55:59,274 [main:302] - generating value of type = Function0<Long> false depth = 0
+2021-03-12 10:55:59,275 [main:302] - generating value of type = Long true depth = 1
+2021-03-12 10:55:59,276 [main:58] - GENERATED VALUE OF TYPE Function0<Long> = { -5543757236356797348}
+2021-03-12 10:55:59,276 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:55:59,277 [main:67] - randomType = Long
+2021-03-12 10:55:59,389 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 10:55:59,442 [main:114] - replacement of {
+        (0.9908924f)?.toLong().rotateRight(444251357)
+    } of type Function0<Long> is { -5543757236356797348}
+2021-03-12 10:55:59,529 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-12 10:55:59,529 [main:66] - Compilation checking started
+2021-03-12 10:55:59,871 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString(-492589313)
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:55:59,983 [main:141] - TRYING TO REPLACE CONSTANT true
+2021-03-12 10:56:00,072 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(BOOLEAN_CONSTANT)
+2021-03-12 10:56:00,073 [main:141] - TRYING TO REPLACE CONSTANT false
+2021-03-12 10:56:00,167 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(BOOLEAN_CONSTANT)
+2021-03-12 10:56:00,168 [main:66] - Compilation checking started
+2021-03-12 10:56:00,485 [main:141] - TRYING TO REPLACE CONSTANT 492589313
+2021-03-12 10:56:00,575 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(SAFE_ACCESS_EXPRESSION)
+2021-03-12 10:56:00,576 [main:66] - Compilation checking started
+2021-03-12 10:56:00,897 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -2113967868
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:00,897 [main:141] - TRYING TO REPLACE CONSTANT 2113967868
+2021-03-12 10:56:00,995 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:56:00,996 [main:66] - Compilation checking started
+2021-03-12 10:56:01,324 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((1288282710870198938.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:01,325 [main:141] - TRYING TO REPLACE CONSTANT 1288282710870198938
+2021-03-12 10:56:01,413 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 10:56:01,414 [main:66] - Compilation checking started
+2021-03-12 10:56:01,744 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = -182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:01,744 [main:141] - TRYING TO REPLACE CONSTANT 182260545263806262
+2021-03-12 10:56:01,841 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 10:56:01,841 [main:66] - Compilation checking started
+2021-03-12 10:56:02,174 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (0.35978675f)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:02,174 [main:141] - TRYING TO REPLACE CONSTANT 0.35978675f
+2021-03-12 10:56:02,283 [main:33] - Trying to replace Element(FLOAT_CONSTANT) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:56:02,284 [main:66] - Compilation checking started
+2021-03-12 10:56:02,695 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-702374132)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:02,695 [main:141] - TRYING TO REPLACE CONSTANT 702374132
+2021-03-12 10:56:02,809 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:56:02,809 [main:66] - Compilation checking started
+2021-03-12 10:56:03,211 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:03,211 [main:141] - TRYING TO REPLACE CONSTANT 118
+2021-03-12 10:56:03,328 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 10:56:03,329 [main:66] - Compilation checking started
+2021-03-12 10:56:03,619 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(rotateRight(-74047230)).toString(-74047230)
+
+    return (-75).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:03,620 [main:141] - TRYING TO REPLACE CONSTANT 75
+2021-03-12 10:56:03,729 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:56:03,729 [main:66] - Compilation checking started
+2021-03-12 10:56:04,155 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(745740455)
+}
+
+
+2021-03-12 10:56:04,155 [main:141] - TRYING TO REPLACE CONSTANT 745740455
+2021-03-12 10:56:04,242 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(PREFIX_EXPRESSION)
+2021-03-12 10:56:04,243 [main:66] - Compilation checking started
+2021-03-12 10:56:04,534 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (false).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(-75)
+}
+
+
+2021-03-12 10:56:04,534 [main:141] - TRYING TO REPLACE CONSTANT false
+2021-03-12 10:56:04,623 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(BOOLEAN_CONSTANT)
+2021-03-12 10:56:04,623 [main:66] - Compilation checking started
+2021-03-12 10:56:04,965 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (true).compareTo(true).rotateRight(-74047230)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(-75)
+}
+
+
+2021-03-12 10:56:04,966 [main:141] - TRYING TO REPLACE CONSTANT true
+2021-03-12 10:56:05,050 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(BOOLEAN_CONSTANT)
+2021-03-12 10:56:05,051 [main:141] - TRYING TO REPLACE CONSTANT 74047230
+2021-03-12 10:56:05,143 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 10:56:05,144 [main:66] - Compilation checking started
+2021-03-12 10:56:05,460 [main:53] - Result = true
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (true).compareTo(true).rotateRight(492589313)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(-75)
+}
+
+
+2021-03-12 10:56:05,460 [main:141] - TRYING TO REPLACE CONSTANT 5543757236356797348
+2021-03-12 10:56:05,577 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 10:56:05,577 [main:66] - Compilation checking started
+2021-03-12 10:56:05,822 [main:49] - Result = false
+Text:
+import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { toLong()}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (true).compareTo(true).rotateRight(492589313)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(-75)
+}
+
+
+2021-03-12 10:56:05,822 [main:41] - AFTER TRY 1 res = import kotlin.test.assertEquals
+
+val minus0F = -0.0F
+val minus0D = -0.0
+
+fun box(): String {
+    assertEquals(-0.0F, minus0F)
+    assertEquals(-0.0, minus0D)
+
+    return "OK"
+}
+
+inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+
+fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+
+fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+
+fun box526(): String {
+    val minus0F = -0.0F
+val minus0D = -0.0
+val prope0 = 182260545263806262
+    if ((5543757236356797348.toULong()).toUShort().toLong() != 221305577860402081) return (true).compareTo(false).toString((0.35978675f)?.compareTo(-118))
+
+    val prope1 = (true).compareTo(true).rotateRight(492589313)
+    if (true) return (-0.0F)?.compareTo(-118).toString(-74047230)
+
+    return ((-75).toInt()).toInt().toString(-75)
+}
+
+
+2021-03-12 10:56:06,218 [main:43] - GENERATING CALL OF inline fun <Ty0> fu0(crossinline f: () -> Ty0) : Ty0 {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+2021-03-12 10:56:06,222 [main:61] - WITHOUT TYPE PARAMS = inline fun <Ty0> fu0(crossinline f: () -> Long) : Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return {f()} ()
+}
+2021-03-12 10:56:06,426 [main:302] - generating value of type = Function0<Long> false depth = 1
+2021-03-12 10:56:06,426 [main:302] - generating value of type = Long true depth = 2
+2021-03-12 10:56:06,427 [main:95] - GENERATED = fu0<Long>({ 8803429880710765386})
+2021-03-12 10:56:06,510 [main:43] - GENERATING CALL OF fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+2021-03-12 10:56:06,510 [main:61] - WITHOUT TYPE PARAMS = fun fu1(s: Long): Long {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return fu0 { -5543757236356797348}
+}
+2021-03-12 10:56:06,633 [main:302] - generating value of type = Long true depth = 1
+2021-03-12 10:56:06,634 [main:95] - GENERATED = fu1(367018046083508184)
+2021-03-12 10:56:06,757 [main:43] - GENERATING CALL OF fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+2021-03-12 10:56:06,758 [main:61] - WITHOUT TYPE PARAMS = fun fu1(s: Int): Int {
+    val minus0F = -0.0F
+val minus0D = -0.0
+return -75
+}
+2021-03-12 10:56:06,875 [main:302] - generating value of type = Int true depth = 1
+2021-03-12 10:56:06,876 [main:95] - GENERATED = fu1(-145443634)
+2021-03-12 10:56:06,990 [main:43] - Try №1

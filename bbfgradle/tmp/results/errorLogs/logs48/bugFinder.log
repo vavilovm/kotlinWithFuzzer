@@ -1,0 +1,35 @@
+2021-03-11 23:51:47,171 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/inlineClasses2.kt
+2021-03-11 23:51:51,222 [main:53] - Start to mutate
+2021-03-11 23:51:51,222 [main:54] - BEFORE = package test
+
+import kotlin.reflect.KType
+import kotlin.reflect.typeOf
+import kotlin.test.assertEquals
+
+inline class Z(val value: String)
+
+fun check(expected: String, actual: KType) {
+    assertEquals(expected, actual.toString())
+}
+
+fun box(): String {
+    check("Z", typeOf<Z>())
+    check("Z?", typeOf<Z?>())
+    check("Array<Z>", typeOf<Array<Z>>())
+    check("Array<Z?>", typeOf<Array<Z?>>())
+
+    check("UInt", typeOf<UInt>())
+    check("UInt?", typeOf<UInt?>())
+    check("ULong?", typeOf<ULong?>())
+    check("UShortArray", typeOf<UShortArray>())
+    check("UShortArray?", typeOf<UShortArray?>())
+    check("Array<UByteArray>", typeOf<Array<UByteArray>>())
+    check("Array<UByteArray?>?", typeOf<Array<UByteArray?>?>())
+
+    return "OK"
+}
+2021-03-11 23:51:52,145 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 23:51:52,544 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 23:51:58,439 [main:19] - Cur transformation LocalTCE
+2021-03-11 23:52:29,550 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 23:52:29,558 [main:19] - Cur transformation TCETransformation

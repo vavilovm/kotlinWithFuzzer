@@ -1,0 +1,24 @@
+2021-03-12 10:37:05,407 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/reversedThenStepThenReversedThenStep9.kt
+2021-03-12 10:37:10,647 [main:53] - Start to mutate
+2021-03-12 10:37:10,648 [main:54] - BEFORE = import kotlin.test.*
+
+fun box(): String {
+    val uintList = mutableListOf<UInt>()
+    for (i in ((10u downTo 1u).reversed() step 2).reversed() step 3) {
+        uintList += i
+    }
+    assertEquals(listOf(9u, 6u, 3u), uintList)
+
+    val ulongList = mutableListOf<ULong>()
+    for (i in ((10uL downTo 1uL).reversed() step 2L).reversed() step 3L) {
+        ulongList += i
+    }
+    assertEquals(listOf(9uL, 6uL, 3uL), ulongList)
+
+    return "OK"
+}
+2021-03-12 10:37:11,793 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:37:12,294 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:37:12,543 [main:19] - Cur transformation LocalTCE
+2021-03-12 10:38:14,553 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 10:38:14,561 [main:19] - Cur transformation TCETransformation

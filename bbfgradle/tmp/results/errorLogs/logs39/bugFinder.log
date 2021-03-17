@@ -1,0 +1,30 @@
+2021-03-11 22:19:54,646 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/directAccessToBackingField.kt
+2021-03-11 22:19:58,459 [main:53] - Start to mutate
+2021-03-11 22:19:58,459 [main:54] - BEFORE = class A {
+    companion object {
+        val s = "OK"
+        var v = "NOT OK"
+    }
+
+    fun f(): String = s
+
+    fun g() {
+        v = "OK"
+    }
+
+    inline fun i(j: () -> Unit) {
+        j()
+    }
+
+    fun h() {
+        i {
+            s
+            v = "OK"
+        }
+    }
+}
+2021-03-11 22:19:59,064 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 22:19:59,374 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 22:20:00,523 [main:19] - Cur transformation LocalTCE
+2021-03-11 22:20:22,188 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 22:20:22,196 [main:19] - Cur transformation TCETransformation

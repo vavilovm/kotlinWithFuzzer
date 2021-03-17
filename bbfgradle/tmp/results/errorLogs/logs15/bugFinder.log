@@ -1,0 +1,24 @@
+2021-03-11 12:48:08,660 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/multiDeclarationFor.kt
+2021-03-11 12:48:12,957 [main:53] - Start to mutate
+2021-03-11 12:48:12,957 [main:54] - BEFORE = data class A(val x: Int, val y: String)
+
+fun box(): String {
+    val arr = Array<A>(5) {
+        i -> A(i, i.toString())
+    }
+    
+    var sum = 0
+    var str = ""
+    
+    for ((x, y) in arr) {
+        sum += x
+        str += y
+    }
+    
+    return if (sum == 0+1+2+3+4 && str == "01234") "OK" else "Fail ${sum} ${str}"
+}
+2021-03-11 12:48:14,234 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 12:48:14,659 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 12:48:14,873 [main:19] - Cur transformation LocalTCE
+2021-03-11 12:52:00,897 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 12:52:00,904 [main:19] - Cur transformation TCETransformation

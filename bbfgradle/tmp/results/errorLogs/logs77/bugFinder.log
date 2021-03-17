@@ -1,0 +1,20 @@
+2021-03-12 04:34:19,023 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/kt2480.kt
+2021-03-12 04:34:22,503 [main:53] - Start to mutate
+2021-03-12 04:34:22,503 [main:54] - BEFORE = fun box() = Class().printSome()
+
+public abstract class AbstractClass<T> {
+    public fun printSome() : T = some
+
+    public abstract val some: T
+}
+
+public class Class: AbstractClass<String>() {
+    public override val some: String
+        get() = "OK"
+
+}
+2021-03-12 04:34:23,266 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 04:34:23,578 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 04:34:23,732 [main:19] - Cur transformation LocalTCE
+2021-03-12 04:34:28,426 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 04:34:28,440 [main:19] - Cur transformation TCETransformation

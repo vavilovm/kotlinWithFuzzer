@@ -1,0 +1,902 @@
+2021-03-12 10:50:08,133 [main:66] - Compilation checking started
+2021-03-12 10:50:09,655 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:09,660 [main:33] - Trying to replace Element(VALUE_PARAMETER) on Element(VALUE_PARAMETER)
+2021-03-12 10:50:09,673 [main:66] - Compilation checking started
+2021-03-12 10:50:10,391 [main:53] - Result = true
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String = "wegoz", type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+2021-03-12 10:50:10,393 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:10,395 [main:33] - Trying to replace Element(VALUE_PARAMETER) on Element(VALUE_PARAMETER)
+2021-03-12 10:50:10,396 [main:66] - Compilation checking started
+2021-03-12 10:50:10,997 [main:53] - Result = true
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String = "wegoz", type: String = "none") = name + inc + type
+
+    operator fun set(name: String = "mncsw", s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+2021-03-12 10:50:10,998 [main:50] - replacing s: String String
+2021-03-12 10:50:10,999 [main:54] - Getting value of type String
+2021-03-12 10:50:11,147 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:11,147 [main:58] - GENERATED VALUE OF TYPE String = "rmeql"
+2021-03-12 10:50:11,148 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:12,007 [main:67] - randomType = Pair<UShort, X>
+2021-03-12 10:50:12,182 [main:302] - generating value of type = Pair<UShort, X> false depth = 0
+2021-03-12 10:50:12,369 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: UShort, second: X): Pair<UShort, X> = TODO()
+2021-03-12 10:50:12,374 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: UShort, second: X): Pair<UShort, X> = TODO()
+2021-03-12 10:50:12,564 [main:302] - generating value of type = UShort true depth = 3
+2021-03-12 10:50:12,565 [main:302] - generating value of type = X false depth = 3
+2021-03-12 10:50:12,566 [main:112] - generating klass X text = class X {
+    var result: String = "fail"
+
+    operator fun get(name: String = "wegoz", type: String = "none") = name + inc + type
+
+    operator fun set(name: String = "mncsw", s: String) {
+        result = name + s;
+    }
+}
+2021-03-12 10:50:12,568 [main:95] - GENERATED = Pair<UShort, X>(13748.toUShort(), X())
+2021-03-12 10:50:12,626 [main:149] - GENERATING call of type public final operator fun get(name: kotlin.String = ..., type: kotlin.String = ...): kotlin.String defined in X[SimpleFunctionDescriptorImpl@527afebf]
+2021-03-12 10:50:12,628 [main:78] - Generated call from random type = (Pair<UShort, X>(13748.toUShort(), X())).second.get(name, name)
+2021-03-12 10:50:12,629 [main:33] - Trying to replace Element(VALUE_PARAMETER) on Element(VALUE_PARAMETER)
+2021-03-12 10:50:12,630 [main:66] - Compilation checking started
+2021-03-12 10:50:13,077 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String = "wegoz", type: String = "none") = name + inc + type
+
+    operator fun set(name: String = "mncsw", s: String = (Pair<UShort, X>(13748.toUShort(), X())).second.get(name, name)) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:13,400 [main:112] - generating klass X text = class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+2021-03-12 10:50:13,724 [main:43] - GENERATING CALL OF operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+2021-03-12 10:50:13,725 [main:61] - WITHOUT TYPE PARAMS = operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+2021-03-12 10:50:13,857 [main:302] - generating value of type = String true depth = 1
+2021-03-12 10:50:13,858 [main:95] - GENERATED = "xowvb".inc()
+2021-03-12 10:50:14,079 [main:45] - Trying to change 37 nodes
+2021-03-12 10:50:14,086 [main:53] - replacing (result, String)
+2021-03-12 10:50:14,086 [main:50] - replacing result String
+2021-03-12 10:50:14,086 [main:54] - Getting value of type String
+2021-03-12 10:50:14,239 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:14,239 [main:58] - GENERATED VALUE OF TYPE String = "hagzi"
+2021-03-12 10:50:14,239 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:14,511 [main:67] - randomType = Function1<X, Int>
+2021-03-12 10:50:14,512 [main:106] - GETTING String from String
+2021-03-12 10:50:14,591 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.substring(startIndex: kotlin.Int, endIndex: kotlin.Int = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@539c20ed]]
+2021-03-12 10:50:14,591 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24]
+2021-03-12 10:50:14,713 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:14,826 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:14,828 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.substring(startIndex: kotlin.Int, endIndex: kotlin.Int = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@539c20ed]
+2021-03-12 10:50:14,957 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:15,055 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:15,056 [main:117] - GENERATED CALL = (name).subSequence(1227864218, -123955484).substring(-1555034351, 758095541)
+2021-03-12 10:50:15,057 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replace(regex: kotlin.text.Regex, noinline transform: (kotlin.text.MatchResult) -> kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@52a31a61]]
+2021-03-12 10:50:15,057 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24]
+2021-03-12 10:50:15,154 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:15,250 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:15,251 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replace(regex: kotlin.text.Regex, noinline transform: (kotlin.text.MatchResult) -> kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@52a31a61]
+2021-03-12 10:50:15,370 [main:302] - generating value of type = Regex false depth = 0
+2021-03-12 10:50:15,506 [main:43] - GENERATING CALL OF fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 10:50:15,509 [main:61] - WITHOUT TYPE PARAMS = fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 10:50:15,771 [main:302] - generating value of type = String true depth = 3
+2021-03-12 10:50:15,772 [main:95] - GENERATED = Regex("hvrko")
+2021-03-12 10:50:15,883 [main:302] - generating value of type = Function1<MatchResult, CharSequence> false depth = 0
+2021-03-12 10:50:15,884 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 10:50:15,993 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 10:50:15,995 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 10:50:16,201 [main:302] - generating value of type = CharSequence false depth = 4
+2021-03-12 10:50:16,207 [main:95] - GENERATED = StringBuilder(StringBuilder())
+2021-03-12 10:50:16,209 [main:117] - GENERATED CALL = (name).subSequence(927459414, 898753401).replace(Regex("hvrko"), {a: MatchResult -> StringBuilder(StringBuilder())})
+2021-03-12 10:50:16,210 [main:113] - Case = [public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]]
+2021-03-12 10:50:16,210 [main:149] - GENERATING call of type public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]
+2021-03-12 10:50:16,345 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:16,346 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:16,348 [main:117] - GENERATED CALL = (name).takeWhile({a: Char -> false})
+2021-03-12 10:50:16,348 [main:113] - Case = [public fun kotlin.String.removeSuffix(suffix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@69c50de6]]
+2021-03-12 10:50:16,348 [main:149] - GENERATING call of type public fun kotlin.String.removeSuffix(suffix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@69c50de6]
+2021-03-12 10:50:16,456 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:16,560 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 10:50:16,562 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 10:50:16,789 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 10:50:16,790 [main:95] - GENERATED = StringBuilder(-186790262)
+2021-03-12 10:50:16,791 [main:117] - GENERATED CALL = (name).removeSuffix(StringBuilder(-186790262))
+2021-03-12 10:50:16,792 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5023bb1f]]
+2021-03-12 10:50:16,792 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548]
+2021-03-12 10:50:16,917 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:16,918 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5023bb1f]
+2021-03-12 10:50:16,918 [main:117] - GENERATED CALL = (name).get(-791795535).titlecase()
+2021-03-12 10:50:16,919 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.trim(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@209ed046]]
+2021-03-12 10:50:16,919 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.trim(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@209ed046]
+2021-03-12 10:50:16,919 [main:117] - GENERATED CALL = (name).trim()
+2021-03-12 10:50:16,919 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]]
+2021-03-12 10:50:16,920 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]
+2021-03-12 10:50:17,012 [main:302] - generating value of type = Iterable<Int> false depth = 0
+2021-03-12 10:50:17,130 [main:43] - GENERATING CALL OF fun <E> buildSet(builderAction: kotlin.collections.MutableSet<Int>.()->kotlin.Unit): Iterable<Int> = TODO()
+2021-03-12 10:50:17,134 [main:61] - WITHOUT TYPE PARAMS = fun <E> buildSet(builderAction: kotlin.collections.MutableSet<Int>.()->kotlin.Unit): Iterable<Int> = TODO()
+2021-03-12 10:50:17,364 [main:302] - generating value of type = [@kotlin.ExtensionFunctionType] Function1<MutableSet<Int>, Unit> false depth = 3
+2021-03-12 10:50:17,365 [main:302] - generating value of type = Unit false depth = 4
+2021-03-12 10:50:17,470 [main:43] - GENERATING CALL OF fun contract(builder: kotlin.contracts.ContractBuilder.()->kotlin.Unit): Unit = TODO()
+2021-03-12 10:50:17,472 [main:61] - WITHOUT TYPE PARAMS = fun contract(builder: kotlin.contracts.ContractBuilder.()->kotlin.Unit): Unit = TODO()
+2021-03-12 10:50:17,661 [main:302] - generating value of type = [@kotlin.ExtensionFunctionType] Function1<ContractBuilder, Unit> false depth = 7
+2021-03-12 10:50:17,662 [main:302] - generating value of type = Unit false depth = 8
+2021-03-12 10:50:17,786 [main:43] - GENERATING CALL OF fun check(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 10:50:17,789 [main:61] - WITHOUT TYPE PARAMS = fun check(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 10:50:18,112 [main:302] - generating value of type = Boolean true depth = 11
+2021-03-12 10:50:18,113 [main:302] - generating value of type = Function0<Any> false depth = 11
+2021-03-12 10:50:18,113 [main:302] - generating value of type = Any false depth = 12
+2021-03-12 10:50:18,114 [main:95] - GENERATED = check(true, { "gduzu"})
+2021-03-12 10:50:18,114 [main:95] - GENERATED = contract({ check(true, { "gduzu"})})
+2021-03-12 10:50:18,115 [main:95] - GENERATED = buildSet<Int>({ contract({ check(true, { "gduzu"})})})
+2021-03-12 10:50:18,116 [main:117] - GENERATED CALL = (name).slice(buildSet<Int>({ contract({ check(true, { "gduzu"})})}))
+2021-03-12 10:50:18,116 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32ce86a4]]
+2021-03-12 10:50:18,117 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32ce86a4]
+2021-03-12 10:50:18,117 [main:117] - GENERATED CALL = (name).toLowerCase()
+2021-03-12 10:50:18,117 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@776a5594]]
+2021-03-12 10:50:18,117 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@776a5594]
+2021-03-12 10:50:18,118 [main:117] - GENERATED CALL = (name).lowercase()
+2021-03-12 10:50:18,118 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@5111f0b4], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]]
+2021-03-12 10:50:18,118 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@5111f0b4]
+2021-03-12 10:50:18,119 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:18,209 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:18,210 [main:117] - GENERATED CALL = (name).compareTo(result).toString(-319591482)
+2021-03-12 10:50:18,210 [main:61] - replacement of result of type String is (name).trim()
+2021-03-12 10:50:18,342 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:18,343 [main:66] - Compilation checking started
+2021-03-12 10:50:18,643 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        (name).trim() = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:18,645 [main:53] - replacing (x["a"], String)
+2021-03-12 10:50:18,645 [main:50] - replacing x["a"] String
+2021-03-12 10:50:18,645 [main:54] - Getting value of type String
+2021-03-12 10:50:18,743 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:18,744 [main:58] - GENERATED VALUE OF TYPE String = "nakad"
+2021-03-12 10:50:18,745 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:18,960 [main:67] - randomType = Array<String?>
+2021-03-12 10:50:19,064 [main:302] - generating value of type = Array<String?> false depth = 0
+2021-03-12 10:50:19,164 [main:43] - GENERATING CALL OF fun <T> arrayOfNulls(size: kotlin.Int): Array<Strg?> = TODO()
+2021-03-12 10:50:19,167 [main:61] - WITHOUT TYPE PARAMS = fun <T> arrayOfNulls(size: kotlin.Int): Array<Strg?> = TODO()
+2021-03-12 10:50:19,365 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 10:50:19,366 [main:95] - GENERATED = arrayOfNulls<String?>(1572961204)
+2021-03-12 10:50:19,388 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:19,474 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:19,475 [main:78] - Generated call from random type = (arrayOfNulls<String?>(1572961204)).size.toString(-177056811)
+2021-03-12 10:50:19,476 [main:106] - GETTING String from X
+2021-03-12 10:50:19,489 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.substringAfterLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1ba2da7b]]
+2021-03-12 10:50:19,490 [main:149] - GENERATING call of type public fun kotlin.String.substringAfterLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1ba2da7b]
+2021-03-12 10:50:19,582 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:19,583 [main:117] - GENERATED CALL = (x).result.substringAfterLast('蜌', res)
+2021-03-12 10:50:19,583 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6a78192c]]
+2021-03-12 10:50:19,583 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6a78192c]
+2021-03-12 10:50:19,697 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:19,814 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:19,899 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:19,904 [main:117] - GENERATED CALL = (x).result.replaceRange(-261125741, -72235812, "nylsh")
+2021-03-12 10:50:19,904 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.capitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2722e9a8]]
+2021-03-12 10:50:19,904 [main:149] - GENERATING call of type public fun kotlin.String.capitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2722e9a8]
+2021-03-12 10:50:19,905 [main:117] - GENERATED CALL = (x).result.capitalize()
+2021-03-12 10:50:19,905 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.replaceFirst(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31563ae0]]
+2021-03-12 10:50:19,905 [main:149] - GENERATING call of type public fun kotlin.String.replaceFirst(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31563ae0]
+2021-03-12 10:50:20,005 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:20,108 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:20,214 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:20,216 [main:117] - GENERATED CALL = (x).result.replaceFirst('ꢵ', '贺', false)
+2021-03-12 10:50:20,216 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], @kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5466fe00]]
+2021-03-12 10:50:20,216 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5466fe00]
+2021-03-12 10:50:20,344 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:20,438 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:20,439 [main:117] - GENERATED CALL = (x).result.removeRange(-1940710647, -1121570765)
+2021-03-12 10:50:20,439 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]]
+2021-03-12 10:50:20,439 [main:149] - GENERATING call of type public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]
+2021-03-12 10:50:20,522 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:20,530 [main:117] - GENERATED CALL = (x).result.removePrefix(StringBuilder())
+2021-03-12 10:50:20,530 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4292184b]]
+2021-03-12 10:50:20,530 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4292184b]
+2021-03-12 10:50:20,531 [main:117] - GENERATED CALL = (x).result.uppercase()
+2021-03-12 10:50:20,531 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.trimMargin(marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@142683da]]
+2021-03-12 10:50:20,532 [main:149] - GENERATING call of type public fun kotlin.String.trimMargin(marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@142683da]
+2021-03-12 10:50:20,532 [main:117] - GENERATED CALL = (x).result.trimMargin(X().get())
+2021-03-12 10:50:20,533 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@384cd246]]
+2021-03-12 10:50:20,533 [main:149] - GENERATING call of type public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@384cd246]
+2021-03-12 10:50:20,615 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:20,712 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:20,713 [main:117] - GENERATED CALL = (x).result.replaceBeforeLast('袂', result, "kvlyo")
+2021-03-12 10:50:20,714 [main:113] - Case = [public final var result: kotlin.String defined in X[PropertyDescriptorImpl@5ba96df2], public fun kotlin.String.decapitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@627b9c7d]]
+2021-03-12 10:50:20,714 [main:149] - GENERATING call of type public fun kotlin.String.decapitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@627b9c7d]
+2021-03-12 10:50:20,714 [main:117] - GENERATED CALL = (x).result.decapitalize()
+2021-03-12 10:50:20,714 [main:61] - replacement of x["a"] of type String is (x).result.replaceFirst('ꢵ', '贺', false)
+2021-03-12 10:50:20,812 [main:33] - Trying to replace Element(ARRAY_ACCESS_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:20,812 [main:66] - Compilation checking started
+2021-03-12 10:50:21,110 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++(x).result.replaceFirst('ꢵ', '贺', false)
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:21,111 [main:53] - replacing (inc, String)
+2021-03-12 10:50:21,111 [main:50] - replacing inc String
+2021-03-12 10:50:21,111 [main:54] - Getting value of type String
+2021-03-12 10:50:21,210 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:21,211 [main:58] - GENERATED VALUE OF TYPE String = "xzzcl"
+2021-03-12 10:50:21,211 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:21,212 [main:67] - randomType = X
+2021-03-12 10:50:21,303 [main:302] - generating value of type = X false depth = 0
+2021-03-12 10:50:21,303 [main:112] - generating klass X text = class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+2021-03-12 10:50:21,315 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4292184b]
+2021-03-12 10:50:21,315 [main:78] - Generated call from random type = (X()).result.uppercase()
+2021-03-12 10:50:21,316 [main:106] - GETTING String from String
+2021-03-12 10:50:21,343 [main:113] - Case = [public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3fe7aad4]]
+2021-03-12 10:50:21,343 [main:149] - GENERATING call of type public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3fe7aad4]
+2021-03-12 10:50:21,438 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:21,526 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:21,527 [main:117] - GENERATED CALL = (type).substringBefore('㺦', "nkail")
+2021-03-12 10:50:21,527 [main:113] - Case = [public fun kotlin.String.replaceAfter(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3ef4d1e9]]
+2021-03-12 10:50:21,527 [main:149] - GENERATING call of type public fun kotlin.String.replaceAfter(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3ef4d1e9]
+2021-03-12 10:50:21,613 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:21,614 [main:117] - GENERATED CALL = (type).replaceAfter('偛', "xowvb".inc(), name)
+2021-03-12 10:50:21,615 [main:113] - Case = [public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]]
+2021-03-12 10:50:21,615 [main:149] - GENERATING call of type public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]
+2021-03-12 10:50:21,697 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:21,702 [main:117] - GENERATED CALL = (type).removePrefix("pruch")
+2021-03-12 10:50:21,702 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]]
+2021-03-12 10:50:21,703 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]
+2021-03-12 10:50:21,788 [main:302] - generating value of type = Iterable<Int> false depth = 0
+2021-03-12 10:50:21,878 [main:43] - GENERATING CALL OF fun <T> listOfNotNull(elements: Int): Iterable<Int> = TODO()
+2021-03-12 10:50:21,880 [main:61] - WITHOUT TYPE PARAMS = fun <T> listOfNotNull(elements: Int): Iterable<Int> = TODO()
+2021-03-12 10:50:21,988 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 10:50:21,989 [main:95] - GENERATED = listOfNotNull<Int>(-1305684434)
+2021-03-12 10:50:21,990 [main:117] - GENERATED CALL = (type).slice(listOfNotNull<Int>(-1305684434))
+2021-03-12 10:50:21,990 [main:113] - Case = [public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@61c01cef]]
+2021-03-12 10:50:21,990 [main:149] - GENERATING call of type public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@61c01cef]
+2021-03-12 10:50:22,105 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,106 [main:117] - GENERATED CALL = (type).dropLast(-375561712)
+2021-03-12 10:50:22,106 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24], public fun kotlin.CharSequence.commonSuffixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5aeb42b7]]
+2021-03-12 10:50:22,106 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24]
+2021-03-12 10:50:22,197 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,284 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,284 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonSuffixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5aeb42b7]
+2021-03-12 10:50:22,368 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:22,490 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:22,492 [main:117] - GENERATED CALL = (type).subSequence(-1675418568, 751069389).commonSuffixWith("ypenq", true)
+2021-03-12 10:50:22,496 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548], @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@396a0b9e]]
+2021-03-12 10:50:22,496 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548]
+2021-03-12 10:50:22,616 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,617 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@396a0b9e]
+2021-03-12 10:50:22,618 [main:117] - GENERATED CALL = (type).get(735628724).plus(X().result)
+2021-03-12 10:50:22,618 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6a78192c]]
+2021-03-12 10:50:22,618 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6a78192c]
+2021-03-12 10:50:22,708 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,799 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:22,884 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:22,888 [main:117] - GENERATED CALL = (type).replaceRange(1439754783, 126020627, "kgkun")
+2021-03-12 10:50:22,889 [main:113] - Case = [public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]]
+2021-03-12 10:50:22,889 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]
+2021-03-12 10:50:22,972 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:22,972 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:22,973 [main:117] - GENERATED CALL = (type).takeLastWhile({a: Char -> true})
+2021-03-12 10:50:22,973 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.reversed(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3f30ccb2]]
+2021-03-12 10:50:22,974 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.reversed(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3f30ccb2]
+2021-03-12 10:50:22,974 [main:117] - GENERATED CALL = (type).reversed()
+2021-03-12 10:50:22,974 [main:61] - replacement of inc of type String is (type).reversed()
+2021-03-12 10:50:23,075 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:23,076 [main:66] - Compilation checking started
+2021-03-12 10:50:23,637 [main:53] - Result = true
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:23,639 [main:53] - replacing (inc, String)
+2021-03-12 10:50:23,639 [main:50] - replacing inc String
+2021-03-12 10:50:23,639 [main:54] - Getting value of type String
+2021-03-12 10:50:23,757 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:23,758 [main:58] - GENERATED VALUE OF TYPE String = "otzmf"
+2021-03-12 10:50:23,758 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:23,885 [main:67] - randomType = UShort
+2021-03-12 10:50:23,990 [main:302] - generating value of type = UShort true depth = 0
+2021-03-12 10:50:24,074 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.UShort[DeserializedSimpleFunctionDescriptor@6b1066b4]
+2021-03-12 10:50:24,192 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 10:50:24,193 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:24,289 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:24,289 [main:78] - Generated call from random type = (738.toUShort()).compareTo(42.toUByte()).toString(-1052430657)
+2021-03-12 10:50:24,290 [main:106] - GETTING String from String
+2021-03-12 10:50:24,324 [main:113] - Case = [public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]]
+2021-03-12 10:50:24,325 [main:149] - GENERATING call of type public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]
+2021-03-12 10:50:24,426 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:24,427 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:24,428 [main:117] - GENERATED CALL = (X().get()).takeWhile({a: Char -> true})
+2021-03-12 10:50:24,429 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32b528a1]]
+2021-03-12 10:50:24,429 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32b528a1]
+2021-03-12 10:50:24,536 [main:302] - generating value of type = Function1<Char, Char> false depth = 0
+2021-03-12 10:50:24,536 [main:302] - generating value of type = Char true depth = 1
+2021-03-12 10:50:24,538 [main:117] - GENERATED CALL = (X().get()).replaceFirstChar({a: Char -> '?'})
+2021-03-12 10:50:24,539 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@70a0932b]]
+2021-03-12 10:50:24,539 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548]
+2021-03-12 10:50:24,642 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:24,643 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@70a0932b]
+2021-03-12 10:50:24,643 [main:117] - GENERATED CALL = (X().get()).get(1877578824).lowercase()
+2021-03-12 10:50:24,643 [main:113] - Case = [public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3a714ae]]
+2021-03-12 10:50:24,643 [main:149] - GENERATING call of type public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3a714ae]
+2021-03-12 10:50:24,644 [main:117] - GENERATED CALL = (X().get()).trimIndent()
+2021-03-12 10:50:24,644 [main:113] - Case = [public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e7e019f]]
+2021-03-12 10:50:24,644 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e7e019f]
+2021-03-12 10:50:24,732 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:24,856 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:24,858 [main:117] - GENERATED CALL = (X().get()).commonPrefixWith("fdmao", true)
+2021-03-12 10:50:24,858 [main:113] - Case = [public fun kotlin.String.substringAfterLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1ba2da7b]]
+2021-03-12 10:50:24,858 [main:149] - GENERATING call of type public fun kotlin.String.substringAfterLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1ba2da7b]
+2021-03-12 10:50:24,975 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:24,976 [main:117] - GENERATED CALL = (X().get()).substringAfterLast('ㇷ', result)
+2021-03-12 10:50:24,977 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b6bcf16]]
+2021-03-12 10:50:24,977 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b6bcf16]
+2021-03-12 10:50:24,978 [main:117] - GENERATED CALL = (X().get()).trimEnd()
+2021-03-12 10:50:24,978 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32ce86a4]]
+2021-03-12 10:50:24,978 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@32ce86a4]
+2021-03-12 10:50:24,978 [main:117] - GENERATED CALL = (X().get()).toLowerCase()
+2021-03-12 10:50:24,979 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]]
+2021-03-12 10:50:24,979 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4070d628]
+2021-03-12 10:50:25,080 [main:302] - generating value of type = Iterable<Int> false depth = 0
+2021-03-12 10:50:25,190 [main:43] - GENERATING CALL OF fun <E> buildSet(capacity: kotlin.Int, builderAction: kotlin.collections.MutableSet<Int>.()->kotlin.Unit): Iterable<Int> = TODO()
+2021-03-12 10:50:25,191 [main:61] - WITHOUT TYPE PARAMS = fun <E> buildSet(capacity: kotlin.Int, builderAction: kotlin.collections.MutableSet<Int>.()->kotlin.Unit): Iterable<Int> = TODO()
+2021-03-12 10:50:25,522 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 10:50:25,523 [main:302] - generating value of type = [@kotlin.ExtensionFunctionType] Function1<MutableSet<Int>, Unit> false depth = 3
+2021-03-12 10:50:25,523 [main:302] - generating value of type = Unit false depth = 4
+2021-03-12 10:50:25,631 [main:43] - GENERATING CALL OF fun repeat(times: kotlin.Int, action: (kotlin.Int)->kotlin.Unit): Unit = TODO()
+2021-03-12 10:50:25,633 [main:61] - WITHOUT TYPE PARAMS = fun repeat(times: kotlin.Int, action: (kotlin.Int)->kotlin.Unit): Unit = TODO()
+2021-03-12 10:50:25,922 [main:302] - generating value of type = Int true depth = 7
+2021-03-12 10:50:25,922 [main:302] - generating value of type = Function1<Int, Unit> false depth = 7
+2021-03-12 10:50:25,922 [main:302] - generating value of type = Unit false depth = 8
+2021-03-12 10:50:26,067 [main:43] - GENERATING CALL OF fun check(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 10:50:26,069 [main:61] - WITHOUT TYPE PARAMS = fun check(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 10:50:26,406 [main:302] - generating value of type = Boolean true depth = 11
+2021-03-12 10:50:26,407 [main:302] - generating value of type = Function0<Any> false depth = 11
+2021-03-12 10:50:26,407 [main:302] - generating value of type = Any false depth = 12
+2021-03-12 10:50:26,408 [main:95] - GENERATED = check(true, { "bubsn"})
+2021-03-12 10:50:26,408 [main:95] - GENERATED = repeat(-773291150, {a: Int -> check(true, { "bubsn"})})
+2021-03-12 10:50:26,408 [main:95] - GENERATED = buildSet<Int>(-1072208110, { repeat(-773291150, {a: Int -> check(true, { "bubsn"})})})
+2021-03-12 10:50:26,409 [main:117] - GENERATED CALL = (X().get()).slice(buildSet<Int>(-1072208110, { repeat(-773291150, {a: Int -> check(true, { "bubsn"})})}))
+2021-03-12 10:50:26,409 [main:113] - Case = [public fun kotlin.String.prependIndent(indent: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@117782a]]
+2021-03-12 10:50:26,410 [main:149] - GENERATING call of type public fun kotlin.String.prependIndent(indent: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@117782a]
+2021-03-12 10:50:26,494 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:26,495 [main:117] - GENERATED CALL = (X().get()).prependIndent("zqlhw")
+2021-03-12 10:50:26,495 [main:61] - replacement of inc of type String is (738.toUShort()).compareTo(42.toUByte()).toString(-1052430657)
+2021-03-12 10:50:26,583 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:26,584 [main:66] - Compilation checking started
+2021-03-12 10:50:26,858 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    (738.toUShort()).compareTo(42.toUByte()).toString(-1052430657) = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:26,859 [main:53] - replacing ("1", String)
+2021-03-12 10:50:26,859 [main:50] - replacing "1" String
+2021-03-12 10:50:26,859 [main:54] - Getting value of type String
+2021-03-12 10:50:26,957 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:26,958 [main:58] - GENERATED VALUE OF TYPE String = "nosdw"
+2021-03-12 10:50:26,958 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:26,958 [main:67] - randomType = X
+2021-03-12 10:50:27,050 [main:302] - generating value of type = X false depth = 0
+2021-03-12 10:50:27,050 [main:112] - generating klass X text = class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+2021-03-12 10:50:27,061 [main:149] - GENERATING call of type public fun kotlin.String.substringAfter(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@39bace21]
+2021-03-12 10:50:27,144 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:27,145 [main:78] - Generated call from random type = (X()).result.substringAfter('?', result)
+2021-03-12 10:50:27,145 [main:61] - replacement of "1" of type String is (X()).result.substringAfter('?', result)
+2021-03-12 10:50:27,224 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:27,225 [main:66] - Compilation checking started
+2021-03-12 10:50:27,473 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + (X()).result.substringAfter('?', result)
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+
+
+2021-03-12 10:50:27,474 [main:53] - replacing ("OK", String)
+2021-03-12 10:50:27,474 [main:50] - replacing "OK" String
+2021-03-12 10:50:27,474 [main:54] - Getting value of type String
+2021-03-12 10:50:27,568 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:27,569 [main:58] - GENERATED VALUE OF TYPE String = "coawa"
+2021-03-12 10:50:27,569 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:27,692 [main:67] - randomType = UShort
+2021-03-12 10:50:27,791 [main:302] - generating value of type = UShort true depth = 0
+2021-03-12 10:50:27,848 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.UShort[DeserializedSimpleFunctionDescriptor@1d6075e]
+2021-03-12 10:50:27,958 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 10:50:27,959 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:28,057 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:28,057 [main:78] - Generated call from random type = (12925.toUShort()).compareTo(80.toUByte()).toString(1189381779)
+2021-03-12 10:50:28,058 [main:106] - GETTING String from String
+2021-03-12 10:50:28,093 [main:113] - Case = [public fun kotlin.CharSequence.commonSuffixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5aeb42b7]]
+2021-03-12 10:50:28,093 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonSuffixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5aeb42b7]
+2021-03-12 10:50:28,177 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:28,267 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 10:50:28,268 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 10:50:28,463 [main:302] - generating value of type = CharSequence false depth = 3
+2021-03-12 10:50:28,468 [main:95] - GENERATED = StringBuilder("vtdiy")
+2021-03-12 10:50:28,565 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:28,566 [main:117] - GENERATED CALL = (res).commonSuffixWith(StringBuilder("vtdiy"), true)
+2021-03-12 10:50:28,567 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replaceFirst(regex: kotlin.text.Regex, replacement: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6ac99668]]
+2021-03-12 10:50:28,567 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24]
+2021-03-12 10:50:28,686 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:28,789 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:28,790 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replaceFirst(regex: kotlin.text.Regex, replacement: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6ac99668]
+2021-03-12 10:50:28,880 [main:302] - generating value of type = Regex false depth = 0
+2021-03-12 10:50:28,972 [main:43] - GENERATING CALL OF fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 10:50:28,974 [main:61] - WITHOUT TYPE PARAMS = fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 10:50:29,160 [main:302] - generating value of type = String true depth = 3
+2021-03-12 10:50:29,161 [main:95] - GENERATED = Regex("quyxr")
+2021-03-12 10:50:29,162 [main:117] - GENERATED CALL = (res).subSequence(-2016578722, -3752039).replaceFirst(Regex("quyxr"), X().get())
+2021-03-12 10:50:29,162 [main:113] - Case = [public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@691927cc]]
+2021-03-12 10:50:29,162 [main:149] - GENERATING call of type public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@691927cc]
+2021-03-12 10:50:29,251 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:29,252 [main:117] - GENERATED CALL = (res).drop(-894947960)
+2021-03-12 10:50:29,252 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24], public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e7e019f]]
+2021-03-12 10:50:29,252 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@5ceec24]
+2021-03-12 10:50:29,353 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:29,463 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:29,464 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e7e019f]
+2021-03-12 10:50:29,553 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:29,663 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 10:50:29,665 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 10:50:29,843 [main:302] - generating value of type = String true depth = 3
+2021-03-12 10:50:29,844 [main:95] - GENERATED = StringBuilder("jgsdw")
+2021-03-12 10:50:29,928 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:29,929 [main:117] - GENERATED CALL = (res).subSequence(986380989, -2118755530).commonPrefixWith(StringBuilder("jgsdw"), false)
+2021-03-12 10:50:29,929 [main:113] - Case = [public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3a714ae]]
+2021-03-12 10:50:29,930 [main:149] - GENERATING call of type public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3a714ae]
+2021-03-12 10:50:29,930 [main:117] - GENERATED CALL = (res).trimIndent()
+2021-03-12 10:50:29,930 [main:113] - Case = [public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4cf87dcf]]
+2021-03-12 10:50:29,930 [main:149] - GENERATING call of type public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4cf87dcf]
+2021-03-12 10:50:30,035 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:30,040 [main:117] - GENERATED CALL = (res).removeSurrounding("ospdy")
+2021-03-12 10:50:30,040 [main:113] - Case = [public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3fe7aad4]]
+2021-03-12 10:50:30,040 [main:149] - GENERATING call of type public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3fe7aad4]
+2021-03-12 10:50:30,135 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:30,136 [main:117] - GENERATED CALL = (res).substringBefore('秋', res)
+2021-03-12 10:50:30,136 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@5111f0b4], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]]
+2021-03-12 10:50:30,136 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@5111f0b4]
+2021-03-12 10:50:30,136 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:30,225 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:30,226 [main:117] - GENERATED CALL = (res).compareTo(X().result).toString(-1087755438)
+2021-03-12 10:50:30,226 [main:113] - Case = [public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4f8409c0]]
+2021-03-12 10:50:30,226 [main:149] - GENERATING call of type public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4f8409c0]
+2021-03-12 10:50:30,311 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:30,396 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:30,397 [main:117] - GENERATED CALL = (res).substringBeforeLast('᯺', "zrphz")
+2021-03-12 10:50:30,397 [main:113] - Case = [public inline fun kotlin.String.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@e8dd82c]]
+2021-03-12 10:50:30,397 [main:149] - GENERATING call of type public inline fun kotlin.String.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@e8dd82c]
+2021-03-12 10:50:30,482 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:30,482 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:30,483 [main:117] - GENERATED CALL = (res).dropWhile({a: Char -> false})
+2021-03-12 10:50:30,483 [main:61] - replacement of "OK" of type String is (res).dropWhile({a: Char -> false})
+2021-03-12 10:50:30,568 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:30,569 [main:66] - Compilation checking started
+2021-03-12 10:50:31,124 [main:53] - Result = true
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return (res).dropWhile({a: Char -> false})
+}
+
+
+2021-03-12 10:50:31,125 [main:53] - replacing (inc, String)
+2021-03-12 10:50:31,125 [main:50] - replacing inc String
+2021-03-12 10:50:31,125 [main:54] - Getting value of type String
+2021-03-12 10:50:31,235 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:31,235 [main:58] - GENERATED VALUE OF TYPE String = "pbwkz"
+2021-03-12 10:50:31,236 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:31,339 [main:67] - randomType = Int
+2021-03-12 10:50:31,428 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:31,493 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@6b26a327]
+2021-03-12 10:50:31,493 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4eda7a7e]
+2021-03-12 10:50:31,493 [main:78] - Generated call from random type = (-729081868).toChar().uppercase()
+2021-03-12 10:50:31,494 [main:106] - GETTING String from String
+2021-03-12 10:50:31,525 [main:113] - Case = [public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]]
+2021-03-12 10:50:31,525 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]
+2021-03-12 10:50:31,620 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:31,620 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:31,621 [main:117] - GENERATED CALL = (X().result).takeLastWhile({a: Char -> true})
+2021-03-12 10:50:31,622 [main:113] - Case = [public fun kotlin.String.replaceIndentByMargin(newIndent: kotlin.String = ..., marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3c19a347]]
+2021-03-12 10:50:31,622 [main:149] - GENERATING call of type public fun kotlin.String.replaceIndentByMargin(newIndent: kotlin.String = ..., marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3c19a347]
+2021-03-12 10:50:31,715 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:31,716 [main:117] - GENERATED CALL = (X().result).replaceIndentByMargin(inc, "nxlyp")
+2021-03-12 10:50:31,716 [main:113] - Case = [public inline fun kotlin.String.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@e8dd82c]]
+2021-03-12 10:50:31,716 [main:149] - GENERATING call of type public inline fun kotlin.String.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@e8dd82c]
+2021-03-12 10:50:31,816 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:31,816 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:31,818 [main:117] - GENERATED CALL = (X().result).dropWhile({a: Char -> false})
+2021-03-12 10:50:31,818 [main:113] - Case = [public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]]
+2021-03-12 10:50:31,818 [main:149] - GENERATING call of type public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2039d7b5]
+2021-03-12 10:50:31,912 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 10:50:31,919 [main:117] - GENERATED CALL = (X().result).removePrefix("sbrpv")
+2021-03-12 10:50:31,919 [main:113] - Case = [public fun kotlin.String.take(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@13d32532]]
+2021-03-12 10:50:31,919 [main:149] - GENERATING call of type public fun kotlin.String.take(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@13d32532]
+2021-03-12 10:50:32,042 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:32,044 [main:117] - GENERATED CALL = (X().result).take(-731806163)
+2021-03-12 10:50:32,044 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b6bcf16]]
+2021-03-12 10:50:32,044 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b6bcf16]
+2021-03-12 10:50:32,045 [main:117] - GENERATED CALL = (X().result).trimEnd()
+2021-03-12 10:50:32,045 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5466fe00]]
+2021-03-12 10:50:32,045 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5466fe00]
+2021-03-12 10:50:32,159 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:32,271 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:32,272 [main:117] - GENERATED CALL = (X().result).removeRange(32120139, 1367820667)
+2021-03-12 10:50:32,272 [main:113] - Case = [public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@61c01cef]]
+2021-03-12 10:50:32,272 [main:149] - GENERATING call of type public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@61c01cef]
+2021-03-12 10:50:32,361 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:32,362 [main:117] - GENERATED CALL = (X().result).dropLast(1733131702)
+2021-03-12 10:50:32,362 [main:113] - Case = [public fun kotlin.String.replaceBefore(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@58e4cca1]]
+2021-03-12 10:50:32,362 [main:149] - GENERATING call of type public fun kotlin.String.replaceBefore(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@58e4cca1]
+2021-03-12 10:50:32,455 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:32,456 [main:117] - GENERATED CALL = (X().result).replaceBefore('ᑒ', inc, result)
+2021-03-12 10:50:32,456 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e1c62c6]]
+2021-03-12 10:50:32,456 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e1c62c6]
+2021-03-12 10:50:32,544 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:32,546 [main:117] - GENERATED CALL = (X().result).substring(-1733686378)
+2021-03-12 10:50:32,546 [main:61] - replacement of inc of type String is (X().result).trimEnd()
+2021-03-12 10:50:32,656 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:32,657 [main:66] - Compilation checking started
+2021-03-12 10:50:32,969 [main:49] - Result = false
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    (X().result).trimEnd() = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return (res).dropWhile({a: Char -> false})
+}
+
+
+2021-03-12 10:50:32,978 [main:53] - replacing (this, String)
+2021-03-12 10:50:32,979 [main:50] - replacing this String
+2021-03-12 10:50:32,979 [main:54] - Getting value of type String
+2021-03-12 10:50:33,072 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:33,072 [main:58] - GENERATED VALUE OF TYPE String = "cvbgk"
+2021-03-12 10:50:33,073 [main:61] - GENERATED IS CALL =false
+2021-03-12 10:50:33,073 [main:67] - randomType = Boolean
+2021-03-12 10:50:33,173 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:33,191 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@548dcfa0]
+2021-03-12 10:50:33,294 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 10:50:33,295 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@651733c9]
+2021-03-12 10:50:33,388 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:33,389 [main:78] - Generated call from random type = (true).compareTo(false).toString(-320399153)
+2021-03-12 10:50:33,389 [main:106] - GETTING String from String
+2021-03-12 10:50:33,425 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.toUpperCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3ad8abf3]]
+2021-03-12 10:50:33,425 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toUpperCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3ad8abf3]
+2021-03-12 10:50:33,425 [main:117] - GENERATED CALL = (X().result).toUpperCase()
+2021-03-12 10:50:33,425 [main:113] - Case = [public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]]
+2021-03-12 10:50:33,426 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d920a01]
+2021-03-12 10:50:33,515 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:33,515 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:33,517 [main:117] - GENERATED CALL = (X().result).takeLastWhile({a: Char -> true})
+2021-03-12 10:50:33,517 [main:113] - Case = [public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]]
+2021-03-12 10:50:33,517 [main:149] - GENERATING call of type public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@43a22bf1]
+2021-03-12 10:50:33,624 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 10:50:33,625 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 10:50:33,625 [main:117] - GENERATED CALL = (X().result).takeWhile({a: Char -> false})
+2021-03-12 10:50:33,626 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4292184b]]
+2021-03-12 10:50:33,626 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4292184b]
+2021-03-12 10:50:33,626 [main:117] - GENERATED CALL = (X().result).uppercase()
+2021-03-12 10:50:33,626 [main:113] - Case = [public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@691927cc]]
+2021-03-12 10:50:33,626 [main:149] - GENERATING call of type public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@691927cc]
+2021-03-12 10:50:33,708 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:33,709 [main:117] - GENERATED CALL = (X().result).drop(-1316176533)
+2021-03-12 10:50:33,709 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4eda7a7e]]
+2021-03-12 10:50:33,710 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548]
+2021-03-12 10:50:33,796 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:33,797 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4eda7a7e]
+2021-03-12 10:50:33,797 [main:117] - GENERATED CALL = (X().result).get(-784758239).uppercase()
+2021-03-12 10:50:33,797 [main:113] - Case = [public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@52a7db66]]
+2021-03-12 10:50:33,797 [main:149] - GENERATING call of type public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@52a7db66]
+2021-03-12 10:50:33,880 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:33,964 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:33,965 [main:117] - GENERATED CALL = (X().result).replaceAfterLast('响', inc, "dbivz")
+2021-03-12 10:50:33,965 [main:113] - Case = [public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@384cd246]]
+2021-03-12 10:50:33,965 [main:149] - GENERATING call of type public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@384cd246]
+2021-03-12 10:50:34,053 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 10:50:34,177 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:34,300 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:34,301 [main:117] - GENERATED CALL = (X().result).replaceBeforeLast('', "mmfhe", "qpagu")
+2021-03-12 10:50:34,301 [main:113] - Case = [public fun kotlin.String.trimMargin(marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@142683da]]
+2021-03-12 10:50:34,301 [main:149] - GENERATING call of type public fun kotlin.String.trimMargin(marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@142683da]
+2021-03-12 10:50:34,301 [main:117] - GENERATED CALL = (X().result).trimMargin(X().result)
+2021-03-12 10:50:34,301 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548], @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@396a0b9e]]
+2021-03-12 10:50:34,301 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2c109548]
+2021-03-12 10:50:34,388 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 10:50:34,389 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@396a0b9e]
+2021-03-12 10:50:34,476 [main:302] - generating value of type = String true depth = 0
+2021-03-12 10:50:34,478 [main:117] - GENERATED CALL = (X().result).get(1734027220).plus("vbqor")
+2021-03-12 10:50:34,478 [main:61] - replacement of this of type String is (true).compareTo(false).toString(-320399153)
+2021-03-12 10:50:34,566 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 10:50:34,566 [main:66] - Compilation checking started
+2021-03-12 10:50:35,114 [main:53] - Result = true
+Text:
+var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + (type).reversed() + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = (true).compareTo(false).toString(-320399153) + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return (res).dropWhile({a: Char -> false})
+}
+
+
+2021-03-12 10:50:35,117 [main:53] - replacing ("fail 2: ${res}", String)
+2021-03-12 10:50:35,117 [main:50] - replacing "fail 2: ${res}" String
+2021-03-12 10:50:35,117 [main:54] - Getting value of type String

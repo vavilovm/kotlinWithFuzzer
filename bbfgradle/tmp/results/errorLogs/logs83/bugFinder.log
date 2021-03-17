@@ -1,0 +1,16 @@
+2021-03-12 05:18:04,304 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/inheritedFunctionWithDefaultParameters2.kt
+2021-03-12 05:18:07,996 [main:53] - Start to mutate
+2021-03-12 05:18:07,997 [main:54] - BEFORE = interface I {
+    fun foo(x: String = "OK"): String = x
+}
+
+interface J : I
+
+object O : J
+
+fun box(): String = O.foo()
+2021-03-12 05:18:08,690 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 05:18:08,992 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 05:18:09,145 [main:19] - Cur transformation LocalTCE
+2021-03-12 05:18:14,193 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 05:18:14,202 [main:19] - Cur transformation TCETransformation

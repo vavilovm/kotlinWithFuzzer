@@ -1,0 +1,33 @@
+2021-03-11 22:37:29,761 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/stepThenReversed1.kt
+2021-03-11 22:37:34,324 [main:53] - Start to mutate
+2021-03-11 22:37:34,324 [main:54] - BEFORE = import kotlin.test.*
+
+fun box(): String {
+    val intList = mutableListOf<Int>()
+    val intProgression = 1 until 9
+    for (i in (intProgression step 2).reversed()) {
+        intList += i
+    }
+    assertEquals(listOf(7, 5, 3, 1), intList)
+
+    val longList = mutableListOf<Long>()
+    val longProgression = 1L until 9L
+    for (i in (longProgression step 2L).reversed()) {
+        longList += i
+    }
+    assertEquals(listOf(7L, 5L, 3L, 1L), longList)
+
+    val charList = mutableListOf<Char>()
+    val charProgression = 'a' until 'i'
+    for (i in (charProgression step 2).reversed()) {
+        charList += i
+    }
+    assertEquals(listOf('g', 'e', 'c', 'a'), charList)
+
+    return "OK"
+}
+2021-03-11 22:37:35,495 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 22:37:35,925 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 22:37:36,138 [main:19] - Cur transformation LocalTCE
+2021-03-11 22:38:32,633 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 22:38:32,641 [main:19] - Cur transformation TCETransformation

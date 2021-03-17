@@ -1,0 +1,53 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS M</h1>
+<p><p><b>JVM </b>
+: [public, interface, abstract, annotation]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, interface, abstract, annotation]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td></td>
+<td><code>  // jvmSyntheticMethodForAnnotationsSignature: result$annotations()V</code><br></td>
+</tr>
+</table>
+&nbsp;
+<p>Classes missing in tmp/tmp0.jar: <b>1</b></p>
+<ul><li>M$DefaultImpls.class [public, final, super]</li>
+</ul>
+</body>
+</html>

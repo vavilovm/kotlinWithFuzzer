@@ -1,0 +1,26 @@
+2021-03-12 09:08:22,768 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/stepNonConst10.kt
+2021-03-12 09:08:27,610 [main:53] - Start to mutate
+2021-03-12 09:08:27,611 [main:54] - BEFORE = import kotlin.test.*
+
+fun two() = 2
+
+fun box(): String {
+    val uintList = mutableListOf<UInt>()
+    for (i in 1u until 9u step two()) {
+        uintList += i
+    }
+    assertEquals(listOf(1u, 3u, 5u, 7u), uintList)
+
+    val ulongList = mutableListOf<ULong>()
+    for (i in 1uL until 9uL step two().toLong()) {
+        ulongList += i
+    }
+    assertEquals(listOf(1uL, 3uL, 5uL, 7uL), ulongList)
+
+    return "OK"
+}
+2021-03-12 09:08:28,715 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 09:08:29,211 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 09:08:29,437 [main:19] - Cur transformation LocalTCE
+2021-03-12 09:09:12,945 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 09:09:12,953 [main:19] - Cur transformation TCETransformation

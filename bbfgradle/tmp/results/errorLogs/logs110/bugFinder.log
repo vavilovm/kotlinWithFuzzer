@@ -1,0 +1,35 @@
+2021-03-12 10:17:04,262 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/stepThenReversedThenStep1.kt
+2021-03-12 10:17:09,083 [main:53] - Start to mutate
+2021-03-12 10:17:09,083 [main:54] - BEFORE = import kotlin.test.*
+
+fun box(): String {
+    val intList = mutableListOf<Int>()
+    val intProgression = 1 until 11
+    for (i in (intProgression step 2).reversed() step 3) {
+        intList += i
+    }
+    assertEquals(listOf(9, 6, 3), intList)
+
+    val longList = mutableListOf<Long>()
+    val longProgression = 1L until 11L
+    for (i in (longProgression step 2L).reversed() step 3L) {
+        longList += i
+    }
+    assertEquals(listOf(9L, 6L, 3L), longList)
+
+    val charList = mutableListOf<Char>()
+    val charProgression = 'a' until 'k'
+    for (i in (charProgression step 2).reversed() step 3) {
+        charList += i
+    }
+    assertEquals(listOf('i', 'f', 'c'), charList)
+
+    return "OK"
+}
+2021-03-12 10:17:10,515 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:17:11,053 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:17:11,323 [main:19] - Cur transformation LocalTCE
+2021-03-12 10:18:19,478 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 10:18:19,486 [main:19] - Cur transformation TCETransformation
+2021-03-12 10:26:21,557 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-12 10:34:50,946 [main:19] - Cur transformation AddPossibleModifiers

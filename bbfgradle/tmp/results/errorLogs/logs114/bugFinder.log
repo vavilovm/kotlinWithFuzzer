@@ -1,0 +1,31 @@
+2021-03-12 10:50:03,512 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/incWithDefaultInGetter.kt
+2021-03-12 10:50:08,130 [main:53] - Start to mutate
+2021-03-12 10:50:08,131 [main:54] - BEFORE = var inc: String = ""
+
+class X {
+    var result: String = "fail"
+
+    operator fun get(name: String, type: String = "none") = name + inc + type
+
+    operator fun set(name: String, s: String) {
+        result = name + s;
+    }
+}
+
+operator fun String.inc(): String {
+    inc = this + "1"
+    return this + "1"
+}
+
+fun box(): String {
+    var x = X()
+    val res = ++x["a"]
+    if (x.result != "aanone1") return "fail 1: ${x.result}"
+
+    if (res != "aanone1none") return "fail 2: ${res}"
+
+    return "OK"
+}
+2021-03-12 10:50:09,064 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:50:09,476 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:50:13,103 [main:19] - Cur transformation LocalTCE

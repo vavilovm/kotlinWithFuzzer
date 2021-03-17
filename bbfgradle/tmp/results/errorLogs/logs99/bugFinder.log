@@ -1,0 +1,14 @@
+2021-03-12 08:20:22,411 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/suspendFunctionMangling.kt
+2021-03-12 08:20:26,174 [main:53] - Start to mutate
+2021-03-12 08:20:26,175 [main:54] - BEFORE = package a
+
+inline class P(val i: Int)
+
+suspend fun foo(p: P = P(1)) {}
+
+suspend fun bar(p: P) {}
+2021-03-12 08:20:26,923 [main:40] - Mutation of tmp/test.kt started
+2021-03-12 08:20:27,224 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 08:20:29,838 [main:19] - Cur transformation LocalTCE
+2021-03-12 08:20:33,803 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 08:20:33,811 [main:19] - Cur transformation TCETransformation

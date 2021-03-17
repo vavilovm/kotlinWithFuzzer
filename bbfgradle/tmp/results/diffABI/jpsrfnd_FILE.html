@@ -1,0 +1,101 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getMq()I</code><br></td>
+<td><code>  // jvmGetterSignature: getMq-a_XrcN0()I</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>getMq()I [public, final]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getMq-a_XrcN0()I [public, final]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD contains(Ljava/lang/Object;)Z</h2>
+<p><p><b>JVM </b>
+: [public, final, bridge]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge, synthetic]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>1010001 [public, final, bridge]</code></td>
+<td><code>1000001000001 [public, bridge, synthetic]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD remove-IQRRRT4(LZ;)Z</h2>
+<p><p><b>JVM </b>
+: [public]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public]
+</p>
+</p>
+<table><tr><th>Annotation</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.parameters.invisibleParameterAnnotations.p0</td>
+<td><code>@Lorg/jetbrains/annotations/NotNull;</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td>method.parameters.invisibleParameterAnnotations.p0</td>
+<td><code>---</code></td>
+<td><code>@Lorg/jetbrains/annotations/Nullable;</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

@@ -1,0 +1,29 @@
+2021-03-11 20:28:33,991 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/valueof.kt
+2021-03-11 20:28:38,139 [main:53] - Start to mutate
+2021-03-11 20:28:38,139 [main:54] - BEFORE = enum class Color {
+  RED,
+  BLUE
+}
+
+fun throwsOnGreen(): Boolean {
+    try {
+        Color.valueOf("GREEN")
+        return false
+    }
+    catch (e: Exception) {
+        return true
+    }
+}
+
+fun box() = if(
+     Color.valueOf("RED") == Color.RED
+  && Color.valueOf("BLUE") == Color.BLUE
+  && Color.values()[0] == Color.RED
+  && Color.values()[1] == Color.BLUE
+  && throwsOnGreen()
+  ) "OK" else "fail"
+2021-03-11 20:28:38,971 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 20:28:39,385 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 20:28:40,499 [main:19] - Cur transformation LocalTCE
+2021-03-11 20:29:06,555 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 20:29:06,566 [main:19] - Cur transformation TCETransformation

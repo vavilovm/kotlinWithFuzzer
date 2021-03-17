@@ -1,0 +1,70 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, super, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, super, abstract]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>containsValue(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>containsValue-7apg3OU(B)Z [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get-7PGSa80(LSomeClass;)Lkotlin/UByte; [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>getOrDefault-fAiVMPo(LSomeClass;B)B [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>remove(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)Lkotlin/UByte; [public, final, bridge]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

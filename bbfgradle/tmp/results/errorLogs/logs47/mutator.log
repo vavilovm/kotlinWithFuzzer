@@ -1,0 +1,3314 @@
+2021-03-11 23:39:13,894 [main:66] - Compilation checking started
+2021-03-11 23:39:15,388 [main:112] - generating klass A text = interface A<E> : Collection<E>
+2021-03-11 23:39:16,796 [main:112] - generating klass B text = interface B<E> : List<E>
+2021-03-11 23:39:17,448 [main:45] - Trying to change 0 nodes
+2021-03-11 23:39:17,566 [main:41] - AFTER TRY 0 res = interface A<E> : Collection<E>
+interface B<E> : List<E>
+2021-03-11 23:39:17,741 [main:112] - generating klass A text = interface A<E> : Collection<E>
+2021-03-11 23:39:18,073 [main:112] - generating klass B text = interface B<E> : List<E>
+2021-03-11 23:39:18,688 [main:43] - Try №0
+2021-03-11 23:39:31,678 [main:48] - Already checked
+2021-03-11 23:39:35,911 [main:69] - Trying to insert abstract fun fu4(exception: Throwable)
+2021-03-11 23:39:36,016 [main:66] - Compilation checking started
+2021-03-11 23:39:37,154 [main:103] - Trying to change 141 nodes
+2021-03-11 23:39:37,154 [main:107] - replacing (prope6, Int)
+2021-03-11 23:39:37,154 [main:50] - replacing prope6 Int
+2021-03-11 23:39:37,154 [main:54] - Getting value of type Int
+2021-03-11 23:39:37,312 [main:302] - generating value of type = Int true depth = 0
+2021-03-11 23:39:37,316 [main:58] - GENERATED VALUE OF TYPE Int = 1393804672
+2021-03-11 23:39:37,316 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:37,498 [main:67] - randomType = Long
+2021-03-11 23:39:37,653 [main:302] - generating value of type = Long true depth = 0
+2021-03-11 23:39:37,781 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Long[DeserializedSimpleFunctionDescriptor@416d3d02]
+2021-03-11 23:39:37,782 [main:149] - GENERATING call of type public final operator fun minus(other: kotlin.Char): kotlin.Int defined in kotlin.Char[DeserializedSimpleFunctionDescriptor@1e9271d8]
+2021-03-11 23:39:37,992 [main:302] - generating value of type = Char true depth = 0
+2021-03-11 23:39:37,994 [main:78] - Generated call from random type = (-6903839270456323850).toChar().minus('ោ')
+2021-03-11 23:39:37,994 [main:114] - replacement of prope6 of type Int is 1393804672
+2021-03-11 23:39:38,139 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-11 23:39:38,140 [main:66] - Compilation checking started
+2021-03-11 23:39:38,604 [main:49] - Result = false
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(prope3::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.exceptionOrNull()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "\n"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        1393804672++
+        prope8 = { prope3.resume(Unit) }
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:38,607 [main:107] - replacing (Kla0(), Kla0)
+2021-03-11 23:39:38,607 [main:50] - replacing Kla0() Kla0
+2021-03-11 23:39:38,607 [main:54] - Getting value of type Kla0
+2021-03-11 23:39:38,757 [main:302] - generating value of type = Kla0 false depth = 0
+2021-03-11 23:39:38,759 [main:112] - generating klass Kla0 text = class Kla0 {
+    var prope2 = "failed"
+}
+2021-03-11 23:39:38,759 [main:58] - GENERATED VALUE OF TYPE Kla0 = Kla0()
+2021-03-11 23:39:38,760 [main:61] - GENERATED IS CALL =true
+2021-03-11 23:39:38,769 [main:67] - randomType = Kla2
+2021-03-11 23:39:38,938 [main:302] - generating value of type = Kla2 false depth = 0
+2021-03-11 23:39:38,941 [main:112] - generating klass Kla2 text = class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+2021-03-11 23:39:38,987 [main:114] - replacement of Kla0() of type Kla0 is Kla0()
+2021-03-11 23:39:39,138 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-11 23:39:39,141 [main:107] - replacing ("\n", String)
+2021-03-11 23:39:39,141 [main:50] - replacing "\n" String
+2021-03-11 23:39:39,141 [main:54] - Getting value of type String
+2021-03-11 23:39:39,303 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:39:39,308 [main:58] - GENERATED VALUE OF TYPE String = "faoxb"
+2021-03-11 23:39:39,309 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:39,492 [main:67] - randomType = Collection<Kla2>
+2021-03-11 23:39:39,492 [main:114] - replacement of "\n" of type String is "faoxb"
+2021-03-11 23:39:39,633 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-11 23:39:39,633 [main:66] - Compilation checking started
+2021-03-11 23:39:40,349 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(prope3::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.exceptionOrNull()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { prope3.resume(Unit) }
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:40,351 [main:107] - replacing ({ prope3.resume(Unit) }, Function0<Unit>)
+2021-03-11 23:39:40,351 [main:50] - replacing { prope3.resume(Unit) } Function0<Unit>
+2021-03-11 23:39:40,351 [main:54] - Getting value of type Function0<Unit>
+2021-03-11 23:39:40,504 [main:302] - generating value of type = Function0<Unit> false depth = 0
+2021-03-11 23:39:40,507 [main:302] - generating value of type = Unit false depth = 1
+2021-03-11 23:39:40,676 [main:43] - GENERATING CALL OF fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-11 23:39:40,679 [main:61] - WITHOUT TYPE PARAMS = fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-11 23:39:41,009 [main:302] - generating value of type = Any false depth = 4
+2021-03-11 23:39:41,010 [main:95] - GENERATED = print("cfopw")
+2021-03-11 23:39:41,010 [main:58] - GENERATED VALUE OF TYPE Function0<Unit> = { print("cfopw")}
+2021-03-11 23:39:41,010 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:41,014 [main:67] - randomType = Boolean
+2021-03-11 23:39:41,149 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-11 23:39:41,166 [main:114] - replacement of { prope3.resume(Unit) } of type Function0<Unit> is { print("cfopw")}
+2021-03-11 23:39:41,294 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-11 23:39:41,295 [main:66] - Compilation checking started
+2021-03-11 23:39:42,038 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(prope3::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.exceptionOrNull()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:42,041 [main:107] - replacing (true, Boolean)
+2021-03-11 23:39:42,041 [main:50] - replacing true Boolean
+2021-03-11 23:39:42,041 [main:54] - Getting value of type Boolean
+2021-03-11 23:39:42,194 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-11 23:39:42,196 [main:58] - GENERATED VALUE OF TYPE Boolean = false
+2021-03-11 23:39:42,196 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:42,362 [main:67] - randomType = Kla6
+2021-03-11 23:39:42,493 [main:302] - generating value of type = Kla6 false depth = 0
+2021-03-11 23:39:42,494 [main:112] - generating klass Kla6 text = object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+2021-03-11 23:39:42,522 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in Kla6[DeserializedSimpleFunctionDescriptor@30b8b35b]
+2021-03-11 23:39:42,650 [main:302] - generating value of type = Any false depth = 0
+2021-03-11 23:39:42,651 [main:149] - GENERATING call of type public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5ba968cb]
+2021-03-11 23:39:42,782 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-11 23:39:42,785 [main:78] - Generated call from random type = (Kla6).equals("fknqx").or(false)
+2021-03-11 23:39:42,785 [main:114] - replacement of true of type Boolean is (Kla6).equals("fknqx").or(false)
+2021-03-11 23:39:42,919 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-11 23:39:42,919 [main:66] - Compilation checking started
+2021-03-11 23:39:43,592 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(prope3::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.exceptionOrNull()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:43,595 [main:107] - replacing (prope4.exceptionOrNull(), Throwable?)
+2021-03-11 23:39:43,595 [main:50] - replacing prope4.exceptionOrNull() Throwable?
+2021-03-11 23:39:43,595 [main:54] - Getting value of type Throwable?
+2021-03-11 23:39:43,747 [main:302] - generating value of type = Throwable false depth = 0
+2021-03-11 23:39:43,755 [main:58] - GENERATED VALUE OF TYPE Throwable? = NullPointerException()
+2021-03-11 23:39:43,755 [main:61] - GENERATED IS CALL =true
+2021-03-11 23:39:43,758 [main:67] - randomType = String
+2021-03-11 23:39:43,886 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:39:43,922 [main:114] - replacement of prope4.exceptionOrNull() of type Throwable? is NullPointerException()
+2021-03-11 23:39:44,058 [main:33] - Trying to replace Element(DOT_QUALIFIED_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-11 23:39:44,059 [main:66] - Compilation checking started
+2021-03-11 23:39:44,756 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(prope3::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:44,759 [main:107] - replacing (prope3, Kla0)
+2021-03-11 23:39:44,759 [main:50] - replacing prope3 Kla0
+2021-03-11 23:39:44,759 [main:54] - Getting value of type Kla0
+2021-03-11 23:39:44,921 [main:302] - generating value of type = Kla0 false depth = 0
+2021-03-11 23:39:44,923 [main:112] - generating klass Kla0 text = class Kla0 {
+    var prope2 = "failed"
+}
+2021-03-11 23:39:44,923 [main:58] - GENERATED VALUE OF TYPE Kla0 = Kla0()
+2021-03-11 23:39:44,923 [main:61] - GENERATED IS CALL =true
+2021-03-11 23:39:45,530 [main:67] - randomType = ArrayList<HashSet<Short>>?
+2021-03-11 23:39:45,666 [main:302] - generating value of type = ArrayList<HashSet<Short>> false depth = 0
+2021-03-11 23:39:45,812 [main:43] - GENERATING CALL OF fun <T> arrayListOf(): ArrayList<HashSet<Short>> = TODO()
+2021-03-11 23:39:45,815 [main:61] - WITHOUT TYPE PARAMS = fun <T> arrayListOf(): ArrayList<HashSet<Short>> = TODO()
+2021-03-11 23:39:45,955 [main:95] - GENERATED = arrayListOf<HashSet<Short>>()
+2021-03-11 23:39:46,209 [main:114] - replacement of prope3 of type Kla0 is Kla0()
+2021-03-11 23:39:46,339 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-11 23:39:46,339 [main:66] - Compilation checking started
+2021-03-11 23:39:47,043 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = {}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:47,046 [main:107] - replacing ({}, Function0<Unit>)
+2021-03-11 23:39:47,046 [main:50] - replacing {} Function0<Unit>
+2021-03-11 23:39:47,046 [main:54] - Getting value of type Function0<Unit>
+2021-03-11 23:39:47,191 [main:302] - generating value of type = Function0<Unit> false depth = 0
+2021-03-11 23:39:47,192 [main:302] - generating value of type = Unit false depth = 1
+2021-03-11 23:39:47,327 [main:43] - GENERATING CALL OF fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-11 23:39:47,329 [main:61] - WITHOUT TYPE PARAMS = fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-11 23:39:47,617 [main:302] - generating value of type = Any false depth = 4
+2021-03-11 23:39:47,618 [main:95] - GENERATED = print("leqld")
+2021-03-11 23:39:47,618 [main:58] - GENERATED VALUE OF TYPE Function0<Unit> = { print("leqld")}
+2021-03-11 23:39:47,618 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:49,007 [main:67] - randomType = Triple<Boolean, Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, Int>
+2021-03-11 23:39:49,155 [main:302] - generating value of type = Triple<Boolean, Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, Int> false depth = 0
+2021-03-11 23:39:49,292 [main:43] - GENERATING CALL OF fun <A, B, C> Triple(first: Boolean, second: Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, third: Int): Triple<Boolean, Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, Int> = TODO()
+2021-03-11 23:39:49,295 [main:61] - WITHOUT TYPE PARAMS = fun <A, B, C> Triple(first: Boolean, second: Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, third: Int): Triple<Boolean, Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, Int> = TODO()
+2021-03-11 23:39:49,601 [main:302] - generating value of type = Boolean true depth = 3
+2021-03-11 23:39:49,602 [main:302] - generating value of type = Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>> false depth = 3
+2021-03-11 23:39:49,604 [main:302] - generating value of type = MutableMap<Double, A<UInt>> false depth = 4
+2021-03-11 23:39:49,751 [main:43] - GENERATING CALL OF fun <K, V> hashMapOf(pairs: Pair<Double, A<UInt>>): MutableMap<Double, A<UInt>> = TODO()
+2021-03-11 23:39:49,754 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> hashMapOf(pairs: Pair<Double, A<UInt>>): MutableMap<Double, A<UInt>> = TODO()
+2021-03-11 23:39:49,879 [main:302] - generating value of type = Pair<Double, A<UInt>> false depth = 7
+2021-03-11 23:39:50,004 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: Double, second: A<UInt>): Pair<Double, A<UInt>> = TODO()
+2021-03-11 23:39:50,007 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: Double, second: A<UInt>): Pair<Double, A<UInt>> = TODO()
+2021-03-11 23:39:50,270 [main:302] - generating value of type = Double true depth = 10
+2021-03-11 23:39:50,273 [main:302] - generating value of type = A<UInt> false depth = 10
+2021-03-11 23:39:50,274 [main:112] - generating klass A text = interface A<E> : Collection<E>
+2021-03-11 23:39:51,755 [main:95] - GENERATED = Pair<Double, A<UInt>>(0.056276373638851296, TODO())
+2021-03-11 23:39:51,755 [main:95] - GENERATED = hashMapOf<Double, A<UInt>>(Pair<Double, A<UInt>>(0.056276373638851296, TODO()))
+2021-03-11 23:39:51,756 [main:302] - generating value of type = Int true depth = 3
+2021-03-11 23:39:51,757 [main:95] - GENERATED = Triple<Boolean, Function2<List<String>, Array<Long>, MutableMap<Double, A<UInt>>>, Int>(false, {a: List<String>, b: Array<Long> -> hashMapOf<Double, A<UInt>>(Pair<Double, A<UInt>>(0.056276373638851296, TODO()))}, -1890958797)
+2021-03-11 23:39:51,785 [main:114] - replacement of {} of type Function0<Unit> is { print("leqld")}
+2021-03-11 23:39:51,921 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-11 23:39:51,922 [main:66] - Compilation checking started
+2021-03-11 23:39:52,508 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:52,510 [main:107] - replacing ({ prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    }, Function1<Continuation<Unit>, Unit>)
+2021-03-11 23:39:52,511 [main:50] - replacing { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    } Function1<Continuation<Unit>, Unit>
+2021-03-11 23:39:52,511 [main:54] - Getting value of type Function1<Continuation<Unit>, Unit>
+2021-03-11 23:39:52,634 [main:302] - generating value of type = Function1<Continuation<Unit>, Unit> false depth = 0
+2021-03-11 23:39:52,636 [main:302] - generating value of type = Unit false depth = 1
+2021-03-11 23:39:52,755 [main:43] - GENERATING CALL OF fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-11 23:39:52,757 [main:61] - WITHOUT TYPE PARAMS = fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-11 23:39:53,134 [main:302] - generating value of type = Boolean true depth = 4
+2021-03-11 23:39:53,135 [main:302] - generating value of type = Function0<Any> false depth = 4
+2021-03-11 23:39:53,137 [main:302] - generating value of type = Any false depth = 5
+2021-03-11 23:39:53,137 [main:95] - GENERATED = require(true, { "obegi"})
+2021-03-11 23:39:53,137 [main:58] - GENERATED VALUE OF TYPE Function1<Continuation<Unit>, Unit> = {a: Continuation<Unit> -> require(true, { "obegi"})}
+2021-03-11 23:39:53,137 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:53,562 [main:67] - randomType = Sequence<Function1<Kla6, Long>>
+2021-03-11 23:39:53,562 [main:114] - replacement of { prope3 ->
+        prope6++
+        prope8 = { print("cfopw")}
+    } of type Function1<Continuation<Unit>, Unit> is {a: Continuation<Unit> -> require(true, { "obegi"})}
+2021-03-11 23:39:53,696 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-11 23:39:53,697 [main:66] - Compilation checking started
+2021-03-11 23:39:54,409 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + " has no state-machine " +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:54,411 [main:107] - replacing (" has no state-machine ", String)
+2021-03-11 23:39:54,411 [main:50] - replacing " has no state-machine " String
+2021-03-11 23:39:54,411 [main:54] - Getting value of type String
+2021-03-11 23:39:54,541 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:39:54,543 [main:58] - GENERATED VALUE OF TYPE String = "lldcd"
+2021-03-11 23:39:54,543 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:54,549 [main:67] - randomType = Kla2
+2021-03-11 23:39:54,676 [main:302] - generating value of type = Kla2 false depth = 0
+2021-03-11 23:39:54,678 [main:112] - generating klass Kla2 text = class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+2021-03-11 23:39:54,702 [main:149] - GENERATING call of type public fun kotlin.Any?.toString(): kotlin.String defined in kotlin[DeserializedSimpleFunctionDescriptor@5d9cbf14]
+2021-03-11 23:39:54,702 [main:78] - Generated call from random type = (Kla2()).prope4?.toString()!!
+2021-03-11 23:39:54,702 [main:114] - replacement of " has no state-machine " of type String is (Kla2()).prope4?.toString()!!
+2021-03-11 23:39:54,837 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(POSTFIX_EXPRESSION)
+2021-03-11 23:39:54,837 [main:66] - Compilation checking started
+2021-03-11 23:39:55,522 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        x(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:55,523 [main:107] - replacing (x, Function1<Ty0, Unit>)
+2021-03-11 23:39:55,523 [main:50] - replacing x Function1<Ty0, Unit>
+2021-03-11 23:39:55,523 [main:54] - Getting value of type Function1<Ty0, Unit>
+2021-03-11 23:39:55,641 [main:302] - generating value of type = Function1<Ty0, Unit> false depth = 0
+2021-03-11 23:39:55,643 [main:302] - generating value of type = Unit false depth = 1
+2021-03-11 23:39:55,756 [main:43] - GENERATING CALL OF fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-11 23:39:55,759 [main:61] - WITHOUT TYPE PARAMS = fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-11 23:39:56,154 [main:302] - generating value of type = Boolean true depth = 4
+2021-03-11 23:39:56,156 [main:302] - generating value of type = Function0<Any> false depth = 4
+2021-03-11 23:39:56,157 [main:302] - generating value of type = Any false depth = 5
+2021-03-11 23:39:56,158 [main:95] - GENERATED = require(true, { "sudmo"})
+2021-03-11 23:39:56,158 [main:58] - GENERATED VALUE OF TYPE Function1<Ty0, Unit> = {a: Ty0 -> require(true, { "sudmo"})}
+2021-03-11 23:39:56,158 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:39:56,161 [main:67] - randomType = Int
+2021-03-11 23:39:56,277 [main:302] - generating value of type = Int true depth = 0
+2021-03-11 23:39:56,337 [main:114] - replacement of x of type Function1<Ty0, Unit> is {a: Ty0 -> require(true, { "sudmo"})}
+2021-03-11 23:39:56,470 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on LAMBDA_EXPRESSION
+2021-03-11 23:39:56,471 [main:66] - Compilation checking started
+2021-03-11 23:39:57,071 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:39:57,072 [main:107] - replacing (it, Continuation<Unit>)
+2021-03-11 23:39:57,073 [main:50] - replacing it Continuation<Unit>
+2021-03-11 23:39:57,073 [main:54] - Getting value of type Continuation<Unit>
+2021-03-11 23:39:57,193 [main:302] - generating value of type = Continuation<Unit> false depth = 0
+2021-03-11 23:39:57,330 [main:43] - GENERATING CALL OF fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Unit>)->kotlin.Unit): Contuation<Unit> = TODO()
+2021-03-11 23:39:57,333 [main:61] - WITHOUT TYPE PARAMS = fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Unit>)->kotlin.Unit): Contuation<Unit> = TODO()
+2021-03-11 23:39:57,745 [main:302] - generating value of type = CoroutineContext false depth = 3
+2021-03-11 23:39:57,869 [main:43] - GENERATING CALL OF fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:39:57,872 [main:61] - WITHOUT TYPE PARAMS = fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:39:58,145 [main:302] - generating value of type = Key<*> false depth = 6
+2021-03-11 23:39:58,322 [main:43] - GENERATING CALL OF fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<ContinuationInterceptor>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:39:58,327 [main:61] - WITHOUT TYPE PARAMS = fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<ContinuationInterceptor>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:39:58,750 [main:302] - generating value of type = Key<ContinuationInterceptor> false depth = 9
+2021-03-11 23:39:58,872 [main:43] - GENERATING CALL OF fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->ContinuationInterceptor): Key<ContinuationInterceptor> = TODO()
+2021-03-11 23:39:58,875 [main:61] - WITHOUT TYPE PARAMS = fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->ContinuationInterceptor): Key<ContinuationInterceptor> = TODO()
+2021-03-11 23:39:59,386 [main:385] - Cant generate call of fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->ContinuationInterceptor): Key<ContinuationInterceptor> = TODO()
+2021-03-11 23:39:59,386 [main:385] - Cant generate call of fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<ContinuationInterceptor>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:39:59,386 [main:385] - Cant generate call of fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:39:59,386 [main:385] - Cant generate call of fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Unit>)->kotlin.Unit): Contuation<Unit> = TODO()
+2021-03-11 23:39:59,386 [main:58] - GENERATED VALUE OF TYPE Continuation<Unit> = 
+2021-03-11 23:39:59,514 [main:67] - randomType = UInt
+2021-03-11 23:39:59,624 [main:302] - generating value of type = UInt true depth = 0
+2021-03-11 23:39:59,657 [main:111] - Cant find and generate replacement for it type Continuation<Unit>
+2021-03-11 23:39:59,657 [main:107] - replacing (Kla1, Kla7)
+2021-03-11 23:39:59,657 [main:50] - replacing Kla1 Kla7
+2021-03-11 23:39:59,657 [main:54] - Getting value of type Kla7
+2021-03-11 23:39:59,765 [main:302] - generating value of type = Kla7 false depth = 0
+2021-03-11 23:39:59,766 [main:112] - generating klass Kla7 text = companion object Kla7 : Kla1()
+2021-03-11 23:39:59,766 [main:58] - GENERATED VALUE OF TYPE Kla7 = 
+2021-03-11 23:39:59,903 [main:67] - randomType = UShort
+2021-03-11 23:40:00,027 [main:302] - generating value of type = UShort true depth = 0
+2021-03-11 23:40:00,064 [main:111] - Cant find and generate replacement for Kla1 type Kla7
+2021-03-11 23:40:00,064 [main:107] - replacing ("Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected ", String)
+2021-03-11 23:40:00,064 [main:50] - replacing "Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " String
+2021-03-11 23:40:00,064 [main:54] - Getting value of type String
+2021-03-11 23:40:00,184 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:40:00,186 [main:58] - GENERATED VALUE OF TYPE String = "kqwkx"
+2021-03-11 23:40:00,186 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:00,737 [main:67] - randomType = Function1<Kla6, MutableMap<HashMap<Kla4, Float>, Kla5>>
+2021-03-11 23:40:00,737 [main:114] - replacement of "Wrong state-machine generated: suspendHere should be called exactly once in one state. Expected " of type String is "kqwkx"
+2021-03-11 23:40:00,907 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-11 23:40:00,907 [main:66] - Compilation checking started
+2021-03-11 23:40:01,535 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:01,538 [main:107] - replacing (getOrThrow(), Ty0)
+2021-03-11 23:40:01,538 [main:50] - replacing getOrThrow() Ty0
+2021-03-11 23:40:01,538 [main:54] - Getting value of type Ty0
+2021-03-11 23:40:01,674 [main:302] - generating value of type = Ty0 false depth = 0
+2021-03-11 23:40:01,679 [main:58] - GENERATED VALUE OF TYPE Ty0 = 
+2021-03-11 23:40:01,685 [main:67] - randomType = Kla4
+2021-03-11 23:40:01,796 [main:302] - generating value of type = Kla4 false depth = 0
+2021-03-11 23:40:01,797 [main:112] - generating klass Kla4 text = class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+2021-03-11 23:40:01,803 [main:111] - Cant find and generate replacement for getOrThrow() type Ty0
+2021-03-11 23:40:01,803 [main:107] - replacing (prope4, Result<Ty0>)
+2021-03-11 23:40:01,803 [main:50] - replacing prope4 Result<Ty0>
+2021-03-11 23:40:01,803 [main:54] - Getting value of type Result<Ty0>
+2021-03-11 23:40:01,914 [main:302] - generating value of type = Result<Ty0> false depth = 0
+2021-03-11 23:40:02,030 [main:43] - GENERATING CALL OF fun <R> runCatching(block: ()->Ty0): Result<Ty0> = TODO()
+2021-03-11 23:40:02,033 [main:61] - WITHOUT TYPE PARAMS = fun <R> runCatching(block: ()->Ty0): Result<Ty0> = TODO()
+2021-03-11 23:40:02,284 [main:385] - Cant generate call of fun <R> runCatching(block: ()->Ty0): Result<Ty0> = TODO()
+2021-03-11 23:40:02,284 [main:58] - GENERATED VALUE OF TYPE Result<Ty0> = 
+2021-03-11 23:40:02,406 [main:67] - randomType = Long
+2021-03-11 23:40:02,515 [main:302] - generating value of type = Long true depth = 0
+2021-03-11 23:40:02,569 [main:111] - Cant find and generate replacement for prope4 type Result<Ty0>
+2021-03-11 23:40:02,569 [main:107] - replacing (prope4.getOrThrow(), Ty0)
+2021-03-11 23:40:02,569 [main:50] - replacing prope4.getOrThrow() Ty0
+2021-03-11 23:40:02,569 [main:54] - Getting value of type Ty0
+2021-03-11 23:40:02,686 [main:58] - GENERATED VALUE OF TYPE Ty0 = null
+2021-03-11 23:40:02,686 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:02,824 [main:67] - randomType = Double
+2021-03-11 23:40:02,944 [main:302] - generating value of type = Double true depth = 0
+2021-03-11 23:40:02,979 [main:114] - replacement of prope4.getOrThrow() of type Ty0 is null
+2021-03-11 23:40:03,103 [main:33] - Trying to replace Element(DOT_QUALIFIED_EXPRESSION) on Element(NULL)
+2021-03-11 23:40:03,103 [main:66] - Compilation checking started
+2021-03-11 23:40:03,491 [main:49] - Result = false
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return prope3.prope2
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(null)
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:03,494 [main:107] - replacing (prope3.prope2, String)
+2021-03-11 23:40:03,494 [main:50] - replacing prope3.prope2 String
+2021-03-11 23:40:03,494 [main:54] - Getting value of type String
+2021-03-11 23:40:03,614 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:40:03,616 [main:58] - GENERATED VALUE OF TYPE String = "htgll"
+2021-03-11 23:40:03,616 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:03,622 [main:67] - randomType = Kla1
+2021-03-11 23:40:03,729 [main:302] - generating value of type = Kla1 false depth = 0
+2021-03-11 23:40:03,731 [main:112] - generating klass Kla1 text = open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+2021-03-11 23:40:03,840 [main:194] - Type params = []
+2021-03-11 23:40:03,951 [main:302] - generating value of type = CoroutineContext false depth = 2
+2021-03-11 23:40:04,067 [main:43] - GENERATING CALL OF fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:04,070 [main:61] - WITHOUT TYPE PARAMS = fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:04,306 [main:302] - generating value of type = Key<*> false depth = 5
+2021-03-11 23:40:04,465 [main:43] - GENERATING CALL OF fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:04,467 [main:61] - WITHOUT TYPE PARAMS = fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:04,846 [main:385] - Cant generate call of fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:04,847 [main:385] - Cant generate call of fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:04,864 [main:114] - replacement of prope3.prope2 of type String is "htgll"
+2021-03-11 23:40:04,973 [main:33] - Trying to replace Element(DOT_QUALIFIED_EXPRESSION) on Element(STRING_TEMPLATE)
+2021-03-11 23:40:04,974 [main:66] - Compilation checking started
+2021-03-11 23:40:05,527 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        prope1.prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:05,529 [main:107] - replacing (prope3, Continuation<*>)
+2021-03-11 23:40:05,529 [main:50] - replacing prope3 Continuation<*>
+2021-03-11 23:40:05,529 [main:54] - Getting value of type Continuation<*>
+2021-03-11 23:40:05,652 [main:302] - generating value of type = Continuation<*> false depth = 0
+2021-03-11 23:40:05,764 [main:43] - GENERATING CALL OF fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Any?>)->kotlin.Unit): Contuation<*> = TODO()
+2021-03-11 23:40:05,766 [main:61] - WITHOUT TYPE PARAMS = fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Any?>)->kotlin.Unit): Contuation<*> = TODO()
+2021-03-11 23:40:06,172 [main:302] - generating value of type = CoroutineContext false depth = 3
+2021-03-11 23:40:06,289 [main:43] - GENERATING CALL OF fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:06,292 [main:61] - WITHOUT TYPE PARAMS = fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:06,610 [main:302] - generating value of type = Key<*> false depth = 6
+2021-03-11 23:40:06,724 [main:43] - GENERATING CALL OF fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:06,726 [main:61] - WITHOUT TYPE PARAMS = fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:07,087 [main:385] - Cant generate call of fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:07,087 [main:385] - Cant generate call of fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:07,087 [main:385] - Cant generate call of fun <T> Continuation(context: kotlin.coroutines.CoroutineContext, resumeWith: (kotlin.Result<Any?>)->kotlin.Unit): Contuation<*> = TODO()
+2021-03-11 23:40:07,087 [main:58] - GENERATED VALUE OF TYPE Continuation<*> = 
+2021-03-11 23:40:08,129 [main:67] - randomType = MutableMap<Pair<Boolean, List<Long>>?, B<B<Double>>>
+2021-03-11 23:40:08,130 [main:111] - Cant find and generate replacement for prope3 type Continuation<*>
+2021-03-11 23:40:08,130 [main:107] - replacing (prope1, Kla5)
+2021-03-11 23:40:08,130 [main:50] - replacing prope1 Kla5
+2021-03-11 23:40:08,130 [main:54] - Getting value of type Kla5
+2021-03-11 23:40:08,236 [main:302] - generating value of type = Kla5 false depth = 0
+2021-03-11 23:40:08,238 [main:112] - generating klass Kla5 text = class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+2021-03-11 23:40:08,238 [main:58] - GENERATED VALUE OF TYPE Kla5 = Kla5()
+2021-03-11 23:40:08,238 [main:61] - GENERATED IS CALL =true
+2021-03-11 23:40:08,368 [main:67] - randomType = MutableMap<Kla2, Kla6>
+2021-03-11 23:40:08,368 [main:114] - replacement of prope1 of type Kla5 is Kla5()
+2021-03-11 23:40:08,474 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-11 23:40:08,474 [main:66] - Compilation checking started
+2021-03-11 23:40:09,059 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("tail-call optimization hit: method " + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:09,061 [main:107] - replacing (getOrThrow(), Ty0)
+2021-03-11 23:40:09,061 [main:50] - replacing getOrThrow() Ty0
+2021-03-11 23:40:09,061 [main:54] - Getting value of type Ty0
+2021-03-11 23:40:09,172 [main:302] - generating value of type = Ty0 false depth = 0
+2021-03-11 23:40:09,177 [main:58] - GENERATED VALUE OF TYPE Ty0 = 
+2021-03-11 23:40:09,304 [main:67] - randomType = A<Kla6>
+2021-03-11 23:40:09,304 [main:111] - Cant find and generate replacement for getOrThrow() type Ty0
+2021-03-11 23:40:09,304 [main:107] - replacing ("tail-call optimization hit: method ", String)
+2021-03-11 23:40:09,304 [main:50] - replacing "tail-call optimization hit: method " String
+2021-03-11 23:40:09,304 [main:54] - Getting value of type String
+2021-03-11 23:40:09,409 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:40:09,411 [main:58] - GENERATED VALUE OF TYPE String = "oqlzv"
+2021-03-11 23:40:09,411 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:09,533 [main:67] - randomType = Kla1?
+2021-03-11 23:40:09,643 [main:302] - generating value of type = Kla1 false depth = 0
+2021-03-11 23:40:09,645 [main:112] - generating klass Kla1 text = open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+2021-03-11 23:40:09,750 [main:194] - Type params = []
+2021-03-11 23:40:09,877 [main:302] - generating value of type = CoroutineContext false depth = 2
+2021-03-11 23:40:10,006 [main:43] - GENERATING CALL OF fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:10,009 [main:61] - WITHOUT TYPE PARAMS = fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:10,245 [main:302] - generating value of type = Key<*> false depth = 5
+2021-03-11 23:40:10,354 [main:43] - GENERATING CALL OF fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:10,357 [main:61] - WITHOUT TYPE PARAMS = fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:10,756 [main:385] - Cant generate call of fun <B, E> AbstractCoroutineContextKey(baseKey: kotlin.coroutines.CoroutineContext.Key<Element>, safeCast: (element: kotlin.coroutines.CoroutineContext.Element)->*): Key<*> = TODO()
+2021-03-11 23:40:10,756 [main:385] - Cant generate call of fun AbstractCoroutineContextElement(key: kotlin.coroutines.CoroutineContext.Key<*>): CoroutineContext = TODO()
+2021-03-11 23:40:10,769 [main:114] - replacement of "tail-call optimization hit: method " of type String is "oqlzv"
+2021-03-11 23:40:10,871 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-11 23:40:10,872 [main:66] - Compilation checking started
+2021-03-11 23:40:11,374 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("oqlzv" + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:11,376 [main:107] - replacing ({ it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) }, Function0<Boolean>)
+2021-03-11 23:40:11,376 [main:50] - replacing { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) } Function0<Boolean>
+2021-03-11 23:40:11,376 [main:54] - Getting value of type Function0<Boolean>
+2021-03-11 23:40:11,513 [main:302] - generating value of type = Function0<Boolean> false depth = 0
+2021-03-11 23:40:11,514 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-11 23:40:11,516 [main:58] - GENERATED VALUE OF TYPE Function0<Boolean> = { true}
+2021-03-11 23:40:11,516 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:11,634 [main:67] - randomType = ULong
+2021-03-11 23:40:11,738 [main:302] - generating value of type = ULong true depth = 0
+2021-03-11 23:40:11,769 [main:114] - replacement of { it?.methodName?.startsWith(method) == (Kla6).equals("fknqx").or(false) } of type Function0<Boolean> is { true}
+2021-03-11 23:40:11,873 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-11 23:40:11,874 [main:66] - Compilation checking started
+2021-03-11 23:40:12,440 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { true}?.let { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("oqlzv" + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:12,442 [main:107] - replacing ({ error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) }, Function0<Nothing>)
+2021-03-11 23:40:12,442 [main:50] - replacing { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) } Function0<Nothing>
+2021-03-11 23:40:12,442 [main:54] - Getting value of type Function0<Nothing>
+2021-03-11 23:40:12,561 [main:302] - generating value of type = Function0<Nothing> false depth = 0
+2021-03-11 23:40:12,562 [main:302] - generating value of type = Nothing false depth = 1
+2021-03-11 23:40:12,673 [main:43] - GENERATING CALL OF fun error(message: kotlin.Any): Nothg = TODO()
+2021-03-11 23:40:12,675 [main:61] - WITHOUT TYPE PARAMS = fun error(message: kotlin.Any): Nothg = TODO()
+2021-03-11 23:40:12,899 [main:302] - generating value of type = Any false depth = 4
+2021-03-11 23:40:12,899 [main:95] - GENERATED = error("dnadc")
+2021-03-11 23:40:12,899 [main:58] - GENERATED VALUE OF TYPE Function0<Nothing> = { error("dnadc")}
+2021-03-11 23:40:12,900 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:12,902 [main:67] - randomType = String
+2021-03-11 23:40:13,007 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:40:13,025 [main:114] - replacement of { error("tail-call optimization miss: method at " + it + " has state-machine " +
+                prope5.joinToString(separator = "\n")) } of type Function0<Nothing> is { error("dnadc")}
+2021-03-11 23:40:13,128 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-11 23:40:13,129 [main:66] - Compilation checking started
+2021-03-11 23:40:13,666 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { true}?.let { error("dnadc")}
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("oqlzv" + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:13,668 [main:107] - replacing (EmptyCoroutineContext, EmptyCoroutineContext)
+2021-03-11 23:40:13,668 [main:50] - replacing EmptyCoroutineContext EmptyCoroutineContext
+2021-03-11 23:40:13,668 [main:54] - Getting value of type EmptyCoroutineContext
+2021-03-11 23:40:13,795 [main:302] - generating value of type = EmptyCoroutineContext false depth = 0
+2021-03-11 23:40:13,800 [main:58] - GENERATED VALUE OF TYPE EmptyCoroutineContext = 
+2021-03-11 23:40:13,803 [main:67] - randomType = String
+2021-03-11 23:40:13,907 [main:302] - generating value of type = String true depth = 0
+2021-03-11 23:40:13,928 [main:111] - Cant find and generate replacement for EmptyCoroutineContext type EmptyCoroutineContext
+2021-03-11 23:40:13,928 [main:107] - replacing (1, Int)
+2021-03-11 23:40:13,928 [main:50] - replacing 1 Int
+2021-03-11 23:40:13,928 [main:54] - Getting value of type Int
+2021-03-11 23:40:14,042 [main:302] - generating value of type = Int true depth = 0
+2021-03-11 23:40:14,043 [main:58] - GENERATED VALUE OF TYPE Int = -1807535703
+2021-03-11 23:40:14,043 [main:61] - GENERATED IS CALL =false
+2021-03-11 23:40:14,275 [main:67] - randomType = LinkedHashSet<Double>
+2021-03-11 23:40:14,379 [main:302] - generating value of type = LinkedHashSet<Double> false depth = 0
+2021-03-11 23:40:14,519 [main:43] - GENERATING CALL OF fun <T> linkedSetOf(elements: Double): LkedHashSet<Double> = TODO()
+2021-03-11 23:40:14,522 [main:61] - WITHOUT TYPE PARAMS = fun <T> linkedSetOf(elements: Double): LkedHashSet<Double> = TODO()
+2021-03-11 23:40:14,647 [main:302] - generating value of type = Double true depth = 3
+2021-03-11 23:40:14,649 [main:95] - GENERATED = linkedSetOf<Double>(0.9349534896716334)
+2021-03-11 23:40:14,813 [main:78] - Generated call from random type = (linkedSetOf<Double>(0.9349534896716334)).size.sign
+2021-03-11 23:40:14,813 [main:114] - replacement of 1 of type Int is (linkedSetOf<Double>(0.9349534896716334)).size.sign
+2021-03-11 23:40:14,920 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-11 23:40:14,921 [main:66] - Compilation checking started
+2021-03-11 23:40:15,282 [main:49] - Result = false
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { true}?.let { error("dnadc")}
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("oqlzv" + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in (linkedSetOf<Double>(0.9349534896716334)).size.sign..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:15,283 [main:107] - replacing (this, Kla2)
+2021-03-11 23:40:15,283 [main:50] - replacing this Kla2
+2021-03-11 23:40:15,283 [main:54] - Getting value of type Kla2
+2021-03-11 23:40:15,394 [main:302] - generating value of type = Kla2 false depth = 0
+2021-03-11 23:40:15,395 [main:112] - generating klass Kla2 text = class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        this.prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+2021-03-11 23:40:15,396 [main:58] - GENERATED VALUE OF TYPE Kla2 = Kla2()
+2021-03-11 23:40:15,396 [main:61] - GENERATED IS CALL =true
+2021-03-11 23:40:15,525 [main:67] - randomType = Array<String>
+2021-03-11 23:40:15,627 [main:302] - generating value of type = Array<String> false depth = 0
+2021-03-11 23:40:15,733 [main:43] - GENERATING CALL OF fun <T> emptyArray(): Array<Strg> = TODO()
+2021-03-11 23:40:15,735 [main:61] - WITHOUT TYPE PARAMS = fun <T> emptyArray(): Array<Strg> = TODO()
+2021-03-11 23:40:15,843 [main:95] - GENERATED = emptyArray<String>()
+2021-03-11 23:40:15,857 [main:114] - replacement of this of type Kla2 is Kla2()
+2021-03-11 23:40:15,960 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-11 23:40:15,960 [main:66] - Compilation checking started
+2021-03-11 23:40:16,492 [main:53] - Result = true
+Text:
+
+import kotlin.coroutines.*
+import kotlin.coroutines.intrinsics.*
+import kotlin.coroutines.jvm.internal.CoroutineStackFrame
+interface A<E> : Collection<E>
+interface B<E> : List<E>
+
+fun fu0(prope3: suspend () -> Unit) {
+    prope3.startCoroutine(Kla1)
+}
+
+class Kla0 {
+    var prope2 = "failed"
+}
+
+fun Kla0.fu1() {
+    prope2 = "OK"
+}
+
+fun box536(): String {
+    val prope3 = Kla0()
+    fu0(Kla0()::fu1)
+    return "htgll"
+}
+
+fun <Ty0> fu2(x: (Ty0) -> Unit): Continuation<Ty0> = object: Continuation<Ty0> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        {a: Ty0 -> require(true, { "sudmo"})}(prope4.getOrThrow())
+    }
+}
+
+fun fu3(x: (Throwable) -> Unit): Continuation<Any?> = object: Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        NullPointerException()?.let(x)
+    }
+}
+
+open class Kla1(override val context: CoroutineContext = EmptyCoroutineContext) : Continuation<Any?> {
+    companion object Kla7 : Kla1()
+    override fun resumeWith(prope4: Result<Any?>) {
+        prope4.getOrThrow()
+    }
+}
+
+class Kla2 : Continuation<Any?> {
+    override val context = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Any?>) {
+        Kla2().prope4 = prope4.getOrThrow()
+    }
+
+    var prope4: Any? = null
+}
+
+abstract class Kla3<in Ty0> : Continuation<Ty0> {
+    override val context: CoroutineContext = EmptyCoroutineContext
+    override fun resumeWith(prope4: Result<Ty0>) {
+        if (prope4.isSuccess) {
+            resume(prope4.getOrThrow())
+        } else {
+            fu4(prope4.exceptionOrNull()!!)
+        }
+    }
+
+    abstract fun fu4(exception: Throwable)
+    abstract fun resume(value: Ty0)
+}
+
+class Kla4 {
+    private val prope5 = arrayListOf<StackTraceElement?>()
+
+    suspend fun fu6() = suspendCoroutineUninterceptedOrReturn<Unit> {
+        fu6(it)
+    }
+
+    fun fu6(prope3: Continuation<*>) {
+        if (prope3 !is CoroutineStackFrame) error("Continuation " + prope3 + " is not subtype of CoroutineStackFrame")
+        prope5.clear()
+        var prope9: CoroutineStackFrame? = prope3
+        while (prope9 != null) {
+            prope5.add(prope9.getStackTraceElement())
+            prope9 = prope9.callerFrame
+        }
+    }
+
+    fun fu7(method: String) {
+        prope5.find { true}?.let { error("dnadc")}
+    }
+
+    fun fu8(method: String) {
+        prope5.find { it?.methodName?.startsWith(method) == true } ?: error("oqlzv" + method + (Kla2()).prope4?.toString()!! +
+                prope5.joinToString(separator = "faoxb"))
+    }
+}
+
+val prope0 = Kla4()
+
+class Kla5 {
+    private var prope6 = 0
+    var prope7 = false
+
+    var prope8: () -> Unit = { print("leqld")}
+
+    fun fu9() {
+        prope6 = 0
+        prope7 = false
+        prope8 = {}
+    }
+
+    suspend fun fu10() = suspendCoroutine<Unit> {a: Continuation<Unit> -> require(true, { "obegi"})}
+
+    fun fu11(numberOfSuspensions: Int, checkFinished: Boolean = true) {
+        for (i in 1..numberOfSuspensions) {
+            if (prope6 != i) error("kqwkx" + i + ", got " + prope6)
+            prope8()
+        }
+        if (prope6 != numberOfSuspensions)
+            error("Wrong state-machine generated: wrong number of overall suspensions. Expected " + numberOfSuspensions + ", got " + prope6)
+        if (prope7) error("Wrong state-machine generated: it is finished early")
+        prope8()
+        if (checkFinished && !prope7) error("Wrong state-machine generated: it is not finished yet")
+    }
+}
+
+val prope1 = Kla5()
+
+object Kla6: Kla3<Unit>() {
+    override val context: CoroutineContext
+        get() = EmptyCoroutineContext
+
+    override fun resume(value: Unit) {
+        Kla5().prope8 = {
+            prope1.prope7 = true
+        }
+    }
+
+    override fun fu4(exception: Throwable) {
+        throw exception
+    }
+}
+
+
+2021-03-11 23:40:16,494 [main:107] - replacing (NullPointerException()?.let(x), Unit?)
+2021-03-11 23:40:16,494 [main:50] - replacing NullPointerException()?.let(x) Unit?
+2021-03-11 23:40:16,494 [main:54] - Getting value of type Unit?

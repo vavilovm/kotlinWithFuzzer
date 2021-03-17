@@ -1,0 +1,64 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS Z$Inner</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmSignature: &lt;init&gt;(II)V</code><br></td>
+<td><code>  // jvmSignature: &lt;init&gt;(IILkotlin/jvm/internal/DefaultConstructorMarker;)V</code><br></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD &lt;init&gt;(II)V</h2>
+<p><p><b>JVM </b>
+: [public]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [private]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>1 [public]</code></td>
+<td><code>10 [private]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

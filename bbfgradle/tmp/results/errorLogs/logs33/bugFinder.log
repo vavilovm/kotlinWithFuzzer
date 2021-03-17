@@ -1,0 +1,40 @@
+2021-03-11 20:42:04,147 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/noInlineLambda1.kt
+2021-03-11 20:42:08,770 [main:53] - Start to mutate
+2021-03-11 20:42:08,771 [main:54] - BEFORE = 
+
+interface  A {
+    fun run()
+}
+
+class B(val o: String, val k: String) {
+
+    inline fun testNested(crossinline f: (String) -> Unit) {
+        object : A {
+            override fun run() {
+                f(o)
+            }
+        }.run()
+    }
+
+    fun test(f: (String) -> Unit) {
+        testNested { it -> { f(it + k) }() }
+    }
+
+
+}
+
+//NO_CHECK_LAMBDA_INLINING
+
+fun box(): String {
+    var result = "fail"
+    B("O", "K").test { it -> result = it }
+    return result
+}
+
+
+2021-03-11 20:42:09,377 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 20:42:09,748 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 20:42:16,877 [main:19] - Cur transformation LocalTCE
+2021-03-11 20:42:47,243 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 20:42:47,256 [main:19] - Cur transformation TCETransformation
+2021-03-11 20:58:08,821 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees

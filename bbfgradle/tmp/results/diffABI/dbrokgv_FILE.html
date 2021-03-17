@@ -1,0 +1,70 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, super, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, super, abstract]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>contains(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>contains-VKZWuLQ(J)Z [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>indexOf(Ljava/lang/Object;)I [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>indexOf-VKZWuLQ(J)I [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>lastIndexOf(Ljava/lang/Object;)I [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>lastIndexOf-VKZWuLQ(J)I [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>remove(I)J [public]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove-s-VKNKU(I)J [public]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

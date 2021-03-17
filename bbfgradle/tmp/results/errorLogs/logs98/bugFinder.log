@@ -1,0 +1,10 @@
+2021-03-12 08:13:11,419 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/doNotStoreNullForTmpInDestructuring.kt
+2021-03-12 08:13:14,845 [main:53] - Start to mutate
+2021-03-12 08:13:14,845 [main:54] - BEFORE = fun test(p: Pair<Int, Int>) {
+    val (x, y) = p
+}
+2021-03-12 08:13:15,319 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 08:13:15,653 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 08:13:16,524 [main:19] - Cur transformation LocalTCE
+2021-03-12 08:13:17,590 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 08:13:17,606 [main:19] - Cur transformation TCETransformation

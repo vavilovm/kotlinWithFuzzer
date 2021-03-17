@@ -1,0 +1,20 @@
+2021-03-12 01:59:39,050 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/privateCompanionObjectAccessedFromInitBlock.kt
+2021-03-12 01:59:42,726 [main:53] - Start to mutate
+2021-03-12 01:59:42,727 [main:54] - BEFORE = class Outer {
+    private companion object {
+        val result = "OK"
+    }
+
+    val test: String
+
+    init {
+        test = result
+    }
+}
+
+fun box() = Outer().test
+2021-03-12 01:59:43,256 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 01:59:43,591 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 01:59:43,721 [main:19] - Cur transformation LocalTCE
+2021-03-12 01:59:49,551 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 01:59:49,560 [main:19] - Cur transformation TCETransformation

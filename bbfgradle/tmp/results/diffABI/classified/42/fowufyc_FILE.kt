@@ -1,0 +1,6 @@
+// Bug happens on JVM , JVM -Xuse-ir
+// !LANGUAGE: +NewInference
+// WITH_RUNTIME
+// WITH_COROUTINES
+// IGNORE_BACKEND_FIR: JVM_IR
+// IGNORE_BACKEND: NATIVE

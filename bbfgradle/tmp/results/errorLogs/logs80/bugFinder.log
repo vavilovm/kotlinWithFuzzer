@@ -1,0 +1,12 @@
+2021-03-12 04:48:02,049 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/anotherFile.kt
+2021-03-12 04:48:06,179 [main:53] - Start to mutate
+2021-03-12 04:48:06,179 [main:54] - BEFORE = const val x = "OK"
+
+fun box() = x
+
+
+2021-03-12 04:48:06,475 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 04:48:06,674 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 04:48:06,775 [main:19] - Cur transformation LocalTCE
+2021-03-12 04:48:12,591 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 04:48:12,599 [main:19] - Cur transformation TCETransformation

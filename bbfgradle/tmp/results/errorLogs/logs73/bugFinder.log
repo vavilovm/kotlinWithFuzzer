@@ -1,0 +1,36 @@
+2021-03-12 03:35:48,619 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/accessorForProtected0.kt
+2021-03-12 03:35:53,389 [main:53] - Start to mutate
+2021-03-12 03:35:53,389 [main:54] - BEFORE = 
+
+fun box() = if (B().test() == BSamePackage().test()) "OK" else "fail"
+
+open class A {
+    protected fun protectedFun(): String = "OK"
+}
+
+class BSamePackage: A() {
+    fun test(): String {
+        val a = {
+            protectedFun()
+        }
+        return a()
+    }
+}
+
+class B: A() {
+    fun test(): String {
+        val a = {
+            protectedFun()
+        }
+        return a()
+    }
+}
+
+
+2021-03-12 03:35:53,862 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 03:35:54,166 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 03:35:54,359 [main:19] - Cur transformation LocalTCE
+2021-03-12 03:36:19,016 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 03:36:19,025 [main:19] - Cur transformation TCETransformation
+2021-03-12 03:48:55,569 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-12 03:55:30,880 [main:19] - Cur transformation AddPossibleModifiers

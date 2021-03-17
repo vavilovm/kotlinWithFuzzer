@@ -1,0 +1,22 @@
+2021-03-12 10:42:43,486 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/innerOfLocalCaptureExtensionReceiver.kt
+2021-03-12 10:42:47,355 [main:53] - Start to mutate
+2021-03-12 10:42:47,355 [main:54] - BEFORE = fun String.bar(): String {
+    open class Local {
+        fun result() = this@bar
+    }
+
+    class Outer {
+        inner class Inner : Local() {
+            fun outer() = this@Outer
+        }
+    }
+
+    return Outer().Inner().result()
+}
+
+fun box() = "OK".bar()
+2021-03-12 10:42:48,066 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 10:42:48,395 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 10:42:48,582 [main:19] - Cur transformation LocalTCE
+2021-03-12 10:43:00,826 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 10:43:00,838 [main:19] - Cur transformation TCETransformation

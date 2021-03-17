@@ -1,0 +1,10 @@
+2021-03-11 11:49:27,353 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/constructorWithDefaultArguments1.kt
+2021-03-11 11:49:31,051 [main:53] - Start to mutate
+2021-03-11 11:49:31,051 [main:54] - BEFORE = inline class A(val s: String)
+
+class B(x: Long, a: A = A("OK"))
+2021-03-11 11:49:32,046 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 11:49:32,308 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 11:49:32,448 [main:19] - Cur transformation LocalTCE
+2021-03-11 11:49:37,727 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 11:49:37,735 [main:19] - Cur transformation TCETransformation

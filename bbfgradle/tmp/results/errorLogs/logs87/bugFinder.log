@@ -1,0 +1,25 @@
+2021-03-12 05:45:44,430 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/differentInvokeSignature0.kt
+2021-03-12 05:45:49,411 [main:53] - Start to mutate
+2021-03-12 05:45:49,411 [main:54] - BEFORE = 
+
+open class Base
+
+class Child(val value: String) : Base()
+
+fun foo(a: Base): Child = a as Child
+
+
+inline fun inlineFun(s: (Child) -> Base = ::foo): Base {
+    return s(Child("OK"))
+}
+
+fun box(): String {
+    return (inlineFun() as Child).value
+}
+
+
+2021-03-12 05:45:49,978 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 05:45:50,243 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 05:45:52,890 [main:19] - Cur transformation LocalTCE
+2021-03-12 05:46:00,963 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 05:46:00,976 [main:19] - Cur transformation TCETransformation

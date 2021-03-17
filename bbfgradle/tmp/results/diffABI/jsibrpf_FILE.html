@@ -1,0 +1,128 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS MyList</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>removeAt(I)Ljava/lang/Object; [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD clear()V</h2>
+<p><p><b>JVM </b>
+: [protected, final]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>10100 [protected, final]</code></td>
+<td><code>10001 [public, final]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD removeAll(Ljava/util/Collection;)Z</h2>
+<p><p><b>JVM </b>
+: [public, final]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.signature</td>
+<td><code>(Ljava/util/Collection&lt;+TT;&gt;;)Z</code></td>
+<td><code>(Ljava/util/Collection&lt;+Ljava/lang/Object;&gt;;)Z</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD retainAll(Ljava/util/Collection;)Z</h2>
+<p><p><b>JVM </b>
+: [protected, final]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>10100 [protected, final]</code></td>
+<td><code>10001 [public, final]</code></td>
+</tr>
+<tr><td>method.signature</td>
+<td><code>(Ljava/util/Collection&lt;+TT;&gt;;)Z</code></td>
+<td><code>(Ljava/util/Collection&lt;+Ljava/lang/Object;&gt;;)Z</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD set(ILjava/lang/Object;)Ljava/lang/Object;</h2>
+<p><p><b>JVM </b>
+: [protected, final]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>10100 [protected, final]</code></td>
+<td><code>10001 [public, final]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

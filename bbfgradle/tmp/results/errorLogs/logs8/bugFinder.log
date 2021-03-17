@@ -1,0 +1,27 @@
+2021-03-11 11:39:38,360 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/kt14243_24.kt
+2021-03-11 11:39:42,891 [main:53] - Start to mutate
+2021-03-11 11:39:42,891 [main:54] - BEFORE = interface Z<T> {
+    fun test(p: T): T {
+        return p
+    }
+}
+
+open class ZImpl : Z<String>
+
+open class ZImpl2 : Z<String>, ZImpl()
+
+class ZImpl3 : ZImpl2() {
+
+    override fun test(p: String): String {
+        return super.test(p)
+    }
+}
+
+fun box(): String {
+    return ZImpl3().test("OK")
+}
+2021-03-11 11:39:43,860 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 11:39:44,258 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 11:39:44,467 [main:19] - Cur transformation LocalTCE
+2021-03-11 11:39:59,635 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 11:39:59,797 [main:19] - Cur transformation TCETransformation

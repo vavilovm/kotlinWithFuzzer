@@ -1,0 +1,14 @@
+2021-03-12 12:20:41,195 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/constructor3.kt
+2021-03-12 12:20:44,977 [main:53] - Start to mutate
+2021-03-12 12:20:44,977 [main:54] - BEFORE = fun box(): String {
+    class A {
+        val result = "OK"
+    }
+
+    return (::A)().result
+}
+2021-03-12 12:20:45,535 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 12:20:45,875 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 12:20:46,044 [main:19] - Cur transformation LocalTCE
+2021-03-12 12:20:52,867 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 12:20:52,875 [main:19] - Cur transformation TCETransformation

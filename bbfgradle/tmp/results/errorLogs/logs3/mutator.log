@@ -1,0 +1,25 @@
+2021-03-11 11:06:05,161 [main:66] - Compilation checking started
+2021-03-11 11:06:07,074 [main:112] - generating klass Content text = open class Content() {
+    override fun toString() = "OK"
+}
+2021-03-11 11:06:07,247 [main:194] - Type params = []
+2021-03-11 11:06:07,375 [main:112] - generating klass Box text = interface Box<E> {
+    fun get(): E
+}
+2021-03-11 11:06:08,588 [main:112] - generating klass ContentBox text = interface ContentBox<T : Content> : Box<T>
+2021-03-11 11:06:08,886 [main:302] - generating value of type = Impl false depth = 1
+2021-03-11 11:06:08,887 [main:112] - generating klass Impl text = object Impl : ContentBox<Content> {
+    override fun get(): Content = Content()
+}
+2021-03-11 11:06:08,889 [main:112] - generating klass Impl text = object Impl : ContentBox<Content> {
+    override fun get(): Content = Content()
+}
+2021-03-11 11:06:08,890 [main:112] - generating klass ContentBoxDelegate text = class ContentBoxDelegate<T : Content>() : ContentBox<T> by (Impl as ContentBox<T>)
+2021-03-11 11:06:09,034 [main:194] - Type params = [Content]
+2021-03-11 11:06:09,439 [main:52] - Trying to change 19 nodes
+2021-03-11 11:06:09,439 [main:56] - replacing ("OK", String)
+2021-03-11 11:06:09,439 [main:38] - replacing "OK" String
+2021-03-11 11:06:09,439 [main:42] - Getting value of type String
+2021-03-11 11:06:09,529 [main:302] - generating value of type = String true depth = 0
+2021-03-11 11:06:09,531 [main:46] - GENERATED VALUE OF TYPE String = "oxssa"
+2021-03-11 11:06:09,532 [main:49] - GENERATED IS CALL =false

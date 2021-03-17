@@ -1,0 +1,104 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [package-private, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [package-private, final, super]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>&lt;init&gt;()V [public]</code></td>
+</tr>
+</table>
+&nbsp;
+<h1>CLASS A$C</h1>
+<p><p><b>JVM </b>
+: [public, super, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, super, abstract]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>containsKey(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>containsKey-fLmw4x8(I)Z [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>containsValue(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>containsValue-fLmw4x8(I)Z [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get-fLmw4x8(I)LUInt; [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)LUInt; [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove-s05W0z8(Ljava/lang/Object;)LUInt; [public]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD remove(Ljava/lang/Object;)Ljava/lang/Object;</h2>
+<p><p><b>JVM </b>
+: [public]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge, synthetic]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>1 [public]</code></td>
+<td><code>1000001000001 [public, bridge, synthetic]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

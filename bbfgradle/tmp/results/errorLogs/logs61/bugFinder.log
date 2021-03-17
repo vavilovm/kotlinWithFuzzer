@@ -1,0 +1,183 @@
+2021-03-12 01:23:02,916 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/reversedInexactSteppedDownTo0.kt
+2021-03-12 01:23:08,486 [main:53] - Start to mutate
+2021-03-12 01:23:08,486 [main:54] - BEFORE = fun box(): String {
+    val list1 = ArrayList<Int>()
+    val range1 = (8 downTo 3 step 2).reversed()
+    for (i in range1) {
+        list1.add(i)
+        if (list1.size > 23) break
+    }
+    if (list1 != listOf<Int>(4, 6, 8)) {
+        return "Wrong elements for (8 downTo 3 step 2).reversed(): $list1"
+    }
+
+    val list2 = ArrayList<Int>()
+    val range2 = (8.toByte() downTo 3.toByte() step 2).reversed()
+    for (i in range2) {
+        list2.add(i)
+        if (list2.size > 23) break
+    }
+    if (list2 != listOf<Int>(4, 6, 8)) {
+        return "Wrong elements for (8.toByte() downTo 3.toByte() step 2).reversed(): $list2"
+    }
+
+    val list3 = ArrayList<Int>()
+    val range3 = (8.toShort() downTo 3.toShort() step 2).reversed()
+    for (i in range3) {
+        list3.add(i)
+        if (list3.size > 23) break
+    }
+    if (list3 != listOf<Int>(4, 6, 8)) {
+        return "Wrong elements for (8.toShort() downTo 3.toShort() step 2).reversed(): $list3"
+    }
+
+    val list4 = ArrayList<Long>()
+    val range4 = (8L downTo 3L step 2L).reversed()
+    for (i in range4) {
+        list4.add(i)
+        if (list4.size > 23) break
+    }
+    if (list4 != listOf<Long>(4, 6, 8)) {
+        return "Wrong elements for (8L downTo 3L step 2L).reversed(): $list4"
+    }
+
+    val list5 = ArrayList<Char>()
+    val range5 = ('d' downTo 'a' step 2).reversed()
+    for (i in range5) {
+        list5.add(i)
+        if (list5.size > 23) break
+    }
+    if (list5 != listOf<Char>('b', 'd')) {
+        return "Wrong elements for ('d' downTo 'a' step 2).reversed(): $list5"
+    }
+
+    return "OK"
+}
+2021-03-12 01:23:10,066 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 01:23:10,684 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 01:23:11,008 [main:19] - Cur transformation LocalTCE
+2021-03-12 01:23:56,592 [main:128] - Start to reduce tmp/tmp.kt
+fun box(): String {
+    val list1 = ArrayList<Int>()
+    val range1 = (8 downTo ('䈇').compareTo('볘').times(86) step 2).reversed()
+    for (i in range1) {
+        list1.add(i)
+        if (list1.size > 23) break
+    }
+    if (arrayListOf<Int>(472372507) != listOf<Int>(4, (range1).first.takeHighestOneBit(), 8)) {
+        return "Wrong elements for (8 downTo 3 step 2).reversed(): $list1"
+    }
+
+    val list2 = ArrayList<Int>()
+    val range2 = (8.toByte() downTo 3.toByte() step (range1).lastIndexOf(checkNotNull<Int>(-342466360))).reversed()
+    for (i in range2) {
+        list2.add(i)
+        if (list2.size > 23) break
+    }
+    if (list2 != (list2).minusElement(requireNotNull<Function1<Collection<Short>, Triple<String, Int, Collection<UByte?>>>>({a: Collection<Short> -> Triple<String, Int, Collection<UByte?>>("wkjof", -892808298, setOf<UByte?>(85.toUByte()))}, { "inssi"}))) {
+        return "Wrong elements for (8.toByte() downTo 3.toByte() step 2).reversed(): $list2"
+    }
+
+    val list3 = ArrayList<Int>()
+    val range3 = (8.toShort() downTo (list1).size.toShort() step (range2).first.rotateRight(-457336216)).reversed()
+    for (i in range3) {
+        list3.add(i)
+        if ((range3).first.shl(461368514) > 23) break
+    }
+    if (list3 != listOf<Int>(4, 6, 8)) {
+        return "Wrong elements for (8.toShort() downTo 3.toShort() step 2).reversed(): $list3"
+    }
+
+    val list4 = ArrayList<Long>()
+    val range4 = (8L downTo 3L step 2L).reversed()
+    for (i in range4) {
+        list4.add(i)
+        if (list4.size > 23) break
+    }
+    if (list4 != listOf<Long>(4, 6, 8)) {
+        return "Wrong elements for (8L downTo 3L step 2L).reversed(): $list4"
+    }
+
+    val list5 = ArrayList<Char>()
+    val range5 = ((0.8648063f).toByte().toChar() downTo (list3).size.toChar() step 2).reversed()
+    for (i in range5) {
+        list5.add(i)
+        if (list5.size > 23) break
+    }
+    if ((list3).equals("muejg")) {
+        return "Wrong elements for ('d' downTo 'a' step 2).reversed(): $list5"
+    }
+
+    return "OK"
+}
+
+
+2021-03-12 01:24:16,049 [main:131] - Reduced: tmp/tmp.kt
+
+{
+requireNotNull{
+
+2021-03-12 01:24:34,580 [main:128] - Start to reduce tmp/tmp.kt
+fun box(): String {
+    val list1 = ArrayList<Int>()
+    val range1 = (8 downTo ('䈇').compareTo('볘').times(86) step 2).reversed()
+    for (i in range1) {
+        list1.add(i)
+        if (list1.size > 23) break
+    }
+    if (arrayListOf<Int>(472372507) != listOf<Int>(4, (range1).first.takeHighestOneBit(), 8)) {
+        return "Wrong elements for (8 downTo 3 step 2).reversed(): $list1"
+    }
+
+    val list2 = ArrayList<Int>()
+    val range2 = (8.toByte() downTo 3.toByte() step (range1).lastIndexOf(checkNotNull<Int>(-342466360))).reversed()
+    for (i in range2) {
+        list2.add(i)
+        if (list2.size > 23) break
+    }
+    if (list2 != (list2).minusElement(requireNotNull<Function1<Collection<Short>, Triple<String, Int, Collection<UByte?>>>>({a: Collection<Short> -> Triple<String, Int, Collection<UByte?>>("wkjof", -892808298, setOf<UByte?>(85.toUByte()))}, { "inssi"}))) {
+        return "Wrong elements for (8.toByte() downTo 3.toByte() step 2).reversed(): $list2"
+    }
+
+    val list3 = ArrayList<Int>()
+    val range3 = (8.toShort() downTo (list1).size.toShort() step (range2).first.rotateRight(-457336216)).reversed()
+    for (i in range3) {
+        list3.add(i)
+        if ((range3).first.shl(461368514) > 23) break
+    }
+    if (list3 != listOf<Int>(4, 6, 8)) {
+        return "Wrong elements for (8.toShort() downTo 3.toShort() step 2).reversed(): $list3"
+    }
+
+    val list4 = ArrayList<Long>()
+    val range4 = (8L downTo 3L step 2L).reversed()
+    for (i in range4) {
+        list4.add(i)
+        if (list4.size > 23) break
+    }
+    if (list4 != listOf<Long>(4, 6, 8)) {
+        return "Wrong elements for (8L downTo 3L step 2L).reversed(): $list4"
+    }
+
+    val list5 = ArrayList<Char>()
+    val range5 = ((0.8648063f).toByte().toChar() downTo (list3).size.toChar() step 2).reversed()
+    for (i in range5) {
+        list5.add(i)
+        if (list5.size > 23) break
+    }
+    if ((list3).equals("muejg")) {
+        return "Wrong elements for ('d' downTo 'a' step 2).reversed(): $list5"
+    }
+
+    return "OK"
+}
+
+
+2021-03-12 01:24:53,421 [main:131] - Reduced: tmp/tmp.kt
+
+{
+requireNotNull{
+
+2021-03-12 01:26:16,355 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 01:26:16,363 [main:19] - Cur transformation TCETransformation
+2021-03-12 01:32:55,037 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees

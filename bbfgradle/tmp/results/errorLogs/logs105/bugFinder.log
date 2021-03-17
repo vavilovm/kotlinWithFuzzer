@@ -1,0 +1,19 @@
+2021-03-12 09:12:20,802 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/forInArrayWithIndexNoIndexVar0.kt
+2021-03-12 09:12:25,096 [main:53] - Start to mutate
+2021-03-12 09:12:25,096 [main:54] - BEFORE = val arr = arrayOf("a", "b", "c", "d")
+
+fun box(): String {
+    val s = StringBuilder()
+
+    for ((_, x) in arr.withIndex()) {
+        s.append("$x;")
+    }
+
+    val ss = s.toString()
+    return if (ss == "a;b;c;d;") "OK" else "fail: '$ss'"
+}
+2021-03-12 09:12:26,045 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 09:12:26,438 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 09:12:26,614 [main:19] - Cur transformation LocalTCE
+2021-03-12 09:13:10,503 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 09:13:10,515 [main:19] - Cur transformation TCETransformation

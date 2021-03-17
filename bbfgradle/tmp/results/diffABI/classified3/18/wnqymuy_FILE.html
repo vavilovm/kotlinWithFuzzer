@@ -1,0 +1,114 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>get(Ljava/lang/Object;)Ljava/lang/Double; [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/Double;)Ljava/lang/Double; [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)Ljava/lang/Double; [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>remove(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD getEntries()Ljava/util/Set;</h2>
+<p><p><b>JVM </b>
+: [public, bridge]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.signature</td>
+<td><code>NULL</code></td>
+<td><code>()Ljava/util/Set&lt;Ljava/util/Map$Entry&lt;Ljava/lang/String;Ljava/lang/Double;&gt;;&gt;;</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD getKeys()Ljava/util/Set;</h2>
+<p><p><b>JVM </b>
+: [public, bridge]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.signature</td>
+<td><code>NULL</code></td>
+<td><code>()Ljava/util/Set&lt;Ljava/lang/String;&gt;;</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD getValues()Ljava/util/Collection;</h2>
+<p><p><b>JVM </b>
+: [public, bridge]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.signature</td>
+<td><code>NULL</code></td>
+<td><code>()Ljava/util/Collection&lt;Ljava/lang/Double;&gt;;</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

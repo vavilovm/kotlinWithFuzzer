@@ -1,0 +1,14 @@
+// Different compile happens on:JVM ,JVM -Xnew-inference
+
+val nx: Any
+ = TODO()
+val nn: Int
+ = TODO()
+val x: Char
+ = TODO()
+fun box()  {
+when {
+x != nx -> ""
+nx!! != nn -> ""
+}
+}

@@ -1,0 +1,29 @@
+2021-03-12 11:06:33,120 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/javaReified.kt
+2021-03-12 11:06:38,283 [main:53] - Start to mutate
+2021-03-12 11:06:38,283 [main:54] - BEFORE = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:39,243 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 11:06:39,589 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 11:06:41,640 [main:19] - Cur transformation LocalTCE
+2021-03-12 11:07:05,464 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 11:07:05,877 [main:19] - Cur transformation TCETransformation

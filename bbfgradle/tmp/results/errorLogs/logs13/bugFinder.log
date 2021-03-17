@@ -1,0 +1,29 @@
+2021-03-11 12:21:19,557 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/kt9712.kt
+2021-03-11 12:21:23,517 [main:53] - Start to mutate
+2021-03-11 12:21:23,518 [main:54] - BEFORE = import kotlin.properties.Delegates
+
+object X {
+    public var O: String
+        by Delegates.observable("O") { prop, old, new -> }
+        private set
+}
+
+open class A {
+    public var K: String
+        by Delegates.observable("") { prop, old, new -> }
+        protected set
+}
+
+class B : A() {
+    init {
+        K = "K"
+    }
+}
+
+fun box(): String =
+        X.O + B().K
+2021-03-11 12:21:24,574 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 12:21:25,023 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 12:21:25,207 [main:19] - Cur transformation LocalTCE
+2021-03-11 12:22:24,260 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 12:22:24,271 [main:19] - Cur transformation TCETransformation

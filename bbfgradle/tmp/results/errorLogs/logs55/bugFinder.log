@@ -1,0 +1,58 @@
+2021-03-12 00:33:05,480 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/nameClashAcrossDifferentContainers.kt
+2021-03-12 00:33:09,846 [main:53] - Start to mutate
+2021-03-12 00:33:09,847 [main:54] - BEFORE = var result = ""
+
+fun overload() {
+    fun local() {
+        result += "1"
+    }
+    local()
+}
+
+fun overload(unused: String) {
+    fun local() {
+        result += "2"
+    }
+    local()
+    if ("".length < 1) {
+        fun local() {
+            result += "3"
+        }
+        local()
+    }
+}
+
+class C {
+    fun overload() {
+        fun local() {
+            result += "4"
+        }
+        local()
+    }
+
+    fun overload(unused: String) {
+        fun local() {
+            result += "5"
+        }
+        local()
+        if ("".length < 1) {
+            fun local() {
+                result += "6"
+            }
+            local()
+        }
+    }
+}
+
+fun box(): String {
+    overload()
+    overload("")
+    C().overload()
+    C().overload("")
+    return if (result == "123456") "OK" else "Fail: $result"
+}
+2021-03-12 00:33:10,692 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 00:33:11,180 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 00:33:12,866 [main:19] - Cur transformation LocalTCE
+2021-03-12 00:33:49,781 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 00:33:49,789 [main:19] - Cur transformation TCETransformation

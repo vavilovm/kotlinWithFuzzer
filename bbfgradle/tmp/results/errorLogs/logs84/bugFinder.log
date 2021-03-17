@@ -1,0 +1,26 @@
+2021-03-12 05:34:31,377 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/forInDownToStep.kt
+2021-03-12 05:34:35,558 [main:53] - Start to mutate
+2021-03-12 05:34:35,558 [main:54] - BEFORE = import kotlin.test.*
+
+val log = StringBuilder()
+
+fun logged(message: String, value: Int) =
+    value.also { log.append(message) }
+
+fun box(): String {
+    var sum = 0
+    for (i in logged("start;", 8) downTo logged("end;", 1) step logged("step;", 2)) {
+        sum = sum * 10 + i
+    }
+
+    assertEquals(8642, sum)
+
+    assertEquals("start;end;step;", log.toString())
+
+    return "OK"
+}
+2021-03-12 05:34:36,514 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 05:34:36,964 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 05:34:38,355 [main:19] - Cur transformation LocalTCE
+2021-03-12 05:35:09,592 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 05:35:09,600 [main:19] - Cur transformation TCETransformation

@@ -1,0 +1,372 @@
+2021-03-12 01:49:42,985 [main:119] - FILE NAME = tmp/tmp.kt
+2021-03-12 01:49:42,985 [main:120] - Content = var log = ""
+
+fun <T> logged(value: T): T =
+    value.also {a: T -> print("kaczm")}
+
+fun doTest(id: String, expected: Int, expectedLog: String, test: () -> Int) {
+    log = ""
+    val actual = test()
+    if (actual != ('㣝').toFloat().compareTo(-117)) throw AssertionError((actual).toInt().toString(A.x))
+    if (log != expectedLog) throw AssertionError("$id expectedLog: $expectedLog, actual: $(A.x).toString(actual)")
+}
+
+object A {
+    var x = 0
+        get() = (getA()).x.toInt()
+        set(value: Int) {
+            log += "set-A.x;"
+            field = value
+        }
+
+}
+
+fun getA() = A.also { log += (getA()).x.toString(B.x) }
+
+object B {
+    var x = 0
+
+    operator fun get(i1: Int, i2: Int, i3: Int): Int = x.also {a: Int -> repeat(-445802008, {a: Int -> println("nebdx")})}
+
+    operator fun set(i1: Int, i2: Int, i3: Int, value: Int) {
+        log += "set-B($i1, $(value).compareTo(x).sign, $i3, $value);"
+        x = value
+    }
+}
+
+fun getB() = B.also {a: B -> require(false, { "nyaed"})}
+
+fun box(): String {
+    // NOTE: Getter is currently called twice for prefix increment; 1st for initial value, 2nd for return value. See KT-42077.
+    doTest("++getA().x", (linkedSetOf<A>(A)).size.shl(B.x), "getA();get-A.x;set-A.x;get-A.x;") { ++getA().x }
+    doTest("getA().x--", 1, "getA();get-A.x;set-A.x;") { 1997282016}
+
+    doTest("++getB()[1, 2, 3]", 1, (logged<Array<Float>>(Array<Float>(1513132776, {a: Int -> 0.6006693f}))).contentToString()) {
+        (B.x).div(-25)
+    }
+    doTest("getB()[1, 2, 3].x--", 1, "getB();1;2;3;get-B(1, 2, 3);set-B(1, 2, 3, 0);") { (9107430422333898917.toULong()).compareTo(12.toUByte()).takeLowestOneBit() }
+
+    return "OK"
+}
+
+
+2021-03-12 01:49:43,143 [main:112] - Changes after RemoveSuperTypeList = false
+2021-03-12 01:49:43,301 [main:113] - Verify = true
+2021-03-12 01:49:49,339 [main:112] - Changes after SimplifyParameterList = true
+2021-03-12 01:49:49,339 [main:113] - Verify = true
+2021-03-12 01:49:49,608 [main:112] - Changes after SimplifyContainerType = false
+2021-03-12 01:49:49,608 [main:113] - Verify = true
+2021-03-12 01:49:49,882 [main:112] - Changes after SimplifyControlExpression = true
+2021-03-12 01:49:49,882 [main:113] - Verify = true
+2021-03-12 01:49:51,059 [main:112] - Changes after SimplifyFunAndProp = true
+2021-03-12 01:49:51,059 [main:113] - Verify = true
+2021-03-12 01:49:51,067 [main:112] - Changes after ReplaceBlockExpressionToBody = false
+2021-03-12 01:49:51,067 [main:113] - Verify = true
+2021-03-12 01:49:51,068 [main:112] - Changes after SimplifyWhen = false
+2021-03-12 01:49:51,068 [main:113] - Verify = true
+2021-03-12 01:49:51,069 [main:112] - Changes after ReturnValueToVoid = false
+2021-03-12 01:49:51,069 [main:113] - Verify = true
+2021-03-12 01:49:51,069 [main:112] - Changes after ElvisOperatorSimplifier = false
+2021-03-12 01:49:51,069 [main:113] - Verify = true
+2021-03-12 01:49:51,070 [main:112] - Changes after TryCatchDeleter = false
+2021-03-12 01:49:51,070 [main:113] - Verify = true
+2021-03-12 01:49:51,070 [main:112] - Changes after SimplifyIf = false
+2021-03-12 01:49:51,070 [main:113] - Verify = true
+2021-03-12 01:49:51,071 [main:112] - Changes after SimplifyFor = false
+2021-03-12 01:49:51,071 [main:113] - Verify = true
+2021-03-12 01:49:51,071 [main:112] - Changes after SimplifyConstructor = false
+2021-03-12 01:49:51,071 [main:113] - Verify = true
+2021-03-12 01:49:51,072 [main:112] - Changes after ReturnValueToConstant = false
+2021-03-12 01:49:51,072 [main:113] - Verify = true
+2021-03-12 01:49:51,216 [main:112] - Changes after SimplifyBlockExpression = false
+2021-03-12 01:49:51,216 [main:113] - Verify = true
+2021-03-12 01:49:51,385 [main:112] - Changes after SimplifyBinaryExpression = false
+2021-03-12 01:49:51,386 [main:113] - Verify = true
+2021-03-12 01:49:51,386 [main:112] - Changes after SimplifyStringConstants = false
+2021-03-12 01:49:51,386 [main:113] - Verify = true
+2021-03-12 01:49:51,388 [main:112] - Changes after MinorSimplifyings = false
+2021-03-12 01:49:51,388 [main:113] - Verify = true
+2021-03-12 01:49:51,388 [main:112] - Changes after RemoveParameterFromDeclaration = false
+2021-03-12 01:49:51,388 [main:113] - Verify = true
+2021-03-12 01:49:51,389 [main:112] - Changes after FunInliner = false
+2021-03-12 01:49:51,389 [main:113] - Verify = true
+2021-03-12 01:49:51,389 [main:112] - Changes after ReplaceArgOnTODO = false
+2021-03-12 01:49:51,389 [main:113] - Verify = true
+2021-03-12 01:49:51,461 [main:112] - Changes after SimplifyCallExpression = false
+2021-03-12 01:49:51,461 [main:113] - Verify = true
+2021-03-12 01:49:51,462 [main:112] - Changes after ValueArgumentListSimplifying = false
+2021-03-12 01:49:51,462 [main:113] - Verify = true
+2021-03-12 01:49:53,362 [main:112] - Changes after PeepholePasses = true
+2021-03-12 01:49:53,444 [main:113] - Verify = true
+2021-03-12 01:49:53,444 [main:112] - Changes after ConstructionsDeleter = false
+2021-03-12 01:49:53,444 [main:113] - Verify = true
+2021-03-12 01:50:01,239 [main:112] - Changes after HierarchicalDeltaDebugger = true
+2021-03-12 01:50:01,316 [main:113] - Verify = true
+2021-03-12 01:50:01,317 [main:112] - Changes after EqualityMapper = false
+2021-03-12 01:50:01,317 [main:113] - Verify = true
+2021-03-12 01:50:01,318 [main:112] - Changes after FunSimplifier = false
+2021-03-12 01:50:01,318 [main:113] - Verify = true
+2021-03-12 01:50:01,318 [main:112] - Changes after TypeChanger = false
+2021-03-12 01:50:01,318 [main:113] - Verify = true
+2021-03-12 01:50:01,319 [main:26] - TRYING TO REPLACE 8 on 1: 
+2021-03-12 01:50:01,397 [main:28] - true
+2021-03-12 01:50:01,397 [main:26] - TRYING TO REPLACE 2 on 1: 
+2021-03-12 01:50:01,477 [main:28] - true
+2021-03-12 01:50:01,477 [main:26] - TRYING TO REPLACE 11 on 1: 
+2021-03-12 01:50:01,478 [main:28] - true
+2021-03-12 01:50:01,478 [main:112] - Changes after RemoveWhitespaces = true
+2021-03-12 01:50:01,478 [main:113] - Verify = true
+2021-03-12 01:50:01,478 [main:170] - CURRENT RESULT = var log = ""
+object A
+fun getA() = A.also { log += getA().toString }
+
+2021-03-12 01:50:01,479 [main:112] - Changes after RemoveSuperTypeList = false
+2021-03-12 01:50:01,479 [main:113] - Verify = true
+2021-03-12 01:50:01,479 [main:112] - Changes after SimplifyParameterList = false
+2021-03-12 01:50:01,479 [main:113] - Verify = true
+2021-03-12 01:50:01,479 [main:112] - Changes after SimplifyContainerType = false
+2021-03-12 01:50:01,479 [main:113] - Verify = true
+2021-03-12 01:50:01,479 [main:112] - Changes after SimplifyControlExpression = false
+2021-03-12 01:50:01,479 [main:113] - Verify = true
+2021-03-12 01:50:01,780 [main:112] - Changes after SimplifyFunAndProp = false
+2021-03-12 01:50:01,780 [main:113] - Verify = true
+2021-03-12 01:50:01,786 [main:112] - Changes after ReplaceBlockExpressionToBody = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,787 [main:112] - Changes after SimplifyWhen = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,787 [main:112] - Changes after ReturnValueToVoid = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,787 [main:112] - Changes after ElvisOperatorSimplifier = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,787 [main:112] - Changes after TryCatchDeleter = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,787 [main:112] - Changes after SimplifyIf = false
+2021-03-12 01:50:01,787 [main:113] - Verify = true
+2021-03-12 01:50:01,788 [main:112] - Changes after SimplifyFor = false
+2021-03-12 01:50:01,788 [main:113] - Verify = true
+2021-03-12 01:50:01,788 [main:112] - Changes after SimplifyConstructor = false
+2021-03-12 01:50:01,788 [main:113] - Verify = true
+2021-03-12 01:50:01,788 [main:112] - Changes after ReturnValueToConstant = false
+2021-03-12 01:50:01,788 [main:113] - Verify = true
+2021-03-12 01:50:01,931 [main:112] - Changes after SimplifyBlockExpression = false
+2021-03-12 01:50:01,932 [main:113] - Verify = true
+2021-03-12 01:50:02,099 [main:112] - Changes after SimplifyBinaryExpression = false
+2021-03-12 01:50:02,100 [main:113] - Verify = true
+2021-03-12 01:50:02,100 [main:112] - Changes after SimplifyStringConstants = false
+2021-03-12 01:50:02,100 [main:113] - Verify = true
+2021-03-12 01:50:02,100 [main:112] - Changes after MinorSimplifyings = false
+2021-03-12 01:50:02,100 [main:113] - Verify = true
+2021-03-12 01:50:02,100 [main:112] - Changes after RemoveParameterFromDeclaration = false
+2021-03-12 01:50:02,100 [main:113] - Verify = true
+2021-03-12 01:50:02,100 [main:112] - Changes after FunInliner = false
+2021-03-12 01:50:02,100 [main:113] - Verify = true
+2021-03-12 01:50:02,101 [main:112] - Changes after ReplaceArgOnTODO = false
+2021-03-12 01:50:02,101 [main:113] - Verify = true
+2021-03-12 01:50:02,169 [main:112] - Changes after SimplifyCallExpression = false
+2021-03-12 01:50:02,170 [main:113] - Verify = true
+2021-03-12 01:50:02,170 [main:112] - Changes after ValueArgumentListSimplifying = false
+2021-03-12 01:50:02,170 [main:113] - Verify = true
+2021-03-12 01:50:02,856 [main:112] - Changes after PeepholePasses = false
+2021-03-12 01:50:02,856 [main:113] - Verify = true
+2021-03-12 01:50:02,856 [main:112] - Changes after ConstructionsDeleter = false
+2021-03-12 01:50:02,856 [main:113] - Verify = true
+2021-03-12 01:50:08,652 [main:112] - Changes after HierarchicalDeltaDebugger = false
+2021-03-12 01:50:08,652 [main:113] - Verify = true
+2021-03-12 01:50:08,652 [main:112] - Changes after EqualityMapper = false
+2021-03-12 01:50:08,652 [main:113] - Verify = true
+2021-03-12 01:50:08,652 [main:112] - Changes after FunSimplifier = false
+2021-03-12 01:50:08,652 [main:113] - Verify = true
+2021-03-12 01:50:08,652 [main:112] - Changes after TypeChanger = false
+2021-03-12 01:50:08,652 [main:113] - Verify = true
+2021-03-12 01:50:08,653 [main:112] - Changes after RemoveWhitespaces = false
+2021-03-12 01:50:08,653 [main:113] - Verify = true
+2021-03-12 01:50:08,653 [main:170] - CURRENT RESULT = var log = ""
+object A
+fun getA() = A.also { log += getA().toString }
+
+2021-03-12 01:51:33,347 [main:119] - FILE NAME = tmp/tmp.kt
+2021-03-12 01:51:33,347 [main:120] - Content = var log = ""
+
+fun <T> logged(value: T): T =
+    value.also {a: T -> print("kaczm")}
+
+fun doTest(id: String, expected: Int, expectedLog: String, test: () -> Int) {
+    log = ""
+    val actual = test()
+    if (actual != ('㣝').toFloat().compareTo(-117)) throw AssertionError((actual).toInt().toString(A.x))
+    if (log != expectedLog) throw AssertionError("$id expectedLog: $expectedLog, actual: $(A.x).toString(actual)")
+}
+
+object A {
+    var x = 0
+        get() = (getA()).x.toInt()
+        set(value: Int) {
+            log += "set-A.x;"
+            field = value
+        }
+
+}
+
+fun getA() = A.also { log += (getA()).x.toString(B.x) }
+
+object B {
+    var x = 0
+
+    operator fun get(i1: Int, i2: Int, i3: Int): Int = x.also {a: Int -> repeat(-445802008, {a: Int -> println("nebdx")})}
+
+    operator fun set(i1: Int, i2: Int, i3: Int, value: Int) {
+        log += "set-B($i1, $(value).compareTo(x).sign, $i3, $value);"
+        x = value
+    }
+}
+
+fun getB() = B.also {a: B -> require(false, { "nyaed"})}
+
+fun box(): String {
+    // NOTE: Getter is currently called twice for prefix increment; 1st for initial value, 2nd for return value. See KT-42077.
+    doTest("++getA().x", (linkedSetOf<A>(A)).size.shl(B.x), "getA();get-A.x;set-A.x;get-A.x;") { ++getA().x }
+    doTest("getA().x--", 1, "getA();get-A.x;set-A.x;") { 1997282016}
+
+    doTest("++getB()[1, 2, 3]", 1, (logged<Array<Float>>(Array<Float>(1513132776, {a: Int -> 0.6006693f}))).contentToString()) {
+        (B.x).div(-25)
+    }
+    doTest("getB()[1, 2, 3].x--", 1, "getB();1;2;3;get-B(1, 2, 3);set-B(1, 2, 3, 0);") { (9107430422333898917.toULong()).compareTo(12.toUByte()).takeLowestOneBit() }
+
+    return "OK"
+}
+
+
+2021-03-12 01:51:33,495 [main:112] - Changes after RemoveSuperTypeList = false
+2021-03-12 01:51:33,676 [main:113] - Verify = true
+2021-03-12 01:51:40,052 [main:112] - Changes after SimplifyParameterList = true
+2021-03-12 01:51:40,052 [main:113] - Verify = true
+2021-03-12 01:51:40,320 [main:112] - Changes after SimplifyContainerType = false
+2021-03-12 01:51:40,321 [main:113] - Verify = true
+2021-03-12 01:51:40,582 [main:112] - Changes after SimplifyControlExpression = true
+2021-03-12 01:51:40,582 [main:113] - Verify = true
+2021-03-12 01:51:41,656 [main:112] - Changes after SimplifyFunAndProp = true
+2021-03-12 01:51:41,657 [main:113] - Verify = true
+2021-03-12 01:51:41,667 [main:112] - Changes after ReplaceBlockExpressionToBody = false
+2021-03-12 01:51:41,667 [main:113] - Verify = true
+2021-03-12 01:51:41,667 [main:112] - Changes after SimplifyWhen = false
+2021-03-12 01:51:41,667 [main:113] - Verify = true
+2021-03-12 01:51:41,668 [main:112] - Changes after ReturnValueToVoid = false
+2021-03-12 01:51:41,668 [main:113] - Verify = true
+2021-03-12 01:51:41,668 [main:112] - Changes after ElvisOperatorSimplifier = false
+2021-03-12 01:51:41,668 [main:113] - Verify = true
+2021-03-12 01:51:41,668 [main:112] - Changes after TryCatchDeleter = false
+2021-03-12 01:51:41,668 [main:113] - Verify = true
+2021-03-12 01:51:41,669 [main:112] - Changes after SimplifyIf = false
+2021-03-12 01:51:41,669 [main:113] - Verify = true
+2021-03-12 01:51:41,669 [main:112] - Changes after SimplifyFor = false
+2021-03-12 01:51:41,669 [main:113] - Verify = true
+2021-03-12 01:51:41,669 [main:112] - Changes after SimplifyConstructor = false
+2021-03-12 01:51:41,669 [main:113] - Verify = true
+2021-03-12 01:51:41,669 [main:112] - Changes after ReturnValueToConstant = false
+2021-03-12 01:51:41,669 [main:113] - Verify = true
+2021-03-12 01:51:41,822 [main:112] - Changes after SimplifyBlockExpression = false
+2021-03-12 01:51:41,823 [main:113] - Verify = true
+2021-03-12 01:51:41,979 [main:112] - Changes after SimplifyBinaryExpression = false
+2021-03-12 01:51:41,979 [main:113] - Verify = true
+2021-03-12 01:51:41,980 [main:112] - Changes after SimplifyStringConstants = false
+2021-03-12 01:51:41,980 [main:113] - Verify = true
+2021-03-12 01:51:41,981 [main:112] - Changes after MinorSimplifyings = false
+2021-03-12 01:51:41,981 [main:113] - Verify = true
+2021-03-12 01:51:41,981 [main:112] - Changes after RemoveParameterFromDeclaration = false
+2021-03-12 01:51:41,981 [main:113] - Verify = true
+2021-03-12 01:51:41,981 [main:112] - Changes after FunInliner = false
+2021-03-12 01:51:41,981 [main:113] - Verify = true
+2021-03-12 01:51:41,981 [main:112] - Changes after ReplaceArgOnTODO = false
+2021-03-12 01:51:41,981 [main:113] - Verify = true
+2021-03-12 01:51:42,057 [main:112] - Changes after SimplifyCallExpression = false
+2021-03-12 01:51:42,057 [main:113] - Verify = true
+2021-03-12 01:51:42,057 [main:112] - Changes after ValueArgumentListSimplifying = false
+2021-03-12 01:51:42,057 [main:113] - Verify = true
+2021-03-12 01:51:43,851 [main:112] - Changes after PeepholePasses = true
+2021-03-12 01:51:43,928 [main:113] - Verify = true
+2021-03-12 01:51:43,928 [main:112] - Changes after ConstructionsDeleter = false
+2021-03-12 01:51:43,928 [main:113] - Verify = true
+2021-03-12 01:51:51,458 [main:112] - Changes after HierarchicalDeltaDebugger = true
+2021-03-12 01:51:51,538 [main:113] - Verify = true
+2021-03-12 01:51:51,539 [main:112] - Changes after EqualityMapper = false
+2021-03-12 01:51:51,539 [main:113] - Verify = true
+2021-03-12 01:51:51,539 [main:112] - Changes after FunSimplifier = false
+2021-03-12 01:51:51,539 [main:113] - Verify = true
+2021-03-12 01:51:51,539 [main:112] - Changes after TypeChanger = false
+2021-03-12 01:51:51,539 [main:113] - Verify = true
+2021-03-12 01:51:51,539 [main:26] - TRYING TO REPLACE 8 on 1: 
+2021-03-12 01:51:51,614 [main:28] - true
+2021-03-12 01:51:51,614 [main:26] - TRYING TO REPLACE 2 on 1: 
+2021-03-12 01:51:51,685 [main:28] - true
+2021-03-12 01:51:51,685 [main:26] - TRYING TO REPLACE 11 on 1: 
+2021-03-12 01:51:51,685 [main:28] - true
+2021-03-12 01:51:51,685 [main:112] - Changes after RemoveWhitespaces = true
+2021-03-12 01:51:51,685 [main:113] - Verify = true
+2021-03-12 01:51:51,685 [main:170] - CURRENT RESULT = var log = ""
+object A
+fun getA() = A.also { log += getA().toString }
+
+2021-03-12 01:51:51,685 [main:112] - Changes after RemoveSuperTypeList = false
+2021-03-12 01:51:51,685 [main:113] - Verify = true
+2021-03-12 01:51:51,686 [main:112] - Changes after SimplifyParameterList = false
+2021-03-12 01:51:51,686 [main:113] - Verify = true
+2021-03-12 01:51:51,686 [main:112] - Changes after SimplifyContainerType = false
+2021-03-12 01:51:51,686 [main:113] - Verify = true
+2021-03-12 01:51:51,686 [main:112] - Changes after SimplifyControlExpression = false
+2021-03-12 01:51:51,686 [main:113] - Verify = true
+2021-03-12 01:51:51,967 [main:112] - Changes after SimplifyFunAndProp = false
+2021-03-12 01:51:51,968 [main:113] - Verify = true
+2021-03-12 01:51:51,974 [main:112] - Changes after ReplaceBlockExpressionToBody = false
+2021-03-12 01:51:51,974 [main:113] - Verify = true
+2021-03-12 01:51:51,974 [main:112] - Changes after SimplifyWhen = false
+2021-03-12 01:51:51,974 [main:113] - Verify = true
+2021-03-12 01:51:51,974 [main:112] - Changes after ReturnValueToVoid = false
+2021-03-12 01:51:51,974 [main:113] - Verify = true
+2021-03-12 01:51:51,974 [main:112] - Changes after ElvisOperatorSimplifier = false
+2021-03-12 01:51:51,974 [main:113] - Verify = true
+2021-03-12 01:51:51,974 [main:112] - Changes after TryCatchDeleter = false
+2021-03-12 01:51:51,974 [main:113] - Verify = true
+2021-03-12 01:51:51,975 [main:112] - Changes after SimplifyIf = false
+2021-03-12 01:51:51,975 [main:113] - Verify = true
+2021-03-12 01:51:51,975 [main:112] - Changes after SimplifyFor = false
+2021-03-12 01:51:51,975 [main:113] - Verify = true
+2021-03-12 01:51:51,975 [main:112] - Changes after SimplifyConstructor = false
+2021-03-12 01:51:51,975 [main:113] - Verify = true
+2021-03-12 01:51:51,975 [main:112] - Changes after ReturnValueToConstant = false
+2021-03-12 01:51:51,975 [main:113] - Verify = true
+2021-03-12 01:51:52,110 [main:112] - Changes after SimplifyBlockExpression = false
+2021-03-12 01:51:52,110 [main:113] - Verify = true
+2021-03-12 01:51:52,280 [main:112] - Changes after SimplifyBinaryExpression = false
+2021-03-12 01:51:52,280 [main:113] - Verify = true
+2021-03-12 01:51:52,280 [main:112] - Changes after SimplifyStringConstants = false
+2021-03-12 01:51:52,280 [main:113] - Verify = true
+2021-03-12 01:51:52,280 [main:112] - Changes after MinorSimplifyings = false
+2021-03-12 01:51:52,280 [main:113] - Verify = true
+2021-03-12 01:51:52,281 [main:112] - Changes after RemoveParameterFromDeclaration = false
+2021-03-12 01:51:52,281 [main:113] - Verify = true
+2021-03-12 01:51:52,281 [main:112] - Changes after FunInliner = false
+2021-03-12 01:51:52,281 [main:113] - Verify = true
+2021-03-12 01:51:52,281 [main:112] - Changes after ReplaceArgOnTODO = false
+2021-03-12 01:51:52,281 [main:113] - Verify = true
+2021-03-12 01:51:52,350 [main:112] - Changes after SimplifyCallExpression = false
+2021-03-12 01:51:52,350 [main:113] - Verify = true
+2021-03-12 01:51:52,350 [main:112] - Changes after ValueArgumentListSimplifying = false
+2021-03-12 01:51:52,350 [main:113] - Verify = true
+2021-03-12 01:51:53,013 [main:112] - Changes after PeepholePasses = false
+2021-03-12 01:51:53,013 [main:113] - Verify = true
+2021-03-12 01:51:53,013 [main:112] - Changes after ConstructionsDeleter = false
+2021-03-12 01:51:53,013 [main:113] - Verify = true
+2021-03-12 01:51:58,774 [main:112] - Changes after HierarchicalDeltaDebugger = false
+2021-03-12 01:51:58,774 [main:113] - Verify = true
+2021-03-12 01:51:58,774 [main:112] - Changes after EqualityMapper = false
+2021-03-12 01:51:58,774 [main:113] - Verify = true
+2021-03-12 01:51:58,774 [main:112] - Changes after FunSimplifier = false
+2021-03-12 01:51:58,774 [main:113] - Verify = true
+2021-03-12 01:51:58,774 [main:112] - Changes after TypeChanger = false
+2021-03-12 01:51:58,774 [main:113] - Verify = true
+2021-03-12 01:51:58,774 [main:112] - Changes after RemoveWhitespaces = false
+2021-03-12 01:51:58,775 [main:113] - Verify = true
+2021-03-12 01:51:58,775 [main:170] - CURRENT RESULT = var log = ""
+object A
+fun getA() = A.also { log += getA().toString }
+

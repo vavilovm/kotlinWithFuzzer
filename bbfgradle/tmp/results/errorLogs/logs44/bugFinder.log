@@ -1,0 +1,17 @@
+2021-03-11 23:29:58,042 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/indirectlyInheritPropertyGetter.kt
+2021-03-11 23:30:01,262 [main:53] - Start to mutate
+2021-03-11 23:30:01,262 [main:54] - BEFORE = interface A {
+    val str: String
+        get() = "OK"
+}
+
+interface B : A
+
+class Impl : B
+
+fun box() = Impl().str
+2021-03-11 23:30:01,793 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 23:30:02,081 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 23:30:02,210 [main:19] - Cur transformation LocalTCE
+2021-03-11 23:30:04,054 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 23:30:04,065 [main:19] - Cur transformation TCETransformation

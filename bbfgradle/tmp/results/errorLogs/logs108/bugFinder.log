@@ -1,0 +1,10 @@
+2021-03-12 09:48:19,034 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/defaultInline0.kt
+2021-03-12 09:48:22,798 [main:53] - Start to mutate
+2021-03-12 09:48:22,799 [main:54] - BEFORE = inline fun foo(s: String = "O") = s
+
+fun box() = foo() + foo("K")
+2021-03-12 09:48:23,495 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 09:48:23,803 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 09:48:24,429 [main:19] - Cur transformation LocalTCE
+2021-03-12 09:48:33,251 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 09:48:33,258 [main:19] - Cur transformation TCETransformation

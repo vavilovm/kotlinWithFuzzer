@@ -1,0 +1,34 @@
+2021-03-12 00:15:48,386 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/ForInReversedReversedRange0.kt
+2021-03-12 00:15:52,781 [main:53] - Start to mutate
+2021-03-12 00:15:52,781 [main:54] - BEFORE = import kotlin.test.*
+
+fun intRange() = 1 .. 4
+fun longRange() = 1L .. 4L
+fun charRange() = '1' .. '4'
+
+fun box(): String {
+    var sum = 0
+    for (i in intRange().reversed().reversed()) {
+        sum = sum * 10 + i
+    }
+    assertEquals(1234, sum)
+
+    var sumL = 0L
+    for (i in longRange().reversed().reversed()) {
+        sumL = sumL * 10 + i
+    }
+    assertEquals(1234L, sumL)
+
+    var sumC = 0
+    for (i in charRange().reversed().reversed()) {
+        sumC = sumC * 10 + i.toInt() - '0'.toInt()
+    }
+    assertEquals(1234, sumC)
+
+    return "OK"
+}
+2021-03-12 00:15:53,852 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 00:15:54,284 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 00:15:54,504 [main:19] - Cur transformation LocalTCE
+2021-03-12 00:16:51,190 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 00:16:51,198 [main:19] - Cur transformation TCETransformation

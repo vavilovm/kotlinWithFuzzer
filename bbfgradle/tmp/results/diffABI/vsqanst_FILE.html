@@ -1,0 +1,86 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS test/Tad</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>get(Ljava/lang/Object;)Ljava/lang/String; [public, final, bridge]</code></td>
+</tr>
+<tr><td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/String;)Ljava/lang/String; [public, final, bridge]</code></td>
+</tr>
+</table>
+&nbsp;
+<h1>CLASS test/Tad$Wkb</h1>
+<p><p><b>JVM </b>
+: [package-private, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [package-private, super]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getVxmr(J)I</code><br></td>
+<td><code>  // jvmGetterSignature: getVxmr-pVg5ArA(J)I</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>getVxmr(J)I [public, final]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getVxmr-pVg5ArA(J)I [public, final]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

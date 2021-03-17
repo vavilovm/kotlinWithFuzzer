@@ -1,0 +1,98 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, super, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, super, abstract]
+</p>
+</p>
+<h3>@kotlin.Metadata</h3>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>  // jvmGetterSignature: getB()I</code><br></td>
+<td><code>  // jvmGetterSignature: getB-S1-GsoU()I</code><br></td>
+</tr>
+</table>
+&nbsp;
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>containsKey(Ljava/lang/Object;)Z [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>containsKey-CE8gx1w(Ljava/lang/Object;)Z [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get-CE8gx1w(Ljava/lang/Object;)Lkotlin/Triple; [public, abstract]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>getB()I [public, final]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>getB-S1-GsoU()I [public, final]</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)Lkotlin/Triple; [public]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD remove(Ljava/lang/Object;)Ljava/lang/Object;</h2>
+<p><p><b>JVM </b>
+: [public]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge, synthetic]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>1 [public]</code></td>
+<td><code>1000001000001 [public, bridge, synthetic]</code></td>
+</tr>
+<tr><td>method.signature</td>
+<td><code>(Ljava/lang/Object;)Lkotlin/Triple&lt;Ljava/lang/Long;Ljava/util/List&lt;Ljava/lang/Boolean;&gt;;Ljava/util/ArrayList&lt;Ljava/lang/Character;&gt;;&gt;;</code></td>
+<td><code>NULL</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

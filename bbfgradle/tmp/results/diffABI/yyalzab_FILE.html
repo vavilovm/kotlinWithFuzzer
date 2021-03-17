@@ -1,0 +1,82 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+td.location {
+  background: #E0E0E0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS A</h1>
+<p><p><b>JVM </b>
+: [public, super, abstract]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, super, abstract]
+</p>
+</p>
+<table><tr><th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td><code>get(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>get-0hXNFcg(Ljava/util/HashSet;)Lkotlin/UInt; [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>getOrDefault(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>getOrDefault-5rF-yYk(Ljava/util/HashSet;I)I [public, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>remove(Ljava/lang/Object;)Ljava/lang/Object; [public, final, bridge]</code></td>
+<td><code>---</code></td>
+</tr>
+<tr><td><code>---</code></td>
+<td><code>remove(Ljava/lang/Object;)Lkotlin/UInt; [public, final, bridge]</code></td>
+</tr>
+</table>
+&nbsp;
+<h2>&gt; METHOD containsValue(Ljava/lang/Object;)Z</h2>
+<p><p><b>JVM </b>
+: [public, final, bridge]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, bridge, synthetic]
+</p>
+</p>
+<table><tr><th>Property</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>method.access</td>
+<td><code>1010001 [public, final, bridge]</code></td>
+<td><code>1000001000001 [public, bridge, synthetic]</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

@@ -1,0 +1,23 @@
+2021-03-12 07:14:29,055 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/forInCharSequenceTypeParameterWithIndex.kt
+2021-03-12 07:14:33,210 [main:53] - Start to mutate
+2021-03-12 07:14:33,211 [main:54] - BEFORE = val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test(cs)
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+2021-03-12 07:14:34,299 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-12 07:14:34,683 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 07:14:34,842 [main:19] - Cur transformation LocalTCE
+2021-03-12 07:15:09,642 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 07:15:09,999 [main:19] - Cur transformation TCETransformation

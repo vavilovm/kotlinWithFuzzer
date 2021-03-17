@@ -1,0 +1,44 @@
+2021-03-11 12:11:18,483 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/referenceToGetSetMethodsFromVararg.kt
+2021-03-11 12:11:22,726 [main:53] - Start to mutate
+2021-03-11 12:11:22,727 [main:54] - BEFORE = import kotlin.test.assertEquals
+
+fun <T> bar0(vararg a: T) = test(a::get)
+fun <T> bar1(vararg a: T) = test(a::set)
+
+fun <T> bar2(a: Array<out T>) = test(a::get)
+fun <T> bar3(a: Array<out T>) = test(a::set)
+
+fun <T> bar4(a: Array<in T>) = test(a::get)
+fun <T> bar5(a: Array<in T>) = test(a::set)
+
+fun <F> test(f: F): String = f.toString()
+
+fun box(): String {
+    val getMethod = "fun kotlin.Array<T>.get(kotlin.Int): T"
+    val setMethod = "fun kotlin.Array<T>.set(kotlin.Int, T): kotlin.Unit"
+
+    val b0 = bar0("")
+    val b1 = bar1("")
+
+    assertEquals(getMethod, b0)
+    assertEquals(setMethod, b1)
+
+    val b2 = bar2(arrayOf(""))
+    val b3 = bar3(arrayOf(""))
+
+    assertEquals(getMethod, b2)
+    assertEquals(setMethod, b3)
+
+    val b4 = bar4(arrayOf(""))
+    val b5 = bar5(arrayOf(""))
+
+    assertEquals(getMethod, b4)
+    assertEquals(setMethod, b5)
+
+    return "OK"
+}
+2021-03-11 12:11:23,767 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 12:11:24,185 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 12:11:25,700 [main:19] - Cur transformation LocalTCE
+2021-03-11 12:15:15,991 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 12:15:18,187 [main:19] - Cur transformation TCETransformation

@@ -1,0 +1,368 @@
+2021-03-12 01:47:23,124 [main:66] - Compilation checking started
+2021-03-12 01:47:25,288 [main:43] - GENERATING CALL OF fun Int.thisRef1() = fun () = this
+2021-03-12 01:47:25,292 [main:61] - WITHOUT TYPE PARAMS = fun Int.thisRef1() = fun () = this
+2021-03-12 01:47:25,494 [main:302] - generating value of type = Int true depth = 1
+2021-03-12 01:47:25,498 [main:95] - GENERATED = -5266475.thisRef1()
+2021-03-12 01:47:25,651 [main:43] - GENERATING CALL OF fun Int.thisRef2() = fun (): Int {return this}
+2021-03-12 01:47:25,652 [main:61] - WITHOUT TYPE PARAMS = fun Int.thisRef2() = fun (): Int {return this}
+2021-03-12 01:47:25,805 [main:302] - generating value of type = Int true depth = 1
+2021-03-12 01:47:25,806 [main:95] - GENERATED = -1434759400.thisRef2()
+2021-03-12 01:47:25,962 [main:43] - GENERATING CALL OF fun <T> T.genericThisRef1() = fun () = this
+2021-03-12 01:47:27,022 [main:61] - WITHOUT TYPE PARAMS = fun <T> ArrayDeque<Function2<Short, String?, Boolean>>.genericThisRef1() = fun () = this
+2021-03-12 01:47:27,209 [main:302] - generating value of type = ArrayDeque<Function2<Short, String?, Boolean>> false depth = 1
+2021-03-12 01:47:27,362 [main:43] - GENERATING CALL OF fun <E> ArrayDeque(): ArrayDeque<Function2<Short, String?, Boolean>> = TODO()
+2021-03-12 01:47:27,368 [main:61] - WITHOUT TYPE PARAMS = fun <E> ArrayDeque(): ArrayDeque<Function2<Short, String?, Boolean>> = TODO()
+2021-03-12 01:47:27,517 [main:95] - GENERATED = ArrayDeque<Function2<Short, String?, Boolean>>()
+2021-03-12 01:47:27,517 [main:95] - GENERATED = ArrayDeque<Function2<Short, String?, Boolean>>().genericThisRef1<ArrayDeque<Function2<Short, String?, Boolean>>>()
+2021-03-12 01:47:27,690 [main:43] - GENERATING CALL OF fun <T> T.genericThisRef2() = fun (): T {return this}
+2021-03-12 01:47:27,831 [main:61] - WITHOUT TYPE PARAMS = fun <T> ULong.genericThisRef2() = fun (): T {return this}
+2021-03-12 01:47:27,959 [main:302] - generating value of type = ULong true depth = 1
+2021-03-12 01:47:27,960 [main:95] - GENERATED = 2750880813982269011.toULong().genericThisRef2<ULong>()
+2021-03-12 01:47:28,123 [main:45] - Trying to change 81 nodes
+2021-03-12 01:47:28,129 [main:53] - replacing ("bar".withLabel1() != "bar", Boolean)
+2021-03-12 01:47:28,129 [main:50] - replacing "bar".withLabel1() != "bar" Boolean
+2021-03-12 01:47:28,129 [main:54] - Getting value of type Boolean
+2021-03-12 01:47:28,253 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 01:47:28,254 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 01:47:28,254 [main:61] - GENERATED IS CALL =false
+2021-03-12 01:47:28,431 [main:67] - randomType = Float
+2021-03-12 01:47:28,552 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 01:47:28,685 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@6a0c13dc]
+2021-03-12 01:47:28,685 [main:149] - GENERATING call of type public fun kotlin.Char.isLowSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4a630349]
+2021-03-12 01:47:28,686 [main:78] - Generated call from random type = (0.5605148f).toChar().isLowSurrogate()
+2021-03-12 01:47:28,688 [main:106] - GETTING Boolean from Function0<T>
+2021-03-12 01:47:28,705 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@518ccafb]]
+2021-03-12 01:47:28,705 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:28,809 [main:149] - GENERATING call of type public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@518ccafb]
+2021-03-12 01:47:28,918 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 01:47:28,919 [main:117] - GENERATED CALL = (withLabel2).equals(null).xor(false)
+2021-03-12 01:47:28,919 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@2ad81ef1]]
+2021-03-12 01:47:28,919 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:29,053 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:29,055 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@2ad81ef1]
+2021-03-12 01:47:29,154 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:29,155 [main:117] - GENERATED CALL = (withLabel2).equals("frgef").equals("dalyx")
+2021-03-12 01:47:29,155 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public final operator fun not(): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@63fb00a6]]
+2021-03-12 01:47:29,155 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:29,252 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:29,253 [main:149] - GENERATING call of type public final operator fun not(): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@63fb00a6]
+2021-03-12 01:47:29,253 [main:117] - GENERATED CALL = (withLabel2).equals("dnkls").not()
+2021-03-12 01:47:29,253 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@31dc54e5]]
+2021-03-12 01:47:29,253 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:29,354 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:29,355 [main:149] - GENERATING call of type public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@31dc54e5]
+2021-03-12 01:47:29,473 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 01:47:29,474 [main:117] - GENERATED CALL = (withLabel2).equals("cybzb").and(false)
+2021-03-12 01:47:29,474 [main:113] - Case = [public abstract operator fun invoke(): T defined in kotlin.Function0[FunctionInvokeDescriptor@24da7062], public open operator fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Any[DeserializedSimpleFunctionDescriptor@4517959f]]
+2021-03-12 01:47:29,474 [main:149] - GENERATING call of type public abstract operator fun invoke(): T defined in kotlin.Function0[FunctionInvokeDescriptor@24da7062]
+2021-03-12 01:47:29,475 [main:149] - GENERATING call of type public open operator fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Any[DeserializedSimpleFunctionDescriptor@4517959f]
+2021-03-12 01:47:29,584 [main:117] - GENERATED CALL = (withLabel2).invoke()?.equals(null)
+2021-03-12 01:47:29,584 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]]
+2021-03-12 01:47:29,584 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:29,698 [main:117] - GENERATED CALL = (withLabel2).equals(null)
+2021-03-12 01:47:29,699 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@133b1d58]]
+2021-03-12 01:47:29,699 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:29,809 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:29,809 [main:149] - GENERATING call of type public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@133b1d58]
+2021-03-12 01:47:29,935 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 01:47:29,936 [main:117] - GENERATED CALL = (withLabel2).equals("tamzb").or(false)
+2021-03-12 01:47:29,936 [main:61] - replacement of "bar".withLabel1() != "bar" of type Boolean is (withLabel2).equals(null)
+2021-03-12 01:47:30,038 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 01:47:30,039 [main:66] - Compilation checking started
+2021-03-12 01:47:30,397 [main:49] - Result = false
+Text:
+fun Int.thisRef1() = fun () = this
+fun Int.thisRef2() = fun (): Int {return this}
+
+fun <T> T.genericThisRef1() = fun () = this
+fun <T> T.genericThisRef2() = fun (): T {return this}
+
+val Int.valThisRef1: () -> Int get() = fun () = this
+val Int.valThisRef2: () -> Int get() = fun (): Int {return this}
+
+val <T> T.valGenericThisRef1: ()->T get() = fun () = this
+val <T> T.valGenericThisRef2: ()->T get() = fun (): T {return this}
+
+val <T> T.withLabel1: ()->T get() = fun () = this@withLabel1
+val <T> T.withLabel2: ()->T get() = fun (): T {return this@withLabel2}
+
+fun box(): String {
+    if (1.thisRef1()() != 1) return "Test 1 failed"
+    if (2.thisRef2()() != 2) return "Test 2 failed"
+
+    if (3.genericThisRef1()() != 3) return "Test 3 failed"
+    if (4.genericThisRef2()() != 4) return "Test 4 failed"
+
+    if (5.valThisRef1() != 5) return "Test 5 failed"
+    if (6.valThisRef2() != 6) return "Test 6 failed"
+
+    if (7.valGenericThisRef1() != 7) return "Test 7 failed"
+    if (8.valGenericThisRef2() != 8) return "Test 8 failed"
+
+    if ((withLabel2).equals(null)) return "Test 9 failed"
+    if ("bar".withLabel2() != "bar") return "Test 10 failed"
+
+    return "OK"
+}
+
+
+2021-03-12 01:47:30,399 [main:53] - replacing (fun () = this, Function0<Int>)
+2021-03-12 01:47:30,399 [main:50] - replacing fun () = this Function0<Int>
+2021-03-12 01:47:30,399 [main:54] - Getting value of type Function0<Int>
+2021-03-12 01:47:30,501 [main:302] - generating value of type = Function0<Int> false depth = 0
+2021-03-12 01:47:30,501 [main:302] - generating value of type = Int true depth = 1
+2021-03-12 01:47:30,502 [main:58] - GENERATED VALUE OF TYPE Function0<Int> = { 1568253344}
+2021-03-12 01:47:30,503 [main:61] - GENERATED IS CALL =false
+2021-03-12 01:47:30,648 [main:67] - randomType = UShort
+2021-03-12 01:47:30,761 [main:302] - generating value of type = UShort true depth = 0
+2021-03-12 01:47:30,824 [main:106] - GETTING Function0<Int> from Function0<ULong>
+2021-03-12 01:47:30,847 [main:106] - GETTING Function0<Int> from Function0<Int>
+2021-03-12 01:47:30,868 [main:61] - replacement of fun () = this of type Function0<Int> is valThisRef1
+2021-03-12 01:47:30,967 [main:33] - Trying to replace Element(FUN) on Element(REFERENCE_EXPRESSION)
+2021-03-12 01:47:30,968 [main:66] - Compilation checking started
+2021-03-12 01:47:31,472 [main:53] - Result = true
+Text:
+fun Int.thisRef1() = fun () = this
+fun Int.thisRef2() = fun (): Int {return this}
+
+fun <T> T.genericThisRef1() = fun () = this
+fun <T> T.genericThisRef2() = fun (): T {return this}
+
+val Int.valThisRef1: () -> Int get() = valThisRef1
+val Int.valThisRef2: () -> Int get() = fun (): Int {return this}
+
+val <T> T.valGenericThisRef1: ()->T get() = fun () = this
+val <T> T.valGenericThisRef2: ()->T get() = fun (): T {return this}
+
+val <T> T.withLabel1: ()->T get() = fun () = this@withLabel1
+val <T> T.withLabel2: ()->T get() = fun (): T {return this@withLabel2}
+
+fun box(): String {
+    if (1.thisRef1()() != 1) return "Test 1 failed"
+    if (2.thisRef2()() != 2) return "Test 2 failed"
+
+    if (3.genericThisRef1()() != 3) return "Test 3 failed"
+    if (4.genericThisRef2()() != 4) return "Test 4 failed"
+
+    if (5.valThisRef1() != 5) return "Test 5 failed"
+    if (6.valThisRef2() != 6) return "Test 6 failed"
+
+    if (7.valGenericThisRef1() != 7) return "Test 7 failed"
+    if (8.valGenericThisRef2() != 8) return "Test 8 failed"
+
+    if ("bar".withLabel1() != "bar") return "Test 9 failed"
+    if ("bar".withLabel2() != "bar") return "Test 10 failed"
+
+    return "OK"
+}
+
+
+2021-03-12 01:47:31,474 [main:53] - replacing ("OK", String)
+2021-03-12 01:47:31,475 [main:50] - replacing "OK" String
+2021-03-12 01:47:31,475 [main:54] - Getting value of type String
+2021-03-12 01:47:31,581 [main:302] - generating value of type = String true depth = 0
+2021-03-12 01:47:31,581 [main:58] - GENERATED VALUE OF TYPE String = "iktdq"
+2021-03-12 01:47:31,582 [main:61] - GENERATED IS CALL =false
+2021-03-12 01:47:31,689 [main:67] - randomType = Byte
+2021-03-12 01:47:31,794 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 01:47:31,864 [main:149] - GENERATING call of type public open fun toShort(): kotlin.Short defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@459db54e]
+2021-03-12 01:47:31,864 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@47e7e284]
+2021-03-12 01:47:31,967 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 01:47:31,968 [main:78] - Generated call from random type = (111).toShort().toString(474742831)
+2021-03-12 01:47:31,970 [main:106] - GETTING String from Function0<Int>
+2021-03-12 01:47:31,984 [main:113] - Case = [public abstract operator fun invoke(): kotlin.Int defined in kotlin.Function0[FunctionInvokeDescriptor@18f333f2], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4cb2bd47]]
+2021-03-12 01:47:31,984 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.Int defined in kotlin.Function0[FunctionInvokeDescriptor@18f333f2]
+2021-03-12 01:47:31,984 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4cb2bd47]
+2021-03-12 01:47:32,079 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 01:47:32,080 [main:117] - GENERATED CALL = (valThisRef1).invoke().toString(1914137801)
+2021-03-12 01:47:32,080 [main:61] - replacement of "OK" of type String is (111).toShort().toString(474742831)
+2021-03-12 01:47:32,173 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 01:47:32,174 [main:66] - Compilation checking started
+2021-03-12 01:47:32,749 [main:53] - Result = true
+Text:
+fun Int.thisRef1() = fun () = this
+fun Int.thisRef2() = fun (): Int {return this}
+
+fun <T> T.genericThisRef1() = fun () = this
+fun <T> T.genericThisRef2() = fun (): T {return this}
+
+val Int.valThisRef1: () -> Int get() = valThisRef1
+val Int.valThisRef2: () -> Int get() = fun (): Int {return this}
+
+val <T> T.valGenericThisRef1: ()->T get() = fun () = this
+val <T> T.valGenericThisRef2: ()->T get() = fun (): T {return this}
+
+val <T> T.withLabel1: ()->T get() = fun () = this@withLabel1
+val <T> T.withLabel2: ()->T get() = fun (): T {return this@withLabel2}
+
+fun box(): String {
+    if (1.thisRef1()() != 1) return "Test 1 failed"
+    if (2.thisRef2()() != 2) return "Test 2 failed"
+
+    if (3.genericThisRef1()() != 3) return "Test 3 failed"
+    if (4.genericThisRef2()() != 4) return "Test 4 failed"
+
+    if (5.valThisRef1() != 5) return "Test 5 failed"
+    if (6.valThisRef2() != 6) return "Test 6 failed"
+
+    if (7.valGenericThisRef1() != 7) return "Test 7 failed"
+    if (8.valGenericThisRef2() != 8) return "Test 8 failed"
+
+    if ("bar".withLabel1() != "bar") return "Test 9 failed"
+    if ("bar".withLabel2() != "bar") return "Test 10 failed"
+
+    return (111).toShort().toString(474742831)
+}
+
+
+2021-03-12 01:47:32,750 [main:53] - replacing (this, T)
+2021-03-12 01:47:32,750 [main:50] - replacing this T
+2021-03-12 01:47:32,750 [main:54] - Getting value of type T
+2021-03-12 01:47:32,875 [main:302] - generating value of type = T false depth = 0
+2021-03-12 01:47:32,980 [main:43] - GENERATING CALL OF fun <T> maxOf(a: Comparable<T>, b: Comparable<T>): T = TODO()
+2021-03-12 01:47:32,982 [main:61] - WITHOUT TYPE PARAMS = fun <T> maxOf(a: Comparable<T>, b: Comparable<T>): T = TODO()
+2021-03-12 01:47:33,099 [main:302] - generating value of type = Comparable<T> false depth = 3
+2021-03-12 01:47:33,105 [main:302] - generating value of type = Comparable<T> false depth = 3
+2021-03-12 01:47:33,111 [main:95] - GENERATED = maxOf<Comparable<T>>(3740747967863092697.toULong(), "oqlwv")
+2021-03-12 01:47:33,112 [main:58] - GENERATED VALUE OF TYPE T = maxOf<Comparable<T>>(3740747967863092697.toULong(), "oqlwv")
+2021-03-12 01:47:33,112 [main:61] - GENERATED IS CALL =true
+2021-03-12 01:47:33,222 [main:67] - randomType = Long
+2021-03-12 01:47:33,331 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 01:47:33,399 [main:106] - GETTING T from Function0<ULong>
+2021-03-12 01:47:33,415 [main:106] - GETTING T from Function0<ArrayDeque<Function2<Short, String?, Boolean>>>
+2021-03-12 01:47:33,460 [main:61] - replacement of this of type T is maxOf<Comparable<T>>(3740747967863092697.toULong(), "oqlwv")
+2021-03-12 01:47:33,567 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 01:47:33,568 [main:66] - Compilation checking started
+2021-03-12 01:47:34,008 [main:49] - Result = false
+Text:
+fun Int.thisRef1() = fun () = this
+fun Int.thisRef2() = fun (): Int {return this}
+
+fun <T> T.genericThisRef1() = fun () = this
+fun <T> T.genericThisRef2() = fun (): T {return maxOf<Comparable<T>>(3740747967863092697.toULong(), "oqlwv")}
+
+val Int.valThisRef1: () -> Int get() = valThisRef1
+val Int.valThisRef2: () -> Int get() = fun (): Int {return this}
+
+val <T> T.valGenericThisRef1: ()->T get() = fun () = this
+val <T> T.valGenericThisRef2: ()->T get() = fun (): T {return this}
+
+val <T> T.withLabel1: ()->T get() = fun () = this@withLabel1
+val <T> T.withLabel2: ()->T get() = fun (): T {return this@withLabel2}
+
+fun box(): String {
+    if (1.thisRef1()() != 1) return "Test 1 failed"
+    if (2.thisRef2()() != 2) return "Test 2 failed"
+
+    if (3.genericThisRef1()() != 3) return "Test 3 failed"
+    if (4.genericThisRef2()() != 4) return "Test 4 failed"
+
+    if (5.valThisRef1() != 5) return "Test 5 failed"
+    if (6.valThisRef2() != 6) return "Test 6 failed"
+
+    if (7.valGenericThisRef1() != 7) return "Test 7 failed"
+    if (8.valGenericThisRef2() != 8) return "Test 8 failed"
+
+    if ("bar".withLabel1() != "bar") return "Test 9 failed"
+    if ("bar".withLabel2() != "bar") return "Test 10 failed"
+
+    return (111).toShort().toString(474742831)
+}
+
+
+2021-03-12 01:47:34,009 [main:53] - replacing (this, Int)
+2021-03-12 01:47:34,009 [main:50] - replacing this Int
+2021-03-12 01:47:34,009 [main:54] - Getting value of type Int
+2021-03-12 01:47:34,129 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 01:47:34,129 [main:58] - GENERATED VALUE OF TYPE Int = 1997216436
+2021-03-12 01:47:34,130 [main:61] - GENERATED IS CALL =false
+2021-03-12 01:47:34,839 [main:67] - randomType = Pair<Int, HashMap<ULong?, Byte?>>
+2021-03-12 01:47:34,952 [main:302] - generating value of type = Pair<Int, HashMap<ULong?, Byte?>> false depth = 0
+2021-03-12 01:47:35,062 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: Int, second: HashMap<ULong?, Byte?>): Pair<Int, HashMap<ULong?, Byte?>> = TODO()
+2021-03-12 01:47:35,064 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: Int, second: HashMap<ULong?, Byte?>): Pair<Int, HashMap<ULong?, Byte?>> = TODO()
+2021-03-12 01:47:35,171 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 01:47:35,172 [main:302] - generating value of type = HashMap<ULong?, Byte?> false depth = 3
+2021-03-12 01:47:35,299 [main:43] - GENERATING CALL OF fun <K, V> linkedMapOf(pairs: Pair<ULong?, Byte?>): HashMap<ULong?, Byte?> = TODO()
+2021-03-12 01:47:35,302 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> linkedMapOf(pairs: Pair<ULong?, Byte?>): HashMap<ULong?, Byte?> = TODO()
+2021-03-12 01:47:35,414 [main:302] - generating value of type = Pair<ULong?, Byte?> false depth = 6
+2021-03-12 01:47:35,604 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: ULong?, second: Byte?): Pair<ULong?, Byte?> = TODO()
+2021-03-12 01:47:35,607 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: ULong?, second: Byte?): Pair<ULong?, Byte?> = TODO()
+2021-03-12 01:47:35,703 [main:302] - generating value of type = ULong true depth = 9
+2021-03-12 01:47:35,704 [main:302] - generating value of type = Byte true depth = 9
+2021-03-12 01:47:35,704 [main:95] - GENERATED = Pair<ULong?, Byte?>(7568295111405431931.toULong(), -83)
+2021-03-12 01:47:35,705 [main:95] - GENERATED = linkedMapOf<ULong?, Byte?>(Pair<ULong?, Byte?>(7568295111405431931.toULong(), -83))
+2021-03-12 01:47:35,705 [main:95] - GENERATED = Pair<Int, HashMap<ULong?, Byte?>>(1948854751, linkedMapOf<ULong?, Byte?>(Pair<ULong?, Byte?>(7568295111405431931.toULong(), -83)))
+2021-03-12 01:47:35,736 [main:149] - GENERATING call of type public fun kotlin.Int.coerceAtMost(maximumValue: kotlin.Int): kotlin.Int defined in kotlin.ranges[DeserializedSimpleFunctionDescriptor@1e9b93ed]
+2021-03-12 01:47:35,830 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 01:47:35,831 [main:78] - Generated call from random type = (Pair<Int, HashMap<ULong?, Byte?>>(1948854751, linkedMapOf<ULong?, Byte?>(Pair<ULong?, Byte?>(7568295111405431931.toULong(), -83)))).first.coerceAtMost(1159420600)
+2021-03-12 01:47:35,832 [main:106] - GETTING Int from Function0<ULong>
+2021-03-12 01:47:35,847 [main:113] - Case = [public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45], @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@50aac815]]
+2021-03-12 01:47:35,847 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45]
+2021-03-12 01:47:35,847 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@50aac815]
+2021-03-12 01:47:35,942 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 01:47:35,943 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().compareTo(97.toUByte())
+2021-03-12 01:47:35,943 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16], public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@3db9a120]]
+2021-03-12 01:47:35,943 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Function0[DeserializedSimpleFunctionDescriptor@3a94fd16]
+2021-03-12 01:47:36,035 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 01:47:36,035 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@3db9a120]
+2021-03-12 01:47:36,127 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 01:47:36,128 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).equals("gafqq").compareTo(true)
+2021-03-12 01:47:36,129 [main:113] - Case = [public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45], @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countTrailingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@4ad9d52]]
+2021-03-12 01:47:36,129 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45]
+2021-03-12 01:47:36,129 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countTrailingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@4ad9d52]
+2021-03-12 01:47:36,129 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().countTrailingZeroBits()
+2021-03-12 01:47:36,129 [main:113] - Case = [public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45], @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countOneBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@669427d]]
+2021-03-12 01:47:36,129 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45]
+2021-03-12 01:47:36,130 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countOneBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@669427d]
+2021-03-12 01:47:36,130 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().countOneBits()
+2021-03-12 01:47:36,130 [main:113] - Case = [public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45], @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countLeadingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@2c0fd54c]]
+2021-03-12 01:47:36,130 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45]
+2021-03-12 01:47:36,130 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.ExperimentalUnsignedTypes @kotlin.internal.InlineOnly public inline fun kotlin.ULong.countLeadingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@2c0fd54c]
+2021-03-12 01:47:36,131 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().countLeadingZeroBits()
+2021-03-12 01:47:36,131 [main:113] - Case = [public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45], @kotlin.internal.InlineOnly public final inline fun toInt(): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@32a8457f]]
+2021-03-12 01:47:36,131 [main:149] - GENERATING call of type public abstract operator fun invoke(): kotlin.ULong defined in kotlin.Function0[FunctionInvokeDescriptor@1791da45]
+2021-03-12 01:47:36,131 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toInt(): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@32a8457f]
+2021-03-12 01:47:36,131 [main:117] - GENERATED CALL = (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().toInt()
+2021-03-12 01:47:36,131 [main:61] - replacement of this of type Int is (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().compareTo(97.toUByte())
+2021-03-12 01:47:36,269 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 01:47:36,269 [main:66] - Compilation checking started
+2021-03-12 01:47:36,759 [main:53] - Result = true
+Text:
+fun Int.thisRef1() = fun () = this
+fun Int.thisRef2() = fun (): Int {return (2750880813982269011.toULong().genericThisRef2<ULong>()).invoke().compareTo(97.toUByte())}
+
+fun <T> T.genericThisRef1() = fun () = this
+fun <T> T.genericThisRef2() = fun (): T {return this}
+
+val Int.valThisRef1: () -> Int get() = valThisRef1
+val Int.valThisRef2: () -> Int get() = fun (): Int {return this}
+
+val <T> T.valGenericThisRef1: ()->T get() = fun () = this
+val <T> T.valGenericThisRef2: ()->T get() = fun (): T {return this}
+
+val <T> T.withLabel1: ()->T get() = fun () = this@withLabel1
+val <T> T.withLabel2: ()->T get() = fun (): T {return this@withLabel2}
+
+fun box(): String {
+    if (1.thisRef1()() != 1) return "Test 1 failed"
+    if (2.thisRef2()() != 2) return "Test 2 failed"
+
+    if (3.genericThisRef1()() != 3) return "Test 3 failed"
+    if (4.genericThisRef2()() != 4) return "Test 4 failed"
+
+    if (5.valThisRef1() != 5) return "Test 5 failed"
+    if (6.valThisRef2() != 6) return "Test 6 failed"
+
+    if (7.valGenericThisRef1() != 7) return "Test 7 failed"
+    if (8.valGenericThisRef2() != 8) return "Test 8 failed"
+
+    if ("bar".withLabel1() != "bar") return "Test 9 failed"
+    if ("bar".withLabel2() != "bar") return "Test 10 failed"
+
+    return (111).toShort().toString(474742831)
+}
+
+
+2021-03-12 01:47:36,762 [main:53] - replacing (valGenericThisRef1, Function0<Int>)
+2021-03-12 01:47:36,762 [main:50] - replacing valGenericThisRef1 Function0<Int>
+2021-03-12 01:47:36,762 [main:54] - Getting value of type Function0<Int>

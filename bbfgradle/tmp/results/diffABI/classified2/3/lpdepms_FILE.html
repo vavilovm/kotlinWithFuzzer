@@ -1,0 +1,59 @@
+<html><head><style>
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding: 2px;
+}
+th {
+  background: #B0B0B0;
+}
+td {
+  background: #EFEFB0;
+  vertical-align: top;
+}
+hr {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+</style>
+</head>
+<body><h1></h1>
+<p><p><b>JVM </b>
+: tmp/tmp0.jar
+</p>
+<p><b>JVM -Xuse-ir</b>
+: tmp/tmp1.jar
+</p>
+</p>
+<h1>CLASS Tmp0Kt</h1>
+<p><p><b>JVM </b>
+: [public, final, super]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [public, final, super]
+</p>
+</p>
+<h2>&gt; FIELD additionalText$delegate:LDVal;</h2>
+<p><p><b>JVM </b>
+: [private, static, final]
+</p>
+<p><b>JVM -Xuse-ir</b>
+: [private, static, final]
+</p>
+</p>
+<table><tr><th>Annotation</th>
+<th>JVM </th>
+<th>JVM -Xuse-ir</th>
+</tr>
+<tr><td>field.invisibleAnnotations</td>
+<td><code>---</code></td>
+<td><code>+ @Lorg/jetbrains/annotations/NotNull;</code></td>
+</tr>
+<tr><td>field.invisibleAnnotations</td>
+<td><code>+ @Lorg/jetbrains/annotations/Nullable;</code></td>
+<td><code>---</code></td>
+</tr>
+</table>
+&nbsp;
+</body>
+</html>

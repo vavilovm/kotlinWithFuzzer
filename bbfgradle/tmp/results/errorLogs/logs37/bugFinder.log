@@ -1,0 +1,16 @@
+2021-03-11 21:15:58,367 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/forInSequenceTypeParameterWithIndex1.kt
+2021-03-11 21:16:02,363 [main:53] - Start to mutate
+2021-03-11 21:16:02,363 [main:54] - BEFORE = fun <T : Sequence<*>> test(sequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in sequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+2021-03-11 21:16:03,383 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 21:16:03,762 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 21:16:03,930 [main:19] - Cur transformation LocalTCE
+2021-03-11 21:16:17,129 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 21:16:17,146 [main:19] - Cur transformation TCETransformation

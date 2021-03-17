@@ -1,0 +1,1117 @@
+2021-03-12 07:14:33,213 [main:66] - Compilation checking started
+2021-03-12 07:14:35,517 [main:43] - GENERATING CALL OF fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+2021-03-12 07:14:35,887 [main:61] - WITHOUT TYPE PARAMS = fun <T : CharSequence> test(charSequence: CharSequence): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+2021-03-12 07:14:36,013 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 07:14:36,216 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 07:14:36,220 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 07:14:36,510 [main:302] - generating value of type = String true depth = 4
+2021-03-12 07:14:36,513 [main:95] - GENERATED = StringBuilder("ppcvq")
+2021-03-12 07:14:36,514 [main:95] - GENERATED = test<CharSequence>(StringBuilder("ppcvq"))
+2021-03-12 07:14:36,646 [main:45] - Trying to change 18 nodes
+2021-03-12 07:14:36,652 [main:53] - replacing ("$index:$x;", String)
+2021-03-12 07:14:36,653 [main:50] - replacing "$index:$x;" String
+2021-03-12 07:14:36,653 [main:54] - Getting value of type String
+2021-03-12 07:14:36,796 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:36,797 [main:58] - GENERATED VALUE OF TYPE String = "yeipw"
+2021-03-12 07:14:36,797 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:14:36,798 [main:67] - randomType = String
+2021-03-12 07:14:36,915 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:36,999 [main:149] - GENERATING call of type public fun kotlin.CharSequence.repeat(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@12a0dc5a]
+2021-03-12 07:14:37,146 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:37,148 [main:78] - Generated call from random type = ("xwuzp").repeat(1782530372)
+2021-03-12 07:14:37,152 [main:106] - GETTING String from StringBuilder
+2021-03-12 07:14:37,207 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1198d525]]
+2021-03-12 07:14:37,207 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:37,328 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:37,329 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1198d525]
+2021-03-12 07:14:37,330 [main:117] - GENERATED CALL = (s).substring(-1634033302).lowercase()
+2021-03-12 07:14:37,332 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27b92d20]]
+2021-03-12 07:14:37,332 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:37,448 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:37,449 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27b92d20]
+2021-03-12 07:14:37,560 [main:302] - generating value of type = Function1<Char, Char> false depth = 0
+2021-03-12 07:14:37,560 [main:302] - generating value of type = Char true depth = 1
+2021-03-12 07:14:37,563 [main:117] - GENERATED CALL = (s).substring(357179859).replaceFirstChar({a: Char -> 'ஆ'})
+2021-03-12 07:14:37,564 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@50255a21], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@66e9e248]]
+2021-03-12 07:14:37,564 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@50255a21]
+2021-03-12 07:14:37,676 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:37,677 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@66e9e248]
+2021-03-12 07:14:37,678 [main:117] - GENERATED CALL = (s).get(1413055318).uppercase()
+2021-03-12 07:14:37,678 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], @kotlin.internal.InlineOnly public inline fun kotlin.String.concat(str: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5b3a9e04]]
+2021-03-12 07:14:37,678 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:37,776 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:37,777 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.concat(str: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5b3a9e04]
+2021-03-12 07:14:37,889 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:37,891 [main:117] - GENERATED CALL = (s).substring(1840315506).concat("ekdof")
+2021-03-12 07:14:37,891 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replaceFirst(regex: kotlin.text.Regex, replacement: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a0d11b7]]
+2021-03-12 07:14:37,891 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replaceFirst(regex: kotlin.text.Regex, replacement: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a0d11b7]
+2021-03-12 07:14:37,993 [main:302] - generating value of type = Regex false depth = 0
+2021-03-12 07:14:38,098 [main:43] - GENERATING CALL OF fun Regex(pattern: kotlin.String, option: kotlin.text.RegexOption): Regex = TODO()
+2021-03-12 07:14:38,101 [main:61] - WITHOUT TYPE PARAMS = fun Regex(pattern: kotlin.String, option: kotlin.text.RegexOption): Regex = TODO()
+2021-03-12 07:14:38,447 [main:302] - generating value of type = String true depth = 3
+2021-03-12 07:14:38,448 [main:302] - generating value of type = RegexOption false depth = 3
+2021-03-12 07:14:38,452 [main:95] - GENERATED = Regex("onowt", kotlin.text.RegexOption.MULTILINE)
+2021-03-12 07:14:38,454 [main:117] - GENERATED CALL = (s).replaceFirst(Regex("onowt", kotlin.text.RegexOption.MULTILINE), test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:14:38,454 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]]
+2021-03-12 07:14:38,454 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:38,549 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:38,551 [main:117] - GENERATED CALL = (s).substring(1962251998)
+2021-03-12 07:14:38,551 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], public fun kotlin.String.take(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@37b27c83]]
+2021-03-12 07:14:38,551 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:38,654 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:38,655 [main:149] - GENERATING call of type public fun kotlin.String.take(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@37b27c83]
+2021-03-12 07:14:38,758 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:38,759 [main:117] - GENERATED CALL = (s).substring(-276452599).take(-220138562)
+2021-03-12 07:14:38,760 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], @kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f5d7ed6]]
+2021-03-12 07:14:38,760 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:38,850 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:38,850 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f5d7ed6]
+2021-03-12 07:14:38,953 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:39,056 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:39,057 [main:117] - GENERATED CALL = (s).substring(542643233).removeRange(-1151233171, 218289132)
+2021-03-12 07:14:39,058 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b], public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19186e32]]
+2021-03-12 07:14:39,058 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@417a303b]
+2021-03-12 07:14:39,152 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:39,152 [main:149] - GENERATING call of type public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19186e32]
+2021-03-12 07:14:39,259 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:39,368 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:39,369 [main:117] - GENERATED CALL = (s).substring(27095549).replaceAfterLast('勜', "yhnsj", test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:14:39,370 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7da66aa8], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replace(regex: kotlin.text.Regex, noinline transform: (kotlin.text.MatchResult) -> kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5c046fe8]]
+2021-03-12 07:14:39,370 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7da66aa8]
+2021-03-12 07:14:39,465 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:39,560 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:39,560 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.replace(regex: kotlin.text.Regex, noinline transform: (kotlin.text.MatchResult) -> kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5c046fe8]
+2021-03-12 07:14:39,681 [main:302] - generating value of type = Regex false depth = 0
+2021-03-12 07:14:39,795 [main:43] - GENERATING CALL OF fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 07:14:39,797 [main:61] - WITHOUT TYPE PARAMS = fun Regex(pattern: kotlin.String): Regex = TODO()
+2021-03-12 07:14:39,993 [main:302] - generating value of type = String true depth = 3
+2021-03-12 07:14:39,994 [main:95] - GENERATED = Regex("noaho")
+2021-03-12 07:14:40,101 [main:302] - generating value of type = Function1<MatchResult, CharSequence> false depth = 0
+2021-03-12 07:14:40,101 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 07:14:40,209 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 07:14:40,211 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 07:14:40,397 [main:302] - generating value of type = CharSequence false depth = 4
+2021-03-12 07:14:40,491 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:40,493 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:40,701 [main:302] - generating value of type = Int true depth = 7
+2021-03-12 07:14:40,702 [main:95] - GENERATED = StringBuilder(-1203594962)
+2021-03-12 07:14:40,702 [main:95] - GENERATED = StringBuilder(StringBuilder(-1203594962))
+2021-03-12 07:14:40,703 [main:117] - GENERATED CALL = (s).subSequence(-1475792962, 1181436578).replace(Regex("noaho"), {a: MatchResult -> StringBuilder(StringBuilder(-1203594962))})
+2021-03-12 07:14:40,703 [main:61] - replacement of "$index:$x;" of type String is "yeipw"
+2021-03-12 07:14:40,792 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 07:14:40,792 [main:66] - Compilation checking started
+2021-03-12 07:14:41,312 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("yeipw")
+    }
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test(cs)
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:41,313 [main:53] - replacing (StringBuilder(), StringBuilder)
+2021-03-12 07:14:41,314 [main:50] - replacing StringBuilder() StringBuilder
+2021-03-12 07:14:41,314 [main:54] - Getting value of type StringBuilder
+2021-03-12 07:14:41,424 [main:302] - generating value of type = StringBuilder false depth = 0
+2021-03-12 07:14:41,429 [main:58] - GENERATED VALUE OF TYPE StringBuilder = StringBuilder()
+2021-03-12 07:14:41,429 [main:61] - GENERATED IS CALL =true
+2021-03-12 07:14:41,547 [main:67] - randomType = String?
+2021-03-12 07:14:41,648 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:41,750 [main:106] - GETTING StringBuilder from T
+2021-03-12 07:14:41,791 [main:106] - GETTING StringBuilder from StringBuilder
+2021-03-12 07:14:41,834 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]]
+2021-03-12 07:14:41,834 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]
+2021-03-12 07:14:41,928 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:42,016 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:14:42,116 [main:43] - GENERATING CALL OF fun CharArray(size: kotlin.Int): CharArray = TODO()
+2021-03-12 07:14:42,118 [main:61] - WITHOUT TYPE PARAMS = fun CharArray(size: kotlin.Int): CharArray = TODO()
+2021-03-12 07:14:42,305 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 07:14:42,306 [main:95] - GENERATED = CharArray(-967105505)
+2021-03-12 07:14:42,391 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:42,474 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:42,475 [main:117] - GENERATED CALL = (s).insertRange(-868888725, CharArray(-967105505), 1053045514, 2045826392)
+2021-03-12 07:14:42,475 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]]
+2021-03-12 07:14:42,475 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]
+2021-03-12 07:14:42,580 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:42,675 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:42,758 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:42,758 [main:117] - GENERATED CALL = (s).setRange(80911695, 2002075352, "rgpws")
+2021-03-12 07:14:42,759 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]]
+2021-03-12 07:14:42,759 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]
+2021-03-12 07:14:42,759 [main:117] - GENERATED CALL = (s).appendLine()
+2021-03-12 07:14:42,759 [main:113] - Case = [@kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]]
+2021-03-12 07:14:42,760 [main:149] - GENERATING call of type @kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]
+2021-03-12 07:14:42,842 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:14:42,842 [main:117] - GENERATED CALL = (s).append("kzwip")
+2021-03-12 07:14:42,843 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]]
+2021-03-12 07:14:42,843 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]
+2021-03-12 07:14:42,939 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:14:43,031 [main:43] - GENERATING CALL OF fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:43,034 [main:61] - WITHOUT TYPE PARAMS = fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:43,127 [main:302] - generating value of type = Char true depth = 3
+2021-03-12 07:14:43,128 [main:95] - GENERATED = charArrayOf('﷋')
+2021-03-12 07:14:43,211 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,295 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,296 [main:117] - GENERATED CALL = (s).appendRange(charArrayOf('﷋'), 119204211, 1588423726)
+2021-03-12 07:14:43,296 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]]
+2021-03-12 07:14:43,296 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]
+2021-03-12 07:14:43,406 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,407 [main:117] - GENERATED CALL = (s).deleteAt(-167336653)
+2021-03-12 07:14:43,407 [main:113] - Case = [@kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]]
+2021-03-12 07:14:43,407 [main:149] - GENERATING call of type @kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]
+2021-03-12 07:14:43,407 [main:117] - GENERATED CALL = (s).clear()
+2021-03-12 07:14:43,407 [main:113] - Case = [public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]]
+2021-03-12 07:14:43,408 [main:149] - GENERATING call of type public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]
+2021-03-12 07:14:43,408 [main:117] - GENERATED CALL = (s).reverse()
+2021-03-12 07:14:43,408 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]]
+2021-03-12 07:14:43,408 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]
+2021-03-12 07:14:43,493 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,577 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,578 [main:117] - GENERATED CALL = (s).deleteRange(795320141, -1405919131)
+2021-03-12 07:14:43,579 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]]
+2021-03-12 07:14:43,579 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]
+2021-03-12 07:14:43,665 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:43,779 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:14:43,780 [main:117] - GENERATED CALL = (s).insert(-769181874, "soqug")
+2021-03-12 07:14:43,781 [main:61] - replacement of StringBuilder() of type StringBuilder is (s).insertRange(-868888725, CharArray(-967105505), 1053045514, 2045826392)
+2021-03-12 07:14:43,896 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:43,897 [main:66] - Compilation checking started
+2021-03-12 07:14:44,180 [main:49] - Result = false
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = (s).insertRange(-868888725, CharArray(-967105505), 1053045514, 2045826392)
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("yeipw")
+    }
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test(cs)
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:44,182 [main:53] - replacing ({
+        s.append("yeipw")
+    }, StringBuilder)
+2021-03-12 07:14:44,182 [main:50] - replacing {
+        s.append("yeipw")
+    } StringBuilder
+2021-03-12 07:14:44,182 [main:54] - Getting value of type StringBuilder
+2021-03-12 07:14:44,264 [main:302] - generating value of type = StringBuilder false depth = 0
+2021-03-12 07:14:44,349 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): StringBuilder = TODO()
+2021-03-12 07:14:44,351 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): StringBuilder = TODO()
+2021-03-12 07:14:44,562 [main:302] - generating value of type = String true depth = 3
+2021-03-12 07:14:44,563 [main:95] - GENERATED = StringBuilder("wvbhs")
+2021-03-12 07:14:44,563 [main:58] - GENERATED VALUE OF TYPE StringBuilder = StringBuilder("wvbhs")
+2021-03-12 07:14:44,563 [main:61] - GENERATED IS CALL =true
+2021-03-12 07:14:44,652 [main:67] - randomType = UByte
+2021-03-12 07:14:44,734 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 07:14:44,791 [main:106] - GETTING StringBuilder from String
+2021-03-12 07:14:44,827 [main:106] - GETTING StringBuilder from T
+2021-03-12 07:14:44,852 [main:106] - GETTING StringBuilder from CharSequence
+2021-03-12 07:14:44,863 [main:106] - GETTING StringBuilder from StringBuilder
+2021-03-12 07:14:44,898 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]]
+2021-03-12 07:14:44,899 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]
+2021-03-12 07:14:44,985 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,084 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,085 [main:117] - GENERATED CALL = (s).deleteRange(1541482249, 328542843)
+2021-03-12 07:14:45,086 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]]
+2021-03-12 07:14:45,086 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]
+2021-03-12 07:14:45,169 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,249 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:14:45,250 [main:117] - GENERATED CALL = (s).insert(1590521162, "gemvm")
+2021-03-12 07:14:45,250 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]]
+2021-03-12 07:14:45,250 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]
+2021-03-12 07:14:45,331 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,417 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:14:45,526 [main:43] - GENERATING CALL OF fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:45,527 [main:61] - WITHOUT TYPE PARAMS = fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:45,649 [main:302] - generating value of type = Char true depth = 3
+2021-03-12 07:14:45,650 [main:95] - GENERATED = charArrayOf('⽄')
+2021-03-12 07:14:45,741 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,824 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,825 [main:117] - GENERATED CALL = (s).insertRange(239508252, charArrayOf('⽄'), 635519569, 822295116)
+2021-03-12 07:14:45,825 [main:113] - Case = [@kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]]
+2021-03-12 07:14:45,825 [main:149] - GENERATING call of type @kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]
+2021-03-12 07:14:45,825 [main:117] - GENERATED CALL = (s).clear()
+2021-03-12 07:14:45,825 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]]
+2021-03-12 07:14:45,825 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]
+2021-03-12 07:14:45,905 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:45,987 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:46,070 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:46,071 [main:117] - GENERATED CALL = (s).setRange(-2101386286, -1011962097, "kishg")
+2021-03-12 07:14:46,071 [main:113] - Case = [public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]]
+2021-03-12 07:14:46,071 [main:149] - GENERATING call of type public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]
+2021-03-12 07:14:46,071 [main:117] - GENERATED CALL = (s).reverse()
+2021-03-12 07:14:46,071 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]]
+2021-03-12 07:14:46,071 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]
+2021-03-12 07:14:46,171 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:46,172 [main:117] - GENERATED CALL = (s).deleteAt(-742581012)
+2021-03-12 07:14:46,172 [main:113] - Case = [@kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]]
+2021-03-12 07:14:46,172 [main:149] - GENERATING call of type @kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]
+2021-03-12 07:14:46,262 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:14:46,263 [main:117] - GENERATED CALL = (s).append("ulimx")
+2021-03-12 07:14:46,263 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]]
+2021-03-12 07:14:46,263 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]
+2021-03-12 07:14:46,263 [main:117] - GENERATED CALL = (s).appendLine()
+2021-03-12 07:14:46,263 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]]
+2021-03-12 07:14:46,264 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]
+2021-03-12 07:14:46,364 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:14:46,445 [main:43] - GENERATING CALL OF fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:46,447 [main:61] - WITHOUT TYPE PARAMS = fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:14:46,533 [main:302] - generating value of type = Char true depth = 3
+2021-03-12 07:14:46,533 [main:95] - GENERATED = charArrayOf('뱢')
+2021-03-12 07:14:46,630 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:46,742 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:46,743 [main:117] - GENERATED CALL = (s).appendRange(charArrayOf('뱢'), 100580837, 568353885)
+2021-03-12 07:14:46,743 [main:61] - replacement of {
+        s.append("yeipw")
+    } of type StringBuilder is (s).deleteAt(-742581012)
+2021-03-12 07:14:46,829 [main:33] - Trying to replace BLOCK on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:46,830 [main:66] - Compilation checking started
+2021-03-12 07:14:47,245 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test(cs)
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:47,248 [main:53] - replacing (cs, CharSequence)
+2021-03-12 07:14:47,248 [main:50] - replacing cs CharSequence
+2021-03-12 07:14:47,248 [main:54] - Getting value of type CharSequence
+2021-03-12 07:14:47,350 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:47,355 [main:58] - GENERATED VALUE OF TYPE CharSequence = "lkygf"
+2021-03-12 07:14:47,355 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:14:47,454 [main:67] - randomType = Short
+2021-03-12 07:14:47,548 [main:302] - generating value of type = Short true depth = 0
+2021-03-12 07:14:47,612 [main:106] - GETTING CharSequence from String
+2021-03-12 07:14:47,637 [main:113] - Case = [public fun kotlin.CharSequence.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@75afbe82]]
+2021-03-12 07:14:47,637 [main:149] - GENERATING call of type public fun kotlin.CharSequence.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@75afbe82]
+2021-03-12 07:14:47,715 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:47,793 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:47,870 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:47,953 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 07:14:47,954 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 07:14:48,120 [main:302] - generating value of type = String true depth = 3
+2021-03-12 07:14:48,121 [main:95] - GENERATED = StringBuilder("ahmrn")
+2021-03-12 07:14:48,121 [main:117] - GENERATED CALL = (ss).replaceRange(-1956861419, 828944999, StringBuilder("ahmrn"))
+2021-03-12 07:14:48,121 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public inline fun kotlin.CharSequence.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27915bb6]]
+2021-03-12 07:14:48,121 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:48,227 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,314 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,314 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27915bb6]
+2021-03-12 07:14:48,398 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:14:48,398 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:14:48,399 [main:117] - GENERATED CALL = (ss).subSequence(-619638562, -564251840).dropWhile({a: Char -> true})
+2021-03-12 07:14:48,399 [main:113] - Case = [public fun kotlin.CharSequence.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5d498f7f]]
+2021-03-12 07:14:48,400 [main:149] - GENERATING call of type public fun kotlin.CharSequence.removeRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5d498f7f]
+2021-03-12 07:14:48,478 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,557 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,558 [main:117] - GENERATED CALL = (ss).removeRange(-208142825, -337198750)
+2021-03-12 07:14:48,558 [main:113] - Case = [public fun kotlin.CharSequence.removeSuffix(suffix: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@59e43e79]]
+2021-03-12 07:14:48,558 [main:149] - GENERATING call of type public fun kotlin.CharSequence.removeSuffix(suffix: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@59e43e79]
+2021-03-12 07:14:48,648 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:48,653 [main:117] - GENERATED CALL = (ss).removeSuffix(StringBuilder())
+2021-03-12 07:14:48,653 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.trimStart(): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64ddd408]]
+2021-03-12 07:14:48,654 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:48,759 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,837 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,838 [main:149] - GENERATING call of type public fun kotlin.CharSequence.trimStart(): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64ddd408]
+2021-03-12 07:14:48,838 [main:117] - GENERATED CALL = (ss).subSequence(374691571, -61354266).trimStart()
+2021-03-12 07:14:48,838 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public inline fun kotlin.CharSequence.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6f597d54]]
+2021-03-12 07:14:48,838 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:48,918 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,998 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:48,999 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6f597d54]
+2021-03-12 07:14:49,076 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:14:49,076 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:14:49,077 [main:117] - GENERATED CALL = (ss).subSequence(-1640133315, -460525939).dropLastWhile({a: Char -> true})
+2021-03-12 07:14:49,077 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2568014d]]
+2021-03-12 07:14:49,077 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:49,183 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:49,272 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:49,273 [main:149] - GENERATING call of type public fun kotlin.CharSequence.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2568014d]
+2021-03-12 07:14:49,358 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:49,440 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:49,441 [main:117] - GENERATED CALL = (ss).subSequence(-2027160238, 818897415).padStart(-1943901933, '')
+2021-03-12 07:14:49,441 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3f2ab74f]]
+2021-03-12 07:14:49,442 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:49,529 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:49,632 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:49,633 [main:149] - GENERATING call of type public fun kotlin.CharSequence.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3f2ab74f]
+2021-03-12 07:14:49,714 [main:302] - generating value of type = Iterable<Int> false depth = 0
+2021-03-12 07:14:49,800 [main:43] - GENERATING CALL OF fun <T> setOf(): Iterable<Int> = TODO()
+2021-03-12 07:14:49,802 [main:61] - WITHOUT TYPE PARAMS = fun <T> setOf(): Iterable<Int> = TODO()
+2021-03-12 07:14:49,885 [main:95] - GENERATED = setOf<Int>()
+2021-03-12 07:14:49,886 [main:117] - GENERATED CALL = (ss).subSequence(471123675, -1079064322).slice(setOf<Int>())
+2021-03-12 07:14:49,886 [main:113] - Case = [public inline fun kotlin.CharSequence.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27915bb6]]
+2021-03-12 07:14:49,886 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.dropWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@27915bb6]
+2021-03-12 07:14:49,973 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:14:49,973 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:14:49,974 [main:117] - GENERATED CALL = (ss).dropWhile({a: Char -> true})
+2021-03-12 07:14:49,975 [main:113] - Case = [public fun kotlin.CharSequence.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5365a4c2]]
+2021-03-12 07:14:49,975 [main:149] - GENERATING call of type public fun kotlin.CharSequence.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5365a4c2]
+2021-03-12 07:14:50,081 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:50,203 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:50,204 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:50,375 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 07:14:50,375 [main:95] - GENERATED = StringBuilder(895261708)
+2021-03-12 07:14:50,376 [main:117] - GENERATED CALL = (ss).removeSurrounding(StringBuilder(895261708))
+2021-03-12 07:14:50,376 [main:61] - replacement of cs of type CharSequence is (ss).dropWhile({a: Char -> true})
+2021-03-12 07:14:50,449 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:50,450 [main:66] - Compilation checking started
+2021-03-12 07:14:50,705 [main:49] - Result = false
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((ss).dropWhile({a: Char -> true}))
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:50,706 [main:53] - replacing (x, Char)
+2021-03-12 07:14:50,706 [main:50] - replacing x Char
+2021-03-12 07:14:50,706 [main:54] - Getting value of type Char
+2021-03-12 07:14:50,789 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:50,789 [main:58] - GENERATED VALUE OF TYPE Char = 'ꁖ'
+2021-03-12 07:14:50,790 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:14:50,897 [main:67] - randomType = UInt
+2021-03-12 07:14:51,003 [main:302] - generating value of type = UInt true depth = 0
+2021-03-12 07:14:51,047 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toDouble(): kotlin.Double defined in kotlin.UInt[DeserializedSimpleFunctionDescriptor@2a20a1da]
+2021-03-12 07:14:51,048 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@5889b80a]
+2021-03-12 07:14:51,048 [main:78] - Generated call from random type = (2088706157.toUInt()).toDouble().toChar()
+2021-03-12 07:14:51,048 [main:61] - replacement of x of type Char is (2088706157.toUInt()).toDouble().toChar()
+2021-03-12 07:14:51,128 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:51,128 [main:53] - replacing (index, Int)
+2021-03-12 07:14:51,129 [main:50] - replacing index Int
+2021-03-12 07:14:51,129 [main:54] - Getting value of type Int
+2021-03-12 07:14:51,205 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:51,206 [main:58] - GENERATED VALUE OF TYPE Int = 837506984
+2021-03-12 07:14:51,206 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:14:51,206 [main:67] - randomType = Boolean
+2021-03-12 07:14:51,283 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:51,296 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@31b2fc37]
+2021-03-12 07:14:51,372 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:51,373 [main:149] - GENERATING call of type public fun kotlin.Int.coerceAtMost(maximumValue: kotlin.Int): kotlin.Int defined in kotlin.ranges[DeserializedSimpleFunctionDescriptor@683e63b5]
+2021-03-12 07:14:51,475 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:51,476 [main:78] - Generated call from random type = (true).compareTo(true).coerceAtMost(-1404983362)
+2021-03-12 07:14:51,478 [main:106] - GETTING Int from String
+2021-03-12 07:14:51,511 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3], public final operator fun unaryPlus(): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@6b9cbd45]]
+2021-03-12 07:14:51,511 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3]
+2021-03-12 07:14:51,590 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:51,591 [main:149] - GENERATING call of type public final operator fun unaryPlus(): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@6b9cbd45]
+2021-03-12 07:14:51,592 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).compareTo("ziowa").unaryPlus()
+2021-03-12 07:14:51,592 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.count(): kotlin.Int defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16ce7f1b]]
+2021-03-12 07:14:51,592 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:14:51,672 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:51,752 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:51,753 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.count(): kotlin.Int defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16ce7f1b]
+2021-03-12 07:14:51,753 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(-822102498, -647786215).count()
+2021-03-12 07:14:51,753 [main:113] - Case = [public fun kotlin.CharSequence.lastIndexOf(char: kotlin.Char, startIndex: kotlin.Int = ..., ignoreCase: kotlin.Boolean = ...): kotlin.Int defined in kotlin.text[DeserializedSimpleFunctionDescriptor@ec7951]]
+2021-03-12 07:14:51,753 [main:149] - GENERATING call of type public fun kotlin.CharSequence.lastIndexOf(char: kotlin.Char, startIndex: kotlin.Int = ..., ignoreCase: kotlin.Boolean = ...): kotlin.Int defined in kotlin.text[DeserializedSimpleFunctionDescriptor@ec7951]
+2021-03-12 07:14:51,832 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:51,951 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:52,056 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:52,056 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).lastIndexOf('઻', 803487629, true)
+2021-03-12 07:14:52,057 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3], @kotlin.SinceKotlin @kotlin.WasExperimental public fun kotlin.Int.takeLowestOneBit(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@154a077e]]
+2021-03-12 07:14:52,057 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3]
+2021-03-12 07:14:52,057 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public fun kotlin.Int.takeLowestOneBit(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@154a077e]
+2021-03-12 07:14:52,057 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).compareTo(test<CharSequence>(StringBuilder("ppcvq"))).takeLowestOneBit()
+2021-03-12 07:14:52,057 [main:113] - Case = [public open val length: kotlin.Int defined in kotlin.String[DeserializedPropertyDescriptor@34cddd09], public final infix fun shl(bitCount: kotlin.Int): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1892c26c]]
+2021-03-12 07:14:52,057 [main:149] - GENERATING call of type public final infix fun shl(bitCount: kotlin.Int): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@1892c26c]
+2021-03-12 07:14:52,133 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:52,134 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).length.shl(-611055804)
+2021-03-12 07:14:52,134 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3], public open fun toInt(): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7c4038be]]
+2021-03-12 07:14:52,134 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3]
+2021-03-12 07:14:52,210 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:52,211 [main:149] - GENERATING call of type public open fun toInt(): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7c4038be]
+2021-03-12 07:14:52,211 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).compareTo("jximd").toInt()
+2021-03-12 07:14:52,211 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@eb8378c], public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@31b2fc37]]
+2021-03-12 07:14:52,211 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@eb8378c]
+2021-03-12 07:14:52,288 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:14:52,288 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@31b2fc37]
+2021-03-12 07:14:52,367 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:52,368 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).equals("lzrbc").compareTo(true)
+2021-03-12 07:14:52,368 [main:113] - Case = [public open val length: kotlin.Int defined in kotlin.String[DeserializedPropertyDescriptor@34cddd09], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Int.rotateLeft(bitCount: kotlin.Int): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@612070f5]]
+2021-03-12 07:14:52,368 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Int.rotateLeft(bitCount: kotlin.Int): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@612070f5]
+2021-03-12 07:14:52,463 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:52,464 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).length.rotateLeft(-1194451959)
+2021-03-12 07:14:52,464 [main:113] - Case = [public open val length: kotlin.Int defined in kotlin.String[DeserializedPropertyDescriptor@34cddd09], public final infix fun or(other: kotlin.Int): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@22adeee1]]
+2021-03-12 07:14:52,464 [main:149] - GENERATING call of type public final infix fun or(other: kotlin.Int): kotlin.Int defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@22adeee1]
+2021-03-12 07:14:52,553 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:52,554 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).length.or(-1163060627)
+2021-03-12 07:14:52,554 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3], @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.internal.InlineOnly public inline fun kotlin.Int.countLeadingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@672c8149]]
+2021-03-12 07:14:52,554 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3]
+2021-03-12 07:14:52,554 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental @kotlin.internal.InlineOnly public inline fun kotlin.Int.countLeadingZeroBits(): kotlin.Int defined in kotlin[DeserializedSimpleFunctionDescriptor@672c8149]
+2021-03-12 07:14:52,555 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).compareTo(test<CharSequence>(StringBuilder("ppcvq"))).countLeadingZeroBits()
+2021-03-12 07:14:52,555 [main:61] - replacement of index of type Int is 837506984
+2021-03-12 07:14:52,632 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 07:14:52,633 [main:53] - replacing (cs, CharSequence)
+2021-03-12 07:14:52,633 [main:50] - replacing cs CharSequence
+2021-03-12 07:14:52,633 [main:54] - Getting value of type CharSequence
+2021-03-12 07:14:52,709 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:52,787 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 07:14:52,789 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 07:14:52,966 [main:302] - generating value of type = CharSequence false depth = 3
+2021-03-12 07:14:53,050 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:53,051 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 07:14:53,209 [main:302] - generating value of type = Int true depth = 6
+2021-03-12 07:14:53,209 [main:95] - GENERATED = StringBuilder(-1109372105)
+2021-03-12 07:14:53,209 [main:95] - GENERATED = StringBuilder(StringBuilder(-1109372105))
+2021-03-12 07:14:53,209 [main:58] - GENERATED VALUE OF TYPE CharSequence = StringBuilder(StringBuilder(-1109372105))
+2021-03-12 07:14:53,209 [main:61] - GENERATED IS CALL =true
+2021-03-12 07:14:53,792 [main:67] - randomType = ArrayDeque<Function2<String?, Short?, Double>>?
+2021-03-12 07:14:53,887 [main:302] - generating value of type = ArrayDeque<Function2<String?, Short?, Double>> false depth = 0
+2021-03-12 07:14:53,974 [main:43] - GENERATING CALL OF fun <E> ArrayDeque(elements: kotlin.collections.Collection<Function2<String?, Short?, Double>>): ArrayDeque<Function2<String?, Short?, Double>> = TODO()
+2021-03-12 07:14:53,976 [main:61] - WITHOUT TYPE PARAMS = fun <E> ArrayDeque(elements: kotlin.collections.Collection<Function2<String?, Short?, Double>>): ArrayDeque<Function2<String?, Short?, Double>> = TODO()
+2021-03-12 07:14:54,139 [main:302] - generating value of type = Collection<Function2<String?, Short?, Double>> false depth = 3
+2021-03-12 07:14:54,227 [main:43] - GENERATING CALL OF fun <E> buildList(capacity: kotlin.Int, builderAction: kotlin.collections.MutableList<Function2<String?, Short?, Double>>.()->kotlin.Unit): Collection<Function2<Strg?, Short?, Double>> = TODO()
+2021-03-12 07:14:54,228 [main:61] - WITHOUT TYPE PARAMS = fun <E> buildList(capacity: kotlin.Int, builderAction: kotlin.collections.MutableList<Function2<String?, Short?, Double>>.()->kotlin.Unit): Collection<Function2<Strg?, Short?, Double>> = TODO()
+2021-03-12 07:14:54,545 [main:302] - generating value of type = Int true depth = 6
+2021-03-12 07:14:54,545 [main:302] - generating value of type = [@kotlin.ExtensionFunctionType] Function1<MutableList<Function2<String?, Short?, Double>>, Unit> false depth = 6
+2021-03-12 07:14:54,545 [main:302] - generating value of type = Unit false depth = 7
+2021-03-12 07:14:54,645 [main:43] - GENERATING CALL OF fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 07:14:54,646 [main:61] - WITHOUT TYPE PARAMS = fun require(value: kotlin.Boolean, lazyMessage: ()->kotlin.Any): Unit = TODO()
+2021-03-12 07:14:54,885 [main:302] - generating value of type = Boolean true depth = 10
+2021-03-12 07:14:54,885 [main:302] - generating value of type = Function0<Any> false depth = 10
+2021-03-12 07:14:54,885 [main:302] - generating value of type = Any false depth = 11
+2021-03-12 07:14:54,885 [main:95] - GENERATED = require(false, { "emmvt"})
+2021-03-12 07:14:54,886 [main:95] - GENERATED = buildList<Function2<String?, Short?, Double>>(-1756046598, { require(false, { "emmvt"})})
+2021-03-12 07:14:54,886 [main:95] - GENERATED = ArrayDeque<Function2<String?, Short?, Double>>(buildList<Function2<String?, Short?, Double>>(-1756046598, { require(false, { "emmvt"})}))
+2021-03-12 07:14:55,199 [main:106] - GETTING CharSequence from CharSequence
+2021-03-12 07:14:55,211 [main:113] - Case = [public fun kotlin.CharSequence.subSequence(range: kotlin.ranges.IntRange): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2abc231b]]
+2021-03-12 07:14:55,211 [main:149] - GENERATING call of type public fun kotlin.CharSequence.subSequence(range: kotlin.ranges.IntRange): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2abc231b]
+2021-03-12 07:14:55,290 [main:302] - generating value of type = IntRange false depth = 0
+2021-03-12 07:14:55,372 [main:43] - GENERATING CALL OF fun IntRange(start: kotlin.Int, endInclusive: kotlin.Int): IntRange = TODO()
+2021-03-12 07:14:55,373 [main:61] - WITHOUT TYPE PARAMS = fun IntRange(start: kotlin.Int, endInclusive: kotlin.Int): IntRange = TODO()
+2021-03-12 07:14:55,620 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 07:14:55,621 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 07:14:55,621 [main:95] - GENERATED = IntRange(-1843136691, 559415199)
+2021-03-12 07:14:55,622 [main:117] - GENERATED CALL = (cs).subSequence(IntRange(-1843136691, 559415199))
+2021-03-12 07:14:55,622 [main:113] - Case = [public fun kotlin.CharSequence.dropLast(n: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@283e839a]]
+2021-03-12 07:14:55,622 [main:149] - GENERATING call of type public fun kotlin.CharSequence.dropLast(n: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@283e839a]
+2021-03-12 07:14:55,707 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:55,708 [main:117] - GENERATED CALL = (cs).dropLast(89032555)
+2021-03-12 07:14:55,708 [main:113] - Case = [public fun kotlin.CharSequence.take(n: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@509072fe]]
+2021-03-12 07:14:55,708 [main:149] - GENERATING call of type public fun kotlin.CharSequence.take(n: kotlin.Int): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@509072fe]
+2021-03-12 07:14:55,804 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:55,805 [main:117] - GENERATED CALL = (cs).take(1056622589)
+2021-03-12 07:14:55,805 [main:113] - Case = [public fun kotlin.CharSequence.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2568014d]]
+2021-03-12 07:14:55,805 [main:149] - GENERATING call of type public fun kotlin.CharSequence.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2568014d]
+2021-03-12 07:14:55,900 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:55,992 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:55,992 [main:117] - GENERATED CALL = (cs).padStart(-1325662456, '?')
+2021-03-12 07:14:55,993 [main:113] - Case = [public fun kotlin.CharSequence.removePrefix(prefix: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@41b19442]]
+2021-03-12 07:14:55,993 [main:149] - GENERATING call of type public fun kotlin.CharSequence.removePrefix(prefix: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@41b19442]
+2021-03-12 07:14:55,993 [main:117] - GENERATED CALL = (cs).removePrefix(cs)
+2021-03-12 07:14:55,993 [main:113] - Case = [public fun kotlin.CharSequence.padEnd(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5ab1b735]]
+2021-03-12 07:14:55,993 [main:149] - GENERATING call of type public fun kotlin.CharSequence.padEnd(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5ab1b735]
+2021-03-12 07:14:56,078 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:56,159 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:56,159 [main:117] - GENERATED CALL = (cs).padEnd(-51361853, '鍈')
+2021-03-12 07:14:56,159 [main:113] - Case = [public inline fun kotlin.CharSequence.filter(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@22cdb626]]
+2021-03-12 07:14:56,160 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.filter(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@22cdb626]
+2021-03-12 07:14:56,237 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:14:56,237 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:14:56,238 [main:117] - GENERATED CALL = (cs).filter({a: Char -> true})
+2021-03-12 07:14:56,238 [main:113] - Case = [public inline fun kotlin.CharSequence.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6f597d54]]
+2021-03-12 07:14:56,238 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6f597d54]
+2021-03-12 07:14:56,316 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:14:56,316 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:14:56,317 [main:117] - GENERATED CALL = (cs).dropLastWhile({a: Char -> true})
+2021-03-12 07:14:56,317 [main:113] - Case = [public fun kotlin.CharSequence.trimEnd(): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7b975436]]
+2021-03-12 07:14:56,317 [main:149] - GENERATING call of type public fun kotlin.CharSequence.trimEnd(): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7b975436]
+2021-03-12 07:14:56,317 [main:117] - GENERATED CALL = (cs).trimEnd()
+2021-03-12 07:14:56,317 [main:113] - Case = [public fun kotlin.CharSequence.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5365a4c2]]
+2021-03-12 07:14:56,317 [main:149] - GENERATING call of type public fun kotlin.CharSequence.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.CharSequence defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5365a4c2]
+2021-03-12 07:14:56,318 [main:117] - GENERATED CALL = (cs).removeSurrounding(cs)
+2021-03-12 07:14:56,318 [main:61] - replacement of cs of type CharSequence is (cs).subSequence(IntRange(-1843136691, 559415199))
+2021-03-12 07:14:56,397 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:56,397 [main:66] - Compilation checking started
+2021-03-12 07:14:56,761 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:56,762 [main:53] - replacing (ss, String)
+2021-03-12 07:14:56,763 [main:50] - replacing ss String
+2021-03-12 07:14:56,763 [main:54] - Getting value of type String
+2021-03-12 07:14:56,896 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:56,896 [main:58] - GENERATED VALUE OF TYPE String = "uudig"
+2021-03-12 07:14:56,897 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:14:57,071 [main:67] - randomType = Sequence<Float>
+2021-03-12 07:14:57,071 [main:106] - GETTING String from String
+2021-03-12 07:14:57,098 [main:113] - Case = [public fun kotlin.String.substringAfter(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@50ca174f]]
+2021-03-12 07:14:57,098 [main:149] - GENERATING call of type public fun kotlin.String.substringAfter(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@50ca174f]
+2021-03-12 07:14:57,179 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,180 [main:117] - GENERATED CALL = (ss).substringAfter('ℛ', ss)
+2021-03-12 07:14:57,180 [main:113] - Case = [public fun kotlin.String.replace(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@287b12dc]]
+2021-03-12 07:14:57,181 [main:149] - GENERATING call of type public fun kotlin.String.replace(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@287b12dc]
+2021-03-12 07:14:57,268 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,357 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,441 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:57,442 [main:117] - GENERATED CALL = (ss).replace('聻', '⡍', true)
+2021-03-12 07:14:57,442 [main:113] - Case = [public fun kotlin.String.replaceAfter(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@b17d9c1]]
+2021-03-12 07:14:57,443 [main:149] - GENERATING call of type public fun kotlin.String.replaceAfter(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@b17d9c1]
+2021-03-12 07:14:57,533 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,608 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:57,609 [main:117] - GENERATED CALL = (ss).replaceAfter('鋴', "keikt", test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:14:57,609 [main:113] - Case = [public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62dde1ac]]
+2021-03-12 07:14:57,609 [main:149] - GENERATING call of type public fun kotlin.String.substringBefore(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62dde1ac]
+2021-03-12 07:14:57,704 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,705 [main:117] - GENERATED CALL = (ss).substringBefore('阺', test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:14:57,705 [main:113] - Case = [public fun kotlin.String.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64eb287]]
+2021-03-12 07:14:57,705 [main:149] - GENERATING call of type public fun kotlin.String.padStart(length: kotlin.Int, padChar: kotlin.Char = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64eb287]
+2021-03-12 07:14:57,789 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:57,869 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:57,870 [main:117] - GENERATED CALL = (ss).padStart(223380053, '陊')
+2021-03-12 07:14:57,870 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1363bd22]]
+2021-03-12 07:14:57,870 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1363bd22]
+2021-03-12 07:14:57,870 [main:117] - GENERATED CALL = (ss).uppercase()
+2021-03-12 07:14:57,870 [main:113] - Case = [public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62234268]]
+2021-03-12 07:14:57,870 [main:149] - GENERATING call of type public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62234268]
+2021-03-12 07:14:57,957 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:57,957 [main:117] - GENERATED CALL = (ss).drop(1446547562)
+2021-03-12 07:14:57,957 [main:113] - Case = [public fun kotlin.String.replaceIndent(newIndent: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@410f55d7]]
+2021-03-12 07:14:57,957 [main:149] - GENERATING call of type public fun kotlin.String.replaceIndent(newIndent: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@410f55d7]
+2021-03-12 07:14:58,034 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:14:58,034 [main:117] - GENERATED CALL = (ss).replaceIndent("tbylx")
+2021-03-12 07:14:58,034 [main:113] - Case = [public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@f6a3bf2]]
+2021-03-12 07:14:58,034 [main:149] - GENERATING call of type public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@f6a3bf2]
+2021-03-12 07:14:58,110 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 07:14:58,114 [main:117] - GENERATED CALL = (ss).removePrefix("zifvz")
+2021-03-12 07:14:58,114 [main:113] - Case = [public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19186e32]]
+2021-03-12 07:14:58,114 [main:149] - GENERATING call of type public fun kotlin.String.replaceAfterLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19186e32]
+2021-03-12 07:14:58,190 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:14:58,190 [main:117] - GENERATED CALL = (ss).replaceAfterLast('텺', test<CharSequence>(StringBuilder("ppcvq")), test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:14:58,190 [main:61] - replacement of ss of type String is "uudig"
+2021-03-12 07:14:58,277 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(STRING_TEMPLATE)
+2021-03-12 07:14:58,277 [main:66] - Compilation checking started
+2021-03-12 07:14:58,523 [main:49] - Result = false
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$"uudig"'"
+}
+
+
+2021-03-12 07:14:58,524 [main:53] - replacing (charSequence.withIndex(), Iterable<IndexedValue<Char>>)
+2021-03-12 07:14:58,524 [main:50] - replacing charSequence.withIndex() Iterable<IndexedValue<Char>>
+2021-03-12 07:14:58,524 [main:54] - Getting value of type Iterable<IndexedValue<Char>>
+2021-03-12 07:14:58,605 [main:302] - generating value of type = Iterable<IndexedValue<Char>> false depth = 0
+2021-03-12 07:14:58,689 [main:43] - GENERATING CALL OF fun <T> setOfNotNull(elements: IndexedValue<Char>): Iterable<IndexedValue<Char>> = TODO()
+2021-03-12 07:14:58,690 [main:61] - WITHOUT TYPE PARAMS = fun <T> setOfNotNull(elements: IndexedValue<Char>): Iterable<IndexedValue<Char>> = TODO()
+2021-03-12 07:14:58,773 [main:302] - generating value of type = IndexedValue<Char> false depth = 3
+2021-03-12 07:14:58,861 [main:43] - GENERATING CALL OF fun <T> IndexedValue(index: kotlin.Int, value: Char): IndexedValue<Char> = TODO()
+2021-03-12 07:14:58,862 [main:61] - WITHOUT TYPE PARAMS = fun <T> IndexedValue(index: kotlin.Int, value: Char): IndexedValue<Char> = TODO()
+2021-03-12 07:14:59,045 [main:302] - generating value of type = Int true depth = 6
+2021-03-12 07:14:59,045 [main:302] - generating value of type = Char true depth = 6
+2021-03-12 07:14:59,047 [main:95] - GENERATED = IndexedValue<Char>(-2115188196, '')
+2021-03-12 07:14:59,047 [main:95] - GENERATED = setOfNotNull<IndexedValue<Char>>(IndexedValue<Char>(-2115188196, ''))
+2021-03-12 07:14:59,047 [main:58] - GENERATED VALUE OF TYPE Iterable<IndexedValue<Char>> = setOfNotNull<IndexedValue<Char>>(IndexedValue<Char>(-2115188196, ''))
+2021-03-12 07:14:59,047 [main:61] - GENERATED IS CALL =true
+2021-03-12 07:14:59,139 [main:67] - randomType = UInt
+2021-03-12 07:14:59,218 [main:302] - generating value of type = UInt true depth = 0
+2021-03-12 07:14:59,322 [main:106] - GETTING Iterable<IndexedValue<Char>> from StringBuilder
+2021-03-12 07:14:59,351 [main:113] - Case = [public fun kotlin.CharSequence.withIndex(): kotlin.collections.Iterable<kotlin.collections.IndexedValue<kotlin.Char>> defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1c9a6089]]
+2021-03-12 07:14:59,352 [main:149] - GENERATING call of type public fun kotlin.CharSequence.withIndex(): kotlin.collections.Iterable<kotlin.collections.IndexedValue<kotlin.Char>> defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1c9a6089]
+2021-03-12 07:14:59,352 [main:117] - GENERATED CALL = (s).withIndex()
+2021-03-12 07:14:59,352 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7da66aa8], public fun kotlin.CharSequence.withIndex(): kotlin.collections.Iterable<kotlin.collections.IndexedValue<kotlin.Char>> defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1c9a6089]]
+2021-03-12 07:14:59,352 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7da66aa8]
+2021-03-12 07:14:59,430 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:59,511 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:14:59,512 [main:149] - GENERATING call of type public fun kotlin.CharSequence.withIndex(): kotlin.collections.Iterable<kotlin.collections.IndexedValue<kotlin.Char>> defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1c9a6089]
+2021-03-12 07:14:59,512 [main:117] - GENERATED CALL = (s).subSequence(1373505015, -2044007423).withIndex()
+2021-03-12 07:14:59,512 [main:61] - replacement of charSequence.withIndex() of type Iterable<IndexedValue<Char>> is (s).withIndex()
+2021-03-12 07:14:59,589 [main:33] - Trying to replace Element(DOT_QUALIFIED_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:14:59,590 [main:66] - Compilation checking started
+2021-03-12 07:14:59,909 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:14:59,909 [main:53] - replacing (ss == "0:a;1:b;2:c;3:d;", Boolean)
+2021-03-12 07:14:59,910 [main:50] - replacing ss == "0:a;1:b;2:c;3:d;" Boolean
+2021-03-12 07:14:59,910 [main:54] - Getting value of type Boolean
+2021-03-12 07:14:59,989 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:14:59,990 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 07:14:59,990 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:15:00,149 [main:67] - randomType = Collection<String?>
+2021-03-12 07:15:00,150 [main:106] - GETTING Boolean from String
+2021-03-12 07:15:00,175 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isLowSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@d6e8480]]
+2021-03-12 07:15:00,175 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:00,251 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,251 [main:149] - GENERATING call of type public fun kotlin.Char.isLowSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@d6e8480]
+2021-03-12 07:15:00,251 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(-1602829104).isLowSurrogate()
+2021-03-12 07:15:00,252 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isHighSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4431df17]]
+2021-03-12 07:15:00,252 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:00,327 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,328 [main:149] - GENERATING call of type public fun kotlin.Char.isHighSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4431df17]
+2021-03-12 07:15:00,328 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(-35929200).isHighSurrogate()
+2021-03-12 07:15:00,328 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@192482e1]]
+2021-03-12 07:15:00,328 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:00,406 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,407 [main:149] - GENERATING call of type public fun kotlin.Char.isDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@192482e1]
+2021-03-12 07:15:00,407 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(1869768594).isDigit()
+2021-03-12 07:15:00,407 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public operator fun kotlin.CharSequence.contains(char: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d7f2993]]
+2021-03-12 07:15:00,407 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:00,484 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,619 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,619 [main:149] - GENERATING call of type public operator fun kotlin.CharSequence.contains(char: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d7f2993]
+2021-03-12 07:15:00,723 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:15:00,806 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:15:00,807 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(1930147124, 2104867466).contains('稂', false)
+2021-03-12 07:15:00,807 [main:113] - Case = [@kotlin.Deprecated @kotlin.DeprecatedSinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.String.toBoolean(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a0dfb23]]
+2021-03-12 07:15:00,807 [main:149] - GENERATING call of type @kotlin.Deprecated @kotlin.DeprecatedSinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.String.toBoolean(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a0dfb23]
+2021-03-12 07:15:00,807 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).toBoolean()
+2021-03-12 07:15:00,807 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isUpperCase(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4ac24ca]]
+2021-03-12 07:15:00,807 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:00,900 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:00,901 [main:149] - GENERATING call of type public fun kotlin.Char.isUpperCase(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4ac24ca]
+2021-03-12 07:15:00,901 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(-662158265).isUpperCase()
+2021-03-12 07:15:00,901 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isEmpty(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6722fd3e]]
+2021-03-12 07:15:00,901 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isEmpty(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6722fd3e]
+2021-03-12 07:15:00,901 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).isEmpty()
+2021-03-12 07:15:00,901 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.isBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5eb9aa3f]]
+2021-03-12 07:15:00,901 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:00,982 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:01,062 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:01,062 [main:149] - GENERATING call of type public fun kotlin.CharSequence.isBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5eb9aa3f]
+2021-03-12 07:15:01,063 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(1997302429, -1240900729).isBlank()
+2021-03-12 07:15:01,063 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]]
+2021-03-12 07:15:01,063 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:01,139 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:01,238 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:01,239 [main:149] - GENERATING call of type public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]
+2021-03-12 07:15:01,239 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(-819280453, 256373564).any()
+2021-03-12 07:15:01,239 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isWhitespace(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@36c753fe]]
+2021-03-12 07:15:01,239 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:01,325 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:01,325 [main:149] - GENERATING call of type public fun kotlin.Char.isWhitespace(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@36c753fe]
+2021-03-12 07:15:01,326 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()
+2021-03-12 07:15:01,326 [main:61] - replacement of ss == "0:a;1:b;2:c;3:d;" of type Boolean is (test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()
+2021-03-12 07:15:01,401 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:15:01,401 [main:66] - Compilation checking started
+2021-03-12 07:15:01,733 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if ((test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()) "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:15:01,734 [main:53] - replacing (StringBuilder(), StringBuilder)
+2021-03-12 07:15:01,734 [main:50] - replacing StringBuilder() StringBuilder
+2021-03-12 07:15:01,734 [main:54] - Getting value of type StringBuilder
+2021-03-12 07:15:01,812 [main:302] - generating value of type = StringBuilder false depth = 0
+2021-03-12 07:15:01,902 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): StringBuilder = TODO()
+2021-03-12 07:15:01,903 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): StringBuilder = TODO()
+2021-03-12 07:15:02,093 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 07:15:02,094 [main:95] - GENERATED = StringBuilder(-918621824)
+2021-03-12 07:15:02,094 [main:58] - GENERATED VALUE OF TYPE StringBuilder = StringBuilder(-918621824)
+2021-03-12 07:15:02,094 [main:61] - GENERATED IS CALL =true
+2021-03-12 07:15:02,261 [main:67] - randomType = LinkedHashSet<UShort>
+2021-03-12 07:15:02,343 [main:302] - generating value of type = LinkedHashSet<UShort> false depth = 0
+2021-03-12 07:15:02,430 [main:43] - GENERATING CALL OF fun <T> linkedSetOf(elements: UShort): LkedHashSet<UShort> = TODO()
+2021-03-12 07:15:02,431 [main:61] - WITHOUT TYPE PARAMS = fun <T> linkedSetOf(elements: UShort): LkedHashSet<UShort> = TODO()
+2021-03-12 07:15:02,516 [main:302] - generating value of type = UShort true depth = 3
+2021-03-12 07:15:02,517 [main:95] - GENERATED = linkedSetOf<UShort>(22776.toUShort())
+2021-03-12 07:15:02,699 [main:106] - GETTING StringBuilder from String
+2021-03-12 07:15:02,730 [main:106] - GETTING StringBuilder from CharSequence
+2021-03-12 07:15:02,738 [main:106] - GETTING StringBuilder from T
+2021-03-12 07:15:02,753 [main:106] - GETTING StringBuilder from StringBuilder
+2021-03-12 07:15:02,784 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]]
+2021-03-12 07:15:02,784 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.appendRange(value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2739ae5d]
+2021-03-12 07:15:02,864 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:15:02,948 [main:43] - GENERATING CALL OF fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:15:02,949 [main:61] - WITHOUT TYPE PARAMS = fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:15:03,058 [main:302] - generating value of type = Char true depth = 3
+2021-03-12 07:15:03,059 [main:95] - GENERATED = charArrayOf('藦')
+2021-03-12 07:15:03,142 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,222 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,223 [main:117] - GENERATED CALL = (s).appendRange(charArrayOf('藦'), 944234107, -905098466)
+2021-03-12 07:15:03,223 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]]
+2021-03-12 07:15:03,223 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.setRange(startIndex: kotlin.Int, endIndex: kotlin.Int, value: kotlin.String): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@15a4a198]
+2021-03-12 07:15:03,300 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,380 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,381 [main:117] - GENERATED CALL = (s).setRange(-994365180, 834472929, test<CharSequence>(StringBuilder("ppcvq")))
+2021-03-12 07:15:03,381 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]]
+2021-03-12 07:15:03,381 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public final fun insert(index: kotlin.Int, value: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@c32def9]
+2021-03-12 07:15:03,461 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,541 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:15:03,541 [main:117] - GENERATED CALL = (s).insert(636631861, "glrhx")
+2021-03-12 07:15:03,541 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]]
+2021-03-12 07:15:03,541 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.appendLine(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@51fe7abb]
+2021-03-12 07:15:03,542 [main:117] - GENERATED CALL = (s).appendLine()
+2021-03-12 07:15:03,542 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]]
+2021-03-12 07:15:03,542 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.insertRange(index: kotlin.Int, value: kotlin.CharArray, startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f35ed9e]
+2021-03-12 07:15:03,661 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:03,774 [main:302] - generating value of type = CharArray false depth = 0
+2021-03-12 07:15:03,858 [main:43] - GENERATING CALL OF fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:15:03,859 [main:61] - WITHOUT TYPE PARAMS = fun charArrayOf(elements: Char): CharArray = TODO()
+2021-03-12 07:15:03,941 [main:302] - generating value of type = Char true depth = 3
+2021-03-12 07:15:03,941 [main:95] - GENERATED = charArrayOf('苞')
+2021-03-12 07:15:04,018 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:04,094 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:04,095 [main:117] - GENERATED CALL = (s).insertRange(-223940259, charArrayOf('苞'), -1778625591, 1015596017)
+2021-03-12 07:15:04,096 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]]
+2021-03-12 07:15:04,096 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteRange(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@409dae13]
+2021-03-12 07:15:04,171 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:04,247 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:04,247 [main:117] - GENERATED CALL = (s).deleteRange(1032257744, -1524816434)
+2021-03-12 07:15:04,247 [main:113] - Case = [@kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]]
+2021-03-12 07:15:04,247 [main:149] - GENERATING call of type @kotlin.SinceKotlin public inline fun kotlin.text.StringBuilder.clear(): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7d85c829]
+2021-03-12 07:15:04,248 [main:117] - GENERATED CALL = (s).clear()
+2021-03-12 07:15:04,248 [main:113] - Case = [public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]]
+2021-03-12 07:15:04,248 [main:149] - GENERATING call of type public final fun reverse(): kotlin.text.StringBuilder defined in kotlin.text.StringBuilder[DeserializedSimpleFunctionDescriptor@7c94b99d]
+2021-03-12 07:15:04,248 [main:117] - GENERATED CALL = (s).reverse()
+2021-03-12 07:15:04,248 [main:113] - Case = [@kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]]
+2021-03-12 07:15:04,248 [main:149] - GENERATING call of type @kotlin.Deprecated @kotlin.internal.InlineOnly public inline fun kotlin.text.StringBuilder.append(obj: kotlin.Any?): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@64a7409e]
+2021-03-12 07:15:04,336 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:15:04,336 [main:117] - GENERATED CALL = (s).append("yojet")
+2021-03-12 07:15:04,336 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]]
+2021-03-12 07:15:04,337 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.WasExperimental public inline fun kotlin.text.StringBuilder.deleteAt(index: kotlin.Int): kotlin.text.StringBuilder defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3bfb2f7e]
+2021-03-12 07:15:04,423 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:04,424 [main:117] - GENERATED CALL = (s).deleteAt(-389595038)
+2021-03-12 07:15:04,424 [main:61] - replacement of StringBuilder() of type StringBuilder is (s).deleteAt(-389595038)
+2021-03-12 07:15:04,505 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:15:04,506 [main:66] - Compilation checking started
+2021-03-12 07:15:04,702 [main:49] - Result = false
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = (s).deleteAt(-389595038)
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if ((test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()) "OK" else "fail: '$ss'"
+}
+
+
+2021-03-12 07:15:04,703 [main:53] - replacing ("fail: '$ss'", String)
+2021-03-12 07:15:04,703 [main:50] - replacing "fail: '$ss'" String
+2021-03-12 07:15:04,703 [main:54] - Getting value of type String
+2021-03-12 07:15:04,784 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:15:04,784 [main:58] - GENERATED VALUE OF TYPE String = "ibfjz"
+2021-03-12 07:15:04,785 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:15:04,785 [main:67] - randomType = String
+2021-03-12 07:15:04,862 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:15:04,887 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6a29186e]
+2021-03-12 07:15:04,887 [main:78] - Generated call from random type = ("rdgyn").toLowerCase()
+2021-03-12 07:15:04,887 [main:61] - replacement of "fail: '$ss'" of type String is ("rdgyn").toLowerCase()
+2021-03-12 07:15:04,963 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:15:04,963 [main:66] - Compilation checking started
+2021-03-12 07:15:05,290 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(-742581012)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if ((test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()) "OK" else ("rdgyn").toLowerCase()
+}
+
+
+2021-03-12 07:15:05,291 [main:53] - replacing (ss == "0:a;1:b;2:c;3:d;", Boolean)
+2021-03-12 07:15:05,291 [main:50] - replacing ss == "0:a;1:b;2:c;3:d;" Boolean
+2021-03-12 07:15:05,291 [main:54] - Getting value of type Boolean
+2021-03-12 07:15:05,396 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:15:05,396 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 07:15:05,397 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:15:05,660 [main:67] - randomType = HashMap<Char, UShort?>
+2021-03-12 07:15:05,741 [main:302] - generating value of type = HashMap<Char, UShort?> false depth = 0
+2021-03-12 07:15:05,823 [main:43] - GENERATING CALL OF fun <K, V> hashMapOf(pairs: Pair<Char, UShort?>): HashMap<Char, UShort?> = TODO()
+2021-03-12 07:15:05,824 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> hashMapOf(pairs: Pair<Char, UShort?>): HashMap<Char, UShort?> = TODO()
+2021-03-12 07:15:05,911 [main:302] - generating value of type = Pair<Char, UShort?> false depth = 3
+2021-03-12 07:15:05,995 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: Char, second: UShort?): Pair<Char, UShort?> = TODO()
+2021-03-12 07:15:05,997 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: Char, second: UShort?): Pair<Char, UShort?> = TODO()
+2021-03-12 07:15:06,081 [main:302] - generating value of type = Char true depth = 6
+2021-03-12 07:15:06,081 [main:302] - generating value of type = UShort true depth = 6
+2021-03-12 07:15:06,082 [main:95] - GENERATED = Pair<Char, UShort?>('罒', 18464.toUShort())
+2021-03-12 07:15:06,082 [main:95] - GENERATED = hashMapOf<Char, UShort?>(Pair<Char, UShort?>('罒', 18464.toUShort()))
+2021-03-12 07:15:06,242 [main:149] - GENERATING call of type public abstract fun containsAll(elements: kotlin.collections.Collection<kotlin.collections.MutableMap.MutableEntry<kotlin.Char, kotlin.UShort?>>): kotlin.Boolean defined in kotlin.collections.MutableSet[DeserializedSimpleFunctionDescriptor@7c194648]
+2021-03-12 07:15:06,348 [main:302] - generating value of type = Collection<MutableEntry<Char, UShort?>> false depth = 0
+2021-03-12 07:15:06,448 [main:43] - GENERATING CALL OF fun <E> HashSet(): Collection<MutableEntry<Char, UShort?>> = TODO()
+2021-03-12 07:15:06,449 [main:61] - WITHOUT TYPE PARAMS = fun <E> HashSet(): Collection<MutableEntry<Char, UShort?>> = TODO()
+2021-03-12 07:15:06,568 [main:95] - GENERATED = HashSet<MutableEntry<Char, UShort?>>()
+2021-03-12 07:15:06,568 [main:78] - Generated call from random type = (hashMapOf<Char, UShort?>(Pair<Char, UShort?>('罒', 18464.toUShort()))).entries.containsAll(HashSet<MutableEntry<Char, UShort?>>())
+2021-03-12 07:15:06,570 [main:106] - GETTING Boolean from String
+2021-03-12 07:15:06,609 [main:113] - Case = [public fun kotlin.String.startsWith(prefix: kotlin.String, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7a1202e7]]
+2021-03-12 07:15:06,609 [main:149] - GENERATING call of type public fun kotlin.String.startsWith(prefix: kotlin.String, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7a1202e7]
+2021-03-12 07:15:06,691 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:15:06,692 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).startsWith(test<CharSequence>(StringBuilder("ppcvq")), true)
+2021-03-12 07:15:06,692 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public inline fun kotlin.CharSequence.all(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1d925c7c]]
+2021-03-12 07:15:06,692 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:06,770 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:06,846 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:06,847 [main:149] - GENERATING call of type public inline fun kotlin.CharSequence.all(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1d925c7c]
+2021-03-12 07:15:06,923 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:15:06,923 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:15:06,924 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(-1934971434, -20021155).all({a: Char -> true})
+2021-03-12 07:15:06,924 [main:113] - Case = [public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]]
+2021-03-12 07:15:06,924 [main:149] - GENERATING call of type public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]
+2021-03-12 07:15:06,925 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).any()
+2021-03-12 07:15:06,925 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@eb8378c], public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@674daf24]]
+2021-03-12 07:15:06,925 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@eb8378c]
+2021-03-12 07:15:07,001 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:15:07,001 [main:149] - GENERATING call of type public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@674daf24]
+2021-03-12 07:15:07,094 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:15:07,095 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).equals("mxpdn").or(true)
+2021-03-12 07:15:07,095 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isHighSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4431df17]]
+2021-03-12 07:15:07,095 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:07,177 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,178 [main:149] - GENERATING call of type public fun kotlin.Char.isHighSurrogate(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4431df17]
+2021-03-12 07:15:07,178 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(258067699).isHighSurrogate()
+2021-03-12 07:15:07,178 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566], public fun kotlin.Char.isWhitespace(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@36c753fe]]
+2021-03-12 07:15:07,178 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@8742566]
+2021-03-12 07:15:07,274 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,274 [main:149] - GENERATING call of type public fun kotlin.Char.isWhitespace(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@36c753fe]
+2021-03-12 07:15:07,274 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).get(195679138).isWhitespace()
+2021-03-12 07:15:07,274 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]]
+2021-03-12 07:15:07,275 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:07,350 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,424 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,425 [main:149] - GENERATING call of type public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@19545b0c]
+2021-03-12 07:15:07,425 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(-1590337289, 1642156646).any()
+2021-03-12 07:15:07,425 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isEmpty(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6722fd3e]]
+2021-03-12 07:15:07,425 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@e7a966e]
+2021-03-12 07:15:07,499 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,576 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:07,576 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isEmpty(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6722fd3e]
+2021-03-12 07:15:07,577 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).subSequence(-2033851926, 164651907).isEmpty()
+2021-03-12 07:15:07,577 [main:113] - Case = [public operator fun kotlin.CharSequence.contains(char: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d7f2993]]
+2021-03-12 07:15:07,577 [main:149] - GENERATING call of type public operator fun kotlin.CharSequence.contains(char: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d7f2993]
+2021-03-12 07:15:07,651 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 07:15:07,750 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 07:15:07,751 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).contains('鎓', true)
+2021-03-12 07:15:07,751 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3], public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@302634ac]]
+2021-03-12 07:15:07,751 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@3497d8b3]
+2021-03-12 07:15:07,751 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@302634ac]
+2021-03-12 07:15:07,839 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 07:15:07,840 [main:117] - GENERATED CALL = (test<CharSequence>(StringBuilder("ppcvq"))).compareTo(test<CharSequence>(StringBuilder("ppcvq"))).equals("ztuhm")
+2021-03-12 07:15:07,840 [main:61] - replacement of ss == "0:a;1:b;2:c;3:d;" of type Boolean is (test<CharSequence>(StringBuilder("ppcvq"))).get(195679138).isWhitespace()
+2021-03-12 07:15:07,918 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 07:15:07,998 [main:119] - TRYING TO REPLACE CONSTANT 742581012
+2021-03-12 07:15:08,075 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 07:15:08,076 [main:66] - Compilation checking started
+2021-03-12 07:15:08,396 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(348233016)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(-1843136691, 559415199)))
+    return if ((test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()) "OK" else ("rdgyn").toLowerCase()
+}
+
+
+2021-03-12 07:15:08,396 [main:119] - TRYING TO REPLACE CONSTANT 559415199
+2021-03-12 07:15:08,474 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 07:15:08,474 [main:66] - Compilation checking started
+2021-03-12 07:15:08,828 [main:119] - TRYING TO REPLACE CONSTANT 1843136691
+2021-03-12 07:15:08,907 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(INTEGER_CONSTANT)
+2021-03-12 07:15:08,908 [main:66] - Compilation checking started
+2021-03-12 07:15:09,233 [main:53] - Result = true
+Text:
+val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in (s).withIndex()) (s).deleteAt(348233016)
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test((cs).subSequence(IntRange(559415199, 559415199)))
+    return if ((test<CharSequence>(StringBuilder("ppcvq"))).get(-348233016).isWhitespace()) "OK" else ("rdgyn").toLowerCase()
+}
+
+
+2021-03-12 07:15:09,233 [main:119] - TRYING TO REPLACE CONSTANT 348233016
+2021-03-12 07:15:09,311 [main:33] - Trying to replace Element(PREFIX_EXPRESSION) on Element(PREFIX_EXPRESSION)
+2021-03-12 07:15:09,311 [main:66] - Compilation checking started
+2021-03-12 07:15:09,645 [main:66] - Compilation checking started
+2021-03-12 07:15:09,999 [main:41] - AFTER TRY 0 res = val cs: CharSequence = "abcd"
+
+fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+
+fun box(): String {
+    val ss = test(cs)
+    return if (ss == "0:a;1:b;2:c;3:d;") "OK" else "fail: '$ss'"
+}
+2021-03-12 07:15:10,330 [main:43] - GENERATING CALL OF fun <T : CharSequence> test(charSequence: T): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+2021-03-12 07:15:10,332 [main:61] - WITHOUT TYPE PARAMS = fun <T : CharSequence> test(charSequence: String): String {
+    val s = StringBuilder()
+
+    for ((index, x) in charSequence.withIndex()) {
+        s.append("$index:$x;")
+    }
+
+    return s.toString()
+}
+2021-03-12 07:15:10,407 [main:302] - generating value of type = String true depth = 1
+2021-03-12 07:15:10,407 [main:95] - GENERATED = test<String>("trurd")
+2021-03-12 07:15:10,485 [main:43] - Try №0
+2021-03-12 07:15:12,147 [main:69] - Trying to insert fun box523(): String {
+    return fu0<Kla0>()
+}
+2021-03-12 07:15:12,273 [main:66] - Compilation checking started
+2021-03-12 07:15:12,854 [main:103] - Trying to change 8 nodes
+2021-03-12 07:15:12,854 [main:107] - replacing (joinToString(""), String)
+2021-03-12 07:15:12,856 [main:50] - replacing joinToString("") String
+2021-03-12 07:15:12,856 [main:54] - Getting value of type String
+2021-03-12 07:15:12,949 [main:302] - generating value of type = String true depth = 0
+2021-03-12 07:15:12,950 [main:58] - GENERATED VALUE OF TYPE String = "jutgh"
+2021-03-12 07:15:12,950 [main:61] - GENERATED IS CALL =false
+2021-03-12 07:15:13,047 [main:67] - randomType = UByte
+2021-03-12 07:15:13,130 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 07:15:13,175 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.UByte[DeserializedSimpleFunctionDescriptor@7f4082d9]
+2021-03-12 07:15:13,176 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@63ca4f9f]
+2021-03-12 07:15:13,265 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 07:15:13,266 [main:78] - Generated call from random type = (90.toUByte()).toShort().toString(-300370976)
+2021-03-12 07:15:13,266 [main:106] - GETTING String from String
+2021-03-12 07:15:13,298 [main:113] - Case = [public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@753c33f]]
+2021-03-12 07:15:13,298 [main:149] - GENERATING call of type public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@753c33f]
+2021-03-12 07:15:13,394 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 07:15:13,394 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 07:15:13,395 [main:117] - GENERATED CALL = (test<String>("trurd")).filterNot({a: Char -> true})
+2021-03-12 07:15:13,396 [main:113] - Case = [public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@10392346]]
+2021-03-12 07:15:13,396 [main:149] - GENERATING call of type public fun kotlin.String.replaceBeforeLast(delimiter: kotlin.Char, replacement: kotlin.String, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@10392346]
+2021-03-12 07:15:13,503 [main:302] - generating value of type = Char true depth = 0

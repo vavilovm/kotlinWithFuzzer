@@ -1,0 +1,37 @@
+2021-03-11 11:36:58,353 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/jvmAssertInlineFunctionAssertionsDisabled.kt
+2021-03-11 11:37:03,875 [main:53] - Start to mutate
+2021-03-11 11:37:03,876 [main:54] - BEFORE = 
+
+inline fun inlineMe() {
+    assert(false) { "FROM INLINED" }
+}
+
+class CheckerJvmAssertInlineFunctionAssertionsDisabled {
+    fun check() {
+        inlineMe()
+        assert(false) { "FROM INLINESITE" }
+    }
+}
+
+class Dummy
+
+fun disableAssertions(): CheckerJvmAssertInlineFunctionAssertionsDisabled {
+    val loader = Dummy::class.java.classLoader
+    loader.setClassAssertionStatus("CheckerJvmAssertInlineFunctionAssertionsDisabled", false)
+    loader.setClassAssertionStatus("InlineKt", false)
+    val c = loader.loadClass("CheckerJvmAssertInlineFunctionAssertionsDisabled")
+    return c.newInstance() as CheckerJvmAssertInlineFunctionAssertionsDisabled
+}
+
+fun box(): String {
+    var c = disableAssertions()
+    c.check()
+    return "OK"
+}
+
+
+2021-03-11 11:37:04,788 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 11:37:05,142 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 11:37:05,316 [main:19] - Cur transformation LocalTCE
+2021-03-11 11:37:29,926 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 11:37:29,935 [main:19] - Cur transformation TCETransformation

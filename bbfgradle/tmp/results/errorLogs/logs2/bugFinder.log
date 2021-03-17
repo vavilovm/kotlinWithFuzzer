@@ -1,0 +1,9 @@
+2021-03-11 11:04:55,229 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/enhancedPrimitives.kt
+2021-03-11 11:04:59,550 [main:53] - Start to mutate
+2021-03-11 11:04:59,550 [main:54] - BEFORE = public class J {
+    // This test checks that although type '@org.jetbrains.annotations.NotNull Integer' is perceived as simple Int,
+    // it's correctly mapped to 'Lj.l.Integer' by JVM backend
+    public static String test(@org.jetbrains.annotations.NotNull Integer x) {
+        return "OK";
+    }
+}

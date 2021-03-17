@@ -1,0 +1,2017 @@
+2021-03-12 00:23:08,737 [main:66] - Compilation checking started
+2021-03-12 00:23:10,096 [main:302] - generating value of type = Map<out K, V> false depth = 0
+2021-03-12 00:23:10,685 [main:43] - GENERATING CALL OF fun <K, V> HashMap(initialCapacity: kotlin.Int, loadFactor: kotlin.Float): Map<out K, V> = TODO()
+2021-03-12 00:23:10,702 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> HashMap(initialCapacity: kotlin.Int, loadFactor: kotlin.Float): Map<out K, V> = TODO()
+2021-03-12 00:23:11,234 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 00:23:11,235 [main:302] - generating value of type = Float true depth = 3
+2021-03-12 00:23:11,237 [main:95] - GENERATED = HashMap<out K, V>(397117819, 0.6548961f)
+2021-03-12 00:23:11,237 [main:33] - Trying to replace Element(VALUE_PARAMETER) on Element(VALUE_PARAMETER)
+2021-03-12 00:23:11,238 [main:66] - Compilation checking started
+2021-03-12 00:23:11,999 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V> = HashMap(397117819, 0.6548961f)) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+
+2021-03-12 00:23:12,302 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:23:19,192 [main:45] - Trying to change 14 nodes
+2021-03-12 00:23:19,195 [main:53] - replacing ("", String)
+2021-03-12 00:23:19,195 [main:50] - replacing "" String
+2021-03-12 00:23:19,195 [main:54] - Getting value of type String
+2021-03-12 00:23:19,277 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:19,279 [main:58] - GENERATED VALUE OF TYPE String = "zhdpm"
+2021-03-12 00:23:19,280 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:20,390 [main:67] - randomType = MyMap<Double, UShort>
+2021-03-12 00:23:20,472 [main:302] - generating value of type = MyMap<Double, UShort> false depth = 0
+2021-03-12 00:23:20,472 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:23:20,990 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:21,071 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:21,072 [main:78] - Generated call from random type = (MyMap<Double, UShort>()).size.toString(1786491915)
+2021-03-12 00:23:21,074 [main:106] - GETTING String from Boolean
+2021-03-12 00:23:21,092 [main:113] - Case = [public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:21,093 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3]
+2021-03-12 00:23:21,093 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:21,175 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:21,176 [main:117] - GENERATED CALL = (MyMap<Long, Char>().containsKey()).compareTo(MyMap<Long, Char>().containsKey()).toString(1566623048)
+2021-03-12 00:23:21,176 [main:61] - replacement of "" of type String is "zhdpm"
+2021-03-12 00:23:21,260 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 00:23:21,261 [main:66] - Compilation checking started
+2021-03-12 00:23:21,728 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+2021-03-12 00:23:21,730 [main:53] - replacing (UnsupportedOperationException(), UnsupportedOperationException)
+2021-03-12 00:23:21,730 [main:50] - replacing UnsupportedOperationException() UnsupportedOperationException
+2021-03-12 00:23:21,730 [main:54] - Getting value of type UnsupportedOperationException
+2021-03-12 00:23:21,829 [main:302] - generating value of type = UnsupportedOperationException false depth = 0
+2021-03-12 00:23:21,836 [main:58] - GENERATED VALUE OF TYPE UnsupportedOperationException = UnsupportedOperationException()
+2021-03-12 00:23:21,836 [main:61] - GENERATED IS CALL =true
+2021-03-12 00:23:33,078 [main:67] - randomType = HashMap<Function2<MyMap<Boolean, UShort>, Short, MyMap<Byte, UByte>>, Int?>
+2021-03-12 00:23:33,152 [main:302] - generating value of type = HashMap<Function2<MyMap<Boolean, UShort>, Short, MyMap<Byte, UByte>>, Int?> false depth = 0
+2021-03-12 00:23:33,234 [main:43] - GENERATING CALL OF fun <K, V> LinkedHashMap(): HashMap<Function2<MyMap<Boolean, UShort>, Short, MyMap<Byte, UByte>>, Int?> = TODO()
+2021-03-12 00:23:33,235 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> LinkedHashMap(): HashMap<Function2<MyMap<Boolean, UShort>, Short, MyMap<Byte, UByte>>, Int?> = TODO()
+2021-03-12 00:23:33,316 [main:95] - GENERATED = LinkedHashMap<Function2<MyMap<Boolean, UShort>, Short, MyMap<Byte, UByte>>, Int?>()
+2021-03-12 00:23:33,565 [main:106] - GETTING UnsupportedOperationException from Collection<Char>
+2021-03-12 00:23:33,585 [main:106] - GETTING UnsupportedOperationException from Set<K>
+2021-03-12 00:23:33,617 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:33,634 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:33,676 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:33,677 [main:106] - GETTING UnsupportedOperationException from Set<Entry<Long, Char>>
+2021-03-12 00:23:33,724 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:33,725 [main:106] - GETTING UnsupportedOperationException from Int
+2021-03-12 00:23:33,791 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:33,792 [main:106] - GETTING UnsupportedOperationException from Int
+2021-03-12 00:23:33,793 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:33,794 [main:106] - GETTING UnsupportedOperationException from Set<Long>
+2021-03-12 00:23:33,828 [main:106] - GETTING UnsupportedOperationException from Collection<V>
+2021-03-12 00:23:33,849 [main:61] - replacement of UnsupportedOperationException() of type UnsupportedOperationException is UnsupportedOperationException()
+2021-03-12 00:23:33,943 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 00:23:33,944 [main:53] - replacing (UnsupportedOperationException(), UnsupportedOperationException)
+2021-03-12 00:23:33,944 [main:50] - replacing UnsupportedOperationException() UnsupportedOperationException
+2021-03-12 00:23:33,944 [main:54] - Getting value of type UnsupportedOperationException
+2021-03-12 00:23:34,020 [main:302] - generating value of type = UnsupportedOperationException false depth = 0
+2021-03-12 00:23:34,098 [main:43] - GENERATING CALL OF fun UnsupportedOperationException(cause: kotlin.Throwable?): UnsupportedOperationException = TODO()
+2021-03-12 00:23:34,100 [main:61] - WITHOUT TYPE PARAMS = fun UnsupportedOperationException(cause: kotlin.Throwable?): UnsupportedOperationException = TODO()
+2021-03-12 00:23:34,260 [main:302] - generating value of type = Throwable false depth = 3
+2021-03-12 00:23:34,340 [main:43] - GENERATING CALL OF fun AssertionError(message: kotlin.String?): Throwable = TODO()
+2021-03-12 00:23:34,341 [main:61] - WITHOUT TYPE PARAMS = fun AssertionError(message: kotlin.String?): Throwable = TODO()
+2021-03-12 00:23:34,495 [main:302] - generating value of type = String true depth = 6
+2021-03-12 00:23:34,495 [main:95] - GENERATED = AssertionError("rjupw")
+2021-03-12 00:23:34,496 [main:95] - GENERATED = UnsupportedOperationException(AssertionError("rjupw"))
+2021-03-12 00:23:34,496 [main:58] - GENERATED VALUE OF TYPE UnsupportedOperationException = UnsupportedOperationException(AssertionError("rjupw"))
+2021-03-12 00:23:34,496 [main:61] - GENERATED IS CALL =true
+2021-03-12 00:23:34,574 [main:67] - randomType = Byte
+2021-03-12 00:23:34,682 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 00:23:34,751 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:34,786 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:34,788 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:34,804 [main:106] - GETTING UnsupportedOperationException from Int
+2021-03-12 00:23:34,868 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:34,869 [main:106] - GETTING UnsupportedOperationException from Collection<Char>
+2021-03-12 00:23:34,892 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:34,893 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:34,894 [main:106] - GETTING UnsupportedOperationException from Set<Long>
+2021-03-12 00:23:34,931 [main:106] - GETTING UnsupportedOperationException from Set<Entry<Long, Char>>
+2021-03-12 00:23:34,974 [main:61] - replacement of UnsupportedOperationException() of type UnsupportedOperationException is UnsupportedOperationException(AssertionError("rjupw"))
+2021-03-12 00:23:35,055 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 00:23:35,056 [main:53] - replacing ("", String)
+2021-03-12 00:23:35,056 [main:50] - replacing "" String
+2021-03-12 00:23:35,056 [main:54] - Getting value of type String
+2021-03-12 00:23:35,133 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:35,133 [main:58] - GENERATED VALUE OF TYPE String = "wjied"
+2021-03-12 00:23:35,133 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:35,472 [main:67] - randomType = MyMap<UInt, ArrayDeque<Short>>
+2021-03-12 00:23:35,547 [main:302] - generating value of type = MyMap<UInt, ArrayDeque<Short>> false depth = 0
+2021-03-12 00:23:35,548 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:23:37,421 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:37,422 [main:78] - Generated call from random type = (MyMap<UInt, ArrayDeque<Short>>()).size.toString(MyMap<Long, Char>().size)
+2021-03-12 00:23:37,423 [main:106] - GETTING String from Boolean
+2021-03-12 00:23:37,439 [main:113] - Case = [public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:37,439 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3]
+2021-03-12 00:23:37,439 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:37,440 [main:117] - GENERATED CALL = (MyMap<Long, Char>().isEmpty()).compareTo(MyMap<Long, Char>().containsKey()).toString(MyMap<Long, Char>().size)
+2021-03-12 00:23:37,440 [main:61] - replacement of "" of type String is "wjied"
+2021-03-12 00:23:37,521 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 00:23:37,522 [main:53] - replacing ("", String)
+2021-03-12 00:23:37,522 [main:50] - replacing "" String
+2021-03-12 00:23:37,522 [main:54] - Getting value of type String
+2021-03-12 00:23:37,600 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:37,600 [main:58] - GENERATED VALUE OF TYPE String = "brbax"
+2021-03-12 00:23:37,601 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:38,012 [main:67] - randomType = Function1<Byte?, ArrayDeque<UByte>>
+2021-03-12 00:23:38,013 [main:106] - GETTING String from Int
+2021-03-12 00:23:38,241 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5707f037]]
+2021-03-12 00:23:38,241 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:38,242 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5707f037]
+2021-03-12 00:23:38,318 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:38,318 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toChar().plus("rewoe")
+2021-03-12 00:23:38,319 [main:113] - Case = [public open fun toByte(): kotlin.Byte defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@363339d6], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:23:38,319 [main:149] - GENERATING call of type public open fun toByte(): kotlin.Byte defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@363339d6]
+2021-03-12 00:23:38,319 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:23:38,320 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toByte().toString(MyMap<Long, Char>().size)
+2021-03-12 00:23:38,320 [main:113] - Case = [public open fun toShort(): kotlin.Short defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@39546bf4], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:23:38,320 [main:149] - GENERATING call of type public open fun toShort(): kotlin.Short defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@39546bf4]
+2021-03-12 00:23:38,320 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:23:38,399 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:38,400 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toShort().toString(1326695431)
+2021-03-12 00:23:38,400 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16802a0]]
+2021-03-12 00:23:38,400 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:38,401 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16802a0]
+2021-03-12 00:23:38,401 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toChar().titlecase()
+2021-03-12 00:23:38,401 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bb3b037]]
+2021-03-12 00:23:38,401 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:38,401 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bb3b037]
+2021-03-12 00:23:38,402 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toChar().lowercase()
+2021-03-12 00:23:38,402 [main:113] - Case = [public abstract fun toLong(): kotlin.Long defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@778c30df], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:23:38,402 [main:149] - GENERATING call of type public abstract fun toLong(): kotlin.Long defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@778c30df]
+2021-03-12 00:23:38,402 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:23:38,402 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toLong().toString(MyMap<Long, Char>().size)
+2021-03-12 00:23:38,403 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.Int): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@4be02cda], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:38,403 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.Int): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@4be02cda]
+2021-03-12 00:23:38,403 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:38,481 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:38,482 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).compareTo(MyMap<Long, Char>().size).toString(2036637232)
+2021-03-12 00:23:38,482 [main:113] - Case = [@kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:38,482 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:38,482 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toString(MyMap<Long, Char>().size)
+2021-03-12 00:23:38,482 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@36d932e9], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:38,482 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@36d932e9]
+2021-03-12 00:23:38,482 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:38,558 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:38,558 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toInt().toString(766874122)
+2021-03-12 00:23:38,559 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@159281b5]]
+2021-03-12 00:23:38,559 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:38,559 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@159281b5]
+2021-03-12 00:23:38,559 [main:117] - GENERATED CALL = (MyMap<Long, Char>().size).toChar().uppercase()
+2021-03-12 00:23:38,560 [main:61] - replacement of "" of type String is (MyMap<Long, Char>().size).toChar().lowercase()
+2021-03-12 00:23:38,638 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:23:38,639 [main:53] - replacing (UnsupportedOperationException(), UnsupportedOperationException)
+2021-03-12 00:23:38,639 [main:50] - replacing UnsupportedOperationException() UnsupportedOperationException
+2021-03-12 00:23:38,639 [main:54] - Getting value of type UnsupportedOperationException
+2021-03-12 00:23:38,759 [main:302] - generating value of type = UnsupportedOperationException false depth = 0
+2021-03-12 00:23:38,857 [main:43] - GENERATING CALL OF fun UnsupportedOperationException(cause: kotlin.Throwable?): UnsupportedOperationException = TODO()
+2021-03-12 00:23:38,859 [main:61] - WITHOUT TYPE PARAMS = fun UnsupportedOperationException(cause: kotlin.Throwable?): UnsupportedOperationException = TODO()
+2021-03-12 00:23:39,013 [main:302] - generating value of type = Throwable false depth = 3
+2021-03-12 00:23:39,018 [main:95] - GENERATED = UnsupportedOperationException(IllegalStateException())
+2021-03-12 00:23:39,018 [main:58] - GENERATED VALUE OF TYPE UnsupportedOperationException = UnsupportedOperationException(IllegalStateException())
+2021-03-12 00:23:39,018 [main:61] - GENERATED IS CALL =true
+2021-03-12 00:23:41,045 [main:67] - randomType = Function2<UByte?, ULong, ArrayDeque<Triple<Short?, UShort?, LinkedHashMap<MyMap<Long, String>, MyMap<Byte, Byte>>>>?>
+2021-03-12 00:23:41,046 [main:106] - GETTING UnsupportedOperationException from Set<Long>
+2021-03-12 00:23:41,082 [main:106] - GETTING UnsupportedOperationException from Int
+2021-03-12 00:23:41,148 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:41,162 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:41,164 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:41,200 [main:106] - GETTING UnsupportedOperationException from Collection<Char>
+2021-03-12 00:23:41,221 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:41,222 [main:106] - GETTING UnsupportedOperationException from Int
+2021-03-12 00:23:41,223 [main:106] - GETTING UnsupportedOperationException from Boolean
+2021-03-12 00:23:41,225 [main:106] - GETTING UnsupportedOperationException from Set<K>
+2021-03-12 00:23:41,255 [main:106] - GETTING UnsupportedOperationException from Char?
+2021-03-12 00:23:41,257 [main:106] - GETTING UnsupportedOperationException from Set<Entry<Long, Char>>
+2021-03-12 00:23:41,289 [main:61] - replacement of UnsupportedOperationException() of type UnsupportedOperationException is UnsupportedOperationException(IllegalStateException())
+2021-03-12 00:23:41,364 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 00:23:41,365 [main:66] - Compilation checking started
+2021-03-12 00:23:41,730 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+
+2021-03-12 00:23:41,731 [main:53] - replacing (true, Boolean)
+2021-03-12 00:23:41,731 [main:50] - replacing true Boolean
+2021-03-12 00:23:41,731 [main:54] - Getting value of type Boolean
+2021-03-12 00:23:41,817 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 00:23:41,817 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 00:23:41,817 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:44,188 [main:67] - randomType = MutableMap<MyMap<Boolean, UInt>, MyMap<Collection<Boolean>, Char>>?
+2021-03-12 00:23:44,189 [main:106] - GETTING Boolean from Set<Long>
+2021-03-12 00:23:44,243 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b], public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@9d4564c]]
+2021-03-12 00:23:44,243 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b]
+2021-03-12 00:23:44,356 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,356 [main:149] - GENERATING call of type public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@9d4564c]
+2021-03-12 00:23:44,356 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).equals("hjpsr").and(MyMap<Long, Char>().isEmpty())
+2021-03-12 00:23:44,357 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@12c74468]]
+2021-03-12 00:23:44,357 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@12c74468]
+2021-03-12 00:23:44,451 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,452 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).equals("xdswo")
+2021-03-12 00:23:44,452 [main:113] - Case = [public abstract fun contains(element: kotlin.Long): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@7dd39932], public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@9d4564c]]
+2021-03-12 00:23:44,452 [main:149] - GENERATING call of type public abstract fun contains(element: kotlin.Long): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@7dd39932]
+2021-03-12 00:23:44,554 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 00:23:44,555 [main:149] - GENERATING call of type public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@9d4564c]
+2021-03-12 00:23:44,556 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).contains(837155162669397166).and(MyMap<Long, Char>().containsValue())
+2021-03-12 00:23:44,556 [main:113] - Case = [public abstract val size: kotlin.Int defined in kotlin.collections.Set[DeserializedPropertyDescriptor@2f2f3707], public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@2d75fd16]]
+2021-03-12 00:23:44,556 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@2d75fd16]
+2021-03-12 00:23:44,645 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,646 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).size.equals("cfaco")
+2021-03-12 00:23:44,646 [main:113] - Case = [public fun <T> kotlin.collections.Iterable<T>.none(): kotlin.Boolean defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@6716eb44]]
+2021-03-12 00:23:44,647 [main:149] - GENERATING call of type public fun <T> kotlin.collections.Iterable<T>.none(): kotlin.Boolean defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@6716eb44]
+2021-03-12 00:23:44,647 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).none()
+2021-03-12 00:23:44,647 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b], public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5c74eb5a]]
+2021-03-12 00:23:44,647 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b]
+2021-03-12 00:23:44,733 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,733 [main:149] - GENERATING call of type public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5c74eb5a]
+2021-03-12 00:23:44,809 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 00:23:44,810 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).equals("gyiei").xor(false)
+2021-03-12 00:23:44,810 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b], public final operator fun not(): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5b56de0f]]
+2021-03-12 00:23:44,810 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b]
+2021-03-12 00:23:44,901 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,902 [main:149] - GENERATING call of type public final operator fun not(): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5b56de0f]
+2021-03-12 00:23:44,902 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).equals("ececm").not()
+2021-03-12 00:23:44,903 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b], public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@40b7575e]]
+2021-03-12 00:23:44,903 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.collections.Iterable[DeserializedSimpleFunctionDescriptor@23162b2b]
+2021-03-12 00:23:44,991 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 00:23:44,992 [main:149] - GENERATING call of type public final infix fun or(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@40b7575e]
+2021-03-12 00:23:44,992 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).equals("pjclk").or(MyMap<Long, Char>().containsValue())
+2021-03-12 00:23:44,992 [main:113] - Case = [public abstract fun contains(element: kotlin.Long): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@7dd39932], public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5c74eb5a]]
+2021-03-12 00:23:44,992 [main:149] - GENERATING call of type public abstract fun contains(element: kotlin.Long): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@7dd39932]
+2021-03-12 00:23:45,074 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 00:23:45,075 [main:149] - GENERATING call of type public final infix fun xor(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@5c74eb5a]
+2021-03-12 00:23:45,154 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 00:23:45,156 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).contains(-1350273260438372339).xor(true)
+2021-03-12 00:23:45,156 [main:113] - Case = [public abstract fun isEmpty(): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@6e1c9db9]]
+2021-03-12 00:23:45,156 [main:149] - GENERATING call of type public abstract fun isEmpty(): kotlin.Boolean defined in kotlin.collections.Set[DeserializedSimpleFunctionDescriptor@6e1c9db9]
+2021-03-12 00:23:45,156 [main:117] - GENERATED CALL = (MyMap<Long, Char>().keys).isEmpty()
+2021-03-12 00:23:45,156 [main:61] - replacement of true of type Boolean is (MyMap<Long, Char>().keys).equals("xdswo")
+2021-03-12 00:23:45,242 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:23:45,242 [main:66] - Compilation checking started
+2021-03-12 00:23:45,621 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = (MyMap<Long, Char>().keys).equals("xdswo")
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+
+2021-03-12 00:23:45,622 [main:53] - replacing (false, Boolean)
+2021-03-12 00:23:45,622 [main:50] - replacing false Boolean
+2021-03-12 00:23:45,622 [main:54] - Getting value of type Boolean
+2021-03-12 00:23:45,699 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 00:23:45,700 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 00:23:45,700 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:45,782 [main:67] - randomType = Double
+2021-03-12 00:23:45,884 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 00:23:45,946 [main:149] - GENERATING call of type public fun kotlin.Double.isInfinite(): kotlin.Boolean defined in kotlin[DeserializedSimpleFunctionDescriptor@72d28f43]
+2021-03-12 00:23:45,946 [main:78] - Generated call from random type = (0.06401551235240521).isInfinite()
+2021-03-12 00:23:45,947 [main:61] - replacement of false of type Boolean is (0.06401551235240521).isInfinite()
+2021-03-12 00:23:46,033 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:23:46,033 [main:66] - Compilation checking started
+2021-03-12 00:23:46,462 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = (MyMap<Long, Char>().keys).equals("xdswo")
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = (0.06401551235240521).isInfinite()
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+
+2021-03-12 00:23:46,464 [main:53] - replacing (MyMap<String, Int>(), MyMap<String, Int>)
+2021-03-12 00:23:46,464 [main:50] - replacing MyMap<String, Int>() MyMap<String, Int>
+2021-03-12 00:23:46,464 [main:54] - Getting value of type MyMap<String, Int>
+2021-03-12 00:23:46,544 [main:302] - generating value of type = MyMap<String, Int> false depth = 0
+2021-03-12 00:23:46,544 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = (MyMap<Long, Char>().keys).equals("xdswo")
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = (0.06401551235240521).isInfinite()
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:23:47,199 [main:58] - GENERATED VALUE OF TYPE MyMap<String, Int> = MyMap<String, Int>()
+2021-03-12 00:23:47,200 [main:61] - GENERATED IS CALL =true
+2021-03-12 00:23:47,289 [main:67] - randomType = String?
+2021-03-12 00:23:47,372 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:47,420 [main:106] - GETTING MyMap<String, Int> from Set<K>
+2021-03-12 00:23:47,456 [main:106] - GETTING MyMap<String, Int> from Set<Entry<Long, Char>>
+2021-03-12 00:23:47,499 [main:106] - GETTING MyMap<String, Int> from Set<Long>
+2021-03-12 00:23:47,534 [main:106] - GETTING MyMap<String, Int> from Collection<V>
+2021-03-12 00:23:47,556 [main:106] - GETTING MyMap<String, Int> from Char?
+2021-03-12 00:23:47,592 [main:106] - GETTING MyMap<String, Int> from Boolean
+2021-03-12 00:23:47,608 [main:106] - GETTING MyMap<String, Int> from Int
+2021-03-12 00:23:47,670 [main:106] - GETTING MyMap<String, Int> from Collection<Char>
+2021-03-12 00:23:47,693 [main:106] - GETTING MyMap<String, Int> from Set<Entry<K, V>>
+2021-03-12 00:23:47,737 [main:106] - GETTING MyMap<String, Int> from Int
+2021-03-12 00:23:47,738 [main:106] - GETTING MyMap<String, Int> from Char?
+2021-03-12 00:23:47,739 [main:106] - GETTING MyMap<String, Int> from Boolean
+2021-03-12 00:23:47,740 [main:106] - GETTING MyMap<String, Int> from MyMap<String, Int>
+2021-03-12 00:23:47,788 [main:61] - replacement of MyMap<String, Int>() of type MyMap<String, Int> is MyMap<String, Int>()
+2021-03-12 00:23:47,863 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 00:23:47,864 [main:53] - replacing ("OK", String)
+2021-03-12 00:23:47,865 [main:50] - replacing "OK" String
+2021-03-12 00:23:47,865 [main:54] - Getting value of type String
+2021-03-12 00:23:47,943 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:47,944 [main:58] - GENERATED VALUE OF TYPE String = "dodzw"
+2021-03-12 00:23:47,944 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:48,035 [main:67] - randomType = Byte
+2021-03-12 00:23:48,113 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 00:23:48,169 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@27313dfe]
+2021-03-12 00:23:48,169 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16802a0]
+2021-03-12 00:23:48,169 [main:78] - Generated call from random type = (62).toChar().titlecase()
+2021-03-12 00:23:48,170 [main:106] - GETTING String from [ERROR : java.util.Map<String, Int>]<String, Int>
+2021-03-12 00:23:48,175 [main:106] - GETTING String from Set<Entry<K, V>>
+2021-03-12 00:23:48,215 [main:113] - Case = [public abstract val size: kotlin.Int defined in kotlin.collections.Set[DeserializedPropertyDescriptor@33a67021], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:48,215 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:48,216 [main:117] - GENERATED CALL = (entries).size.toString(size)
+2021-03-12 00:23:48,216 [main:113] - Case = [public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]]
+2021-03-12 00:23:48,217 [main:149] - GENERATING call of type public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]
+2021-03-12 00:23:48,294 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:23:48,380 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:48,381 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:48,542 [main:302] - generating value of type = String true depth = 3
+2021-03-12 00:23:48,543 [main:95] - GENERATED = StringBuilder("qqscv")
+2021-03-12 00:23:48,619 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:23:48,698 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:48,700 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:48,894 [main:302] - generating value of type = String true depth = 3
+2021-03-12 00:23:48,895 [main:95] - GENERATED = StringBuilder("fvahy")
+2021-03-12 00:23:48,973 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:23:49,059 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:23:49,138 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:23:49,139 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:23:49,295 [main:302] - generating value of type = CharSequence false depth = 3
+2021-03-12 00:23:49,374 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:23:49,375 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:23:49,588 [main:302] - generating value of type = CharSequence false depth = 6
+2021-03-12 00:23:49,666 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:49,667 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:23:49,820 [main:302] - generating value of type = String true depth = 9
+2021-03-12 00:23:49,820 [main:95] - GENERATED = StringBuilder("fbeia")
+2021-03-12 00:23:49,820 [main:95] - GENERATED = StringBuilder(StringBuilder("fbeia"))
+2021-03-12 00:23:49,821 [main:95] - GENERATED = StringBuilder(StringBuilder(StringBuilder("fbeia")))
+2021-03-12 00:23:49,896 [main:302] - generating value of type = Function1<T, CharSequence> false depth = 0
+2021-03-12 00:23:49,897 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 00:23:49,903 [main:117] - GENERATED CALL = (entries).joinToString(StringBuilder("qqscv"), StringBuilder("fvahy"), "nuejo", MyMap<Long, Char>().size, StringBuilder(StringBuilder(StringBuilder("fbeia"))), {a: T -> "zmcqu"})
+2021-03-12 00:23:49,903 [main:61] - replacement of "OK" of type String is "dodzw"
+2021-03-12 00:23:49,983 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 00:23:49,984 [main:66] - Compilation checking started
+2021-03-12 00:23:50,387 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = (MyMap<Long, Char>().keys).equals("xdswo")
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = (0.06401551235240521).isInfinite()
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "dodzw"
+}
+
+
+2021-03-12 00:23:50,508 [main:119] - TRYING TO REPLACE CONSTANT 0.06401551235240521
+2021-03-12 00:23:50,591 [main:33] - Trying to replace Element(FLOAT_CONSTANT) on Element(PARENTHESIZED)
+2021-03-12 00:23:50,592 [main:66] - Compilation checking started
+2021-03-12 00:23:50,969 [main:53] - Result = true
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = (MyMap<Long, Char>().keys).equals("xdswo")
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = ((0.06401551235240521)).isInfinite()
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException(IllegalStateException())
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("zhdpm")
+    map.putAll(myMap)
+    map.clear()
+
+    return "dodzw"
+}
+
+
+2021-03-12 00:23:50,996 [main:41] - AFTER TRY 0 res = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+2021-03-12 00:23:51,141 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:23:51,812 [main:43] - Try №0
+2021-03-12 00:23:53,241 [main:69] - Trying to insert fun box348(): String {
+    return A().box348()
+}
+2021-03-12 00:23:53,401 [main:66] - Compilation checking started
+2021-03-12 00:23:54,099 [main:103] - Trying to change 26 nodes
+2021-03-12 00:23:54,099 [main:107] - replacing (prope1, String)
+2021-03-12 00:23:54,101 [main:50] - replacing prope1 String
+2021-03-12 00:23:54,101 [main:54] - Getting value of type String
+2021-03-12 00:23:54,198 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:54,198 [main:58] - GENERATED VALUE OF TYPE String = "xaqaf"
+2021-03-12 00:23:54,199 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:54,323 [main:67] - randomType = ArrayList<A>
+2021-03-12 00:23:54,417 [main:302] - generating value of type = ArrayList<A> false depth = 0
+2021-03-12 00:23:54,529 [main:43] - GENERATING CALL OF fun <T> arrayListOf(): ArrayList<A> = TODO()
+2021-03-12 00:23:54,532 [main:61] - WITHOUT TYPE PARAMS = fun <T> arrayListOf(): ArrayList<A> = TODO()
+2021-03-12 00:23:54,659 [main:95] - GENERATED = arrayListOf<A>()
+2021-03-12 00:23:54,899 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): A defined in kotlin.collections.ArrayList[DeserializedSimpleFunctionDescriptor@21e9575]
+2021-03-12 00:23:54,900 [main:149] - GENERATING call of type public final fun box348(): kotlin.String defined in A[SimpleFunctionDescriptorImpl@6f7ea463]
+2021-03-12 00:23:54,900 [main:78] - Generated call from random type = (arrayListOf<A>()).get(MyMap<Char?, ULong>().size).box348()
+2021-03-12 00:23:54,903 [main:106] - GETTING String from Int
+2021-03-12 00:23:55,050 [main:113] - Case = [@kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:55,050 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:55,051 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,051 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16802a0]]
+2021-03-12 00:23:55,051 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:55,051 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16802a0]
+2021-03-12 00:23:55,052 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toChar().titlecase()
+2021-03-12 00:23:55,052 [main:113] - Case = [public open fun toByte(): kotlin.Byte defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@363339d6], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:23:55,052 [main:149] - GENERATING call of type public open fun toByte(): kotlin.Byte defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@363339d6]
+2021-03-12 00:23:55,052 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:23:55,052 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toByte().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,052 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.Int): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@4be02cda], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:55,052 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.Int): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@4be02cda]
+2021-03-12 00:23:55,175 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:55,176 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:55,176 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).compareTo(1790001107).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,176 [main:113] - Case = [public open fun toShort(): kotlin.Short defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@39546bf4], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:23:55,176 [main:149] - GENERATING call of type public open fun toShort(): kotlin.Short defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@39546bf4]
+2021-03-12 00:23:55,177 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:23:55,177 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,177 [main:113] - Case = [public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@36d932e9], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:55,177 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@36d932e9]
+2021-03-12 00:23:55,177 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:55,178 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,178 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@159281b5]]
+2021-03-12 00:23:55,178 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:55,178 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@159281b5]
+2021-03-12 00:23:55,178 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toChar().uppercase()
+2021-03-12 00:23:55,178 [main:113] - Case = [public abstract fun toLong(): kotlin.Long defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@778c30df], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:23:55,178 [main:149] - GENERATING call of type public abstract fun toLong(): kotlin.Long defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@778c30df]
+2021-03-12 00:23:55,178 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:23:55,271 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:23:55,272 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toLong().toString(-956597262)
+2021-03-12 00:23:55,273 [main:113] - Case = [public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bb3b037]]
+2021-03-12 00:23:55,273 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@7e6170fc]
+2021-03-12 00:23:55,273 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bb3b037]
+2021-03-12 00:23:55,273 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).toChar().lowercase()
+2021-03-12 00:23:55,273 [main:113] - Case = [public final operator fun div(other: kotlin.Long): kotlin.Long defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@6ecdb6b6], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:23:55,274 [main:149] - GENERATING call of type public final operator fun div(other: kotlin.Long): kotlin.Long defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@6ecdb6b6]
+2021-03-12 00:23:55,382 [main:302] - generating value of type = Long true depth = 0
+2021-03-12 00:23:55,383 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:23:55,384 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().size).div(8294849539067336169).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:55,384 [main:114] - replacement of prope1 of type String is "xaqaf"
+2021-03-12 00:23:55,485 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(STRING_TEMPLATE)
+2021-03-12 00:23:55,486 [main:66] - Compilation checking started
+2021-03-12 00:23:55,762 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        {
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    "xaqaf" = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:23:55,763 [main:107] - replacing (f, Function1<String, Unit>)
+2021-03-12 00:23:55,764 [main:50] - replacing f Function1<String, Unit>
+2021-03-12 00:23:55,764 [main:54] - Getting value of type Function1<String, Unit>
+2021-03-12 00:23:55,879 [main:302] - generating value of type = Function1<String, Unit> false depth = 0
+2021-03-12 00:23:55,880 [main:302] - generating value of type = Unit false depth = 1
+2021-03-12 00:23:55,984 [main:43] - GENERATING CALL OF fun require(value: kotlin.Boolean): Unit = TODO()
+2021-03-12 00:23:55,985 [main:61] - WITHOUT TYPE PARAMS = fun require(value: kotlin.Boolean): Unit = TODO()
+2021-03-12 00:23:56,184 [main:302] - generating value of type = Boolean true depth = 4
+2021-03-12 00:23:56,186 [main:95] - GENERATED = require(false)
+2021-03-12 00:23:56,186 [main:58] - GENERATED VALUE OF TYPE Function1<String, Unit> = {a: String -> require(false)}
+2021-03-12 00:23:56,186 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:56,286 [main:67] - randomType = List<Boolean>
+2021-03-12 00:23:56,288 [main:106] - GETTING Function1<String, Unit> from Set<Char?>
+2021-03-12 00:23:56,349 [main:106] - GETTING Function1<String, Unit> from ULong?
+2021-03-12 00:23:56,381 [main:106] - GETTING Function1<String, Unit> from Boolean
+2021-03-12 00:23:56,390 [main:106] - GETTING Function1<String, Unit> from Boolean
+2021-03-12 00:23:56,392 [main:106] - GETTING Function1<String, Unit> from ULong?
+2021-03-12 00:23:56,393 [main:106] - GETTING Function1<String, Unit> from MyMap<String, Int>
+2021-03-12 00:23:56,438 [main:106] - GETTING Function1<String, Unit> from Set<Entry<Char?, ULong>>
+2021-03-12 00:23:56,486 [main:106] - GETTING Function1<String, Unit> from Collection<ULong>
+2021-03-12 00:23:56,508 [main:106] - GETTING Function1<String, Unit> from Boolean
+2021-03-12 00:23:56,510 [main:106] - GETTING Function1<String, Unit> from ULong?
+2021-03-12 00:23:56,511 [main:106] - GETTING Function1<String, Unit> from Int
+2021-03-12 00:23:56,568 [main:114] - replacement of f of type Function1<String, Unit> is {a: String -> require(false)}
+2021-03-12 00:23:56,657 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on LAMBDA_EXPRESSION
+2021-03-12 00:23:56,658 [main:66] - Compilation checking started
+2021-03-12 00:23:56,941 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            {a: String -> require(false)}(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:23:56,942 [main:107] - replacing ({
+            f(arg + prope2)
+        }, Function0<Unit>)
+2021-03-12 00:23:56,942 [main:50] - replacing {
+            f(arg + prope2)
+        } Function0<Unit>
+2021-03-12 00:23:56,942 [main:54] - Getting value of type Function0<Unit>
+2021-03-12 00:23:57,031 [main:302] - generating value of type = Function0<Unit> false depth = 0
+2021-03-12 00:23:57,033 [main:302] - generating value of type = Unit false depth = 1
+2021-03-12 00:23:57,142 [main:43] - GENERATING CALL OF fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-12 00:23:57,144 [main:61] - WITHOUT TYPE PARAMS = fun print(message: kotlin.Any?): Unit = TODO()
+2021-03-12 00:23:57,351 [main:302] - generating value of type = Any false depth = 4
+2021-03-12 00:23:57,352 [main:95] - GENERATED = print("qvhpo")
+2021-03-12 00:23:57,352 [main:58] - GENERATED VALUE OF TYPE Function0<Unit> = { print("qvhpo")}
+2021-03-12 00:23:57,352 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:57,547 [main:67] - randomType = Char?
+2021-03-12 00:23:57,635 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 00:23:57,671 [main:106] - GETTING Function0<Unit> from Boolean
+2021-03-12 00:23:57,686 [main:106] - GETTING Function0<Unit> from Int
+2021-03-12 00:23:57,780 [main:106] - GETTING Function0<Unit> from Boolean
+2021-03-12 00:23:57,783 [main:106] - GETTING Function0<Unit> from MyMap<String, Int>
+2021-03-12 00:23:57,837 [main:106] - GETTING Function0<Unit> from Set<Entry<Char?, ULong>>
+2021-03-12 00:23:57,890 [main:106] - GETTING Function0<Unit> from ULong?
+2021-03-12 00:23:57,923 [main:106] - GETTING Function0<Unit> from Boolean
+2021-03-12 00:23:57,924 [main:106] - GETTING Function0<Unit> from Set<Char?>
+2021-03-12 00:23:57,952 [main:106] - GETTING Function0<Unit> from ULong?
+2021-03-12 00:23:57,953 [main:106] - GETTING Function0<Unit> from Collection<ULong>
+2021-03-12 00:23:57,971 [main:106] - GETTING Function0<Unit> from ULong?
+2021-03-12 00:23:57,971 [main:114] - replacement of {
+            f(arg + prope2)
+        } of type Function0<Unit> is { print("qvhpo")}
+2021-03-12 00:23:58,055 [main:33] - Trying to replace LAMBDA_EXPRESSION on LAMBDA_EXPRESSION
+2021-03-12 00:23:58,056 [main:66] - Compilation checking started
+2021-03-12 00:23:58,319 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{ print("qvhpo")}()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:23:58,320 [main:107] - replacing (prope1, String)
+2021-03-12 00:23:58,320 [main:50] - replacing prope1 String
+2021-03-12 00:23:58,320 [main:54] - Getting value of type String
+2021-03-12 00:23:58,421 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:58,422 [main:58] - GENERATED VALUE OF TYPE String = "tuzmn"
+2021-03-12 00:23:58,422 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:58,523 [main:67] - randomType = ULong
+2021-03-12 00:23:58,610 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 00:23:58,655 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@f35b22b]
+2021-03-12 00:23:58,656 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]
+2021-03-12 00:23:58,656 [main:78] - Generated call from random type = (5523409051067825693.toULong()).toUInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:58,657 [main:106] - GETTING String from Boolean
+2021-03-12 00:23:58,671 [main:113] - Case = [public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:58,671 [main:149] - GENERATING call of type public open fun compareTo(other: kotlin.Boolean): kotlin.Int defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@78fc70d3]
+2021-03-12 00:23:58,671 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:58,672 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().containsKey()).compareTo(MyMap<Char?, ULong>().isEmpty()).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:58,672 [main:114] - replacement of prope1 of type String is "tuzmn"
+2021-03-12 00:23:58,762 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(STRING_TEMPLATE)
+2021-03-12 00:23:58,762 [main:66] - Compilation checking started
+2021-03-12 00:23:59,025 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $"tuzmn""
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:23:59,026 [main:107] - replacing ("OK", String)
+2021-03-12 00:23:59,026 [main:50] - replacing "OK" String
+2021-03-12 00:23:59,026 [main:54] - Getting value of type String
+2021-03-12 00:23:59,114 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:59,115 [main:58] - GENERATED VALUE OF TYPE String = "hguek"
+2021-03-12 00:23:59,115 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:23:59,243 [main:67] - randomType = String?
+2021-03-12 00:23:59,336 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:23:59,371 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@15f31981]
+2021-03-12 00:23:59,372 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonSuffixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@69eee89b]
+2021-03-12 00:23:59,460 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:23:59,556 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 00:23:59,557 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 00:23:59,750 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 00:23:59,751 [main:95] - GENERATED = StringBuilder(-213790889)
+2021-03-12 00:23:59,837 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 00:23:59,839 [main:78] - Generated call from random type = ("agfgw")?.subSequence(MyMap<Char?, ULong>().size, MyMap<Char?, ULong>().size).commonSuffixWith(StringBuilder(-213790889), true)
+2021-03-12 00:23:59,841 [main:106] - GETTING String from MyMap<String, Int>
+2021-03-12 00:23:59,887 [main:113] - Case = [public open val size: kotlin.Int defined in MyMap[PropertyDescriptorImpl@1d6178cb], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:23:59,887 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:23:59,888 [main:117] - GENERATED CALL = (myMap).size.toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:23:59,888 [main:114] - replacement of "OK" of type String is ("agfgw")?.subSequence(MyMap<Char?, ULong>().size, MyMap<Char?, ULong>().size).commonSuffixWith(StringBuilder(-213790889), true)
+2021-03-12 00:23:59,977 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:23:59,977 [main:66] - Compilation checking started
+2021-03-12 00:24:00,360 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") ("agfgw")?.subSequence(MyMap<Char?, ULong>().size, MyMap<Char?, ULong>().size).commonSuffixWith(StringBuilder(-213790889), true) else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:00,361 [main:107] - replacing (prope1, String)
+2021-03-12 00:24:00,362 [main:50] - replacing prope1 String
+2021-03-12 00:24:00,362 [main:54] - Getting value of type String
+2021-03-12 00:24:00,458 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:00,459 [main:58] - GENERATED VALUE OF TYPE String = "jpgpn"
+2021-03-12 00:24:00,459 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:00,559 [main:67] - randomType = A?
+2021-03-12 00:24:00,670 [main:302] - generating value of type = A false depth = 0
+2021-03-12 00:24:00,671 [main:112] - generating klass A text = class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+2021-03-12 00:24:00,682 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceRange(startIndex: kotlin.Int, endIndex: kotlin.Int, replacement: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@441e1987]
+2021-03-12 00:24:00,778 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:00,868 [main:43] - GENERATING CALL OF fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 00:24:00,869 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(capacity: kotlin.Int): CharSequence = TODO()
+2021-03-12 00:24:01,057 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 00:24:01,058 [main:95] - GENERATED = StringBuilder(-239137215)
+2021-03-12 00:24:01,059 [main:78] - Generated call from random type = (A())?.prope0.replaceRange(MyMap<Char?, ULong>().size, MyMap<Char?, ULong>().size, StringBuilder(-239137215))
+2021-03-12 00:24:01,060 [main:106] - GETTING String from Set<Entry<Char?, ULong>>
+2021-03-12 00:24:01,112 [main:113] - Case = [public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]]
+2021-03-12 00:24:01,112 [main:149] - GENERATING call of type public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]
+2021-03-12 00:24:01,199 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:01,288 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:01,382 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:01,384 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:01,582 [main:302] - generating value of type = String true depth = 3
+2021-03-12 00:24:01,583 [main:95] - GENERATED = StringBuilder("jhvmg")
+2021-03-12 00:24:01,671 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:01,759 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:01,865 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:01,977 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:24:01,978 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.CharSequence): CharSequence = TODO()
+2021-03-12 00:24:02,164 [main:302] - generating value of type = CharSequence false depth = 3
+2021-03-12 00:24:02,271 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:02,273 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:02,456 [main:302] - generating value of type = String true depth = 6
+2021-03-12 00:24:02,457 [main:95] - GENERATED = StringBuilder("mximh")
+2021-03-12 00:24:02,457 [main:95] - GENERATED = StringBuilder(StringBuilder("mximh"))
+2021-03-12 00:24:02,538 [main:302] - generating value of type = Function1<T, CharSequence> false depth = 0
+2021-03-12 00:24:02,539 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 00:24:02,543 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().entries).joinToString("uxifh", StringBuilder("jhvmg"), "thbnz", 1139700869, StringBuilder(StringBuilder("mximh")), {a: T -> "wazsx"})
+2021-03-12 00:24:02,544 [main:113] - Case = [public abstract val size: kotlin.Int defined in kotlin.collections.Set[DeserializedPropertyDescriptor@584f2403], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:02,544 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:02,544 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().entries).size.toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:02,544 [main:114] - replacement of prope1 of type String is "jpgpn"
+2021-03-12 00:24:02,629 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(STRING_TEMPLATE)
+2021-03-12 00:24:02,630 [main:66] - Compilation checking started
+2021-03-12 00:24:02,887 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if ("jpgpn" == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:02,888 [main:107] - replacing (prope1, String)
+2021-03-12 00:24:02,888 [main:50] - replacing prope1 String
+2021-03-12 00:24:02,888 [main:54] - Getting value of type String
+2021-03-12 00:24:02,968 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:02,969 [main:58] - GENERATED VALUE OF TYPE String = "lucif"
+2021-03-12 00:24:02,969 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:04,208 [main:67] - randomType = MyMap<Int, Int>
+2021-03-12 00:24:04,297 [main:302] - generating value of type = MyMap<Int, Int> false depth = 0
+2021-03-12 00:24:04,298 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:24:04,895 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:04,895 [main:78] - Generated call from random type = (MyMap<Int, Int>()).size.toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:04,896 [main:106] - GETTING String from Set<Char?>
+2021-03-12 00:24:04,926 [main:113] - Case = [public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]]
+2021-03-12 00:24:04,926 [main:149] - GENERATING call of type public fun <T> kotlin.collections.Iterable<T>.joinToString(separator: kotlin.CharSequence = ..., prefix: kotlin.CharSequence = ..., postfix: kotlin.CharSequence = ..., limit: kotlin.Int = ..., truncated: kotlin.CharSequence = ..., transform: ((T) -> kotlin.CharSequence)? = ...): kotlin.String defined in kotlin.collections[DeserializedSimpleFunctionDescriptor@396be6e6]
+2021-03-12 00:24:05,005 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:05,088 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:05,173 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:05,259 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:05,350 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 00:24:05,432 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:05,433 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 00:24:05,644 [main:302] - generating value of type = String true depth = 3
+2021-03-12 00:24:05,645 [main:95] - GENERATED = StringBuilder("gmjya")
+2021-03-12 00:24:05,738 [main:302] - generating value of type = Function1<T, CharSequence> false depth = 0
+2021-03-12 00:24:05,739 [main:302] - generating value of type = CharSequence false depth = 1
+2021-03-12 00:24:05,743 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().keys).joinToString("ocpgx", StringBuilder(), "cnrav", -1530586173, StringBuilder("gmjya"), {a: T -> StringBuilder()})
+2021-03-12 00:24:05,744 [main:113] - Case = [public abstract val size: kotlin.Int defined in kotlin.collections.Set[DeserializedPropertyDescriptor@10c22ce5], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:05,744 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:05,822 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:05,823 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().keys).size.toString(-1286115961)
+2021-03-12 00:24:05,823 [main:114] - replacement of prope1 of type String is (MyMap<Char?, ULong>().keys).joinToString("ocpgx", StringBuilder(), "cnrav", -1530586173, StringBuilder("gmjya"), {a: T -> StringBuilder()})
+2021-03-12 00:24:05,904 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:24:05,904 [main:66] - Compilation checking started
+2021-03-12 00:24:06,159 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $(MyMap<Char?, ULong>().keys).joinToString("ocpgx", StringBuilder(), "cnrav", -1530586173, StringBuilder("gmjya"), {a: T -> StringBuilder()})"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:06,160 [main:107] - replacing ("fail", String)
+2021-03-12 00:24:06,160 [main:50] - replacing "fail" String
+2021-03-12 00:24:06,160 [main:54] - Getting value of type String
+2021-03-12 00:24:06,239 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:06,239 [main:58] - GENERATED VALUE OF TYPE String = "ygtrt"
+2021-03-12 00:24:06,240 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:06,347 [main:67] - randomType = Float
+2021-03-12 00:24:06,426 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 00:24:06,478 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@36d932e9]
+2021-03-12 00:24:06,478 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:06,479 [main:78] - Generated call from random type = (0.5172407f).toInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:06,480 [main:106] - GETTING String from ULong?
+2021-03-12 00:24:06,523 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:24:06,523 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84]
+2021-03-12 00:24:06,523 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:24:06,607 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:06,608 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toShort().toString(607581569)
+2021-03-12 00:24:06,608 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:06,608 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02]
+2021-03-12 00:24:06,690 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 00:24:06,691 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:06,773 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:06,774 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).compareTo(60.toUByte()).toString(-1968001985)
+2021-03-12 00:24:06,775 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]]
+2021-03-12 00:24:06,775 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13]
+2021-03-12 00:24:06,775 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]
+2021-03-12 00:24:06,882 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:06,883 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUInt().toString(39685208)
+2021-03-12 00:24:06,883 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]]
+2021-03-12 00:24:06,883 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a]
+2021-03-12 00:24:06,883 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]
+2021-03-12 00:24:06,884 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:06,884 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:24:06,884 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894]
+2021-03-12 00:24:06,884 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:24:06,884 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toLong().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:06,884 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:24:06,884 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c]
+2021-03-12 00:24:06,884 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:24:06,960 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:06,961 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toByte().toString(1513147631)
+2021-03-12 00:24:06,961 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]]
+2021-03-12 00:24:06,962 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f]
+2021-03-12 00:24:06,962 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]
+2021-03-12 00:24:07,038 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:07,039 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUByte().toString(628712844)
+2021-03-12 00:24:07,040 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]]
+2021-03-12 00:24:07,040 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc]
+2021-03-12 00:24:07,118 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 00:24:07,119 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]
+2021-03-12 00:24:07,119 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).and(831748611670025782.toULong()).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:07,119 [main:114] - replacement of "fail" of type String is (MyMap<Char?, ULong>().put()).compareTo(60.toUByte()).toString(-1968001985)
+2021-03-12 00:24:07,197 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:24:07,197 [main:66] - Compilation checking started
+2021-03-12 00:24:07,513 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = (MyMap<Char?, ULong>().put()).compareTo(60.toUByte()).toString(-1968001985)
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:07,514 [main:107] - replacing (if (prope1 == "start2_additional_") "OK" else "fail: $prope1", String)
+2021-03-12 00:24:07,514 [main:50] - replacing if (prope1 == "start2_additional_") "OK" else "fail: $prope1" String
+2021-03-12 00:24:07,515 [main:54] - Getting value of type String
+2021-03-12 00:24:07,616 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:07,617 [main:58] - GENERATED VALUE OF TYPE String = "vkjtf"
+2021-03-12 00:24:07,617 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:08,335 [main:67] - randomType = List<Function1<MyMap<Map<Int?, Short?>, UShort>, A>>
+2021-03-12 00:24:08,336 [main:106] - GETTING String from ULong?
+2021-03-12 00:24:08,366 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:24:08,366 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84]
+2021-03-12 00:24:08,366 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:24:08,442 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:08,443 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toShort().toString(70885144)
+2021-03-12 00:24:08,443 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:24:08,443 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c]
+2021-03-12 00:24:08,443 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:24:08,443 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toByte().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,443 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]]
+2021-03-12 00:24:08,443 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13]
+2021-03-12 00:24:08,443 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]
+2021-03-12 00:24:08,444 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,444 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]]
+2021-03-12 00:24:08,444 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a]
+2021-03-12 00:24:08,444 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]
+2021-03-12 00:24:08,444 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,444 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]]
+2021-03-12 00:24:08,444 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc]
+2021-03-12 00:24:08,520 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 00:24:08,521 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]
+2021-03-12 00:24:08,521 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).and(831951121863942969.toULong()).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,521 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:24:08,521 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894]
+2021-03-12 00:24:08,521 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:24:08,521 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toLong().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,521 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]]
+2021-03-12 00:24:08,522 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f]
+2021-03-12 00:24:08,522 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]
+2021-03-12 00:24:08,597 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:08,598 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUByte().toString(1092036795)
+2021-03-12 00:24:08,599 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:08,599 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02]
+2021-03-12 00:24:08,676 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 00:24:08,676 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:08,753 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:08,754 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).compareTo(52.toUByte()).toString(-1630080400)
+2021-03-12 00:24:08,754 [main:114] - replacement of if (prope1 == "start2_additional_") "OK" else "fail: $prope1" of type String is (MyMap<Char?, ULong>().remove()).toByte().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:08,838 [main:33] - Trying to replace Element(IF) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:24:08,838 [main:66] - Compilation checking started
+2021-03-12 00:24:09,096 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return (MyMap<Char?, ULong>().remove()).toByte().toString(MyMap<Char?, ULong>().size)
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:09,097 [main:107] - replacing (prope1, String)
+2021-03-12 00:24:09,097 [main:50] - replacing prope1 String
+2021-03-12 00:24:09,097 [main:54] - Getting value of type String
+2021-03-12 00:24:09,175 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:09,176 [main:58] - GENERATED VALUE OF TYPE String = "msqar"
+2021-03-12 00:24:09,176 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:09,350 [main:67] - randomType = List<UShort>
+2021-03-12 00:24:09,351 [main:106] - GETTING String from ULong?
+2021-03-12 00:24:09,376 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]]
+2021-03-12 00:24:09,376 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc]
+2021-03-12 00:24:09,452 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 00:24:09,453 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]
+2021-03-12 00:24:09,529 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:09,530 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).and(1492890692961132211.toULong()).toString(-4282399)
+2021-03-12 00:24:09,530 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:24:09,530 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894]
+2021-03-12 00:24:09,530 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:24:09,531 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toLong().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:09,531 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]]
+2021-03-12 00:24:09,531 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13]
+2021-03-12 00:24:09,531 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]
+2021-03-12 00:24:09,531 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:09,531 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]]
+2021-03-12 00:24:09,531 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f]
+2021-03-12 00:24:09,531 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]
+2021-03-12 00:24:09,636 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:09,638 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUByte().toString(908538126)
+2021-03-12 00:24:09,638 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]]
+2021-03-12 00:24:09,638 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a]
+2021-03-12 00:24:09,638 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]
+2021-03-12 00:24:09,730 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:09,731 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toUShort().toString(1731861950)
+2021-03-12 00:24:09,732 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:24:09,732 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84]
+2021-03-12 00:24:09,732 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:24:09,808 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:09,809 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toShort().toString(-1831297213)
+2021-03-12 00:24:09,809 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:24:09,809 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c]
+2021-03-12 00:24:09,809 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:24:09,888 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:09,889 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).toByte().toString(-511883161)
+2021-03-12 00:24:09,890 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:09,890 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02]
+2021-03-12 00:24:09,975 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 00:24:09,977 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:09,977 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().put()).compareTo(57.toUByte()).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:09,977 [main:114] - replacement of prope1 of type String is (MyMap<Char?, ULong>().put()).toLong().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,062 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:24:10,062 [main:66] - Compilation checking started
+2021-03-12 00:24:10,321 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if ((MyMap<Char?, ULong>().put()).toLong().toString(MyMap<Char?, ULong>().size) == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:10,322 [main:107] - replacing (prope2, String)
+2021-03-12 00:24:10,322 [main:50] - replacing prope2 String
+2021-03-12 00:24:10,322 [main:54] - Getting value of type String
+2021-03-12 00:24:10,402 [main:302] - generating value of type = String true depth = 0
+2021-03-12 00:24:10,403 [main:58] - GENERATED VALUE OF TYPE String = "aktfj"
+2021-03-12 00:24:10,403 [main:61] - GENERATED IS CALL =false
+2021-03-12 00:24:10,581 [main:67] - randomType = Map<A?, A>
+2021-03-12 00:24:10,582 [main:106] - GETTING String from ULong?
+2021-03-12 00:24:10,605 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894], @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]]
+2021-03-12 00:24:10,605 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@51207894]
+2021-03-12 00:24:10,605 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5209e0f0]
+2021-03-12 00:24:10,606 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toLong().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,606 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]]
+2021-03-12 00:24:10,606 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline infix fun and(other: kotlin.ULong): kotlin.ULong defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@78136fdc]
+2021-03-12 00:24:10,682 [main:302] - generating value of type = ULong true depth = 0
+2021-03-12 00:24:10,683 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.ULong.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2831e46d]
+2021-03-12 00:24:10,683 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).and(8655009948916709548.toULong()).toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,683 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]]
+2021-03-12 00:24:10,683 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toShort(): kotlin.Short defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@683dae84]
+2021-03-12 00:24:10,683 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7850c498]
+2021-03-12 00:24:10,684 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,684 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]]
+2021-03-12 00:24:10,684 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUByte(): kotlin.UByte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@66072a9f]
+2021-03-12 00:24:10,684 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UByte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f5344bb]
+2021-03-12 00:24:10,765 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:10,767 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUByte().toString(-294186326)
+2021-03-12 00:24:10,767 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]]
+2021-03-12 00:24:10,767 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUInt(): kotlin.UInt defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@34311a13]
+2021-03-12 00:24:10,767 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cfb254f]
+2021-03-12 00:24:10,768 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUInt().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,768 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c], @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]]
+2021-03-12 00:24:10,768 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toByte(): kotlin.Byte defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@338157c]
+2021-03-12 00:24:10,768 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@73104a12]
+2021-03-12 00:24:10,769 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toByte().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,769 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]]
+2021-03-12 00:24:10,769 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun compareTo(other: kotlin.UByte): kotlin.Int defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@43637e02]
+2021-03-12 00:24:10,849 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 00:24:10,850 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@198c2af0]
+2021-03-12 00:24:10,925 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 00:24:10,926 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).compareTo(10.toUByte()).toString(735604323)
+2021-03-12 00:24:10,926 [main:113] - Case = [@kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a], @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]]
+2021-03-12 00:24:10,926 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toUShort(): kotlin.UShort defined in kotlin.ULong[DeserializedSimpleFunctionDescriptor@7ca1ae1a]
+2021-03-12 00:24:10,926 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UShort.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2a8ad80d]
+2021-03-12 00:24:10,927 [main:117] - GENERATED CALL = (MyMap<Char?, ULong>().remove()).toUShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:10,927 [main:114] - replacement of prope2 of type String is (MyMap<Char?, ULong>().remove()).toShort().toString(MyMap<Char?, ULong>().size)
+2021-03-12 00:24:11,026 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 00:24:11,026 [main:66] - Compilation checking started
+2021-03-12 00:24:11,327 [main:49] - Result = false
+Text:
+class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + (MyMap<Char?, ULong>().remove()).toShort().toString(MyMap<Char?, ULong>().size))
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:11,406 [main:41] - AFTER TRY 1 res = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:11,556 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:24:11,800 [main:112] - generating klass A text = class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+2021-03-12 00:24:11,990 [main:43] - Try №1
+2021-03-12 00:24:13,167 [main:69] - Trying to insert inline fun fu1() {
+    val prope4 by lazy {
+        prope3.append("localLazy;")
+        "v;"
+    }
+    prope3.append("test;")
+    prope3.append(prope4)
+}
+2021-03-12 00:24:13,293 [main:66] - Compilation checking started
+2021-03-12 00:24:13,592 [main:41] - AFTER TRY 2 res = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+
+fun box(): String {
+    val myMap = MyMap<String, Int>()
+    val map = myMap as java.util.Map<String, Int>
+
+    map.put("", 1)
+    map.remove("")
+    map.putAll(myMap)
+    map.clear()
+
+    return "OK"
+}
+
+class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+
+fun box348(): String {
+    return A().box348()
+}
+
+
+2021-03-12 00:24:13,755 [main:112] - generating klass MyMap text = class MyMap<K, V>: Map<K, V> {
+    override val size: Int get() = 0
+    override fun isEmpty(): Boolean = true
+    override fun containsKey(key: K): Boolean = false
+    override fun containsValue(value: V): Boolean = false
+    override fun get(key: K): V? = null
+    override val keys: Set<K> get() = throw UnsupportedOperationException()
+    override val values: Collection<V> get() = throw UnsupportedOperationException()
+    override val entries: Set<Map.Entry<K, V>> get() = throw UnsupportedOperationException()
+
+    public fun put(key: K, value: V): V? = null
+    public fun remove(key: K): V? = null
+    public fun putAll(m: Map<out K, V>) {}
+    public fun clear() {}
+}
+2021-03-12 00:24:14,582 [main:112] - generating klass A text = class A {
+    val prope0 = "start"
+    var prope1 = "fail"
+    var prope2 = "_additional_"
+
+    inline fun fu0(arg: String, crossinline f: (String) -> Unit) {
+        val myMap = MyMap<String, Int>()
+{
+            f(arg + prope2)
+        }()
+    }
+
+
+    fun box348(): String {
+        val myMap = MyMap<String, Int>()
+{
+            fu0("2") { a ->
+                {
+                    prope1 = prope0 + a
+                }()
+            }
+        }()
+        return if (prope1 == "start2_additional_") "OK" else "fail: $prope1"
+    }
+
+}
+2021-03-12 00:24:14,785 [main:43] - Try №2

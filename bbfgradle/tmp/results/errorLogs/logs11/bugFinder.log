@@ -1,0 +1,36 @@
+2021-03-11 12:01:17,375 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/stepToOutsideRange6.kt
+2021-03-11 12:01:21,796 [main:53] - Start to mutate
+2021-03-11 12:01:21,796 [main:54] - BEFORE = import kotlin.test.*
+
+fun box(): String {
+    val uintList = mutableListOf<UInt>()
+    val uintProgression = 7u downTo 1u
+    for (i in uintProgression step 7) {
+        uintList += i
+    }
+    assertEquals(listOf(7u), uintList)
+
+    val ulongList = mutableListOf<ULong>()
+    val ulongProgression = 7uL downTo 1uL
+    for (i in ulongProgression step 7L) {
+        ulongList += i
+    }
+    assertEquals(listOf(7uL), ulongList)
+
+    return "OK"
+}
+2021-03-11 12:01:23,020 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 12:01:23,384 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 12:01:23,582 [main:19] - Cur transformation LocalTCE
+2021-03-11 12:02:55,634 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 12:02:55,641 [main:19] - Cur transformation TCETransformation
+2021-03-11 12:03:24,414 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-11 12:04:43,778 [main:19] - Cur transformation AddPossibleModifiers
+2021-03-11 12:04:48,347 [main:19] - Cur transformation ChangeTypes
+2021-03-11 12:05:02,144 [main:19] - Cur transformation ChangeModifiers
+2021-03-11 12:05:02,152 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-11 12:05:57,030 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 12:05:57,393 [main:19] - Cur transformation LocalTCE
+2021-03-11 12:07:06,709 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 12:07:06,715 [main:19] - Cur transformation TCETransformation
+2021-03-11 12:09:49,191 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees

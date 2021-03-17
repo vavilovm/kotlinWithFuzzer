@@ -1,0 +1,11 @@
+2021-03-12 04:36:07,046 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/defaultWithKotlinBase.kt
+2021-03-12 04:36:11,293 [main:53] - Start to mutate
+2021-03-12 04:36:11,293 [main:54] - BEFORE = open class A {
+    open fun x(x: Int = foo()) = x
+    private fun foo() = 42
+}
+2021-03-12 04:36:11,824 [main:40] - Mutation of tmp/A.kt started
+2021-03-12 04:36:12,100 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-12 04:36:12,266 [main:19] - Cur transformation LocalTCE
+2021-03-12 04:36:17,729 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-12 04:36:17,737 [main:19] - Cur transformation TCETransformation

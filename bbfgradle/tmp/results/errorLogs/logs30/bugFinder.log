@@ -1,0 +1,38 @@
+2021-03-11 20:20:54,066 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/inlineClassesAndInlinedLambda.kt
+2021-03-11 20:20:59,288 [main:53] - Start to mutate
+2021-03-11 20:20:59,288 [main:54] - BEFORE = inline class InlinedInt(val internal: Int)
+inline class InlinedString(val internal: String)
+
+inline fun <T> foo(callback: () -> T): T {
+    return callback()
+}
+
+inline fun bar(callback: () -> InlinedInt): InlinedInt {
+    return callback()
+}
+
+inline fun baz(callback: () -> InlinedString): InlinedString {
+    return callback()
+}
+
+fun test(i: InlinedInt, s: InlinedString) {
+    foo { i }
+    bar { i }
+
+    foo { s }
+    baz { s }
+}
+
+
+2021-03-11 20:20:59,902 [main:40] - Mutation of tmp/tmp0.kt started
+2021-03-11 20:21:00,215 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 20:21:08,239 [main:19] - Cur transformation LocalTCE
+2021-03-11 20:21:26,851 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 20:21:26,861 [main:19] - Cur transformation TCETransformation
+2021-03-11 20:21:54,764 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-11 20:23:15,273 [main:19] - Cur transformation ChangeTypes
+2021-03-11 20:23:28,500 [main:19] - Cur transformation ChangeRandomASTNodesFromAnotherTrees
+2021-03-11 20:24:25,238 [main:19] - Cur transformation AddDefaultValueToArg
+2021-03-11 20:24:29,808 [main:19] - Cur transformation LocalTCE
+2021-03-11 20:24:50,187 [main:19] - Cur transformation AddReificationToTypeParam
+2021-03-11 20:24:50,195 [main:19] - Cur transformation TCETransformation

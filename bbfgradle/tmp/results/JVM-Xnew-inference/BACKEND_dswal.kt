@@ -1,0 +1,6 @@
+fun box()  {
+(try {
+            {}!!
+}
+        finally {})
+}

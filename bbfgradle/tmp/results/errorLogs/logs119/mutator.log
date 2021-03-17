@@ -1,0 +1,1637 @@
+2021-03-12 11:06:38,285 [main:66] - Compilation checking started
+2021-03-12 11:06:39,782 [main:50] - replacing expected: String String
+2021-03-12 11:06:39,783 [main:54] - Getting value of type String
+2021-03-12 11:06:39,987 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:39,991 [main:58] - GENERATED VALUE OF TYPE String = "irnki"
+2021-03-12 11:06:39,992 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:39,996 [main:67] - randomType = Float
+2021-03-12 11:06:40,144 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 11:06:40,851 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@78f00ec]
+2021-03-12 11:06:40,852 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@621b834]
+2021-03-12 11:06:40,853 [main:78] - Generated call from random type = (0.1086418f).toChar().lowercase()
+2021-03-12 11:06:40,854 [main:33] - Trying to replace Element(VALUE_PARAMETER) on Element(VALUE_PARAMETER)
+2021-03-12 11:06:40,866 [main:66] - Compilation checking started
+2021-03-12 11:06:41,624 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String = "irnki") {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:42,254 [main:43] - GENERATING CALL OF inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:06:42,758 [main:61] - WITHOUT TYPE PARAMS = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:06:42,921 [main:302] - generating value of type = String true depth = 1
+2021-03-12 11:06:42,923 [main:95] - GENERATED = check<Sequence<LinkedHashSet<Char>>>("dmswz")
+2021-03-12 11:06:43,037 [main:45] - Trying to change 16 nodes
+2021-03-12 11:06:43,040 [main:53] - replacing ("Short", String)
+2021-03-12 11:06:43,040 [main:50] - replacing "Short" String
+2021-03-12 11:06:43,040 [main:54] - Getting value of type String
+2021-03-12 11:06:43,156 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:43,156 [main:58] - GENERATED VALUE OF TYPE String = "fbzzy"
+2021-03-12 11:06:43,157 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:43,157 [main:67] - randomType = Byte
+2021-03-12 11:06:43,263 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 11:06:43,341 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@57e52459]
+2021-03-12 11:06:43,342 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@91c2400]
+2021-03-12 11:06:43,345 [main:78] - Generated call from random type = (87).toChar().titlecase()
+2021-03-12 11:06:43,345 [main:61] - replacement of "Short" of type String is "fbzzy"
+2021-03-12 11:06:43,480 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:06:43,481 [main:66] - Compilation checking started
+2021-03-12 11:06:44,059 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:44,061 [main:53] - replacing ("clazz name: ${clazz.canonicalName}", String)
+2021-03-12 11:06:44,061 [main:50] - replacing "clazz name: ${clazz.canonicalName}" String
+2021-03-12 11:06:44,062 [main:54] - Getting value of type String
+2021-03-12 11:06:44,182 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:44,183 [main:58] - GENERATED VALUE OF TYPE String = "hebvp"
+2021-03-12 11:06:44,183 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:44,759 [main:67] - randomType = Function2<UShort?, Collection<Byte>, Float>
+2021-03-12 11:06:44,759 [main:106] - GETTING String from String
+2021-03-12 11:06:44,806 [main:113] - Case = [public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@235e45a3]]
+2021-03-12 11:06:44,806 [main:149] - GENERATING call of type public fun kotlin.String.dropLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@235e45a3]
+2021-03-12 11:06:44,908 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:44,910 [main:117] - GENERATED CALL = (expected).dropLast(1341916916)
+2021-03-12 11:06:44,911 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@743615f1], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]]
+2021-03-12 11:06:44,911 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@743615f1]
+2021-03-12 11:06:44,911 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]
+2021-03-12 11:06:45,037 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:45,039 [main:117] - GENERATED CALL = (expected).compareTo(expected).toString(-1377677531)
+2021-03-12 11:06:45,039 [main:113] - Case = [public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]]
+2021-03-12 11:06:45,039 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]
+2021-03-12 11:06:45,139 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:06:45,268 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:06:45,270 [main:117] - GENERATED CALL = (expected).commonPrefixWith("nzotp", true)
+2021-03-12 11:06:45,271 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f95a76a]]
+2021-03-12 11:06:45,271 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f95a76a]
+2021-03-12 11:06:45,362 [main:302] - generating value of type = Function1<Char, Char> false depth = 0
+2021-03-12 11:06:45,363 [main:302] - generating value of type = Char true depth = 1
+2021-03-12 11:06:45,364 [main:117] - GENERATED CALL = (expected).replaceFirstChar({a: Char -> '매'})
+2021-03-12 11:06:45,364 [main:113] - Case = [public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5a91b737]]
+2021-03-12 11:06:45,365 [main:149] - GENERATING call of type public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5a91b737]
+2021-03-12 11:06:45,492 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 11:06:45,494 [main:117] - GENERATED CALL = (expected).substringBeforeLast('', expected)
+2021-03-12 11:06:45,494 [main:113] - Case = [public fun kotlin.String.replaceIndentByMargin(newIndent: kotlin.String = ..., marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@37d9310e]]
+2021-03-12 11:06:45,494 [main:149] - GENERATING call of type public fun kotlin.String.replaceIndentByMargin(newIndent: kotlin.String = ..., marginPrefix: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@37d9310e]
+2021-03-12 11:06:45,590 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:45,592 [main:117] - GENERATED CALL = (expected).replaceIndentByMargin(expected, "slhpg")
+2021-03-12 11:06:45,592 [main:113] - Case = [public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b64a8cc]]
+2021-03-12 11:06:45,592 [main:149] - GENERATING call of type public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b64a8cc]
+2021-03-12 11:06:45,593 [main:117] - GENERATED CALL = (expected).trimIndent()
+2021-03-12 11:06:45,593 [main:113] - Case = [public inline fun kotlin.String.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@45f5fdd]]
+2021-03-12 11:06:45,593 [main:149] - GENERATING call of type public inline fun kotlin.String.dropLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@45f5fdd]
+2021-03-12 11:06:45,675 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:06:45,676 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:06:45,677 [main:117] - GENERATED CALL = (expected).dropLastWhile({a: Char -> true})
+2021-03-12 11:06:45,677 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f1e623b]]
+2021-03-12 11:06:45,677 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f1e623b]
+2021-03-12 11:06:45,678 [main:117] - GENERATED CALL = (expected).trimEnd()
+2021-03-12 11:06:45,678 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.toUpperCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@17e3d817]]
+2021-03-12 11:06:45,678 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toUpperCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@17e3d817]
+2021-03-12 11:06:45,678 [main:117] - GENERATED CALL = (expected).toUpperCase()
+2021-03-12 11:06:45,678 [main:61] - replacement of "clazz name: ${clazz.canonicalName}" of type String is (expected).dropLast(1341916916)
+2021-03-12 11:06:45,777 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:06:45,778 [main:66] - Compilation checking started
+2021-03-12 11:06:46,323 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:46,324 [main:53] - replacing ("Long", String)
+2021-03-12 11:06:46,324 [main:50] - replacing "Long" String
+2021-03-12 11:06:46,325 [main:54] - Getting value of type String
+2021-03-12 11:06:46,464 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:46,465 [main:58] - GENERATED VALUE OF TYPE String = "xkayi"
+2021-03-12 11:06:46,465 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:46,467 [main:67] - randomType = Int
+2021-03-12 11:06:46,591 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:46,680 [main:149] - GENERATING call of type public abstract fun toInt(): kotlin.Int defined in kotlin.Number[DeserializedSimpleFunctionDescriptor@52ed11cf]
+2021-03-12 11:06:46,681 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]
+2021-03-12 11:06:46,830 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:46,832 [main:78] - Generated call from random type = (429008372).toInt().toString(-1460148275)
+2021-03-12 11:06:46,832 [main:61] - replacement of "Long" of type String is "xkayi"
+2021-03-12 11:06:46,956 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:06:46,957 [main:66] - Compilation checking started
+2021-03-12 11:06:47,514 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:47,516 [main:53] - replacing ("Integer", String)
+2021-03-12 11:06:47,516 [main:50] - replacing "Integer" String
+2021-03-12 11:06:47,516 [main:54] - Getting value of type String
+2021-03-12 11:06:47,658 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:47,659 [main:58] - GENERATED VALUE OF TYPE String = "ykttf"
+2021-03-12 11:06:47,660 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:47,661 [main:67] - randomType = Byte
+2021-03-12 11:06:47,836 [main:302] - generating value of type = Byte true depth = 0
+2021-03-12 11:06:47,916 [main:149] - GENERATING call of type public open fun toShort(): kotlin.Short defined in kotlin.Byte[DeserializedSimpleFunctionDescriptor@5db504ce]
+2021-03-12 11:06:47,917 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Short.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@65e67c43]
+2021-03-12 11:06:48,044 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:48,046 [main:78] - Generated call from random type = (14).toShort().toString(43930966)
+2021-03-12 11:06:48,047 [main:61] - replacement of "Integer" of type String is (14).toShort().toString(43930966)
+2021-03-12 11:06:48,165 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:06:48,166 [main:66] - Compilation checking started
+2021-03-12 11:06:48,952 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("Float")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:48,954 [main:53] - replacing ("Float", String)
+2021-03-12 11:06:48,954 [main:50] - replacing "Float" String
+2021-03-12 11:06:48,954 [main:54] - Getting value of type String
+2021-03-12 11:06:49,101 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:49,102 [main:58] - GENERATED VALUE OF TYPE String = "kxrqn"
+2021-03-12 11:06:49,102 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:49,284 [main:67] - randomType = MutableMap<Byte, Long>
+2021-03-12 11:06:49,284 [main:61] - replacement of "Float" of type String is "kxrqn"
+2021-03-12 11:06:49,426 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:06:49,427 [main:66] - Compilation checking started
+2021-03-12 11:06:49,987 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:49,988 [main:53] - replacing ("Character", String)
+2021-03-12 11:06:49,988 [main:50] - replacing "Character" String
+2021-03-12 11:06:49,989 [main:54] - Getting value of type String
+2021-03-12 11:06:50,098 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:50,098 [main:58] - GENERATED VALUE OF TYPE String = "vwcdy"
+2021-03-12 11:06:50,098 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:50,217 [main:67] - randomType = UShort
+2021-03-12 11:06:50,324 [main:302] - generating value of type = UShort true depth = 0
+2021-03-12 11:06:50,390 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline operator fun div(other: kotlin.UByte): kotlin.UInt defined in kotlin.UShort[DeserializedSimpleFunctionDescriptor@56417d28]
+2021-03-12 11:06:50,479 [main:302] - generating value of type = UByte true depth = 0
+2021-03-12 11:06:50,480 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalUnsignedTypes public fun kotlin.UInt.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@37c494fe]
+2021-03-12 11:06:50,576 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:50,577 [main:78] - Generated call from random type = (24307.toUShort()).div(66.toUByte()).toString(-838092856)
+2021-03-12 11:06:50,577 [main:61] - replacement of "Character" of type String is "vwcdy"
+2021-03-12 11:06:50,667 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:06:50,667 [main:66] - Compilation checking started
+2021-03-12 11:06:51,087 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:06:51,088 [main:53] - replacing ("java.lang.$expected", String)
+2021-03-12 11:06:51,088 [main:50] - replacing "java.lang.$expected" String
+2021-03-12 11:06:51,089 [main:54] - Getting value of type String
+2021-03-12 11:06:51,206 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:51,206 [main:58] - GENERATED VALUE OF TYPE String = "yozys"
+2021-03-12 11:06:51,207 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:51,540 [main:67] - randomType = LinkedHashMap<Sequence<Boolean>, Double?>
+2021-03-12 11:06:51,634 [main:302] - generating value of type = LinkedHashMap<Sequence<Boolean>, Double?> false depth = 0
+2021-03-12 11:06:51,775 [main:43] - GENERATING CALL OF fun <K, V> linkedMapOf(pairs: Pair<Sequence<Boolean>, Double?>): LkedHashMap<Sequence<Boolean>, Double?> = TODO()
+2021-03-12 11:06:51,779 [main:61] - WITHOUT TYPE PARAMS = fun <K, V> linkedMapOf(pairs: Pair<Sequence<Boolean>, Double?>): LkedHashMap<Sequence<Boolean>, Double?> = TODO()
+2021-03-12 11:06:51,886 [main:302] - generating value of type = Pair<Sequence<Boolean>, Double?> false depth = 3
+2021-03-12 11:06:52,013 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: Sequence<Boolean>, second: Double?): Pair<Sequence<Boolean>, Double?> = TODO()
+2021-03-12 11:06:52,016 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: Sequence<Boolean>, second: Double?): Pair<Sequence<Boolean>, Double?> = TODO()
+2021-03-12 11:06:52,215 [main:302] - generating value of type = Sequence<Boolean> false depth = 6
+2021-03-12 11:06:52,361 [main:43] - GENERATING CALL OF fun <T> emptySequence(): Sequence<Boolean> = TODO()
+2021-03-12 11:06:52,364 [main:61] - WITHOUT TYPE PARAMS = fun <T> emptySequence(): Sequence<Boolean> = TODO()
+2021-03-12 11:06:52,470 [main:95] - GENERATED = emptySequence<Boolean>()
+2021-03-12 11:06:52,470 [main:302] - generating value of type = Double true depth = 6
+2021-03-12 11:06:52,471 [main:95] - GENERATED = Pair<Sequence<Boolean>, Double?>(emptySequence<Boolean>(), 0.5634267458109272)
+2021-03-12 11:06:52,471 [main:95] - GENERATED = linkedMapOf<Sequence<Boolean>, Double?>(Pair<Sequence<Boolean>, Double?>(emptySequence<Boolean>(), 0.5634267458109272))
+2021-03-12 11:06:52,853 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]
+2021-03-12 11:06:52,997 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:52,999 [main:78] - Generated call from random type = (linkedMapOf<Sequence<Boolean>, Double?>(Pair<Sequence<Boolean>, Double?>(emptySequence<Boolean>(), 0.5634267458109272))).size.toString(1166099510)
+2021-03-12 11:06:52,999 [main:106] - GETTING String from String
+2021-03-12 11:06:53,045 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@605f6b41]]
+2021-03-12 11:06:53,046 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:06:53,144 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:53,145 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@605f6b41]
+2021-03-12 11:06:53,145 [main:117] - GENERATED CALL = (expected).get(947171332).uppercase()
+2021-03-12 11:06:53,145 [main:113] - Case = [public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@743615f1], @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]]
+2021-03-12 11:06:53,145 [main:149] - GENERATING call of type public abstract operator fun compareTo(other: kotlin.String): kotlin.Int defined in kotlin.Comparable[DeserializedSimpleFunctionDescriptor@743615f1]
+2021-03-12 11:06:53,146 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Int.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@56b362d5]
+2021-03-12 11:06:53,312 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:53,313 [main:117] - GENERATED CALL = (expected).compareTo(expected).toString(-1227100895)
+2021-03-12 11:06:53,314 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4], public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]]
+2021-03-12 11:06:53,314 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4]
+2021-03-12 11:06:53,409 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:53,516 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:53,517 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]
+2021-03-12 11:06:53,618 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:06:53,712 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:06:53,713 [main:117] - GENERATED CALL = (expected).subSequence(-480455663, -1202994132).commonPrefixWith("nozuj", false)
+2021-03-12 11:06:53,713 [main:113] - Case = [public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@a6402f3]]
+2021-03-12 11:06:53,713 [main:149] - GENERATING call of type public fun kotlin.String.drop(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@a6402f3]
+2021-03-12 11:06:53,807 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:53,808 [main:117] - GENERATED CALL = (expected).drop(367908696)
+2021-03-12 11:06:53,808 [main:113] - Case = [public fun kotlin.String.substringAfter(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2169fa76]]
+2021-03-12 11:06:53,808 [main:149] - GENERATING call of type public fun kotlin.String.substringAfter(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2169fa76]
+2021-03-12 11:06:53,907 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 11:06:54,040 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:54,053 [main:117] - GENERATED CALL = (expected).substringAfter('줱', "xbbxm")
+2021-03-12 11:06:54,053 [main:113] - Case = [public fun kotlin.CharSequence.repeat(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6b6d3435]]
+2021-03-12 11:06:54,053 [main:149] - GENERATING call of type public fun kotlin.CharSequence.repeat(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6b6d3435]
+2021-03-12 11:06:54,196 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:06:54,198 [main:117] - GENERATED CALL = (expected).repeat(92795385)
+2021-03-12 11:06:54,198 [main:113] - Case = [public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31427320]]
+2021-03-12 11:06:54,198 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31427320]
+2021-03-12 11:06:54,345 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:06:54,346 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:06:54,348 [main:117] - GENERATED CALL = (expected).takeLastWhile({a: Char -> false})
+2021-03-12 11:06:54,349 [main:113] - Case = [public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7ac0d5e1]]
+2021-03-12 11:06:54,349 [main:149] - GENERATING call of type public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7ac0d5e1]
+2021-03-12 11:06:54,481 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:06:54,489 [main:117] - GENERATED CALL = (expected).removeSurrounding(StringBuilder())
+2021-03-12 11:06:54,489 [main:113] - Case = [public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]]
+2021-03-12 11:06:54,489 [main:149] - GENERATING call of type public fun kotlin.CharSequence.commonPrefixWith(other: kotlin.CharSequence, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@62a877f4]
+2021-03-12 11:06:54,619 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:06:54,774 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:06:54,776 [main:117] - GENERATED CALL = (expected).commonPrefixWith("vepxl", false)
+2021-03-12 11:06:54,777 [main:113] - Case = [public final operator fun plus(other: kotlin.Any?): kotlin.String defined in kotlin.String[DeserializedSimpleFunctionDescriptor@706b8129]]
+2021-03-12 11:06:54,777 [main:149] - GENERATING call of type public final operator fun plus(other: kotlin.Any?): kotlin.String defined in kotlin.String[DeserializedSimpleFunctionDescriptor@706b8129]
+2021-03-12 11:06:54,912 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 11:06:54,913 [main:117] - GENERATED CALL = (expected).plus("yjjij")
+2021-03-12 11:06:54,913 [main:61] - replacement of "java.lang.$expected" of type String is (expected).takeLastWhile({a: Char -> false})
+2021-03-12 11:06:55,038 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:06:55,038 [main:66] - Compilation checking started
+2021-03-12 11:06:55,712 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == (expected).takeLastWhile({a: Char -> false})) {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+
+2021-03-12 11:06:55,713 [main:53] - replacing ("java.lang.$expected", String)
+2021-03-12 11:06:55,713 [main:50] - replacing "java.lang.$expected" String
+2021-03-12 11:06:55,714 [main:54] - Getting value of type String
+2021-03-12 11:06:55,850 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:06:55,851 [main:58] - GENERATED VALUE OF TYPE String = "tfurc"
+2021-03-12 11:06:55,851 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:58,294 [main:67] - randomType = Pair<HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, Float?>?
+2021-03-12 11:06:58,540 [main:302] - generating value of type = Pair<HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, Float?> false depth = 0
+2021-03-12 11:06:58,747 [main:43] - GENERATING CALL OF fun <A, B> Pair(first: HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, second: Float?): Pair<HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, Float?> = TODO()
+2021-03-12 11:06:58,751 [main:61] - WITHOUT TYPE PARAMS = fun <A, B> Pair(first: HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, second: Float?): Pair<HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, Float?> = TODO()
+2021-03-12 11:06:58,918 [main:302] - generating value of type = HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>> false depth = 3
+2021-03-12 11:06:59,207 [main:43] - GENERATING CALL OF fun <T> linkedSetOf(): HashSet<MutableMap<Function1<LkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>> = TODO()
+2021-03-12 11:06:59,210 [main:61] - WITHOUT TYPE PARAMS = fun <T> linkedSetOf(): HashSet<MutableMap<Function1<LkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>> = TODO()
+2021-03-12 11:06:59,336 [main:95] - GENERATED = linkedSetOf<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>()
+2021-03-12 11:06:59,336 [main:302] - generating value of type = Float true depth = 3
+2021-03-12 11:06:59,337 [main:95] - GENERATED = Pair<HashSet<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>, Float?>(linkedSetOf<MutableMap<Function1<LinkedHashSet<UShort?>?, Function1<Long, Function1<UShort, Short>>>, Long?>>(), 0.4329968f)
+2021-03-12 11:06:59,427 [main:61] - replacement of "java.lang.$expected" of type String is "tfurc"
+2021-03-12 11:06:59,584 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:06:59,586 [main:53] - replacing (clazz.canonicalName == (expected).takeLastWhile({a: Char -> false}), Boolean)
+2021-03-12 11:06:59,587 [main:50] - replacing clazz.canonicalName == (expected).takeLastWhile({a: Char -> false}) Boolean
+2021-03-12 11:06:59,587 [main:54] - Getting value of type Boolean
+2021-03-12 11:06:59,764 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:06:59,765 [main:58] - GENERATED VALUE OF TYPE Boolean = false
+2021-03-12 11:06:59,765 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:06:59,907 [main:67] - randomType = ArrayList<Int>
+2021-03-12 11:07:00,005 [main:302] - generating value of type = ArrayList<Int> false depth = 0
+2021-03-12 11:07:00,100 [main:43] - GENERATING CALL OF fun <T> arrayListOf(): ArrayList<Int> = TODO()
+2021-03-12 11:07:00,103 [main:61] - WITHOUT TYPE PARAMS = fun <T> arrayListOf(): ArrayList<Int> = TODO()
+2021-03-12 11:07:00,264 [main:95] - GENERATED = arrayListOf<Int>()
+2021-03-12 11:07:00,568 [main:149] - GENERATING call of type protected open fun toArray(): kotlin.Array<kotlin.Any?> defined in kotlin.collections.ArrayList[DeserializedSimpleFunctionDescriptor@78dade2b]
+2021-03-12 11:07:00,569 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.Array[DeserializedSimpleFunctionDescriptor@31aac549]
+2021-03-12 11:07:00,703 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 11:07:00,704 [main:78] - Generated call from random type = (arrayListOf<Int>()).toArray().equals("bbsum")
+2021-03-12 11:07:00,706 [main:106] - GETTING Boolean from String
+2021-03-12 11:07:00,746 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], public fun kotlin.Char.isLetterOrDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e2acb42]]
+2021-03-12 11:07:00,747 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:07:00,895 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:00,897 [main:149] - GENERATING call of type public fun kotlin.Char.isLetterOrDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2e2acb42]
+2021-03-12 11:07:00,897 [main:117] - GENERATED CALL = (expected).get(1450359811).isLetterOrDigit()
+2021-03-12 11:07:00,898 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], public fun kotlin.Char.isLowerCase(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@58ce5b2c]]
+2021-03-12 11:07:00,898 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:07:01,019 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,020 [main:149] - GENERATING call of type public fun kotlin.Char.isLowerCase(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@58ce5b2c]
+2021-03-12 11:07:01,021 [main:117] - GENERATED CALL = (expected).get(1976076844).isLowerCase()
+2021-03-12 11:07:01,021 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4], public fun kotlin.CharSequence.isBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6fdc7574]]
+2021-03-12 11:07:01,021 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4]
+2021-03-12 11:07:01,123 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,241 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,242 [main:149] - GENERATING call of type public fun kotlin.CharSequence.isBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6fdc7574]
+2021-03-12 11:07:01,243 [main:117] - GENERATED CALL = (expected).subSequence(869243818, -1850775557).isBlank()
+2021-03-12 11:07:01,244 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isNotBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d466702]]
+2021-03-12 11:07:01,244 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isNotBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d466702]
+2021-03-12 11:07:01,244 [main:117] - GENERATED CALL = (expected).isNotBlank()
+2021-03-12 11:07:01,245 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], public fun kotlin.Char.isISOControl(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3c7eb5c7]]
+2021-03-12 11:07:01,245 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:07:01,369 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,370 [main:149] - GENERATING call of type public fun kotlin.Char.isISOControl(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3c7eb5c7]
+2021-03-12 11:07:01,371 [main:117] - GENERATED CALL = (expected).get(19106630).isISOControl()
+2021-03-12 11:07:01,371 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@7f742888], public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@72327399]]
+2021-03-12 11:07:01,371 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@7f742888]
+2021-03-12 11:07:01,506 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 11:07:01,506 [main:149] - GENERATING call of type public final infix fun and(other: kotlin.Boolean): kotlin.Boolean defined in kotlin.Boolean[DeserializedSimpleFunctionDescriptor@72327399]
+2021-03-12 11:07:01,617 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:07:01,618 [main:117] - GENERATED CALL = (expected).equals("upqgn").and(true)
+2021-03-12 11:07:01,619 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4], public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16248b15]]
+2021-03-12 11:07:01,619 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4]
+2021-03-12 11:07:01,715 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,814 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,815 [main:149] - GENERATING call of type public fun kotlin.CharSequence.any(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@16248b15]
+2021-03-12 11:07:01,816 [main:117] - GENERATED CALL = (expected).subSequence(530258113, -1851032100).any()
+2021-03-12 11:07:01,817 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], public fun kotlin.Char.isDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@815d6e8]]
+2021-03-12 11:07:01,817 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:07:01,947 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:01,948 [main:149] - GENERATING call of type public fun kotlin.Char.isDigit(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@815d6e8]
+2021-03-12 11:07:01,949 [main:117] - GENERATED CALL = (expected).get(1222459173).isDigit()
+2021-03-12 11:07:01,949 [main:113] - Case = [public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@7f742888]]
+2021-03-12 11:07:01,950 [main:149] - GENERATING call of type public open fun equals(other: kotlin.Any?): kotlin.Boolean defined in kotlin.String[DeserializedSimpleFunctionDescriptor@7f742888]
+2021-03-12 11:07:02,123 [main:302] - generating value of type = Any false depth = 0
+2021-03-12 11:07:02,124 [main:117] - GENERATED CALL = (expected).equals("ccnnv")
+2021-03-12 11:07:02,124 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4], @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isNotBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d466702]]
+2021-03-12 11:07:02,124 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4]
+2021-03-12 11:07:02,237 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:02,354 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:02,355 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.CharSequence.isNotBlank(): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2d466702]
+2021-03-12 11:07:02,356 [main:117] - GENERATED CALL = (expected).subSequence(-1823549526, -1538992514).isNotBlank()
+2021-03-12 11:07:02,356 [main:61] - replacement of clazz.canonicalName == (expected).takeLastWhile({a: Char -> false}) of type Boolean is (expected).get(1222459173).isDigit()
+2021-03-12 11:07:02,460 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:02,460 [main:66] - Compilation checking started
+2021-03-12 11:07:02,791 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert ((expected).get(1222459173).isDigit()) {
+        (expected).dropLast(1341916916)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:02,791 [main:53] - replacing ("Long", String)
+2021-03-12 11:07:02,792 [main:50] - replacing "Long" String
+2021-03-12 11:07:02,792 [main:54] - Getting value of type String
+2021-03-12 11:07:02,886 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:02,886 [main:58] - GENERATED VALUE OF TYPE String = "mxjif"
+2021-03-12 11:07:02,887 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:02,887 [main:67] - randomType = Float
+2021-03-12 11:07:03,003 [main:302] - generating value of type = Float true depth = 0
+2021-03-12 11:07:03,071 [main:149] - GENERATING call of type public open fun toLong(): kotlin.Long defined in kotlin.Float[DeserializedSimpleFunctionDescriptor@3d99cc44]
+2021-03-12 11:07:03,072 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@765e7ba1]
+2021-03-12 11:07:03,188 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:03,189 [main:78] - Generated call from random type = (0.09488028f).toLong().toString(-1340981650)
+2021-03-12 11:07:03,189 [main:61] - replacement of "Long" of type String is (0.09488028f).toLong().toString(-1340981650)
+2021-03-12 11:07:03,282 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:03,374 [main:119] - TRYING TO REPLACE CONSTANT 1341916916
+2021-03-12 11:07:03,469 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 11:07:03,470 [main:66] - Compilation checking started
+2021-03-12 11:07:03,865 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert ((expected).get(1222459173).isDigit()) {
+        (expected).dropLast(1222459173)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>((14).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:03,865 [main:119] - TRYING TO REPLACE CONSTANT 14
+2021-03-12 11:07:04,025 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(PARENTHESIZED)
+2021-03-12 11:07:04,026 [main:66] - Compilation checking started
+2021-03-12 11:07:04,458 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert ((expected).get(1222459173).isDigit()) {
+        (expected).dropLast(1222459173)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>(((14)).toShort().toString(43930966))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:04,458 [main:119] - TRYING TO REPLACE CONSTANT 43930966
+2021-03-12 11:07:04,583 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(PARENTHESIZED)
+2021-03-12 11:07:04,583 [main:66] - Compilation checking started
+2021-03-12 11:07:04,923 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert ((expected).get(1222459173).isDigit()) {
+        (expected).dropLast(1222459173)
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("vwcdy")
+    check<Byte>("Byte")
+    check<Short>("fbzzy")
+    check<Int>(((14)).toShort().toString(((14))))
+    check<Float>("kxrqn")
+    check<Long>("xkayi")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:04,923 [main:119] - TRYING TO REPLACE CONSTANT 1222459173
+2021-03-12 11:07:05,023 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 11:07:05,023 [main:66] - Compilation checking started
+2021-03-12 11:07:05,468 [main:66] - Compilation checking started
+2021-03-12 11:07:05,878 [main:41] - AFTER TRY 0 res = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+2021-03-12 11:07:06,317 [main:43] - GENERATING CALL OF inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:07:06,552 [main:61] - WITHOUT TYPE PARAMS = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:07:06,647 [main:302] - generating value of type = String true depth = 1
+2021-03-12 11:07:06,648 [main:95] - GENERATED = check<LinkedHashSet<Long?>>("uxkjk")
+2021-03-12 11:07:06,752 [main:43] - Try №0
+2021-03-12 11:07:08,673 [main:69] - Trying to insert fun box737(): String {
+    val prope0 = fu0(Kla0("O", "K")) { i, (prope0, Ty0), v -> i.toString() + prope0 + Ty0 + v }
+
+    if (prope0 != "1OK#") return "fail 1: $prope0"
+
+    return "OK"
+}
+2021-03-12 11:07:08,811 [main:66] - Compilation checking started
+2021-03-12 11:07:09,563 [main:103] - Trying to change 25 nodes
+2021-03-12 11:07:09,563 [main:107] - replacing (prope0 != "1OK#", Boolean)
+2021-03-12 11:07:09,563 [main:50] - replacing prope0 != "1OK#" Boolean
+2021-03-12 11:07:09,563 [main:54] - Getting value of type Boolean
+2021-03-12 11:07:09,660 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:07:09,661 [main:58] - GENERATED VALUE OF TYPE Boolean = true
+2021-03-12 11:07:09,661 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:09,663 [main:67] - randomType = Kla0
+2021-03-12 11:07:09,751 [main:302] - generating value of type = Kla0 false depth = 0
+2021-03-12 11:07:09,752 [main:112] - generating klass Kla0 text = data class Kla0(val prope0: String, val Ty0: String)
+2021-03-12 11:07:09,847 [main:194] - Type params = []
+2021-03-12 11:07:09,939 [main:302] - generating value of type = String true depth = 2
+2021-03-12 11:07:09,939 [main:302] - generating value of type = String true depth = 2
+2021-03-12 11:07:09,949 [main:149] - GENERATING call of type public fun kotlin.String.endsWith(suffix: kotlin.String, ignoreCase: kotlin.Boolean = ...): kotlin.Boolean defined in kotlin.text[DeserializedSimpleFunctionDescriptor@347f0591]
+2021-03-12 11:07:10,037 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:10,124 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:07:10,125 [main:78] - Generated call from random type = (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)
+2021-03-12 11:07:10,125 [main:114] - replacement of prope0 != "1OK#" of type Boolean is (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)
+2021-03-12 11:07:10,245 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:10,245 [main:66] - Compilation checking started
+2021-03-12 11:07:10,677 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("O", "K")) { i, (prope0, Ty0), v -> i.toString() + prope0 + Ty0 + v }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "fail 1: $prope0"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:10,678 [main:107] - replacing ("fail 1: $prope0", String)
+2021-03-12 11:07:10,678 [main:50] - replacing "fail 1: $prope0" String
+2021-03-12 11:07:10,678 [main:54] - Getting value of type String
+2021-03-12 11:07:10,775 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:10,776 [main:58] - GENERATED VALUE OF TYPE String = "bqhgu"
+2021-03-12 11:07:10,776 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:10,984 [main:67] - randomType = Function1<UShort, Kla0>
+2021-03-12 11:07:10,984 [main:114] - replacement of "fail 1: $prope0" of type String is "bqhgu"
+2021-03-12 11:07:11,073 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:07:11,073 [main:66] - Compilation checking started
+2021-03-12 11:07:11,597 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("O", "K")) { i, (prope0, Ty0), v -> i.toString() + prope0 + Ty0 + v }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:11,598 [main:107] - replacing (Kla0("O", "K"), Kla0)
+2021-03-12 11:07:11,599 [main:50] - replacing Kla0("O", "K") Kla0
+2021-03-12 11:07:11,599 [main:54] - Getting value of type Kla0
+2021-03-12 11:07:11,730 [main:302] - generating value of type = Kla0 false depth = 0
+2021-03-12 11:07:11,731 [main:112] - generating klass Kla0 text = data class Kla0(val prope0: String, val Ty0: String)
+2021-03-12 11:07:11,840 [main:194] - Type params = []
+2021-03-12 11:07:11,928 [main:302] - generating value of type = String true depth = 2
+2021-03-12 11:07:11,928 [main:302] - generating value of type = String true depth = 2
+2021-03-12 11:07:11,929 [main:58] - GENERATED VALUE OF TYPE Kla0 = Kla0("wxlbz", "hpsts")
+2021-03-12 11:07:11,929 [main:61] - GENERATED IS CALL =true
+2021-03-12 11:07:12,820 [main:67] - randomType = Function2<Kla0, Kla0, Function2<UByte?, Pair<Char, Double>, UInt?>>
+2021-03-12 11:07:12,820 [main:114] - replacement of Kla0("O", "K") of type Kla0 is Kla0("wxlbz", "hpsts")
+2021-03-12 11:07:12,968 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 11:07:12,969 [main:66] - Compilation checking started
+2021-03-12 11:07:13,546 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> i.toString() + prope0 + Ty0 + v }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:13,547 [main:107] - replacing (i.toString() + prope0, String)
+2021-03-12 11:07:13,547 [main:50] - replacing i.toString() + prope0 String
+2021-03-12 11:07:13,547 [main:54] - Getting value of type String
+2021-03-12 11:07:13,763 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:13,764 [main:58] - GENERATED VALUE OF TYPE String = "iveep"
+2021-03-12 11:07:13,764 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:13,911 [main:67] - randomType = Int?
+2021-03-12 11:07:14,029 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:14,094 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@a28d4f4]
+2021-03-12 11:07:14,095 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi public fun kotlin.Char.titlecase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@91c2400]
+2021-03-12 11:07:14,095 [main:78] - Generated call from random type = (268112654)?.toChar().titlecase()
+2021-03-12 11:07:14,096 [main:114] - replacement of i.toString() + prope0 of type String is (268112654)?.toChar().titlecase()
+2021-03-12 11:07:14,200 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:14,201 [main:66] - Compilation checking started
+2021-03-12 11:07:14,747 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (268112654)?.toChar().titlecase() + Ty0 + v }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:14,748 [main:107] - replacing ((268112654)?.toChar().titlecase() + Ty0, String)
+2021-03-12 11:07:14,748 [main:50] - replacing (268112654)?.toChar().titlecase() + Ty0 String
+2021-03-12 11:07:14,748 [main:54] - Getting value of type String
+2021-03-12 11:07:14,879 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:14,880 [main:58] - GENERATED VALUE OF TYPE String = "xdznk"
+2021-03-12 11:07:14,880 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:14,881 [main:67] - randomType = Short
+2021-03-12 11:07:14,979 [main:302] - generating value of type = Short true depth = 0
+2021-03-12 11:07:15,044 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Short[DeserializedSimpleFunctionDescriptor@22822577]
+2021-03-12 11:07:15,045 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bf2213c]
+2021-03-12 11:07:15,145 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:15,146 [main:78] - Generated call from random type = (-25853).toChar().plus("dydxl")
+2021-03-12 11:07:15,146 [main:114] - replacement of (268112654)?.toChar().titlecase() + Ty0 of type String is (-25853).toChar().plus("dydxl")
+2021-03-12 11:07:15,250 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:15,251 [main:66] - Compilation checking started
+2021-03-12 11:07:15,734 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (-25853).toChar().plus("dydxl") + v }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:15,735 [main:107] - replacing ((-25853).toChar().plus("dydxl") + v, String)
+2021-03-12 11:07:15,735 [main:50] - replacing (-25853).toChar().plus("dydxl") + v String
+2021-03-12 11:07:15,735 [main:54] - Getting value of type String
+2021-03-12 11:07:15,831 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:15,832 [main:58] - GENERATED VALUE OF TYPE String = "xrojp"
+2021-03-12 11:07:15,832 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:15,833 [main:67] - randomType = Double
+2021-03-12 11:07:15,931 [main:302] - generating value of type = Double true depth = 0
+2021-03-12 11:07:15,977 [main:149] - GENERATING call of type public open fun toChar(): kotlin.Char defined in kotlin.Double[DeserializedSimpleFunctionDescriptor@103109d3]
+2021-03-12 11:07:15,978 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline operator fun kotlin.Char.plus(other: kotlin.String): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bf2213c]
+2021-03-12 11:07:16,081 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:16,082 [main:78] - Generated call from random type = (0.16868534102080912).toChar().plus("pbmoz")
+2021-03-12 11:07:16,082 [main:114] - replacement of (-25853).toChar().plus("dydxl") + v of type String is (0.16868534102080912).toChar().plus("pbmoz")
+2021-03-12 11:07:16,200 [main:33] - Trying to replace Element(BINARY_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:16,200 [main:66] - Compilation checking started
+2021-03-12 11:07:16,672 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (0.16868534102080912).toChar().plus("pbmoz") }
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:16,672 [main:107] - replacing (fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (0.16868534102080912).toChar().plus("pbmoz") }, String)
+2021-03-12 11:07:16,672 [main:50] - replacing fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (0.16868534102080912).toChar().plus("pbmoz") } String
+2021-03-12 11:07:16,672 [main:54] - Getting value of type String
+2021-03-12 11:07:16,775 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:16,775 [main:58] - GENERATED VALUE OF TYPE String = "esvbt"
+2021-03-12 11:07:16,776 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:16,777 [main:67] - randomType = String
+2021-03-12 11:07:16,888 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:16,921 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31427320]
+2021-03-12 11:07:17,022 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:17,023 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:17,024 [main:78] - Generated call from random type = ("xcddf").takeLastWhile({a: Char -> false})
+2021-03-12 11:07:17,024 [main:114] - replacement of fu0(Kla0("wxlbz", "hpsts")) { i, (prope0, Ty0), v -> (0.16868534102080912).toChar().plus("pbmoz") } of type String is ("xcddf").takeLastWhile({a: Char -> false})
+2021-03-12 11:07:17,117 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:17,118 [main:66] - Compilation checking started
+2021-03-12 11:07:17,480 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = block(1, a, "#")
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:17,481 [main:107] - replacing (block(1, a, "#"), String)
+2021-03-12 11:07:17,481 [main:50] - replacing block(1, a, "#") String
+2021-03-12 11:07:17,481 [main:54] - Getting value of type String
+2021-03-12 11:07:17,608 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:17,608 [main:58] - GENERATED VALUE OF TYPE String = "byvda"
+2021-03-12 11:07:17,608 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:17,734 [main:67] - randomType = UInt
+2021-03-12 11:07:17,818 [main:302] - generating value of type = UInt true depth = 0
+2021-03-12 11:07:17,865 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public final inline fun toLong(): kotlin.Long defined in kotlin.UInt[DeserializedSimpleFunctionDescriptor@2626d6a8]
+2021-03-12 11:07:17,865 [main:149] - GENERATING call of type @kotlin.SinceKotlin public fun kotlin.Long.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@765e7ba1]
+2021-03-12 11:07:17,964 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:17,965 [main:78] - Generated call from random type = (1976483799.toUInt()).toLong().toString(1400086334)
+2021-03-12 11:07:17,965 [main:114] - replacement of block(1, a, "#") of type String is (1976483799.toUInt()).toLong().toString(1400086334)
+2021-03-12 11:07:18,051 [main:33] - Trying to replace Element(CALL_EXPRESSION) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:18,052 [main:66] - Compilation checking started
+2021-03-12 11:07:18,499 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1976483799.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:18,500 [main:107] - replacing ("OK", String)
+2021-03-12 11:07:18,500 [main:50] - replacing "OK" String
+2021-03-12 11:07:18,500 [main:54] - Getting value of type String
+2021-03-12 11:07:18,589 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:18,590 [main:58] - GENERATED VALUE OF TYPE String = "jsacn"
+2021-03-12 11:07:18,590 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:18,591 [main:67] - randomType = Int
+2021-03-12 11:07:18,714 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:18,778 [main:149] - GENERATING call of type public open fun toByte(): kotlin.Byte defined in kotlin.Int[DeserializedSimpleFunctionDescriptor@38d454fa]
+2021-03-12 11:07:18,779 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.internal.InlineOnly public inline fun kotlin.Byte.toString(radix: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5329b4b2]
+2021-03-12 11:07:18,864 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:18,865 [main:78] - Generated call from random type = (1943183183).toByte().toString(-850105414)
+2021-03-12 11:07:18,866 [main:114] - replacement of "OK" of type String is "jsacn"
+2021-03-12 11:07:18,965 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(STRING_TEMPLATE)
+2021-03-12 11:07:18,966 [main:66] - Compilation checking started
+2021-03-12 11:07:19,361 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1976483799.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false)) return "bqhgu"
+
+    return "jsacn"
+}
+
+
+2021-03-12 11:07:19,454 [main:141] - TRYING TO REPLACE CONSTANT false
+2021-03-12 11:07:19,573 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:19,573 [main:66] - Compilation checking started
+2021-03-12 11:07:19,936 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1976483799.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+
+2021-03-12 11:07:19,936 [main:141] - TRYING TO REPLACE CONSTANT false
+2021-03-12 11:07:20,035 [main:33] - Trying to replace Element(BOOLEAN_CONSTANT) on Element(BOOLEAN_CONSTANT)
+2021-03-12 11:07:20,035 [main:66] - Compilation checking started
+2021-03-12 11:07:20,424 [main:141] - TRYING TO REPLACE CONSTANT 1976483799
+2021-03-12 11:07:20,516 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 11:07:20,517 [main:66] - Compilation checking started
+2021-03-12 11:07:20,917 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+
+2021-03-12 11:07:20,918 [main:141] - TRYING TO REPLACE CONSTANT 1400086334
+2021-03-12 11:07:21,027 [main:33] - Trying to replace Element(INTEGER_CONSTANT) on Element(INTEGER_CONSTANT)
+2021-03-12 11:07:21,028 [main:66] - Compilation checking started
+2021-03-12 11:07:21,354 [main:41] - AFTER TRY 1 res = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+
+2021-03-12 11:07:21,525 [main:112] - generating klass Kla0 text = data class Kla0(val prope0: String, val Ty0: String)
+2021-03-12 11:07:21,607 [main:194] - Type params = []
+2021-03-12 11:07:21,690 [main:302] - generating value of type = String true depth = 1
+2021-03-12 11:07:21,690 [main:302] - generating value of type = String true depth = 1
+2021-03-12 11:07:21,857 [main:43] - GENERATING CALL OF inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:07:21,859 [main:61] - WITHOUT TYPE PARAMS = inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+2021-03-12 11:07:21,949 [main:302] - generating value of type = String true depth = 1
+2021-03-12 11:07:21,950 [main:95] - GENERATED = check<Kla0>("sebqq")
+2021-03-12 11:07:22,049 [main:43] - GENERATING CALL OF fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+2021-03-12 11:07:22,050 [main:61] - WITHOUT TYPE PARAMS = fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+2021-03-12 11:07:22,228 [main:302] - generating value of type = Kla0 false depth = 1
+2021-03-12 11:07:22,228 [main:112] - generating klass Kla0 text = data class Kla0(val prope0: String, val Ty0: String)
+2021-03-12 11:07:22,319 [main:194] - Type params = []
+2021-03-12 11:07:22,406 [main:302] - generating value of type = String true depth = 3
+2021-03-12 11:07:22,407 [main:302] - generating value of type = String true depth = 3
+2021-03-12 11:07:22,407 [main:302] - generating value of type = Function3<Int, Kla0, String, String> false depth = 1
+2021-03-12 11:07:22,408 [main:302] - generating value of type = String true depth = 2
+2021-03-12 11:07:22,408 [main:95] - GENERATED = fu0(Kla0("aavas", "ypbmk"), {a: Int, b: Kla0, c: String -> "zhqkn"})
+2021-03-12 11:07:22,506 [main:43] - Try №1
+2021-03-12 11:07:24,660 [main:69] - Trying to insert fun fu2() = i
+2021-03-12 11:07:24,789 [main:66] - Compilation checking started
+2021-03-12 11:07:25,571 [main:103] - Trying to change 22 nodes
+2021-03-12 11:07:25,571 [main:107] - replacing ("wrong modifier on receiver parameter: ${prope2[0].modifiers}", String)
+2021-03-12 11:07:25,572 [main:50] - replacing "wrong modifier on receiver parameter: ${prope2[0].modifiers}" String
+2021-03-12 11:07:25,572 [main:54] - Getting value of type String
+2021-03-12 11:07:25,674 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:25,675 [main:58] - GENERATED VALUE OF TYPE String = "izcyt"
+2021-03-12 11:07:25,676 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:26,137 [main:67] - randomType = MutableMap<Map<Char, UByte>, Boolean?>
+2021-03-12 11:07:26,137 [main:106] - GETTING String from String
+2021-03-12 11:07:26,159 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7fedf1ba]]
+2021-03-12 11:07:26,159 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.String.uppercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7fedf1ba]
+2021-03-12 11:07:26,160 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).uppercase()
+2021-03-12 11:07:26,160 [main:113] - Case = [public fun kotlin.String.takeLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@38ec7cb0]]
+2021-03-12 11:07:26,160 [main:149] - GENERATING call of type public fun kotlin.String.takeLast(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@38ec7cb0]
+2021-03-12 11:07:26,253 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:26,254 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).takeLast(-653597820)
+2021-03-12 11:07:26,254 [main:113] - Case = [@kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f95a76a]]
+2021-03-12 11:07:26,254 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.OverloadResolutionByLambdaReturnType @kotlin.jvm.JvmName @kotlin.internal.InlineOnly public inline fun kotlin.String.replaceFirstChar(transform: (kotlin.Char) -> kotlin.Char): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7f95a76a]
+2021-03-12 11:07:26,370 [main:302] - generating value of type = Function1<Char, Char> false depth = 0
+2021-03-12 11:07:26,371 [main:302] - generating value of type = Char true depth = 1
+2021-03-12 11:07:26,372 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).replaceFirstChar({a: Char -> '䌓'})
+2021-03-12 11:07:26,372 [main:113] - Case = [public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b64a8cc]]
+2021-03-12 11:07:26,373 [main:149] - GENERATING call of type public fun kotlin.String.trimIndent(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2b64a8cc]
+2021-03-12 11:07:26,373 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).trimIndent()
+2021-03-12 11:07:26,373 [main:113] - Case = [public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d9051f2]]
+2021-03-12 11:07:26,373 [main:149] - GENERATING call of type public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d9051f2]
+2021-03-12 11:07:26,473 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:26,474 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:26,476 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).filterNot({a: Char -> false})
+2021-03-12 11:07:26,476 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cd58c69]]
+2021-03-12 11:07:26,476 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.slice(indices: kotlin.collections.Iterable<kotlin.Int>): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@1cd58c69]
+2021-03-12 11:07:26,586 [main:302] - generating value of type = Iterable<Int> false depth = 0
+2021-03-12 11:07:26,720 [main:43] - GENERATING CALL OF fun <T> listOf(elements: Int): Iterable<Int> = TODO()
+2021-03-12 11:07:26,723 [main:61] - WITHOUT TYPE PARAMS = fun <T> listOf(elements: Int): Iterable<Int> = TODO()
+2021-03-12 11:07:26,835 [main:302] - generating value of type = Int true depth = 3
+2021-03-12 11:07:26,836 [main:95] - GENERATED = listOf<Int>(-1457203229)
+2021-03-12 11:07:26,836 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).slice(listOf<Int>(-1457203229))
+2021-03-12 11:07:26,836 [main:113] - Case = [public inline fun kotlin.String.filter(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6aaa0ef7]]
+2021-03-12 11:07:26,837 [main:149] - GENERATING call of type public inline fun kotlin.String.filter(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6aaa0ef7]
+2021-03-12 11:07:26,939 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:26,940 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:26,941 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).filter({a: Char -> true})
+2021-03-12 11:07:26,941 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f1e623b]]
+2021-03-12 11:07:26,941 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.trimEnd(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@2f1e623b]
+2021-03-12 11:07:26,941 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).trimEnd()
+2021-03-12 11:07:26,942 [main:113] - Case = [public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@59a08004]]
+2021-03-12 11:07:26,942 [main:149] - GENERATING call of type public inline fun kotlin.String.takeWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@59a08004]
+2021-03-12 11:07:27,037 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:27,038 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:27,039 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).takeWhile({a: Char -> true})
+2021-03-12 11:07:27,039 [main:113] - Case = [public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4], public fun kotlin.CharSequence.repeat(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6b6d3435]]
+2021-03-12 11:07:27,039 [main:149] - GENERATING call of type public open fun subSequence(startIndex: kotlin.Int, endIndex: kotlin.Int): kotlin.CharSequence defined in kotlin.String[DeserializedSimpleFunctionDescriptor@2e85c7c4]
+2021-03-12 11:07:27,137 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:27,234 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:27,235 [main:149] - GENERATING call of type public fun kotlin.CharSequence.repeat(n: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@6b6d3435]
+2021-03-12 11:07:27,329 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:27,330 [main:117] - GENERATED CALL = ((Kla0("aahei", "fpfgk")).prope0).subSequence(289374114, -1323109950).repeat(-1569056077)
+2021-03-12 11:07:27,330 [main:114] - replacement of "wrong modifier on receiver parameter: ${prope2[0].modifiers}" of type String is (Kla0("aahei", "fpfgk")).prope0
+2021-03-12 11:07:27,427 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:27,427 [main:66] - Compilation checking started
+2021-03-12 11:07:27,949 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+inline class Kla1(val i: Int) {
+    fun fu2() = i
+}
+
+fun Kla1.fu1() = this.i
+
+fun box513(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+val prope1 = Class.forName("A").declaredMethods.single { it.name == "f-impl" }
+    val prope2 = prope1.getParameters()
+    if (!prope2[0].isSynthetic()) return (Kla0("aahei", "fpfgk")).prope0
+
+    val prope3 = Class.forName("AKt").declaredMethods.single { it.name.contains("extension") }
+    val prope4 = prope3.getParameters()
+    if (prope4[0].isSynthetic())
+        return "wrong modifier (synthetic) on extension receiver parameter: ${prope4[0].modifiers}"
+    if (!prope4[0].isImplicit())
+        return "wrong modifier (not implicit) on extension receiver parameter: ${prope4[0].modifiers}"
+
+    return "OK"
+}
+
+
+2021-03-12 11:07:27,950 [main:107] - replacing ("OK", String)
+2021-03-12 11:07:27,950 [main:50] - replacing "OK" String
+2021-03-12 11:07:27,950 [main:54] - Getting value of type String
+2021-03-12 11:07:28,044 [main:302] - generating value of type = String true depth = 0
+2021-03-12 11:07:28,045 [main:58] - GENERATED VALUE OF TYPE String = "fzwva"
+2021-03-12 11:07:28,045 [main:61] - GENERATED IS CALL =false
+2021-03-12 11:07:28,156 [main:67] - randomType = Collection<Char>
+2021-03-12 11:07:28,156 [main:106] - GETTING String from String
+2021-03-12 11:07:28,188 [main:113] - Case = [public fun kotlin.String.capitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5f996ddd]]
+2021-03-12 11:07:28,188 [main:149] - GENERATING call of type public fun kotlin.String.capitalize(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5f996ddd]
+2021-03-12 11:07:28,189 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).capitalize()
+2021-03-12 11:07:28,189 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@25f1528a]]
+2021-03-12 11:07:28,189 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.substring(startIndex: kotlin.Int): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@25f1528a]
+2021-03-12 11:07:28,293 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:28,295 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).substring(1079731052)
+2021-03-12 11:07:28,295 [main:113] - Case = [public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3eb36d8e]]
+2021-03-12 11:07:28,295 [main:149] - GENERATING call of type public fun kotlin.String.removePrefix(prefix: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@3eb36d8e]
+2021-03-12 11:07:28,400 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:07:28,512 [main:43] - GENERATING CALL OF fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 11:07:28,514 [main:61] - WITHOUT TYPE PARAMS = fun StringBuilder(content: kotlin.String): CharSequence = TODO()
+2021-03-12 11:07:28,725 [main:302] - generating value of type = String true depth = 3
+2021-03-12 11:07:28,726 [main:95] - GENERATED = StringBuilder("zownz")
+2021-03-12 11:07:28,726 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).removePrefix(StringBuilder("zownz"))
+2021-03-12 11:07:28,727 [main:113] - Case = [public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d9051f2]]
+2021-03-12 11:07:28,727 [main:149] - GENERATING call of type public inline fun kotlin.String.filterNot(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@4d9051f2]
+2021-03-12 11:07:28,825 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:28,826 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:28,827 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).filterNot({a: Char -> true})
+2021-03-12 11:07:28,827 [main:113] - Case = [public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5a91b737]]
+2021-03-12 11:07:28,827 [main:149] - GENERATING call of type public fun kotlin.String.substringBeforeLast(delimiter: kotlin.Char, missingDelimiterValue: kotlin.String = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@5a91b737]
+2021-03-12 11:07:28,928 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 11:07:28,929 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).substringBeforeLast('', Kla0("umwri", "bykzz").Ty0)
+2021-03-12 11:07:28,929 [main:113] - Case = [public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31427320]]
+2021-03-12 11:07:28,929 [main:149] - GENERATING call of type public inline fun kotlin.String.takeLastWhile(predicate: (kotlin.Char) -> kotlin.Boolean): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@31427320]
+2021-03-12 11:07:29,025 [main:302] - generating value of type = Function1<Char, Boolean> false depth = 0
+2021-03-12 11:07:29,026 [main:302] - generating value of type = Boolean true depth = 1
+2021-03-12 11:07:29,027 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).takeLastWhile({a: Char -> true})
+2021-03-12 11:07:29,027 [main:113] - Case = [public fun kotlin.String.replaceFirst(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@72f0c5ff]]
+2021-03-12 11:07:29,027 [main:149] - GENERATING call of type public fun kotlin.String.replaceFirst(oldChar: kotlin.Char, newChar: kotlin.Char, ignoreCase: kotlin.Boolean = ...): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@72f0c5ff]
+2021-03-12 11:07:29,151 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 11:07:29,257 [main:302] - generating value of type = Char true depth = 0
+2021-03-12 11:07:29,354 [main:302] - generating value of type = Boolean true depth = 0
+2021-03-12 11:07:29,355 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).replaceFirst('繑', '颰', true)
+2021-03-12 11:07:29,355 [main:113] - Case = [@kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bc69b00]]
+2021-03-12 11:07:29,356 [main:149] - GENERATING call of type @kotlin.internal.InlineOnly public inline fun kotlin.String.toLowerCase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7bc69b00]
+2021-03-12 11:07:29,356 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).toLowerCase()
+2021-03-12 11:07:29,356 [main:113] - Case = [public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c], @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@621b834]]
+2021-03-12 11:07:29,356 [main:149] - GENERATING call of type public open fun get(index: kotlin.Int): kotlin.Char defined in kotlin.String[DeserializedSimpleFunctionDescriptor@19678f3c]
+2021-03-12 11:07:29,455 [main:302] - generating value of type = Int true depth = 0
+2021-03-12 11:07:29,456 [main:149] - GENERATING call of type @kotlin.SinceKotlin @kotlin.ExperimentalStdlibApi @kotlin.internal.InlineOnly public inline fun kotlin.Char.lowercase(): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@621b834]
+2021-03-12 11:07:29,456 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).get(-1765905959).lowercase()
+2021-03-12 11:07:29,456 [main:113] - Case = [public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7ac0d5e1]]
+2021-03-12 11:07:29,456 [main:149] - GENERATING call of type public fun kotlin.String.removeSurrounding(delimiter: kotlin.CharSequence): kotlin.String defined in kotlin.text[DeserializedSimpleFunctionDescriptor@7ac0d5e1]
+2021-03-12 11:07:29,564 [main:302] - generating value of type = CharSequence false depth = 0
+2021-03-12 11:07:29,569 [main:117] - GENERATED CALL = (Kla0("umwri", "bykzz").prope0).removeSurrounding("zjogo")
+2021-03-12 11:07:29,569 [main:114] - replacement of "OK" of type String is (Kla0("umwri", "bykzz").prope0).get(-1765905959).lowercase()
+2021-03-12 11:07:29,662 [main:33] - Trying to replace Element(STRING_TEMPLATE) on Element(DOT_QUALIFIED_EXPRESSION)
+2021-03-12 11:07:29,662 [main:66] - Compilation checking started
+2021-03-12 11:07:30,148 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+inline class Kla1(val i: Int) {
+    fun fu2() = i
+}
+
+fun Kla1.fu1() = this.i
+
+fun box513(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+val prope1 = Class.forName("A").declaredMethods.single { it.name == "f-impl" }
+    val prope2 = prope1.getParameters()
+    if (!prope2[0].isSynthetic()) return (Kla0("aahei", "fpfgk")).prope0
+
+    val prope3 = Class.forName("AKt").declaredMethods.single { it.name.contains("extension") }
+    val prope4 = prope3.getParameters()
+    if (prope4[0].isSynthetic())
+        return "wrong modifier (synthetic) on extension receiver parameter: ${prope4[0].modifiers}"
+    if (!prope4[0].isImplicit())
+        return "wrong modifier (not implicit) on extension receiver parameter: ${prope4[0].modifiers}"
+
+    return (Kla0("umwri", "bykzz").prope0).get(-1765905959).lowercase()
+}
+
+
+2021-03-12 11:07:30,150 [main:107] - replacing (this, Kla1)
+2021-03-12 11:07:30,150 [main:50] - replacing this Kla1
+2021-03-12 11:07:30,150 [main:54] - Getting value of type Kla1
+2021-03-12 11:07:30,269 [main:302] - generating value of type = Kla1 false depth = 0
+2021-03-12 11:07:30,269 [main:112] - generating klass Kla1 text = inline class Kla1(val i: Int) {
+    fun fu2() = i
+}
+2021-03-12 11:07:30,363 [main:194] - Type params = []
+2021-03-12 11:07:30,454 [main:302] - generating value of type = Int true depth = 2
+2021-03-12 11:07:30,455 [main:58] - GENERATED VALUE OF TYPE Kla1 = Kla1(-915418520)
+2021-03-12 11:07:30,455 [main:61] - GENERATED IS CALL =true
+2021-03-12 11:07:30,566 [main:67] - randomType = MutableMap<Kla0, Kla0>
+2021-03-12 11:07:30,567 [main:106] - GETTING Kla1 from String
+2021-03-12 11:07:30,600 [main:106] - GETTING Kla1 from String
+2021-03-12 11:07:30,601 [main:106] - GETTING Kla1 from String
+2021-03-12 11:07:30,602 [main:106] - GETTING Kla1 from Kla0
+2021-03-12 11:07:30,609 [main:106] - GETTING Kla1 from String
+2021-03-12 11:07:30,610 [main:106] - GETTING Kla1 from Kla0
+2021-03-12 11:07:30,611 [main:106] - GETTING Kla1 from String
+2021-03-12 11:07:30,612 [main:114] - replacement of this of type Kla1 is Kla1(-915418520)
+2021-03-12 11:07:30,744 [main:33] - Trying to replace Element(REFERENCE_EXPRESSION) on Element(CALL_EXPRESSION)
+2021-03-12 11:07:30,745 [main:66] - Compilation checking started
+2021-03-12 11:07:31,237 [main:53] - Result = true
+Text:
+inline fun <reified T : Any> check(expected: String) {
+    val clazz = T::class.java!!
+    assert (clazz.canonicalName == "java.lang.$expected") {
+        "clazz name: ${clazz.canonicalName}"
+    }
+}
+
+fun box(): String {
+    check<Boolean>("Boolean")
+    check<Char>("Character")
+    check<Byte>("Byte")
+    check<Short>("Short")
+    check<Int>("Integer")
+    check<Float>("Float")
+    check<Long>("Long")
+    check<Double>("Double")
+
+    check<String>("String")
+    check<Void>("Void")
+
+    return "OK"
+}
+
+data class Kla0(val prope0: String, val Ty0: String)
+
+fun fu0(a: Kla0, block: (Int, Kla0, String) -> String): String = (1400086334.toUInt()).toLong().toString(1400086334)
+
+fun box737(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+
+    if ((Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", (Kla0("aahei", "fpfgk")).prope0.endsWith("keqyd", false))) return "bqhgu"
+
+    return "jsacn"
+}
+
+inline class Kla1(val i: Int) {
+    fun fu2() = i
+}
+
+fun Kla1.fu1() = Kla1(-915418520).i
+
+fun box513(): String {
+    val prope0 = ("xcddf").takeLastWhile({a: Char -> false})
+val prope1 = Class.forName("A").declaredMethods.single { it.name == "f-impl" }
+    val prope2 = prope1.getParameters()
+    if (!prope2[0].isSynthetic()) return (Kla0("aahei", "fpfgk")).prope0
+
+    val prope3 = Class.forName("AKt").declaredMethods.single { it.name.contains("extension") }
+    val prope4 = prope3.getParameters()
+    if (prope4[0].isSynthetic())
+        return "wrong modifier (synthetic) on extension receiver parameter: ${prope4[0].modifiers}"
+    if (!prope4[0].isImplicit())
+        return "wrong modifier (not implicit) on extension receiver parameter: ${prope4[0].modifiers}"
+
+    return (Kla0("umwri", "bykzz").prope0).get(-1765905959).lowercase()
+}
+
+
+2021-03-12 11:07:31,238 [main:107] - replacing ("wrong modifier (synthetic) on extension receiver parameter: ${prope4[0].modifiers}", String)
+2021-03-12 11:07:31,239 [main:50] - replacing "wrong modifier (synthetic) on extension receiver parameter: ${prope4[0].modifiers}" String
+2021-03-12 11:07:31,239 [main:54] - Getting value of type String
