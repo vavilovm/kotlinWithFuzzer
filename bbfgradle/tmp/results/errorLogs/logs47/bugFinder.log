@@ -1,9 +1,0 @@
-2021-03-11 23:39:10,170 [main:24] - Name = /home/stepanov/Kotlin/bbfgradle/tmp/arrays/noCollectionStubMethodsInInterface.kt
-2021-03-11 23:39:13,893 [main:53] - Start to mutate
-2021-03-11 23:39:13,893 [main:54] - BEFORE = interface A<E> : Collection<E>
-interface B<E> : List<E>
-2021-03-11 23:39:14,634 [main:40] - Mutation of tmp/tmp0.kt started
-2021-03-11 23:39:14,973 [main:19] - Cur transformation AddDefaultValueToArg
-2021-03-11 23:39:15,125 [main:19] - Cur transformation LocalTCE
-2021-03-11 23:39:17,557 [main:19] - Cur transformation AddReificationToTypeParam
-2021-03-11 23:39:17,566 [main:19] - Cur transformation TCETransformation
