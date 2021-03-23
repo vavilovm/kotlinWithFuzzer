@@ -5,8 +5,13 @@ import com.stepanov.bbf.bugfinder.executor.compilers.JVMCompiler
 import com.stepanov.bbf.bugfinder.util.BBFProperties
 import org.apache.commons.io.IOUtils
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.util.*
 import java.util.jar.JarFile
+import kotlin.io.path.ExperimentalPathApi
+import kotlin.io.path.absolutePathString
+import kotlin.streams.toList
 
 object CompilerArgs {
 
@@ -30,36 +35,22 @@ object CompilerArgs {
         ?: throw IllegalArgumentException("Cannot init $name property")
 
     fun getStdLibPath(libToSearch: String): String {
-        val kotlinVersion = File("gradle.properties").readText().split("\n")
-            .find { it.startsWith("bootstrap.kotlin.default.version") }
-            ?.substringAfter('=') ?: "1.5.255-SNAPSHOT"
-//        val kotlinVersion: String by rootProject.extra
-//        val kotlinVersion =
-//            File("./bbfgradle/build.gradle").readText().lines().firstOrNull { it.trim().contains("kotlin_version") }
-//                ?: throw Exception("Dont see kotlinVersion parameter in build.gradle file")
-        var ver = kotlinVersion.split("=").last().trim().filter { it != '\'' }
-        val gradleDir = "${System.getProperty("user.home")}/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/"
-        var dir =
-            File("$gradleDir/$libToSearch").listFiles()?.find { it.isDirectory && it.name.trim() == ver }?.path ?: ""
-        //TODO fix this
-        if (dir.trim().isEmpty()) {
-            ver = (ver.last() - '0').let { ver.dropLast(1) + (it - 1) }
-            dir = File("$gradleDir/$libToSearch").listFiles()?.find { it.isDirectory && it.name.trim() == ver }?.path
-                ?: ""
+        val jarFiles = Files.walk(Paths.get("dist"))
+            .toList()
+            .map { it.toFile() }
+            .filter { it.name.endsWith(".jar") }
+            .toList()
+        var pathToLib = jarFiles.find { it.name == "$libToSearch.jar" }?.absolutePath
+        if (pathToLib == null) {
+            pathToLib = Files.walk(Paths.get("libraries/"))
+                .toList()
+                .map { it.toFile() }
+                .filter { it.name.endsWith(".jar") }
+                .toList()
+                .find { it.name == "$libToSearch-1.5.255-SNAPSHOT.jar"}
+                ?.absolutePath
         }
-        if (dir.trim().isEmpty()) {
-            ver = (ver.last() - '0').let { ver.dropLast(1) + (it + 1) }
-            dir = File("$gradleDir/$libToSearch").listFiles()?.find { it.isDirectory && it.name.trim() == ver }?.path
-                ?: ""
-        }
-        var pathToLib = File(dir).walkTopDown().find { it.name == "$libToSearch-$ver.jar" }?.absolutePath ?: ""
-        if (pathToLib.isEmpty()) {
-            ver = "1.5.255-SNAPSHOT"
-            dir = File("$gradleDir/$libToSearch").listFiles()?.find { it.isDirectory && it.name.trim() == ver }?.path
-                ?: ""
-            pathToLib = File(dir).walkTopDown().find { it.name == "$libToSearch-$ver.jar" }?.absolutePath ?: ""
-        }
-        require(pathToLib.isNotEmpty())
+        require(pathToLib != null && pathToLib.isNotEmpty())
         return pathToLib
     }
 
