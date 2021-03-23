@@ -9,13 +9,16 @@ import java.nio.file.Files
 import java.nio.file.Paths
 import java.util.*
 import java.util.jar.JarFile
-import kotlin.io.path.ExperimentalPathApi
-import kotlin.io.path.absolutePathString
 import kotlin.streams.toList
 
 object CompilerArgs {
 
     private val file: File = File("./bbfgradle/bbf.conf")
+    val stdLibJars = Files.walk(Paths.get("dist"))
+        .toList()
+        .map { it.toFile() }
+        .filter { it.name.endsWith(".jar") }
+        .toList()
 
     fun getPropValue(name: String): String? {
         val props = Properties()
@@ -35,12 +38,7 @@ object CompilerArgs {
         ?: throw IllegalArgumentException("Cannot init $name property")
 
     fun getStdLibPath(libToSearch: String): String {
-        val jarFiles = Files.walk(Paths.get("dist"))
-            .toList()
-            .map { it.toFile() }
-            .filter { it.name.endsWith(".jar") }
-            .toList()
-        var pathToLib = jarFiles.find { it.name == "$libToSearch.jar" }?.absolutePath
+        var pathToLib = stdLibJars.find { it.name == "$libToSearch.jar" }?.absolutePath
         if (pathToLib == null) {
             pathToLib = Files.walk(Paths.get("libraries/"))
                 .toList()
