@@ -63,6 +63,8 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
     }
 
     fun checkCompilingWithBugSaving(project: Project, curFile: BBFFile? = null): Boolean {
+        println("checker")
+
         log.debug("Compilation checking started")
         val allTexts = project.files.map { it.psiFile.text }.joinToString()
         checkedConfigurations[allTexts]?.let { log.debug("Already checked"); return it }
@@ -89,11 +91,9 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                         return false
                     }
                 }
+                println("ok")
+                checkIntentions(project.files[0].text)
                 if (withTracesCheck && CompilerArgs.isMiscompilationMode) {
-                    if (project.files.size == 1) {
-                        checkIntentions(project.files[0].text)
-                    }
-
                     val checkRes = checkTraces(project)
                     checkedConfigurations[allTexts] = checkRes
                     return checkRes
@@ -104,6 +104,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                 return true
             }
             statuses.all { it == COMPILE_STATUS.ERROR } -> {
+                println("not ok")
                 StatisticCollector.incField("Incorrect programs")
                 checkedConfigurations[allTexts] = false
                 return false
@@ -121,9 +122,11 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         val length = text.length
 
         for (intention in intentionTest.intentions) {
+            println(intention.text)
             for (pos in 0..length - 1) {
                 val newCode = intentionTest.runIntentionInPos(intention, pos)
                 if (newCode != null) {
+                    println("executed")
                     checkTracesOnTmpProject(Project.createFromCode(newCode))
                 }
             }

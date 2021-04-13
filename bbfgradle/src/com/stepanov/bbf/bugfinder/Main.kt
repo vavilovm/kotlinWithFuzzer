@@ -63,27 +63,14 @@ fun main(args: Array<String>) {
         exitProcess(0)
     }
 
-    val text = "val text = \"\"\"// WITH_RUNTIME\n" +
-            "// INTENTION_TEXT: \"Replace with 'firstOrNull{}'\"\n" +
-            "// IS_APPLICABLE_2: false\n" +
-            "fun foo(array: Array<String>): String? {\n" +
-            "    for (s in array) {\n" +
-            "        if (s.isNotBlank()) {\n" +
-            "            return s\n" +
-            "        }\n" +
-            "    }\n" +
-            "    return null\n" +
-            "}\n"
-    val intentionTest = IntentionTestClass(text)
 
-
-    val file = File(CompilerArgs.baseDir).listFiles()?.random() ?: exitProcess(0)
-    SingleFileBugFinder(file.absolutePath).findBugsInFile()
+    for(i in 1..10) {
+        val file = File(CompilerArgs.baseDir).listFiles()?.random() ?: exitProcess(0)
+        println(file.absolutePath)
+        SingleFileBugFinder(file.absolutePath).findBugsInFile()
+    }
     exitProcess(0)
 
 
 
-
-
-    exitProcess(0)
 }

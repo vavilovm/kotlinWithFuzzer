@@ -25,7 +25,6 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
             log.debug("Name = $dir")
 
             val project = Project.createFromCode(File(dir).readText())
-            println("-1")
 
             if (project.language != LANGUAGE.KOTLIN) return
             if (project.files.isEmpty() || project.files.size != 1) {
@@ -39,7 +38,6 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                 }
             }
 
-            println("0")
 
 
             val compilersConf = BBFProperties.getStringGroupWithoutQuotes("BACKENDS")
@@ -60,11 +58,8 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                 log.debug("=(")
                 exitProcess(0)
             }
-            println("1")
 
             mutate(project, project.files.first(), listOf(/*::noBoxFunModifying*/))
-
-            println("2")
 
 //            //Save mutated file
 //            if (CompilerArgs.shouldSaveMutatedFiles) {
@@ -79,7 +74,7 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                 log.debug("Traced = $project")
                 TracesChecker(compilers).checkBehavior(project)
             }
-            println ("3")
+
             return
         } catch (e: Error) {
             log.debug("ERROR: ${e.localizedMessage}\n${e.stackTrace.map { it.toString() + "\n" }}")
