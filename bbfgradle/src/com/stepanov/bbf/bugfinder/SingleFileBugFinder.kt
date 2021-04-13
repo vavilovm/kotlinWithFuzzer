@@ -7,7 +7,9 @@ import com.stepanov.bbf.bugfinder.executor.compilers.JVMCompiler
 import com.stepanov.bbf.bugfinder.executor.project.LANGUAGE
 import com.stepanov.bbf.bugfinder.executor.project.Project
 import com.stepanov.bbf.bugfinder.tracer.Tracer
-import com.stepanov.bbf.bugfinder.util.*
+import com.stepanov.bbf.bugfinder.util.BBFProperties
+import com.stepanov.bbf.bugfinder.util.getAllPSIChildrenOfTwoTypes
+import com.stepanov.bbf.bugfinder.util.getAllPSIChildrenOfType
 import org.jetbrains.kotlin.psi.KtClassOrObject
 import org.jetbrains.kotlin.psi.KtEnumEntry
 import org.jetbrains.kotlin.psi.KtNamedFunction
@@ -21,7 +23,10 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
             println("Let's go")
             ++counter
             log.debug("Name = $dir")
+
             val project = Project.createFromCode(File(dir).readText())
+            println("-1")
+
             if (project.language != LANGUAGE.KOTLIN) return
             if (project.files.isEmpty() || project.files.size != 1) {
                 log.debug("Cant create project")
@@ -33,6 +38,10 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                     return
                 }
             }
+
+            println("0")
+
+
             val compilersConf = BBFProperties.getStringGroupWithoutQuotes("BACKENDS")
             val filterBackends = compilersConf.map { it.key }
             if (filterBackends.any { project.isBackendIgnores(it) }) {
@@ -51,7 +60,12 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                 log.debug("=(")
                 exitProcess(0)
             }
+            println("1")
+
             mutate(project, project.files.first(), listOf(/*::noBoxFunModifying*/))
+
+            println("2")
+
 //            //Save mutated file
 //            if (CompilerArgs.shouldSaveMutatedFiles) {
 //                val pathToNewTests = CompilerArgs.dirForNewTests
@@ -65,6 +79,7 @@ class SingleFileBugFinder(dir: String) : BugFinder(dir) {
                 log.debug("Traced = $project")
                 TracesChecker(compilers).checkBehavior(project)
             }
+            println ("3")
             return
         } catch (e: Error) {
             log.debug("ERROR: ${e.localizedMessage}\n${e.stackTrace.map { it.toString() + "\n" }}")

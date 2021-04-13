@@ -1,22 +1,19 @@
 package com.stepanov.bbf.bugfinder
 
+
+import com.intellij.openapi.application.ApplicationManager
+import com.stepanov.bbf.IntentionTestClass
 import com.stepanov.bbf.bugfinder.executor.CompilerArgs
+import com.stepanov.bbf.bugfinder.executor.checkers.MutationChecker
 import com.stepanov.bbf.bugfinder.executor.compilers.JVMCompiler
 import com.stepanov.bbf.bugfinder.executor.project.Project
 import com.stepanov.bbf.bugfinder.util.FalsePositivesDeleter
 import com.stepanov.bbf.bugfinder.util.NodeCollector
-import com.stepanov.bbf.bugfinder.util.getAllPSIChildrenOfType
-import com.stepanov.bbf.reduktor.parser.PSICreator
 import net.sourceforge.argparse4j.ArgumentParsers
 import net.sourceforge.argparse4j.impl.Arguments
 import org.apache.log4j.Level
 import org.apache.log4j.Logger
 import org.apache.log4j.PropertyConfigurator
-import org.jetbrains.kotlin.builtins.DefaultBuiltIns
-import org.jetbrains.kotlin.builtins.KotlinBuiltIns
-import org.jetbrains.kotlin.psi.KtExpression
-import org.jetbrains.kotlin.psi.KtFile
-import org.jetbrains.kotlin.resolve.calls.callUtil.getType
 import java.io.File
 import kotlin.system.exitProcess
 
@@ -65,7 +62,28 @@ fun main(args: Array<String>) {
         FalsePositivesDeleter().cleanDirs()
         exitProcess(0)
     }
+
+    val text = "val text = \"\"\"// WITH_RUNTIME\n" +
+            "// INTENTION_TEXT: \"Replace with 'firstOrNull{}'\"\n" +
+            "// IS_APPLICABLE_2: false\n" +
+            "fun foo(array: Array<String>): String? {\n" +
+            "    for (s in array) {\n" +
+            "        if (s.isNotBlank()) {\n" +
+            "            return s\n" +
+            "        }\n" +
+            "    }\n" +
+            "    return null\n" +
+            "}\n"
+    val intentionTest = IntentionTestClass(text)
+
+
     val file = File(CompilerArgs.baseDir).listFiles()?.random() ?: exitProcess(0)
     SingleFileBugFinder(file.absolutePath).findBugsInFile()
+    exitProcess(0)
+
+
+
+
+
     exitProcess(0)
 }

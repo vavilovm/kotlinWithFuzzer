@@ -31,6 +31,12 @@ open class CompilationChecker(val compilers: List<CommonCompiler>) /*: Checker()
         return TracesChecker(compilers).checkBehavior(copyOfProject)
     }
 
+    fun checkTracesOnTmpProject(project: Project): Boolean {
+        val compilers = CompilerArgs.getCompilersList()
+        Tracer(compilers.first(), project).trace()
+        return TracesChecker(compilers).checkBehavior(project)
+    }
+
     //${Kostyl.name.substringBefore("_")}$index.jar"
     fun checkABI(project: Project): Pair<Int, File>? {
         val compilers = CompilerArgs.getCompilersList()

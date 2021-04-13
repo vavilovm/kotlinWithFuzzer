@@ -42134,6 +42134,16 @@
     ArrayList.prototype.toString = function () {
       return contentToString(this.array_hd7ov6$_0);
     };
+    ArrayList.prototype.toArray_ro6dgy$ = function (array) {
+      var tmp$, tmp$_0, tmp$_1;
+      if (array.length < this.size) {
+        return Kotlin.isArray(tmp$ = this.toArray()) ? tmp$ : throwCCE_0();
+      }var $receiver = Kotlin.isArray(tmp$_0 = this.array_hd7ov6$_0) ? tmp$_0 : throwCCE_0();
+      arrayCopy($receiver, array, 0, 0, $receiver.length);
+      if (array.length > this.size) {
+        array[this.size] = (tmp$_1 = null) == null || Kotlin.isType(tmp$_1, Any) ? tmp$_1 : throwCCE_0();
+      }return array;
+    };
     ArrayList.prototype.toArray = function () {
       return [].slice.call(this.array_hd7ov6$_0);
     };
@@ -45798,6 +45808,12 @@
       } else {
         return Kotlin.compareTo($receiver, other);
       }
+    }
+    function contentEquals_17($receiver, other) {
+      return contentEqualsImpl($receiver, other);
+    }
+    function contentEquals_18($receiver, other, ignoreCase) {
+      return ignoreCase ? contentEqualsIgnoreCaseImpl($receiver, other) : contentEqualsImpl($receiver, other);
     }
     function STRING_CASE_INSENSITIVE_ORDER$lambda(a, b) {
       return compareTo(a, b, true);
@@ -50421,6 +50437,30 @@
       this.head_0 = 0;
       this.size = 0;
     };
+    ArrayDeque.prototype.toArray_ro6dgy$ = function (array) {
+      var tmp$, tmp$_0;
+      var dest = Kotlin.isArray(tmp$ = array.length >= this.size ? array : arrayOfNulls(array, this.size)) ? tmp$ : throwCCE_0();
+      var tail = this.positiveMod_0(this.head_0 + this.size | 0);
+      if (this.head_0 < tail) {
+        arrayCopy(this.elementData_0, dest, 0, this.head_0, tail);
+      } else {
+        if (!this.isEmpty()) {
+          arrayCopy(this.elementData_0, dest, 0, this.head_0, this.elementData_0.length);
+          arrayCopy(this.elementData_0, dest, this.elementData_0.length - this.head_0 | 0, 0, tail);
+        }}
+      if (dest.length > this.size) {
+        dest[this.size] = null;
+      }return Kotlin.isArray(tmp$_0 = dest) ? tmp$_0 : throwCCE_0();
+    };
+    ArrayDeque.prototype.toArray = function () {
+      return this.toArray_ro6dgy$(Kotlin.newArray(this.size, null));
+    };
+    ArrayDeque.prototype.testToArray_2r4q7p$ = function (array) {
+      return this.toArray_ro6dgy$(array);
+    };
+    ArrayDeque.prototype.testToArray_8be2vx$ = function () {
+      return this.toArray();
+    };
     function ArrayDeque$Companion() {
       ArrayDeque$Companion_instance = this;
       this.emptyElementData_0 = [];
@@ -50444,19 +50484,8 @@
     }
     ArrayDeque.prototype.internalStructure_zgjqsc$ = function (structure) {
       var tail = this.positiveMod_0(this.head_0 + this.size | 0);
-      if (this.isEmpty()) {
-        structure(this.head_0, []);
-        return;
-      }var elements = Kotlin.newArray(this.size, null);
-      if (this.head_0 < tail) {
-        arrayCopy(this.elementData_0, elements, 0, this.head_0, tail);
-        structure(this.head_0, elements);
-      } else {
-        var $receiver = this.elementData_0;
-        arrayCopy($receiver, elements, 0, this.head_0, $receiver.length);
-        arrayCopy(this.elementData_0, elements, this.elementData_0.length - this.head_0 | 0, 0, tail);
-        structure(this.head_0 - this.elementData_0.length | 0, elements);
-      }
+      var head = this.isEmpty() || this.head_0 < tail ? this.head_0 : this.head_0 - this.elementData_0.length | 0;
+      structure(head, this.toArray());
     };
     ArrayDeque.$metadata$ = {kind: Kind_CLASS, simpleName: 'ArrayDeque', interfaces: [AbstractMutableList]};
     function ArrayDeque_init(initialCapacity, $this) {
@@ -57053,6 +57082,36 @@
     function lines($receiver) {
       return toList_10(lineSequence($receiver));
     }
+    function contentEqualsIgnoreCaseImpl($receiver, other) {
+      var tmp$;
+      if (typeof $receiver === 'string' && typeof other === 'string') {
+        return equals_0($receiver, other, true);
+      }if ($receiver === other)
+        return true;
+      if ($receiver == null || other == null || $receiver.length !== other.length)
+        return false;
+      tmp$ = $receiver.length;
+      for (var i = 0; i < tmp$; i++) {
+        if (!equals_1($receiver.charCodeAt(i), other.charCodeAt(i), true)) {
+          return false;
+        }}
+      return true;
+    }
+    function contentEqualsImpl($receiver, other) {
+      var tmp$;
+      if (typeof $receiver === 'string' && typeof other === 'string') {
+        return equals($receiver, other);
+      }if ($receiver === other)
+        return true;
+      if ($receiver == null || other == null || $receiver.length !== other.length)
+        return false;
+      tmp$ = $receiver.length;
+      for (var i = 0; i < tmp$; i++) {
+        if ($receiver.charCodeAt(i) !== other.charCodeAt(i)) {
+          return false;
+        }}
+      return true;
+    }
     function Typography() {
       Typography_instance = this;
       this.quote = toBoxedChar(34);
@@ -58156,7 +58215,7 @@
       KotlinVersionCurrentValue_instance = this;
     }
     KotlinVersionCurrentValue.prototype.get = function () {
-      return new KotlinVersion(1, 5, 20);
+      return new KotlinVersion(1, 5, 255);
     };
     KotlinVersionCurrentValue.$metadata$ = {kind: Kind_OBJECT, simpleName: 'KotlinVersionCurrentValue', interfaces: []};
     var KotlinVersionCurrentValue_instance = null;
@@ -64301,6 +64360,8 @@
     package$text.encodeToByteArray_pdl1vz$ = encodeToByteArray;
     package$text.encodeToByteArray_i5b2wk$ = encodeToByteArray_0;
     package$text.compareTo_7epoxm$ = compareTo;
+    package$text.contentEquals_nyb5gx$ = contentEquals_17;
+    package$text.contentEquals_juyp5k$ = contentEquals_18;
     package$text.get_CASE_INSENSITIVE_ORDER_6eet4j$ = get_CASE_INSENSITIVE_ORDER;
     package$text.startsWith_7epoxm$ = startsWith;
     package$text.startsWith_3azpy2$ = startsWith_0;
@@ -64916,6 +64977,8 @@
     package$text.split_o64adg$ = split_0;
     package$text.lineSequence_gw00vp$ = lineSequence;
     package$text.lines_gw00vp$ = lines;
+    package$text.contentEqualsIgnoreCaseImpl_sj06qa$ = contentEqualsIgnoreCaseImpl;
+    package$text.contentEqualsImpl_sj06qa$ = contentEqualsImpl;
     Object.defineProperty(package$text, 'Typography', {get: Typography_getInstance});
     package$text.MatchGroupCollection = MatchGroupCollection;
     package$text.MatchNamedGroupCollection = MatchNamedGroupCollection;

@@ -2,6 +2,7 @@ package com.stepanov.bbf.bugfinder.executor
 
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.PsiFile
+import com.stepanov.bbf.IntentionTestClass
 import com.stepanov.bbf.bugfinder.executor.CompilerArgs.isABICheckMode
 import com.stepanov.bbf.bugfinder.executor.checkers.CompilationChecker
 import com.stepanov.bbf.bugfinder.executor.project.BBFFile
@@ -12,7 +13,6 @@ import com.stepanov.bbf.bugfinder.manager.BugManager
 import com.stepanov.bbf.bugfinder.manager.BugType
 import com.stepanov.bbf.bugfinder.mutator.transformations.Factory
 import com.stepanov.bbf.bugfinder.util.StatisticCollector
-import com.stepanov.bbf.bugfinder.util.getFileLanguageIfExist
 import com.stepanov.bbf.reduktor.parser.PSICreator
 import com.stepanov.bbf.reduktor.util.getAllPSIChildrenOfType
 import org.apache.log4j.Logger
@@ -89,11 +89,16 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                         return false
                     }
                 }
-//                if (withTracesCheck && CompilerArgs.isMiscompilationMode) {
-//                    val checkRes = checkTraces(project)
-//                    checkedConfigurations[allTexts] = checkRes
-//                    return checkRes
-//                }
+                if (withTracesCheck && CompilerArgs.isMiscompilationMode) {
+                    if (project.files.size == 1) {
+                        checkIntentions(project.files[0].text)
+                    }
+
+                    val checkRes = checkTraces(project)
+                    checkedConfigurations[allTexts] = checkRes
+                    return checkRes
+                }
+
                 StatisticCollector.incField("Correct programs")
                 checkedConfigurations[allTexts] = true
                 return true
@@ -108,6 +113,21 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         checkedConfigurations[allTexts] = false
         StatisticCollector.incField("Correct programs")
         return false
+    }
+
+    private fun checkIntentions(text: String) {
+        println("check intentions")
+        val intentionTest = IntentionTestClass(text)
+        val length = text.length
+
+        for (intention in intentionTest.intentions) {
+            for (pos in 0..length - 1) {
+                val newCode = intentionTest.runIntentionInPos(intention, pos)
+                if (newCode != null) {
+                    checkTracesOnTmpProject(Project.createFromCode(newCode))
+                }
+            }
+        }
     }
 
     val additionalConditions: MutableList<(PsiFile) -> Boolean> = mutableListOf()
