@@ -1,12 +1,8 @@
 package com.stepanov.bbf.bugfinder
 
 
-import com.intellij.openapi.application.ApplicationManager
 import com.stepanov.bbf.IntentionTestClass
 import com.stepanov.bbf.bugfinder.executor.CompilerArgs
-import com.stepanov.bbf.bugfinder.executor.checkers.MutationChecker
-import com.stepanov.bbf.bugfinder.executor.compilers.JVMCompiler
-import com.stepanov.bbf.bugfinder.executor.project.Project
 import com.stepanov.bbf.bugfinder.util.FalsePositivesDeleter
 import com.stepanov.bbf.bugfinder.util.NodeCollector
 import net.sourceforge.argparse4j.ArgumentParsers
@@ -63,14 +59,28 @@ fun main(args: Array<String>) {
         exitProcess(0)
     }
 
+    val text = """
+fun foo(array: Array<String>): String? {
+    for (s in array) {
+        if (s.isNotBlank()) 
+            return s
+       
+    }
+    return null
+}
+"""
 
-    for(i in 1..10) {
+
+
+
+    for (i in 1..10) {
         val file = File(CompilerArgs.baseDir).listFiles()?.random() ?: exitProcess(0)
         println(file.absolutePath)
         SingleFileBugFinder(file.absolutePath).findBugsInFile()
     }
-    exitProcess(0)
 
+
+    exitProcess(0)
 
 
 }

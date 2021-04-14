@@ -1,5 +1,6 @@
 package com.stepanov.bbf.bugfinder.executor
 
+import com.intellij.openapi.application.ApplicationManager
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.PsiFile
 import com.stepanov.bbf.IntentionTestClass
@@ -63,8 +64,6 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
     }
 
     fun checkCompilingWithBugSaving(project: Project, curFile: BBFFile? = null): Boolean {
-        println("checker")
-
         log.debug("Compilation checking started")
         val allTexts = project.files.map { it.psiFile.text }.joinToString()
         checkedConfigurations[allTexts]?.let { log.debug("Already checked"); return it }
@@ -91,7 +90,6 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                         return false
                     }
                 }
-                println("ok")
                 checkIntentions(project.files[0].text)
                 if (withTracesCheck && CompilerArgs.isMiscompilationMode) {
                     val checkRes = checkTraces(project)
@@ -121,13 +119,16 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         val intentionTest = IntentionTestClass(text)
         val length = text.length
 
-        for (intention in intentionTest.intentions) {
-            println(intention.text)
-            for (pos in 0..length - 1) {
-                val newCode = intentionTest.runIntentionInPos(intention, pos)
-                if (newCode != null) {
-                    println("executed")
-                    checkTracesOnTmpProject(Project.createFromCode(newCode))
+
+        val app = ApplicationManager.getApplication()
+        app.invokeAndWait {
+            for (intention in intentionTest.intentions) {
+                for (pos in 0..length - 1) {
+                    val newCode = intentionTest.runIntentionInPos(intention, pos)
+                    if (newCode != null) {
+                        checkTraces(Project.createFromCode(newCode))
+//                    checkTracesOnTmpProject(Project.createFromCode(newCode))
+                    }
                 }
             }
         }

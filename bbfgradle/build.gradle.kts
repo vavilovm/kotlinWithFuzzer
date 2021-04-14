@@ -67,6 +67,10 @@ dependencies {
     implementation(project(":core:descriptors.runtime"))
     implementation(project(":idea:idea-frontend-independent"))
     implementation(project(":idea"))
+    implementation(project(":plugins:parcelize:parcelize-compiler"))
+    implementation(project(":plugins:parcelize:parcelize-ide"))
+    implementation(project(":plugins:parcelize:parcelize-runtime"))
+    implementation(project(":kotlin-parcelize-compiler"))
 
     //Stdlib
     implementation(project(":kotlin-stdlib"))
