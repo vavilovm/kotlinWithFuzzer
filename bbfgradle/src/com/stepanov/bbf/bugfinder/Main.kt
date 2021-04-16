@@ -1,7 +1,6 @@
 package com.stepanov.bbf.bugfinder
 
 
-import com.stepanov.bbf.IntentionTestClass
 import com.stepanov.bbf.bugfinder.executor.CompilerArgs
 import com.stepanov.bbf.bugfinder.util.FalsePositivesDeleter
 import com.stepanov.bbf.bugfinder.util.NodeCollector
@@ -70,7 +69,33 @@ fun foo(array: Array<String>): String? {
 }
 """
 
-
+//
+//    for (i in 1..10) {
+//        val intentionTest = IntentionTestClass(text)
+//        val length = text.length
+//        println(text)
+//
+//        val app = ApplicationManager.getApplication()
+//        app.invokeAndWait {
+//            for (intention in intentionTest.intentions) {
+//                println(intention.text)
+//                var posExecuted = -1;
+//                for (pos in 0..length - 1) {
+//                    val newCode = intentionTest.runIntentionInPos(intention, pos)
+//                    if (newCode != null) {
+//                        posExecuted = pos
+////                        checkTraces(Project.createFromCode(newCode))
+////                    checkTracesOnTmpProject(Project.createFromCode(newCode))
+//                    }
+//                }
+//                println(posExecuted)
+//            }
+//
+//        }
+//        println("exit")
+//        intentionTest.tearDown()
+//        println("exited")
+//    }
 
 
     for (i in 1..10) {
@@ -78,7 +103,6 @@ fun foo(array: Array<String>): String? {
         println(file.absolutePath)
         SingleFileBugFinder(file.absolutePath).findBugsInFile()
     }
-
 
     exitProcess(0)
 

@@ -118,20 +118,29 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         println("check intentions")
         val intentionTest = IntentionTestClass(text)
         val length = text.length
-
+        println(text)
 
         val app = ApplicationManager.getApplication()
         app.invokeAndWait {
             for (intention in intentionTest.intentions) {
+                println(intention.text)
+                var posExecuted = -1;
                 for (pos in 0..length - 1) {
                     val newCode = intentionTest.runIntentionInPos(intention, pos)
                     if (newCode != null) {
-                        checkTraces(Project.createFromCode(newCode))
+                        posExecuted = pos
+//                        checkTraces(Project.createFromCode(newCode))
 //                    checkTracesOnTmpProject(Project.createFromCode(newCode))
                     }
                 }
+                println(posExecuted)
             }
+
+            println("exit")
+            intentionTest.tearDown()
+            println("exited")
         }
+
     }
 
     val additionalConditions: MutableList<(PsiFile) -> Boolean> = mutableListOf()
