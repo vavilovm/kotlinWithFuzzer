@@ -5,7 +5,8 @@
 
 package org.jetbrains.kotlin.fir.checkers.generator
 
-import org.jetbrains.kotlin.fir.tree.generator.printer.*
+import org.jetbrains.kotlin.fir.tree.generator.printer.printCopyright
+import org.jetbrains.kotlin.fir.tree.generator.printer.printGeneratedMessage
 import org.jetbrains.kotlin.fir.tree.generator.util.writeToFileUsingSmartPrinterIfFileContentChanged
 import org.jetbrains.kotlin.util.SmartPrinter
 import org.jetbrains.kotlin.util.withIndent
@@ -77,7 +78,7 @@ class Generator(
                     print("$CHECKERS_COMPONENT_INTERNAL_ANNOTATION internal val ${alias.allFieldName}: ${alias.setType} get() = ${alias.fieldName}")
                     for (parent in configuration.parentsMap.getValue(kClass)) {
                         val parentAlias = configuration.aliases.getValue(parent)
-                        print(" + ${parentAlias.allFieldName}")
+                        print(" + ${parentAlias.fieldName}")
                     }
                     println()
                 }
@@ -124,7 +125,7 @@ class Generator(
                 println("internal fun register(checkers: $checkersComponentName) {")
                 withIndent {
                     for (alias in configuration.aliases.values) {
-                        println("_${alias.fieldName} += checkers.${alias.allFieldName}")
+                        println("_${alias.fieldName} += checkers.${alias.fieldName}")
                     }
                     for (fieldName in configuration.additionalCheckers.keys) {
                         println("_$fieldName += checkers.$fieldName")
@@ -159,10 +160,10 @@ class Generator(
         get() = "val $fieldName: $setType"
 
     private val Alias.fieldName: String
-        get() = removePrefix("Fir").decapitalize() + "s"
+        get() = removePrefix("Fir").replaceFirstChar(Char::lowercaseChar) + "s"
 
     private val Alias.allFieldName: String
-        get() = "all${fieldName.capitalize()}"
+        get() = "all${fieldName.replaceFirstChar(Char::uppercaseChar)}"
 
     private val Alias.setType: String
         get() = "Set<$this>"

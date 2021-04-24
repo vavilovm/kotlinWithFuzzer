@@ -93,22 +93,6 @@ fun <T : ConeKotlinType> T.withAttributes(attributes: ConeAttributes): T {
     } as T
 }
 
-fun ConeTypeContext.hasNullableSuperType(type: ConeKotlinType): Boolean {
-    if (type is ConeClassLikeType) return false
-
-    if (type !is ConeLookupTagBasedType) return false // TODO?
-    val symbol = type.lookupTag
-    for (superType in symbol.supertypes()) {
-        if (superType.isNullableType()) return true
-    }
-//
-//    for (KotlinType supertype : getImmediateSupertypes(type)) {
-//        if (isNullableType(supertype)) return true;
-//    }
-
-    return false
-}
-
 fun <T : ConeKotlinType> T.withNullability(
     nullability: ConeNullability,
     typeContext: ConeInferenceContext? = null,
@@ -199,9 +183,6 @@ fun FirTypeRef.isUnsafeVarianceType(session: FirSession): Boolean {
 
 fun FirTypeRef.hasEnhancedNullability(): Boolean =
     coneTypeSafe<ConeKotlinType>()?.hasEnhancedNullability == true
-
-fun FirTypeRef.hasFlexibleNullability(): Boolean =
-    coneTypeSafe<ConeKotlinType>()?.hasFlexibleNullability == true
 
 fun FirTypeRef.withoutEnhancedNullability(): FirTypeRef {
     require(this is FirResolvedTypeRef)
@@ -363,9 +344,10 @@ private fun ConeTypeContext.captureArguments(type: ConeKotlinType, status: Captu
         ConeCapturedType(status, lowerType, argument, typeConstructor.getParameter(index))
     }
 
-    val substitutor = substitutorByMap((0 until argumentsCount).map { index ->
+    val substitution = (0 until argumentsCount).map { index ->
         (typeConstructor.getParameter(index) as ConeTypeParameterLookupTag).symbol to (newArguments[index] as ConeKotlinType)
-    }.toMap())
+    }.toMap()
+    val substitutor = substitutorByMap(substitution, session)
 
     for (index in 0 until argumentsCount) {
         val oldArgument = type.typeArguments[index]

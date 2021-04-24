@@ -20,6 +20,7 @@ import org.jetbrains.kotlin.gradle.internal.processLogMessage
 import org.jetbrains.kotlin.gradle.internal.testing.TCServiceMessagesClientSettings
 import org.jetbrains.kotlin.gradle.internal.testing.TCServiceMessagesTestExecutionSpec
 import org.jetbrains.kotlin.gradle.internal.testing.TCServiceMessagesTestExecutor.Companion.TC_PROJECT_PROPERTY
+import org.jetbrains.kotlin.gradle.plugin.PropertiesProvider
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJsCompilation
 import org.jetbrains.kotlin.gradle.targets.js.NpmPackageVersion
 import org.jetbrains.kotlin.gradle.targets.js.RequiredKotlinJsDependency
@@ -30,6 +31,8 @@ import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
 import org.jetbrains.kotlin.gradle.targets.js.npm.npmProject
 import org.jetbrains.kotlin.gradle.targets.js.testing.*
 import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
+import org.jetbrains.kotlin.gradle.targets.js.webpack.WebpackMajorVersion
+import org.jetbrains.kotlin.gradle.targets.js.webpack.WebpackMajorVersion.Companion.choose
 import org.jetbrains.kotlin.gradle.tasks.KotlinTest
 import org.jetbrains.kotlin.gradle.testing.internal.reportsDir
 import org.jetbrains.kotlin.gradle.utils.isConfigurationCacheAvailable
@@ -46,7 +49,9 @@ class KotlinKarma(
     @Transient
     private val project: Project = compilation.target.project
     private val npmProject = compilation.npmProject
+    @Transient
     private val nodeJs = NodeJsRootPlugin.apply(project.rootProject)
+    private val nodeRootPackageDir by lazy { nodeJs.rootPackageDir }
     private val versions = nodeJs.versions
 
     private val config: KarmaConfig = KarmaConfig()
@@ -76,13 +81,16 @@ class KotlinKarma(
     override val settingsState: String
         get() = "KotlinKarma($config)"
 
+    private val webpackMajorVersion = PropertiesProvider(project).webpackMajorVersion
+
     val webpackConfig = KotlinWebpackConfig(
         configDirectory = project.projectDir.resolve("webpack.config.d"),
         sourceMaps = true,
         devtool = null,
         export = false,
         progressReporter = true,
-        progressReporterPathFilter = nodeJs.rootPackageDir.absolutePath
+        progressReporterPathFilter = nodeRootPackageDir.absolutePath,
+        webpackMajorVersion = webpackMajorVersion
     )
 
     init {
@@ -200,7 +208,20 @@ class KotlinKarma(
 
     private fun useWebpack() {
         requiredDependencies.add(versions.karmaWebpack)
-        requiredDependencies.add(versions.webpack)
+        requiredDependencies.add(
+            webpackMajorVersion.choose(
+                versions.webpack,
+                versions.webpack4
+            )
+        )
+        requiredDependencies.add(versions.webpackCli)
+        requiredDependencies.add(versions.formatUtil)
+        requiredDependencies.add(
+            webpackMajorVersion.choose(
+                versions.sourceMapLoader,
+                versions.sourceMapLoader1
+            )
+        )
 
         addPreprocessor("webpack")
         confJsWriters.add {
@@ -215,6 +236,15 @@ class KotlinKarma(
                 // noinspection JSUnnecessarySemicolon
                 ;(function(config) {
                     const webpack = require('webpack');
+                    ${
+                    if (webpackMajorVersion != WebpackMajorVersion.V4) {
+                        """
+                            // https://github.com/webpack/webpack/issues/12951
+                            const PatchSourceMapSource = require('kotlin-test-js-runner/webpack-5-debug');
+                            config.plugins.push(new PatchSourceMapSource())
+                            """
+                    } else ""
+                }
                     config.plugins.push(new webpack.SourceMapDevToolPlugin({
                         moduleFilenameTemplate: "[absolute-resource-path]"
                     }))
@@ -228,10 +258,6 @@ class KotlinKarma(
             it.appendln("config.set({webpack: createWebpackConfig()});")
             it.appendln()
         }
-
-        requiredDependencies.add(versions.webpack)
-        requiredDependencies.add(versions.webpackCli)
-        requiredDependencies.add(versions.sourceMapLoader)
     }
 
     fun useCoverage(

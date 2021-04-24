@@ -22,6 +22,15 @@ fun main(args: Array<String>) {
         alias<FirVariableAssignment>("VariableAssignmentChecker")
         alias<FirTryExpression>("TryExpressionChecker")
         alias<FirWhenExpression>("WhenExpressionChecker")
+        alias<FirReturnExpression>("ReturnExpressionChecker")
+        alias<FirBlock>("BlockChecker")
+        alias<FirAnnotationCall>("AnnotationCallChecker")
+        alias<FirCheckNotNullCall>("CheckNotNullCallChecker")
+        alias<FirElvisExpression>("ElvisExpressionChecker")
+        alias<FirGetClassCall>("GetClassCallChecker")
+        alias<FirSafeCallExpression>("SafeCallExpressionChecker")
+        alias<FirEqualityOperatorCall>("EqualityOperatorCallChecker")
+        alias<FirAnonymousFunction>("AnonymousFunctionAsExpressionChecker")
     }
 
     val declarationPackage = "org.jetbrains.kotlin.fir.analysis.checkers.declaration"
@@ -29,11 +38,13 @@ fun main(args: Array<String>) {
         alias<FirDeclaration>("BasicDeclarationChecker")
         alias<FirMemberDeclaration>("MemberDeclarationChecker")
         alias<FirFunction<*>>("FunctionChecker")
+        alias<FirSimpleFunction>("SimpleFunctionChecker")
         alias<FirProperty>("PropertyChecker")
         alias<FirClass<*>>("ClassChecker")
         alias<FirRegularClass>("RegularClassChecker")
         alias<FirConstructor>("ConstructorChecker")
         alias<FirFile>("FileChecker")
+        alias<FirTypeParameter>("FirTypeParameterChecker")
 
         additional(
             fieldName = "controlFlowAnalyserCheckers",

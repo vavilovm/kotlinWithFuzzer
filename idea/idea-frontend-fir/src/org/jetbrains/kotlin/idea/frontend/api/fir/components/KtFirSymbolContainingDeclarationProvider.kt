@@ -9,7 +9,7 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.util.parentOfType
 import org.jetbrains.kotlin.fir.FirFakeSourceElementKind
 import org.jetbrains.kotlin.fir.psi
-import org.jetbrains.kotlin.idea.frontend.api.ValidityToken
+import org.jetbrains.kotlin.idea.frontend.api.tokens.ValidityToken
 import org.jetbrains.kotlin.idea.frontend.api.components.KtSymbolContainingDeclarationProvider
 import org.jetbrains.kotlin.idea.frontend.api.fir.KtFirAnalysisSession
 import org.jetbrains.kotlin.idea.frontend.api.fir.symbols.KtFirSymbol
@@ -18,6 +18,7 @@ import org.jetbrains.kotlin.idea.frontend.api.symbols.markers.KtSymbolKind
 import org.jetbrains.kotlin.idea.frontend.api.symbols.markers.KtSymbolWithKind
 import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.psi.KtDeclaration
+import org.jetbrains.kotlin.psi.KtObjectLiteralExpression
 import org.jetbrains.kotlin.psi.KtPrimaryConstructor
 
 internal class KtFirSymbolContainingDeclarationProvider(
@@ -32,24 +33,33 @@ internal class KtFirSymbolContainingDeclarationProvider(
                 getContainingDeclarationForKotlinInSourceSymbol(symbol)
             KtSymbolOrigin.LIBRARY, KtSymbolOrigin.JAVA, KtSymbolOrigin.JAVA_SYNTHETIC_PROPERTY ->
                 getContainingDeclarationForLibrarySymbol(symbol)
+            KtSymbolOrigin.PROPERTY_BACKING_FIELD -> getContainingDeclarationForBackingFieldSymbol(symbol)
             KtSymbolOrigin.INTERSECTION_OVERRIDE -> TODO()
             KtSymbolOrigin.SAM_CONSTRUCTOR -> TODO()
             KtSymbolOrigin.DELEGATED -> TODO()
         }
     }
 
+    private fun getContainingDeclarationForBackingFieldSymbol(symbol: KtSymbolWithKind): KtSymbolWithKind {
+        require(symbol is KtBackingFieldSymbol)
+        return symbol.owningProperty
+    }
+
     private fun getContainingDeclarationForKotlinInSourceSymbol(symbol: KtSymbolWithKind): KtSymbolWithKind = with(analysisSession) {
         require(symbol.origin == KtSymbolOrigin.SOURCE || symbol.origin == KtSymbolOrigin.SOURCE_MEMBER_GENERATED)
-        val psi = symbol.getPsi()
 
-        check(psi is KtDeclaration) { "PSI of kotlin declaration should be KtDeclaration" }
+        val psi = when (val psi = symbol.getPsi()) {
+            is KtDeclaration -> psi
+            is KtObjectLiteralExpression -> psi.objectDeclaration
+            else -> error { "PSI of kotlin declaration should be KtDeclaration but was ${psi::class.simpleName}" }
+        }
+
         val containingDeclaration = when (symbol.origin) {
             KtSymbolOrigin.SOURCE -> psi.parentOfType()
                 ?: error("Containing declaration should present for non-toplevel declaration")
             KtSymbolOrigin.SOURCE_MEMBER_GENERATED -> psi
             else -> error("Unsupported declaration origin ${symbol.origin}")
         }
-
 
         return with(analysisSession) {
             val containingSymbol = containingDeclaration.getSymbol()
@@ -80,8 +90,8 @@ internal class KtFirSymbolContainingDeclarationProvider(
                 classId.outerClassId
             }
             is KtFunctionSymbol -> {
-                val fqName = symbol.callableIdIfNonLocal ?: error("fqName should not be null for non-local declaration")
-                fqName.parent().let { ClassId.topLevel(it) }
+                val fqName = symbol.callableIdIfNonLocal ?: error("callableIdIfNonLocal should not be null for non-local declaration")
+                fqName.classId
             }
             is KtEnumEntrySymbol -> {
                 val classId = symbol.containingEnumClassIdIfNonLocal ?: error("fqName should not be null for non-local declaration")
@@ -89,7 +99,7 @@ internal class KtFirSymbolContainingDeclarationProvider(
             }
             is KtPropertySymbol -> {
                 val fqName = symbol.callableIdIfNonLocal ?: error("fqName should not be null for non-local declaration")
-                fqName.parent().let { ClassId.topLevel(it) }
+                fqName.classId
             }
             else -> error("We should not have a ${symbol::class} from a library")
         } ?: error("outerClassId should not be null for member declaration")

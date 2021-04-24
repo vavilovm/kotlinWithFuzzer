@@ -23,6 +23,7 @@ import org.jetbrains.kotlin.gradle.plugin.MULTIPLE_KOTLIN_PLUGINS_LOADED_WARNING
 import org.jetbrains.kotlin.gradle.plugin.MULTIPLE_KOTLIN_PLUGINS_SPECIFIC_PROJECTS_WARNING
 import org.jetbrains.kotlin.gradle.scripting.internal.ScriptingGradleSubplugin
 import org.jetbrains.kotlin.gradle.tasks.USING_JVM_INCREMENTAL_COMPILATION_MESSAGE
+import org.jetbrains.kotlin.gradle.testbase.TestVersions
 import org.jetbrains.kotlin.gradle.util.*
 import org.jetbrains.kotlin.test.util.KtTestUtil
 import org.junit.Test
@@ -152,6 +153,32 @@ class KotlinGradleIT : BaseGradleIT() {
     fun testIncremental() {
         val project = Project("kotlinProject")
         val options = defaultBuildOptions().copy(incremental = true)
+
+        project.build("build", options = options) {
+            assertSuccessful()
+            assertNoWarnings()
+        }
+
+        val greeterKt = project.projectDir.getFileByName("Greeter.kt")
+        greeterKt.modify {
+            it.replace("greeting: String", "greeting: CharSequence")
+        }
+
+        project.build("build", options = options) {
+            assertSuccessful()
+            assertNoWarnings()
+            val affectedSources = project.projectDir.getFilesByNames(
+                "Greeter.kt", "KotlinGreetingJoiner.kt",
+                "TestGreeter.kt", "TestKotlinGreetingJoiner.kt"
+            )
+            assertCompiledKotlinSources(project.relativize(affectedSources))
+        }
+    }
+
+    @Test
+    fun testIncrementalFir() {
+        val project = Project("kotlinProject")
+        val options = defaultBuildOptions().copy(incremental = true, useFir = true)
 
         project.build("build", options = options) {
             assertSuccessful()
@@ -376,7 +403,7 @@ class KotlinGradleIT : BaseGradleIT() {
             assertSuccessful()
         }
 
-        project.build("clean", "assemble", options = options.copy(kotlinVersion = "1.3.41")) {
+        project.build("clean", "assemble", options = options.copy(kotlinVersion = TestVersions.Kotlin.STABLE_RELEASE)) {
             assertSuccessful()
         }
     }
@@ -386,8 +413,10 @@ class KotlinGradleIT : BaseGradleIT() {
         val project = Project("kotlinProject")
         project.setupWorkingDir()
         File(project.projectDir, "build.gradle").modify {
-            it.replace("kotlin-stdlib:\$kotlin_version", "kotlin-stdlib").apply { check(!equals(it)) } + "\n" + """
-            apply plugin: 'maven-publish'
+            """
+            $it
+            
+            plugins.apply('maven-publish')
             
             group = "com.example"
             version = "1.0"
@@ -415,7 +444,7 @@ class KotlinGradleIT : BaseGradleIT() {
             assertSuccessful()
             assertTasksExecuted(":compileKotlin", ":compileTestKotlin")
             val pomLines = File(project.projectDir, "build/publications/myLibrary/pom-default.xml").readLines()
-            val stdlibVersionLineNumber = pomLines.indexOfFirst { "<artifactId>kotlin-stdlib</artifactId>" in it } + 1
+            val stdlibVersionLineNumber = pomLines.indexOfFirst { "<artifactId>kotlin-stdlib-jdk8</artifactId>" in it } + 1
             val versionLine = pomLines[stdlibVersionLineNumber]
             assertTrue { "<version>${defaultBuildOptions().kotlinVersion}</version>" in versionLine }
         }
@@ -435,6 +464,27 @@ class KotlinGradleIT : BaseGradleIT() {
     fun testIncrementalTestCompile() {
         val project = Project("kotlinProject")
         val options = defaultBuildOptions().copy(incremental = true)
+
+        project.build("build", options = options) {
+            assertSuccessful()
+        }
+
+        val joinerKt = project.projectDir.getFileByName("KotlinGreetingJoiner.kt")
+        joinerKt.modify {
+            it.replace("class KotlinGreetingJoiner", "internal class KotlinGreetingJoiner")
+        }
+
+        project.build("build", options = options) {
+            assertSuccessful()
+            val testJoinerKt = project.projectDir.getFileByName("TestKotlinGreetingJoiner.kt")
+            assertCompiledKotlinSources(project.relativize(joinerKt, testJoinerKt))
+        }
+    }
+
+    @Test
+    fun testIncrementalFirTestCompile() {
+        val project = Project("kotlinProject")
+        val options = defaultBuildOptions().copy(incremental = true, useFir = true)
 
         project.build("build", options = options) {
             assertSuccessful()
@@ -1068,14 +1118,16 @@ class KotlinGradleIT : BaseGradleIT() {
         }
 
     @Test
-    fun testLoadCompilerEmbeddableAfterOtherKotlinArtifacts() = with(Project("simpleProject")) {
+    fun testLoadCompilerEmbeddableAfterOtherKotlinArtifacts() = with(Project("simpleProjectClasspath")) {
         setupWorkingDir()
         val buildscriptClasspathPrefix = "buildscript-classpath = "
-        gradleBuildScript().appendText(
-            "\n" + """
+        gradleBuildScript()
+            .appendText(
+                """
+               
                 println "$buildscriptClasspathPrefix" + Arrays.toString(buildscript.classLoader.getURLs())
-            """.trimIndent()
-        )
+                """.trimIndent()
+            )
 
         // get the classpath, then reorder it so that kotlin-compiler-embeddable is loaded after all other JARs
         lateinit var classpath: List<String>
@@ -1117,12 +1169,15 @@ class KotlinGradleIT : BaseGradleIT() {
 
     @Test
     fun testKtKt35942InternalsFromMainInTestViaTransitiveDepsAndroid() = with(
-        Project("kt-35942-android", GradleVersionRequired.FOR_MPP_SUPPORT)
+        Project(
+            projectName = "kt-35942-android",
+            gradleVersionRequirement = GradleVersionRequired.AtLeast("6.6.1")
+        )
     ) {
         build(
             ":lib1:compileDebugUnitTestKotlin",
             options = defaultBuildOptions().copy(
-                androidGradlePluginVersion = AGPVersion.v3_6_0,
+                androidGradlePluginVersion = AGPVersion.v4_2_0,
                 androidHome = KtTestUtil.findAndroidSdk(),
             ),
         ) {
@@ -1155,6 +1210,26 @@ class KotlinGradleIT : BaseGradleIT() {
             val compiledKotlinClasses = fileInWorkingDir(classesDir()).allFilesWithExtension("class").toList()
 
             assertTrue(compiledKotlinClasses.isEmpty())
+        }
+    }
+
+    /** Regression test for KT-45787. **/
+    @Test
+    fun testPluginDoesNotUseDeprecatedConfigurationsForAssociatedDependencies() {
+        with(
+            Project(
+                projectName = "associatedDependencies",
+                minLogLevel = LogLevel.INFO
+            )
+        ) {
+            setupWorkingDir()
+
+            build(
+                "tasks",
+                options = defaultBuildOptions().copy(warningMode = WarningMode.Fail)
+            ) {
+                assertSuccessful()
+            }
         }
     }
 }

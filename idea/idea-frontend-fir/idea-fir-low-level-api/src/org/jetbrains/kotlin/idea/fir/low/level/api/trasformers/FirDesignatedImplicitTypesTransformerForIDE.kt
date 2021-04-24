@@ -14,14 +14,11 @@ import org.jetbrains.kotlin.fir.resolve.ScopeSession
 import org.jetbrains.kotlin.fir.resolve.transformers.body.resolve.FirImplicitAwareBodyResolveTransformer
 import org.jetbrains.kotlin.fir.resolve.transformers.body.resolve.ImplicitBodyResolveComputationSession
 import org.jetbrains.kotlin.fir.resolve.transformers.body.resolve.createReturnTypeCalculatorForIDE
-import org.jetbrains.kotlin.fir.visitors.CompositeTransformResult
-import org.jetbrains.kotlin.fir.visitors.compose
 import org.jetbrains.kotlin.idea.fir.low.level.api.element.builder.FirIdeDesignatedBodyResolveTransformerForReturnTypeCalculator
 import org.jetbrains.kotlin.idea.fir.low.level.api.element.builder.FirTowerDataContextCollector
 
 internal class FirDesignatedImplicitTypesTransformerForIDE(
-    private val designation: Iterator<FirDeclaration>,
-    targetDeclaration: FirDeclaration,
+    designation: FirDesignation,
     session: FirSession,
     scopeSession: ScopeSession,
     private val towerDataContextCollector: FirTowerDataContextCollector?,
@@ -39,17 +36,16 @@ internal class FirDesignatedImplicitTypesTransformerForIDE(
         ::FirIdeDesignatedBodyResolveTransformerForReturnTypeCalculator
     )
 ) {
-    private val phaseReplaceOracle = PhaseReplaceOracle(targetDeclaration)
+    private val ideDeclarationTransformer = IDEDeclarationTransformer(designation)
 
-    override fun transformDeclarationContent(declaration: FirDeclaration, data: ResolutionMode): CompositeTransformResult<FirDeclaration> {
-        if (designation.hasNext()) phaseReplaceOracle.transformDeclarationInside(designation.next()) {
-            it.visitNoTransform(this, data)
-            return declaration.compose()
+    @Suppress("NAME_SHADOWING")
+    override fun transformDeclarationContent(declaration: FirDeclaration, data: ResolutionMode): FirDeclaration =
+        ideDeclarationTransformer.transformDeclarationContent(this, declaration, data) { declaration, data ->
+            super.transformDeclarationContent(declaration, data)
         }
-        return super.transformDeclarationContent(declaration, data)
-    }
 
-    override fun needReplacePhase(firDeclaration: FirDeclaration): Boolean = phaseReplaceOracle.needReplacePhase(firDeclaration)
+
+    override fun needReplacePhase(firDeclaration: FirDeclaration): Boolean = ideDeclarationTransformer.needReplacePhase(firDeclaration)
 
     override fun onBeforeStatementResolution(statement: FirStatement) {
         towerDataContextCollector?.addStatementContext(statement, context.towerDataContext)

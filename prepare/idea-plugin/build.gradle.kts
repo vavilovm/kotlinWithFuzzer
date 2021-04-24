@@ -6,10 +6,6 @@ plugins {
     java
 }
 
-repositories {
-    maven("https://jetbrains.bintray.com/markdown")
-}
-
 // PILL: used in pill importer
 val projectsToShadow by extra(listOf(
         ":plugins:annotation-based-compiler-plugins-ide-support",
@@ -202,7 +198,7 @@ dependencies {
 
     (libraries.dependencies + gradleToolingModel.dependencies)
         .map { if (it is ProjectDependency) it.dependencyProject else it }
-        .forEach(::compile)
+        .forEach { compile(it) }
 }
 
 val jar = runtimeJar {

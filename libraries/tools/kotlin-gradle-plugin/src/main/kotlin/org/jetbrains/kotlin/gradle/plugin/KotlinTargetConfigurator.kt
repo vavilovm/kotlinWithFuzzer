@@ -272,6 +272,18 @@ abstract class AbstractKotlinTargetConfigurator<KotlinTargetType : KotlinTarget>
             val target = compilation.target
             val configurations = target.project.configurations
 
+            val pluginConfiguration = configurations.maybeCreate(compilation.pluginConfigurationName).apply {
+                if (target.platformType == KotlinPlatformType.native) {
+                    extendsFrom(configurations.getByName(NATIVE_COMPILER_PLUGIN_CLASSPATH_CONFIGURATION_NAME))
+                    isTransitive = false
+                } else {
+                    extendsFrom(target.project.commonKotlinPluginClasspath)
+                }
+                isVisible = false
+                isCanBeConsumed = false
+                description = "Kotlin compiler plugins for $compilation"
+            }
+
             val compileConfiguration = configurations.findByName(compilation.deprecatedCompileConfigurationName)?.apply {
                 isCanBeConsumed = false
                 setupAsLocalTargetSpecificConfigurationIfSupported(target)
@@ -358,8 +370,7 @@ internal val KotlinTarget.testTaskName: String
 
 abstract class KotlinOnlyTargetConfigurator<KotlinCompilationType : KotlinCompilation<*>, KotlinTargetType : KotlinOnlyTarget<KotlinCompilationType>>(
     createDefaultSourceSets: Boolean,
-    createTestCompilation: Boolean,
-    val kotlinPluginVersion: String
+    createTestCompilation: Boolean
 ) : AbstractKotlinTargetConfigurator<KotlinTargetType>(
     createDefaultSourceSets,
     createTestCompilation
@@ -493,3 +504,7 @@ fun Configuration.usesPlatformOf(target: KotlinTarget): Configuration {
     }
     return this
 }
+
+internal val Project.commonKotlinPluginClasspath get() = configurations.getByName(PLUGIN_CLASSPATH_CONFIGURATION_NAME)
+internal val KotlinCompilation<*>.pluginConfigurationName
+    get() = lowerCamelCaseName(PLUGIN_CLASSPATH_CONFIGURATION_NAME, target.disambiguationClassifier, compilationName)

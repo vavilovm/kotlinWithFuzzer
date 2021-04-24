@@ -239,6 +239,18 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
         }
 
         @Test
+        @TestMetadata("kt45853.kt")
+        public void testKt45853() throws Exception {
+            runTest("compiler/testData/ir/irText/classes/kt45853.kt");
+        }
+
+        @Test
+        @TestMetadata("kt45934.kt")
+        public void testKt45934() throws Exception {
+            runTest("compiler/testData/ir/irText/classes/kt45934.kt");
+        }
+
+        @Test
         @TestMetadata("lambdaInDataClassDefaultParameter.kt")
         public void testLambdaInDataClassDefaultParameter() throws Exception {
             runTest("compiler/testData/ir/irText/classes/lambdaInDataClassDefaultParameter.kt");
@@ -429,6 +441,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
         }
 
         @Test
+        @TestMetadata("kt45308.kt")
+        public void testKt45308() throws Exception {
+            runTest("compiler/testData/ir/irText/declarations/kt45308.kt");
+        }
+
+        @Test
         @TestMetadata("localClassWithOverrides.kt")
         public void testLocalClassWithOverrides() throws Exception {
             runTest("compiler/testData/ir/irText/declarations/localClassWithOverrides.kt");
@@ -573,6 +591,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
             @TestMetadata("functionsWithAnnotations.kt")
             public void testFunctionsWithAnnotations() throws Exception {
                 runTest("compiler/testData/ir/irText/declarations/annotations/functionsWithAnnotations.kt");
+            }
+
+            @Test
+            @TestMetadata("genericAnnotationClasses.kt")
+            public void testGenericAnnotationClasses() throws Exception {
+                runTest("compiler/testData/ir/irText/declarations/annotations/genericAnnotationClasses.kt");
             }
 
             @Test
@@ -801,6 +825,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
             @TestMetadata("differentReceivers.kt")
             public void testDifferentReceivers() throws Exception {
                 runTest("compiler/testData/ir/irText/declarations/provideDelegate/differentReceivers.kt");
+            }
+
+            @Test
+            @TestMetadata("javaDelegate.kt")
+            public void testJavaDelegate() throws Exception {
+                runTest("compiler/testData/ir/irText/declarations/provideDelegate/javaDelegate.kt");
             }
 
             @Test
@@ -1347,6 +1377,18 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
         }
 
         @Test
+        @TestMetadata("kt42321.kt")
+        public void testKt42321() throws Exception {
+            runTest("compiler/testData/ir/irText/expressions/kt42321.kt");
+        }
+
+        @Test
+        @TestMetadata("kt44993.kt")
+        public void testKt44993() throws Exception {
+            runTest("compiler/testData/ir/irText/expressions/kt44993.kt");
+        }
+
+        @Test
         @TestMetadata("kt45022.kt")
         public void testKt45022() throws Exception {
             runTest("compiler/testData/ir/irText/expressions/kt45022.kt");
@@ -1800,6 +1842,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
             }
 
             @Test
+            @TestMetadata("kt46069.kt")
+            public void testKt46069() throws Exception {
+                runTest("compiler/testData/ir/irText/expressions/callableReferences/kt46069.kt");
+            }
+
+            @Test
             @TestMetadata("suspendConversion.kt")
             public void testSuspendConversion() throws Exception {
                 runTest("compiler/testData/ir/irText/expressions/callableReferences/suspendConversion.kt");
@@ -1815,6 +1863,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
             @TestMetadata("unboundMemberReferenceWithAdaptedArguments.kt")
             public void testUnboundMemberReferenceWithAdaptedArguments() throws Exception {
                 runTest("compiler/testData/ir/irText/expressions/callableReferences/unboundMemberReferenceWithAdaptedArguments.kt");
+            }
+
+            @Test
+            @TestMetadata("varargFunImportedFromObject.kt")
+            public void testVarargFunImportedFromObject() throws Exception {
+                runTest("compiler/testData/ir/irText/expressions/callableReferences/varargFunImportedFromObject.kt");
             }
 
             @Test
@@ -2087,6 +2141,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
         }
 
         @Test
+        @TestMetadata("ArrayMap.kt")
+        public void testArrayMap() throws Exception {
+            runTest("compiler/testData/ir/irText/firProblems/ArrayMap.kt");
+        }
+
+        @Test
         @TestMetadata("candidateSymbol.kt")
         public void testCandidateSymbol() throws Exception {
             runTest("compiler/testData/ir/irText/firProblems/candidateSymbol.kt");
@@ -2344,6 +2404,12 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
         @TestMetadata("kt24114.kt")
         public void testKt24114() throws Exception {
             runTest("compiler/testData/ir/irText/regressions/kt24114.kt");
+        }
+
+        @Test
+        @TestMetadata("kt45236.kt")
+        public void testKt45236() throws Exception {
+            runTest("compiler/testData/ir/irText/regressions/kt45236.kt");
         }
 
         @Test
@@ -2693,6 +2759,24 @@ public class IrTextTestGenerated extends AbstractIrTextTest {
             @TestMetadata("platformTypeReceiver.kt")
             public void testPlatformTypeReceiver() throws Exception {
                 runTest("compiler/testData/ir/irText/types/nullChecks/platformTypeReceiver.kt");
+            }
+
+            @Test
+            @TestMetadata("typeParameterWithMixedNullableAndNotNullableBounds.kt")
+            public void testTypeParameterWithMixedNullableAndNotNullableBounds() throws Exception {
+                runTest("compiler/testData/ir/irText/types/nullChecks/typeParameterWithMixedNullableAndNotNullableBounds.kt");
+            }
+
+            @Test
+            @TestMetadata("typeParameterWithMultipleNotNullableBounds.kt")
+            public void testTypeParameterWithMultipleNotNullableBounds() throws Exception {
+                runTest("compiler/testData/ir/irText/types/nullChecks/typeParameterWithMultipleNotNullableBounds.kt");
+            }
+
+            @Test
+            @TestMetadata("typeParameterWithMultipleNullableBounds.kt")
+            public void testTypeParameterWithMultipleNullableBounds() throws Exception {
+                runTest("compiler/testData/ir/irText/types/nullChecks/typeParameterWithMultipleNullableBounds.kt");
             }
 
             @Nested

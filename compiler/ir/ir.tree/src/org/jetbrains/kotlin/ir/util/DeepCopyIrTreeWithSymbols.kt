@@ -118,6 +118,8 @@ open class DeepCopyIrTreeWithSymbols(
         ).also { scriptCopy ->
             scriptCopy.thisReceiver = declaration.thisReceiver.transform()
             declaration.statements.mapTo(scriptCopy.statements) { it.transform() }
+            scriptCopy.earlierScripts = declaration.earlierScripts
+            scriptCopy.earlierScriptsParameter = declaration.earlierScriptsParameter
             scriptCopy.explicitCallParameters = declaration.explicitCallParameters.map { it.transform() }
             scriptCopy.implicitReceiversParameters = declaration.implicitReceiversParameters.map { it.transform() }
             scriptCopy.providedProperties = declaration.providedProperties.map { it.first.transform() to it.second }
@@ -390,7 +392,7 @@ open class DeepCopyIrTreeWithSymbols(
         throw IllegalArgumentException("Unsupported expression type: $expression")
 
     override fun <T> visitConst(expression: IrConst<T>): IrConst<T> =
-        expression.copy().copyAttributes(expression)
+        expression.shallowCopy().copyAttributes(expression)
 
     override fun visitVararg(expression: IrVararg): IrVararg =
         IrVarargImpl(

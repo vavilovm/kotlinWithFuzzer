@@ -7,12 +7,12 @@ package org.jetbrains.kotlin.fir.backend
 
 import org.jetbrains.kotlin.fir.expressions.FirAnnotationCall
 import org.jetbrains.kotlin.fir.expressions.classId
+import org.jetbrains.kotlin.fir.languageVersionSettings
 import org.jetbrains.kotlin.fir.resolve.fullyExpandedType
 import org.jetbrains.kotlin.fir.resolve.substitution.AbstractConeSubstitutor
-import org.jetbrains.kotlin.fir.resolve.substitution.ConeSubstitutor
 import org.jetbrains.kotlin.fir.resolve.toSymbol
-import org.jetbrains.kotlin.fir.symbols.StandardClassIds
 import org.jetbrains.kotlin.fir.typeContext
+import org.jetbrains.kotlin.name.StandardClassIds
 import org.jetbrains.kotlin.fir.types.*
 import org.jetbrains.kotlin.fir.types.impl.*
 import org.jetbrains.kotlin.ir.expressions.IrConstructorCall
@@ -64,7 +64,7 @@ class Fir2IrTypeConverter(
     private val capturedTypeCache = mutableMapOf<ConeCapturedType, IrType>()
     private val errorTypeForCapturedTypeStub by lazy { createErrorType() }
 
-    private val typeApproximator = ConeTypeApproximator(session.typeContext)
+    private val typeApproximator = ConeTypeApproximator(session.typeContext, session.languageVersionSettings)
 
     fun FirTypeRef.toIrType(typeContext: ConversionTypeContext = ConversionTypeContext.DEFAULT): IrType {
         capturedTypeCache.clear()
@@ -85,7 +85,8 @@ class Fir2IrTypeConverter(
 
     fun ConeKotlinType.toIrType(
         typeContext: ConversionTypeContext = ConversionTypeContext.DEFAULT,
-        annotations: List<FirAnnotationCall> = emptyList()
+        annotations: List<FirAnnotationCall> = emptyList(),
+        hasFlexibleNullability: Boolean = false
     ): IrType {
         return when (this) {
             is ConeKotlinErrorType -> createErrorType()
@@ -101,8 +102,7 @@ class Fir2IrTypeConverter(
                     builtIns.enhancedNullabilityAnnotationConstructorCall()?.let {
                         typeAnnotations += it
                     }
-                }
-                if (hasFlexibleNullability) {
+                } else if (hasFlexibleNullability) {
                     builtIns.flexibleNullabilityAnnotationConstructorCall()?.let {
                         typeAnnotations += it
                     }
@@ -121,7 +121,7 @@ class Fir2IrTypeConverter(
             }
             is ConeFlexibleType -> {
                 // TODO: yet we take more general type. Not quite sure it's Ok
-                upperBound.toIrType(typeContext)
+                upperBound.toIrType(typeContext, hasFlexibleNullability = lowerBound.nullability != upperBound.nullability)
             }
             is ConeCapturedType -> {
                 val cached = capturedTypeCache[this]

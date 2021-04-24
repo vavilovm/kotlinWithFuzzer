@@ -12,6 +12,7 @@ import com.intellij.util.diff.FlyweightCapableTreeStructure
 import org.jetbrains.kotlin.KtNodeTypes
 import org.jetbrains.kotlin.fir.*
 import org.jetbrains.kotlin.fir.analysis.checkers.getChildren
+import org.jetbrains.kotlin.fir.declarations.FirDeclaration
 import org.jetbrains.kotlin.lexer.KtModifierKeywordToken
 import org.jetbrains.kotlin.lexer.KtTokens
 import org.jetbrains.kotlin.psi.KtModifierList
@@ -33,30 +34,21 @@ internal sealed class FirModifierList {
 
     class FirLightModifierList(
         val modifierList: LighterASTNode,
-        val tree: FlyweightCapableTreeStructure<LighterASTNode>
+        val tree: FlyweightCapableTreeStructure<LighterASTNode>,
+        private val offsetDelta: Int
     ) : FirModifierList() {
         override val modifiers: List<FirModifier.FirLightModifier>
             get() {
                 val modifierNodes = modifierList.getChildren(tree)
                 return modifierNodes.filterNotNull()
                     .filter { it.tokenType is KtModifierKeywordToken }
-                    .map { FirModifier.FirLightModifier(it, it.tokenType as KtModifierKeywordToken, tree) }
+                    .map { FirModifier.FirLightModifier(it, it.tokenType as KtModifierKeywordToken, tree, offsetDelta) }
             }
     }
 
-    companion object {
-        fun FirSourceElement?.getModifierList(): FirModifierList? {
-            return when (this) {
-                null -> null
-                is FirPsiSourceElement<*> -> (psi as? KtModifierListOwner)?.modifierList?.let { FirPsiModifierList(it) }
-                is FirLightSourceElement -> {
-                    val modifierListNode = lighterASTNode.getChildren(treeStructure).find { it?.tokenType == KtNodeTypes.MODIFIER_LIST }
-                        ?: return null
-                    FirLightModifierList(modifierListNode, treeStructure)
-                }
-            }
-        }
-    }
+    operator fun get(token: KtModifierKeywordToken): FirModifier<*>? = modifiers.firstOrNull { it.token == token }
+
+    operator fun contains(token: KtModifierKeywordToken): Boolean = modifiers.any { it.token == token }
 }
 
 private val MODIFIER_KEYWORD_SET = TokenSet.orSet(KtTokens.SOFT_KEYWORDS, TokenSet.create(KtTokens.IN_KEYWORD, KtTokens.FUN_KEYWORD))
@@ -74,11 +66,35 @@ internal sealed class FirModifier<Node : Any>(val node: Node, val token: KtModif
     class FirLightModifier(
         node: LighterASTNode,
         token: KtModifierKeywordToken,
-        val tree: FlyweightCapableTreeStructure<LighterASTNode>
+        val tree: FlyweightCapableTreeStructure<LighterASTNode>,
+        private val offsetDelta: Int
     ) : FirModifier<LighterASTNode>(node, token) {
         override val source: FirSourceElement
-            get() = node.toFirLightSourceElement(tree)
+            get() = node.toFirLightSourceElement(
+                tree,
+                startOffset = node.startOffset + offsetDelta,
+                endOffset = node.endOffset + offsetDelta
+            )
     }
 
     abstract val source: FirSourceElement
 }
+
+internal fun FirSourceElement?.getModifierList(): FirModifierList? {
+    return when (this) {
+        null -> null
+        is FirPsiSourceElement<*> -> (psi as? KtModifierListOwner)?.modifierList?.let { FirModifierList.FirPsiModifierList(it) }
+        is FirLightSourceElement -> {
+            val modifierListNode = lighterASTNode.getChildren(treeStructure).find { it?.tokenType == KtNodeTypes.MODIFIER_LIST }
+                ?: return null
+            val offsetDelta = startOffset - lighterASTNode.startOffset
+            FirModifierList.FirLightModifierList(modifierListNode, treeStructure, offsetDelta)
+        }
+    }
+}
+
+internal operator fun FirModifierList?.contains(token: KtModifierKeywordToken): Boolean = this?.contains(token) == true
+
+internal fun FirDeclaration.getModifier(token: KtModifierKeywordToken): FirModifier<*>? = source.getModifierList()?.get(token)
+
+internal fun FirDeclaration.hasModifier(token: KtModifierKeywordToken): Boolean = token in source.getModifierList()

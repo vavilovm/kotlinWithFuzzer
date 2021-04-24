@@ -18,6 +18,7 @@ import org.gradle.deployment.internal.DeploymentHandle
 import org.gradle.deployment.internal.DeploymentRegistry
 import org.gradle.process.internal.ExecHandle
 import org.gradle.process.internal.ExecHandleFactory
+import org.jetbrains.kotlin.gradle.plugin.PropertiesProvider
 import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinJsCompilation
 import org.jetbrains.kotlin.gradle.targets.js.RequiredKotlinJsDependency
 import org.jetbrains.kotlin.gradle.targets.js.nodejs.NodeJsRootPlugin
@@ -38,8 +39,11 @@ constructor(
     @Transient
     override val compilation: KotlinJsCompilation
 ) : DefaultTask(), RequiresNpmDependencies {
+    @Transient
     private val nodeJs = NodeJsRootPlugin.apply(project.rootProject)
     private val versions = nodeJs.versions
+    private val resolutionManager = nodeJs.npmResolutionManager
+    private val rootPackageDir by lazy { nodeJs.rootPackageDir }
 
     private val npmProject = compilation.npmProject
 
@@ -58,7 +62,7 @@ constructor(
     val compilationId: String by lazy {
         compilation.let {
             val target = it.target
-            target.project.path + "@" + target.name + ":" + it.compilationName
+            target.project.path + "@" + target.name + ":" + it.compilationPurpose
         }
     }
 
@@ -205,6 +209,9 @@ constructor(
     @Nested
     val synthConfig = KotlinWebpackConfig()
 
+    @Input
+    val webpackMajorVersion = PropertiesProvider(project).webpackMajorVersion
+
     fun webpackConfigApplier(body: KotlinWebpackConfig.() -> Unit) {
         synthConfig.body()
         webpackConfigAppliers.add(body)
@@ -227,7 +234,8 @@ constructor(
             devServer = devServer,
             devtool = devtool,
             sourceMaps = sourceMaps,
-            resolveFromModulesFirst = resolveFromModulesFirst
+            resolveFromModulesFirst = resolveFromModulesFirst,
+            webpackMajorVersion = webpackMajorVersion
         )
 
         webpackConfigAppliers
@@ -255,7 +263,7 @@ constructor(
 
     @TaskAction
     fun doExecute() {
-        nodeJs.npmResolutionManager.checkRequiredDependencies(task = this, services = services, logger = logger, projectPath = projectPath)
+        resolutionManager.checkRequiredDependencies(task = this, services = services, logger = logger, projectPath = projectPath)
 
         val runner = createRunner()
 
@@ -274,7 +282,7 @@ constructor(
             runner.copy(
                 config = runner.config.copy(
                     progressReporter = true,
-                    progressReporterPathFilter = nodeJs.rootPackageDir.absolutePath
+                    progressReporterPathFilter = rootPackageDir.absolutePath
                 )
             ).execute(services)
         }

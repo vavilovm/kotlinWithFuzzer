@@ -21,6 +21,7 @@ import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrPackageFragment
 import org.jetbrains.kotlin.ir.declarations.IrTypeParameter
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
+import org.jetbrains.kotlin.ir.symbols.IrScriptSymbol
 import org.jetbrains.kotlin.ir.symbols.IrTypeParameterSymbol
 import org.jetbrains.kotlin.ir.types.*
 import org.jetbrains.kotlin.ir.util.*
@@ -39,7 +40,7 @@ import org.jetbrains.kotlin.ir.types.isKClass as isKClassImpl
 import org.jetbrains.kotlin.ir.util.isSuspendFunction as isSuspendFunctionImpl
 
 class IrTypeMapper(private val context: JvmBackendContext) : KotlinTypeMapperBase(), TypeMappingContext<JvmSignatureWriter> {
-    internal val typeSystem = IrTypeSystemContextImpl(context.irBuiltIns)
+    override val typeSystem: IrTypeSystemContext = IrTypeSystemContextImpl(context.irBuiltIns)
     override val typeContext: TypeSystemCommonBackendContextForTypeMapping = IrTypeCheckerContextForTypeMapping(typeSystem, context)
 
     override fun mapClass(classifier: ClassifierDescriptor): Type =
@@ -51,6 +52,9 @@ class IrTypeMapper(private val context: JvmBackendContext) : KotlinTypeMapperBas
             else ->
                 error("Unknown descriptor: $classifier")
         }
+
+    override fun mapTypeCommon(type: KotlinTypeMarker, mode: TypeMappingMode): Type =
+        mapType(type as IrType, mode)
 
     private fun computeClassInternalName(irClass: IrClass): StringBuilder {
         context.getLocalClassType(irClass)?.internalName?.let {
@@ -219,6 +223,10 @@ private class IrTypeCheckerContextForTypeMapping(
             is IrTypeParameterSymbol -> owner.defaultType
             else -> error("Unsupported type constructor: $this")
         }
+    }
+
+    override fun TypeConstructorMarker.isScript(): Boolean {
+        return this is IrScriptSymbol
     }
 
     override fun SimpleTypeMarker.isSuspendFunction(): Boolean {

@@ -6,18 +6,37 @@
 package org.jetbrains.kotlin.backend.konan.objcexport
 
 import org.jetbrains.kotlin.descriptors.ClassDescriptor
+import org.jetbrains.kotlin.descriptors.DeclarationDescriptor
+import org.jetbrains.kotlin.descriptors.DeclarationDescriptorWithSource
+import org.jetbrains.kotlin.backend.common.serialization.extractSerializedKdocString
+import org.jetbrains.kotlin.backend.common.serialization.metadata.findKDocString
 
 object StubRenderer {
-    fun render(stub: Stub<*>): List<String> = collect {
+    fun render(stub: Stub<*>): List<String> = render(stub, false)
+    internal fun render(stub: Stub<*>, shouldExportKDoc: Boolean): List<String> = collect {
         stub.run {
-            this.comment?.let { comment ->
-                +"" // Probably makes the output more readable.
+            val kDoc = if (shouldExportKDoc) {
+                descriptor?.extractKDocString()?.let {
+                    if (it.isNotEmpty()) {  // sometimes `findDoc` return empty string; is it a bug?
+                        +"" // Probably makes the output more readable.
+                        it.lines().forEach { it.trim().let {
+                                if (it[0] == '*') +" $it"
+                                else +"$it"
+                            }
+                        }
+                    } else null
+                }
+            } else null
+
+            comment?.let { comment ->
+                kDoc ?: let { +"" } // Probably makes the output more readable.
                 +"/**"
                 comment.contentLines.forEach {
                     +" $it"
                 }
                 +"*/"
             }
+
             when (this) {
                 is ObjCProtocol -> {
                     attributes.forEach {
@@ -25,7 +44,7 @@ object StubRenderer {
                     }
                     +renderProtocolHeader()
                     +"@required"
-                    renderMembers(this)
+                    renderMembers(this, shouldExportKDoc)
                     +"@end;"
                 }
                 is ObjCInterface -> {
@@ -33,7 +52,7 @@ object StubRenderer {
                         +renderAttribute(it)
                     }
                     +renderInterfaceHeader()
-                    renderMembers(this)
+                    renderMembers(this, shouldExportKDoc)
                     +"@end;"
                 }
                 is ObjCMethod -> {
@@ -145,7 +164,7 @@ object StubRenderer {
     private fun ObjCInterface.renderInterfaceHeader() = buildString {
         fun appendSuperClass() {
             if (superClass != null) append(" : $superClass")
-            formatGenerics(this, superClassGenerics.map { it.render() })
+            formatGenerics(this, superClassGenerics)
         }
 
         fun appendGenerics() {
@@ -168,9 +187,9 @@ object StubRenderer {
         appendSuperProtocols(this@renderInterfaceHeader)
     }
 
-    private fun Collector.renderMembers(clazz: ObjCClass<*>) {
+    private fun Collector.renderMembers(clazz: ObjCClass<*>, shouldExportKDoc: Boolean) {
         clazz.members.forEach {
-            +render(it)
+            +render(it, shouldExportKDoc)
         }
     }
 
@@ -196,9 +215,13 @@ object StubRenderer {
     }
 }
 
-internal fun formatGenerics(buffer: Appendable, generics:List<String>) {
+fun formatGenerics(buffer: Appendable, generics: List<Any>) {
     if (generics.isNotEmpty()) {
         generics.joinTo(buffer, separator = ", ", prefix = "<", postfix = ">")
     }
 }
 
+private fun DeclarationDescriptor.extractKDocString(): String? {
+    return (this as? DeclarationDescriptorWithSource)?.findKDocString()
+            ?: extractSerializedKdocString()
+}

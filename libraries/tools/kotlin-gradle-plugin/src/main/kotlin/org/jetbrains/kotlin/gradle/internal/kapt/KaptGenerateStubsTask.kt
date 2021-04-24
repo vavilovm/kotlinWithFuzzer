@@ -17,7 +17,9 @@
 package org.jetbrains.kotlin.gradle.internal
 
 import org.gradle.api.artifacts.Configuration
+import org.gradle.api.file.DirectoryProperty
 import org.gradle.api.file.FileCollection
+import org.gradle.api.model.ObjectFactory
 import org.gradle.api.tasks.*
 import org.jetbrains.kotlin.cli.common.arguments.K2JVMCompilerArguments
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
@@ -30,10 +32,15 @@ import org.jetbrains.kotlin.gradle.utils.isParentOf
 import org.jetbrains.kotlin.incremental.classpathAsList
 import org.jetbrains.kotlin.incremental.destinationAsFile
 import java.io.File
+import javax.inject.Inject
 
 @CacheableTask
-open class KaptGenerateStubsTask : KotlinCompile() {
-    override val sourceRootsContainer = FilteringSourceRootsContainer(emptyList(), { isSourceRootAllowed(it) })
+open class KaptGenerateStubsTask @Inject constructor(
+    objectFactory: ObjectFactory
+) : KotlinCompile() {
+
+    @field:Transient
+    override val sourceRootsContainer = FilteringSourceRootsContainer(objectFactory, { isSourceRootAllowed(it) })
 
     override val kotlinOptions: KotlinJvmOptions = KotlinJvmOptionsImpl()
 
@@ -42,7 +49,7 @@ open class KaptGenerateStubsTask : KotlinCompile() {
     internal lateinit var kotlinCompileTask: KotlinCompile
 
     @get:OutputDirectory
-    lateinit var stubsDir: File
+    val stubsDir: DirectoryProperty = objectFactory.directoryProperty()
 
     @get:Internal
     lateinit var generatedSourcesDirs: List<File>
@@ -82,7 +89,7 @@ open class KaptGenerateStubsTask : KotlinCompile() {
 
     private fun isSourceRootAllowed(source: File): Boolean =
         !destinationDir.isParentOf(source) &&
-                !stubsDir.isParentOf(source) &&
+                !stubsDir.asFile.get().isParentOf(source) &&
                 generatedSourcesDirs.none { it.isParentOf(source) }
 
     private val compileKotlinArgumentsContributor by project.provider {
@@ -104,10 +111,11 @@ open class KaptGenerateStubsTask : KotlinCompile() {
     }
 
     private val sourceRoots by project.provider {
-        kotlinCompileTask.getSourceRoots().let {
-            val javaSourceRoots = it.javaSourceRoots.filterTo(HashSet()) { isSourceRootAllowed(it) }
-            val kotlinSourceFiles = it.kotlinSourceFiles.filterTo(ArrayList()) { isSourceRootAllowed(it) }
-            SourceRoots.ForJvm(kotlinSourceFiles, javaSourceRoots)
+        kotlinCompileTask.getSourceRoots().let { compileTaskSourceRoots ->
+            SourceRoots.ForJvm(
+                compileTaskSourceRoots.kotlinSourceFiles.filterTo(mutableListOf()) { isSourceRootAllowed(it) },
+                javaSourceRootsProvider = { compileTaskSourceRoots.javaSourceRoots.filterTo(mutableSetOf()) { isSourceRootAllowed(it) } }
+            )
         }
     }
 

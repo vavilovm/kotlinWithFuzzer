@@ -166,6 +166,14 @@ class K2NativeCompilerArguments : CommonCompilerArguments() {
     var lightDebugDeprecated: Boolean = false
 
     @Argument(
+            value = "-Xg-generate-inline-function-body-marker",
+            valueDescription = "{disable|enable}",
+            description = """generates marker of inlined function body on call site to make debugger breakpoint resolution more accurate"""
+    )
+    var generateInlinedFunctionMarkerString: String? = null
+
+
+    @Argument(
             value = MAKE_CACHE,
             valueDescription = "<path>",
             description = "Path of the library to be compiled to cache",
@@ -181,6 +189,9 @@ class K2NativeCompilerArguments : CommonCompilerArguments() {
     )
     var libraryToAddToCache: String? = null
 
+    @Argument(value = "-Xexport-kdoc", description = "Export KDoc in framework header")
+    var exportKDoc: Boolean = false
+
     @Argument(value = "-Xprint-bitcode", deprecatedName = "--print_bitcode", description = "Print llvm bitcode")
     var printBitCode: Boolean = false
 
@@ -195,6 +206,9 @@ class K2NativeCompilerArguments : CommonCompilerArguments() {
 
     @Argument(value = "-Xprint-locations", deprecatedName = "--print_locations", description = "Print locations")
     var printLocations: Boolean = false
+
+    @Argument(value = "-Xprint-files", description = "Print files")
+    var printFiles: Boolean = false
 
     @Argument(value="-Xpurge-user-libs", deprecatedName = "--purge_user_libs", description = "Don't link unused libraries even explicitly specified")
     var purgeUserLibs: Boolean = false

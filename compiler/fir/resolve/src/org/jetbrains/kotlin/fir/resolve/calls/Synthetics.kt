@@ -13,7 +13,7 @@ import org.jetbrains.kotlin.fir.declarations.synthetic.buildSyntheticProperty
 import org.jetbrains.kotlin.fir.dispatchReceiverClassOrNull
 import org.jetbrains.kotlin.fir.scopes.*
 import org.jetbrains.kotlin.name.CallableId
-import org.jetbrains.kotlin.fir.symbols.StandardClassIds
+import org.jetbrains.kotlin.name.StandardClassIds
 import org.jetbrains.kotlin.fir.symbols.SyntheticSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.*
 import org.jetbrains.kotlin.fir.typeContext
@@ -23,7 +23,7 @@ import org.jetbrains.kotlin.fir.unwrapFakeOverrides
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.types.AbstractTypeChecker
 
-class SyntheticPropertySymbol(
+class FirSyntheticPropertySymbol(
     callableId: CallableId,
     override val accessorId: CallableId
 ) : FirAccessorSymbol(callableId, accessorId), SyntheticSymbol
@@ -107,9 +107,9 @@ class FirSyntheticPropertiesScope(
         val className = classLookupTag?.classId?.relativeClassName
 
         val property = buildSyntheticProperty {
-            session = this@FirSyntheticPropertiesScope.session
+            declarationSiteSession = session
             name = propertyName
-            symbol = SyntheticPropertySymbol(
+            symbol = FirSyntheticPropertySymbol(
                 accessorId = getterSymbol.callableId,
                 callableId = CallableId(packageName, className, propertyName)
             )

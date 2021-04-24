@@ -56,6 +56,8 @@ class KonanConfigKeys {
                 = CompilerConfigurationKey.create("library version")
         val LIGHT_DEBUG: CompilerConfigurationKey<Boolean?>
                 = CompilerConfigurationKey.create("add light debug information")
+        val GENERATE_INLINED_FUNCTION_BODY_MARKER: CompilerConfigurationKey<Boolean?>
+                = CompilerConfigurationKey.create("generates inlined function body marker on call site")
         val LINKER_ARGS: CompilerConfigurationKey<List<String>>
                 = CompilerConfigurationKey.create("additional linker arguments")
         val LIST_PHASES: CompilerConfigurationKey<Boolean>
@@ -94,7 +96,9 @@ class KonanConfigKeys {
                 = CompilerConfigurationKey.create("arguments for clang")
         val ALLOCATION_MODE: CompilerConfigurationKey<String>
                 = CompilerConfigurationKey.create("allocation mode")
-        val PRINT_BITCODE: CompilerConfigurationKey<Boolean> 
+        val EXPORT_KDOC: CompilerConfigurationKey<Boolean>
+                = CompilerConfigurationKey.create("export KDoc into klib and framework")
+        val PRINT_BITCODE: CompilerConfigurationKey<Boolean>
                 = CompilerConfigurationKey.create("print bitcode")
         val PRINT_DESCRIPTORS: CompilerConfigurationKey<Boolean>
                 = CompilerConfigurationKey.create("print descriptors")
@@ -104,6 +108,8 @@ class KonanConfigKeys {
                 = CompilerConfigurationKey.create("print ir with descriptors")
         val PRINT_LOCATIONS: CompilerConfigurationKey<Boolean>
                 = CompilerConfigurationKey.create("print locations")
+        val PRINT_FILES: CompilerConfigurationKey<Boolean>
+                = CompilerConfigurationKey.create("print files")
         val PRODUCE: CompilerConfigurationKey<CompilerOutputKind>
                 = CompilerConfigurationKey.create("compiler output kind")
         val PURGE_USER_LIBS: CompilerConfigurationKey<Boolean>

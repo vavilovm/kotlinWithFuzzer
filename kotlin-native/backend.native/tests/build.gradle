@@ -326,8 +326,7 @@ task run_external () {
 
     rootProject.files(
             'compiler/testData/codegen/box',
-            'compiler/codegen/boxInline',
-            'compiler/compileKotlinAgainstKotlin'
+            'compiler/testData/codegen/boxInline'
     ).asFileTree.visit { file ->
         if (!file.isDirectory() || !file.file.list().any{ it.endsWith(".kt")})
             return
@@ -528,6 +527,16 @@ task function_defaults_with_inline_classes(type: KonanLocalTest) {
 
 task sum_3const(type: KonanLocalTest) {
     source = "codegen/function/sum_3const.kt"
+}
+
+standaloneTest("function_nothingN_returning_safe_call1") {
+    flags = ["-g", "-entry", "codegen.function.nothingN_returning_safe_call1.main"]
+    source = "codegen/function/nothingNReturningSafeCall1.kt"
+}
+
+standaloneTest("function_nothingN_returning_safe_call2") {
+    flags = ["-g", "-entry", "codegen.function.nothingN_returning_safe_call2.main"]
+    source = "codegen/function/nothingNReturningSafeCall2.kt"
 }
 
 task codegen_controlflow_for_loops(type: KonanLocalTest) {
@@ -985,22 +994,20 @@ task freeze0(type: KonanLocalTest) {
 }
 
 task freeze1(type: KonanLocalTest) {
-    enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // No exceptions on WASM.
     goldValue = "OK, cannot mutate frozen\n"
     source = "runtime/workers/freeze1.kt"
 }
 
 task freeze_stress(type: KonanLocalTest) {
-    enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // No exceptions on WASM.
     goldValue = "OK\n"
     source = "runtime/workers/freeze_stress.kt"
 }
 
 task freeze2(type: KonanLocalTest) {
     enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+        !isExperimentalMM  // Experimental MM doesn't support multiple mutators yet.
     goldValue =
             "Worker 1: Hello world\n" + "Worker2: 42\n" +
             "Worker3: 239.0\n" + "Worker4: a\n" + "OK\n"
@@ -1009,27 +1016,24 @@ task freeze2(type: KonanLocalTest) {
 
 task freeze3(type: KonanLocalTest) {
     enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+        !isExperimentalMM  // Experimental MM doesn't support multiple mutators yet.
     goldValue = "OK\n"
     source = "runtime/workers/freeze3.kt"
 }
 
 task freeze4(type: KonanLocalTest) {
-    enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // No exceptions on WASM.
     goldValue = "OK\n"
     source = "runtime/workers/freeze4.kt"
 }
 
 task freeze5(type: KonanLocalTest) {
-    enabled = !isExperimentalMM  // Experimental MM does not support freezing yet.
     goldValue = "OK\n"
     source = "runtime/workers/freeze5.kt"
 }
 
 task freeze6(type: KonanLocalTest) {
-    enabled = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // No exceptions on WASM.
     goldValue = "OK\nOK\n"
     source = "runtime/workers/freeze6.kt"
 }
@@ -1055,20 +1059,17 @@ task lazy0(type: KonanLocalTest) {
 }
 
 task lazy1(type: KonanLocalTest) {
-    enabled = (project.testTarget != 'wasm32') && // Need exceptions.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // Need exceptions.
     goldValue = "OK\n"
     source = "runtime/workers/lazy1.kt"
 }
 
 standaloneTest("lazy2") {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     goldValue = "123\nOK\n"
     source = "runtime/workers/lazy2.kt"
 }
 
 standaloneTest("lazy3") {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     source = "runtime/workers/lazy3.kt"
 }
 
@@ -1178,8 +1179,7 @@ task enum_nested(type: KonanLocalTest) {
 }
 
 task enum_isFrozen(type: KonanLocalTest) {
-    enabled = !isExperimentalMM  // Experimental MM does not support freezing yet.
-    goldValue = "true\n"
+    goldValue = isExperimentalMM ? "false\n" : "true\n"
     source = "codegen/enum/isFrozen.kt"
 }
 
@@ -1929,8 +1929,7 @@ task typed_array0(type: KonanLocalTest) {
 }
 
 task typed_array1(type: KonanLocalTest) {
-    enabled  = (project.testTarget != 'wasm32') && // No exceptions on WASM.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled  = (project.testTarget != 'wasm32') // No exceptions on WASM.
     goldValue = "OK\n"
     source = "runtime/collections/typed_array1.kt"
 }
@@ -2240,10 +2239,9 @@ task hash0(type: KonanLocalTest) {
 }
 
 task ieee754(type: KonanLocalTest) {
-    goldValue = "Infinity 2147483647 -1 -1\n" +
+    goldValue = "Infinity 2147483647 -1\n" +
             "3.4028235E38\n" +
             "NAN2SHORT:: 0\n" +
-            "MAX2SHORT:: -1\n" +
             "2147483647 -1\n" +
             "FLOAT:: Infinity   INT:: 2147483647\n" +
             "FLOAT:: 1.7014117E38   INT:: 2147483647\n" +
@@ -2313,8 +2311,6 @@ task moderately_large_array1(type: KonanLocalTest) {
 }
 
 task string_builder0(type: KonanLocalTest) {
-    // Cannot be executed in the two-stage mode due to KT-33175.
-    enabled = !twoStageEnabled
     expectedFail = (project.testTarget == 'wasm32') // Uses exceptions.
     goldValue = "OK\n"
     source = "runtime/text/string_builder0.kt"
@@ -2366,9 +2362,8 @@ task indexof(type: KonanLocalTest) {
 }
 
 task utf8(type: KonanLocalTest) {
-    // Cannot be executed in the two-stage mode due to KT-33175.
     // Uses exceptions so cannot run on wasm.
-    enabled = !twoStageEnabled && (project.testTarget != 'wasm32')
+    enabled = project.testTarget != 'wasm32'
     goldValue = "Hello\nПривет\n\uD800\uDC00\n\n\uFFFD\uFFFD\n\uFFFD12\n\uFFFD12\n12\uFFFD\n\uD83D\uDE25\n\uD83D\uDE25\n"
     source = "runtime/text/utf8.kt"
 }
@@ -2403,8 +2398,9 @@ standaloneTest("check_stacktrace_format") {
 }
 
 standaloneTest("stack_trace_inline") {
+    // TODO: Enable after the test has been fixed.
     disabled = !isAppleTarget(project) || project.globalTestArgs.contains('-opt') || (project.testTarget == 'ios_arm64')
-    flags = ['-g']
+    flags = ['-g', '-Xg-generate-inline-function-body-marker=enable']
     source = "runtime/exceptions/stack_trace_inline.kt"
 }
 
@@ -2415,8 +2411,7 @@ standaloneTest("kt-37572") {
 }
 
 standaloneTest("custom_hook") {
-    enabled = (project.testTarget != 'wasm32') && // Uses exceptions.
-        !isExperimentalMM  // Experimental MM does not support freezing yet.
+    enabled = (project.testTarget != 'wasm32') // Uses exceptions.
     goldValue = "value 42: Error\n"
     expectedExitStatus = 1
     source = "runtime/exceptions/custom_hook.kt"
@@ -2883,13 +2878,11 @@ task memory_escape1(type: KonanLocalTest) {
 }
 
 task memory_cycles0(type: KonanLocalTest) {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     goldValue = "42\n"
     source = "runtime/memory/cycles0.kt"
 }
 
 task memory_cycles1(type: KonanLocalTest) {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     source = "runtime/memory/cycles1.kt"
 }
 
@@ -2903,7 +2896,6 @@ task memory_escape2(type: KonanLocalTest) {
 }
 
 task memory_weak0(type: KonanLocalTest) {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     goldValue = "Data(s=Hello)\nnull\nOK\n"
     source = "runtime/memory/weak0.kt"
 }
@@ -2914,7 +2906,6 @@ task memory_weak1(type: KonanLocalTest) {
 }
 
 standaloneTest("memory_only_gc") {
-    enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
     source = "runtime/memory/only_gc.kt"
 }
 
@@ -3260,6 +3251,10 @@ task inlineClass_defaultEquals(type: KonanLocalTest) {
 
 task inlineClass_secondaryConstructorWithGenerics(type: KonanLocalTest) {
     source = "codegen/inlineClass/secondaryConstructorWithGenerics.kt"
+}
+
+task inlineClass_nestedInlineClasses(type: KonanLocalTest) {
+    source = "codegen/inlineClass/nestedInlineClasses.kt"
 }
 
 task valueClass0(type: KonanLocalTest) {
@@ -4210,7 +4205,6 @@ standaloneTest("interop_opengl_teapot") {
 
 if (PlatformInfo.isAppleTarget(project)) {
     interopTest("interop_objc_smoke") {
-        enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
         goldValue = "84\nFoo\nDeallocated\n" +
                 "Hello, World!\nKotlin says: Hello, everybody!\nHello from Kotlin\n2, 1\n" +
                 "true\ntrue\n" +
@@ -4226,14 +4220,14 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/smoke.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcsmoke.dylib"
                 // Enable ARC optimizations to prevent some objects from leaking in Obj-C code due to exceptions:
                 args '-O2'
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcsmoke.dylib")
             }
 
@@ -4245,21 +4239,21 @@ if (PlatformInfo.isAppleTarget(project)) {
     }
 
     interopTestMultifile("interop_objc_tests") {
-        enabled = !isExperimentalMM  // Experimental MM does not have a GC yet.
+        enabled = !isExperimentalMM  // Experimental MM does not support Obj-C weaks yet.
         source = "interop/objc/tests/"
         interop = 'objcTests'
         flags = ['-tr', '-e', 'main']
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args fileTree("$projectDir/interop/objc/tests/") { include '**/*.m' }
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjctests.dylib"
                 // Enable ARC optimizations to prevent some objects from leaking in Obj-C code due to exceptions:
                 args '-O2'
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjctests.dylib")
             }
         }
@@ -4272,12 +4266,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc_with_initializer/objc_misc.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcmisc.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcmisc.dylib")
             }
         }
@@ -4289,12 +4283,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/msg_send/messaging.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcmessaging.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcmessaging.dylib")
             }
         }
@@ -4307,12 +4301,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/foreignException/objc_wrap.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcexception.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcexception.dylib")
             }
         }
@@ -4326,12 +4320,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/foreignException/objc_wrap.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcexception.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcexception.dylib")
             }
         }
@@ -4345,12 +4339,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/foreignException/objc_wrap.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjcexception.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjcexception.dylib")
             }
         }
@@ -4384,12 +4378,12 @@ if (PlatformInfo.isAppleTarget(project)) {
 
         doBeforeBuild {
             mkdir(buildDir)
-            execKonanClang(project.target) {
+            execClangForCompilerTests(project.target) {
                 args "$projectDir/interop/objc/kt42172/objclib.m"
                 args "-lobjc", '-fobjc-arc'
                 args '-fPIC', '-shared', '-o', "$buildDir/libobjc_kt42172.dylib"
             }
-            if (project.target instanceof KonanTarget.IOS_X64) {
+            if (UtilsKt.isSimulatorTarget(project, project.target)) {
                 UtilsKt.codesign(project, "$buildDir/libobjc_kt42172.dylib")
             }
         }
@@ -4475,6 +4469,18 @@ dynamicTest("kt36639") {
                    |""".stripMargin()
 }
 
+for (i in 0..2) {
+    dynamicTest("kt42796_$i") {
+        clangTool = "clang++"
+        disabled = (project.target.name != project.hostName)
+        source = "produce_dynamic/kt-42796/main-${i}.kt"
+        cSource = "$projectDir/produce_dynamic/kt-42796/main.cpp"
+        goldValue = ""
+        clangFlags = ["-DTEST=$i", "-Werror"]
+    }
+}
+
+
 dynamicTest("interop_concurrentRuntime") {
     disabled = (project.target.name != project.hostName)
     disabled = true  // KT-43180
@@ -4495,7 +4501,7 @@ dynamicTest("interop_kt42397") {
 
 dynamicTest("interop_cleaners_main_thread") {
     disabled = (project.target.name != project.hostName) ||
-        isExperimentalMM  // Experimental MM does not have a GC yet.
+        isExperimentalMM  // Experimental MM doesn't support multiple mutators yet.
     source = "interop/cleaners/cleaners.kt"
     cSource = "$projectDir/interop/cleaners/main_thread.cpp"
     clangTool = "clang++"
@@ -4643,6 +4649,13 @@ linkTest("private_fake_overrides_1") {
     goldValue = "PASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\nPASS\n"
 }
 
+linkTest("remap_expect_property_refs") {
+    source = "codegen/mpp/remap_expect_property_ref_main.kt"
+    lib = "codegen/mpp/remap_expect_property_ref_lib.kt"
+    flags = ["-Xmulti-platform"]
+    goldValue = "42\n"
+}
+
 Task frameworkTest(String name, Closure<FrameworkTest> configurator) {
     return KotlinNativeTestKt.createTest(project, name, FrameworkTest) { task ->
         configurator.delegate = task
@@ -4725,9 +4738,62 @@ if (isAppleTarget(project)) {
         framework(frameworkName) {
             sources = ['objcexport']
             library = libraryName
-            opts = ["-Xemit-lazy-objc-header=$lazyHeader"]
+            opts = ["-Xemit-lazy-objc-header=$lazyHeader", "-Xexport-kdoc"]
         }
         swiftSources = ['objcexport']
+    }
+
+    frameworkTest('testObjCExportNoGenerics') {
+        enabled = !isExperimentalMM // Experimental MM doesn't support ObjC blocks yet.
+        final String frameworkName = 'KtNoGenerics'
+        final String frameworkArtifactName = 'Kt'
+        final String dir = "$testOutputFramework/testObjCExportNoGenerics"
+        final File lazyHeader = file("$dir/$target-lazy.h")
+
+        doLast {
+            final String expectedLazyHeaderName = "expectedLazyNoGenerics.h"
+            final String expectedLazyHeaderDir = file("objcexport/")
+            final File expectedLazyHeader = new File(expectedLazyHeaderDir, expectedLazyHeaderName)
+
+            if (expectedLazyHeader.readLines() != lazyHeader.readLines()) {
+                exec {
+                    commandLine 'diff', '-u', expectedLazyHeader, lazyHeader
+                    ignoreExitValue = true
+                }
+
+                copy {
+                    from(lazyHeader)
+                    into(expectedLazyHeaderDir)
+                    rename { expectedLazyHeaderName }
+                }
+
+                throw new Error("$expectedLazyHeader file patched;\nre-run the test and don't forget to commit the patch")
+            }
+
+        }
+
+        def libraryName = frameworkName + "Library"
+        konanArtifacts {
+            library(libraryName, targets: [target.name]) {
+                srcDir "objcexport/library"
+                artifactName "test-library"
+
+                if (!useCustomDist) {
+                    dependsOn ":${target.name}CrossDistRuntime", ':distCompiler'
+                }
+
+                extraOpts "-Xshort-module-name=MyLibrary"
+                extraOpts "-module-name", "org.jetbrains.kotlin.native.test-library"
+            }
+        }
+        framework(frameworkName) {
+            sources = ['objcexport']
+            artifact = frameworkArtifactName
+            library = libraryName
+            opts = ["-Xemit-lazy-objc-header=$lazyHeader", "-Xno-objc-generics"]
+        }
+        swiftSources = ['objcexport']
+        swiftExtraOpts = [ '-D', 'NO_GENERICS' ]
     }
 
     frameworkTest('testObjCExportStatic') {
@@ -4769,7 +4835,6 @@ if (isAppleTarget(project)) {
     }
 
     frameworkTest("testStdlibFramework") {
-        enabled = !isExperimentalMM // Experimental MM does not have GC yet.
         framework('Stdlib') {
             sources = ['framework/stdlib']
             bitcode = true
@@ -4848,20 +4913,6 @@ KotlinNativeTestKt.createTest(project, 'harmonyRegexTest', KonanGTest) { task ->
     task.enabled = (project.testTarget != 'wasm32') // Uses exceptions.
     task.useFilter = false
     task.testLogger = KonanTest.Logger.GTEST
-
-    if (twoStageEnabled) {
-        // Exclude tests with lone surrogates/incorrect surrogate pairs failing due to KT-33175.
-        def excludedTests = [
-            "test.text.harmony_regex.PatternTest.testCanonEqFlagWithSupplementaryCharacters",
-            "test.text.harmony_regex.PatternTest.testRangesWithSurrogatesSupplementary",
-            "test.text.harmony_regex.PatternTest.testSequencesWithSurrogatesSupplementary",
-            "test.text.harmony_regex.PatternTest.testPredefinedClassesWithSurrogatesSupplementary",
-            "test.text.harmony_regex.PatternTest.testDotConstructionWithSurrogatesSupplementary",
-            "test.text.harmony_regex.PatternTest.testAlternationsWithSurrogatesSupplementary",
-            "test.text.harmony_regex.PatternTest.testGroupsWithSurrogatesSupplementary"
-        ]
-        task.arguments += "--ktest_filter=*-${excludedTests.join(":")}"
-    }
 
     def sources = UtilsKt.getFilesToCompile(project, ["harmony_regex"], [])
 
@@ -5204,7 +5255,7 @@ project.tasks.register("debugger_test", Test.class) {
 }
 
 // Configure build for iOS device targets.
-if (target.family == Family.IOS && (target.architecture == ARM32 || target.architecture == ARM64)) {
+if (UtilsKt.supportsRunningTestsOnDevice(target)) {
     project.tasks
             .withType(KonanTestExecutable.class)
             .configureEach {

@@ -75,26 +75,6 @@ internal fun konanUnitPhase(
         op: Context.() -> Unit
 ) = namedOpUnitPhase(name, description, prerequisite, op)
 
-internal val frontendPhase = konanUnitPhase(
-        op = {
-            val environment = environment
-            val analyzerWithCompilerReport = AnalyzerWithCompilerReport(messageCollector,
-                    environment.configuration.languageVersionSettings)
-
-            // Build AST and binding info.
-            analyzerWithCompilerReport.analyzeAndReport(environment.getSourceFiles()) {
-                TopDownAnalyzerFacadeForKonan.analyzeFiles(environment.getSourceFiles(), this)
-            }
-            if (analyzerWithCompilerReport.hasErrors()) {
-                throw KonanCompilationException()
-            }
-            moduleDescriptor = analyzerWithCompilerReport.analysisResult.moduleDescriptor
-            bindingContext = analyzerWithCompilerReport.analysisResult.bindingContext
-        },
-        name = "Frontend",
-        description = "Frontend builds AST"
-)
-
 /**
  * Valid from [createSymbolTablePhase] until [destroySymbolTablePhase].
  */
@@ -181,6 +161,7 @@ internal val serializerPhase = konanUnitPhase(
                 this.config.configuration.languageVersionSettings,
                 config.configuration.get(CommonConfigurationKeys.METADATA_VERSION)!!,
                 config.project,
+                exportKDoc = this.shouldExportKDoc(),
                 !expectActualLinker, includeOnlyModuleContent = true)
             serializedMetadata = serializer.serializeModule(moduleDescriptor)
         },
@@ -424,8 +405,7 @@ private val backendCodegen = namedUnitPhase(
 val toplevelPhase: CompilerPhase<*, Unit, Unit> = namedUnitPhase(
         name = "Compiler",
         description = "The whole compilation process",
-        lower = frontendPhase then
-                createSymbolTablePhase then
+        lower = createSymbolTablePhase then
                 objCExportPhase then
                 buildCExportsPhase then
                 psiToIrPhase then

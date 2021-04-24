@@ -144,9 +144,10 @@ dependencies {
 }
 
 val nativelibs = project.tasks.create<Copy>("nativelibs") {
-    dependsOn(solib("clangstubs"))
+    val clangstubsSolib = solib("clangstubs")
+    dependsOn(clangstubsSolib)
 
-    from("$buildDir/")
+    from("$buildDir/$clangstubsSolib")
     into("$buildDir/nativelibs/")
 }
 
@@ -173,6 +174,8 @@ tasks.matching { it.name == "linkClangstubsSharedLibrary" }.all {
     inputs.dir(libclangextDir)
 }
 
+// Please note that list of headers should be fixed manually.
+// See KT-46231 for details.
 tasks.create("updatePrebuilt") {
     dependsOn("genClangInteropStubs")
 

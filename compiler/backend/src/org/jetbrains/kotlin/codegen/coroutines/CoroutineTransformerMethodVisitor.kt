@@ -201,20 +201,38 @@ class CoroutineTransformerMethodVisitor(
 
     // When suspension point is inlined, it is in range of fake inliner variables.
     // Path from TABLESWITCH into unspilling goes to latter part of the range.
-    // In this case the variables are uninitialized, initialize them
+    // In this case the variables are uninitialized, initialize them, and split the local variable
+    // range so that the local variable is only defined when initialized.
     private fun initializeFakeInlinerVariables(methodNode: MethodNode, stateLabels: List<LabelNode>) {
         for (stateLabel in stateLabels) {
+            val newRecords = mutableListOf<LocalVariableNode>()
             for (record in methodNode.localVariables) {
                 if (isFakeLocalVariableForInline(record.name) &&
                     methodNode.instructions.indexOf(record.start) < methodNode.instructions.indexOf(stateLabel) &&
                     methodNode.instructions.indexOf(stateLabel) < methodNode.instructions.indexOf(record.end)
                 ) {
+                    val newEnd = record.end
+                    val newStart = LabelNode()
+                    record.end = stateLabel
                     methodNode.instructions.insert(stateLabel, withInstructionAdapter {
                         iconst(0)
                         store(record.index, Type.INT_TYPE)
+                    }.also {
+                        it.add(newStart)
                     })
+                    newRecords.add(
+                        LocalVariableNode(
+                            record.name,
+                            record.desc,
+                            record.signature,
+                            newStart,
+                            newEnd,
+                            record.index
+                        )
+                    )
                 }
             }
+            methodNode.localVariables.addAll(newRecords)
         }
     }
 
@@ -981,7 +999,7 @@ class CoroutineTransformerMethodVisitor(
                 else -> next = next.next
             }
         }
-        return next
+        return null
     }
 
     // It's necessary to preserve some sensible invariants like there should be no jump in the middle of try-catch-block
@@ -1311,7 +1329,7 @@ private fun updateLvtAccordingToLiveness(method: MethodNode, isForNamedFunction:
                     variable.desc,
                     variable.signature,
                     variable.start,
-                    nextSuspensionPointStartLabel(variable.start),
+                    min(variable.end, nextSuspensionPointStartLabel(variable.start)),
                     variable.index
                 )
             )

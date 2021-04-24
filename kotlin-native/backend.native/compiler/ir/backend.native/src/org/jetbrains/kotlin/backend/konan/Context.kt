@@ -338,8 +338,10 @@ internal class Context(config: KonanConfig) : KonanBackendContext(config) {
             LLVMDisposeDIBuilder(debugInfo.builder)
         if (llvmModule != null)
             LLVMDisposeModule(llvmModule)
-        if (::llvm.isInitialized)
+        if (::llvm.isInitialized) {
+            LLVMDisposeTargetData(llvm.runtime.targetData)
             LLVMDisposeModule(llvm.runtime.llvmModule)
+        }
         tryDisposeLLVMContext()
         llvmDisposed = true
     }
@@ -399,11 +401,16 @@ internal class Context(config: KonanConfig) : KonanBackendContext(config) {
         printIr()
         printBitCode()
     }
+
+    fun shouldExportKDoc() = config.configuration.getBoolean(KonanConfigKeys.EXPORT_KDOC)
+
     fun shouldVerifyBitCode() = config.configuration.getBoolean(KonanConfigKeys.VERIFY_BITCODE)
 
     fun shouldPrintBitCode() = config.configuration.getBoolean(KonanConfigKeys.PRINT_BITCODE)
 
     fun shouldPrintLocations() = config.configuration.getBoolean(KonanConfigKeys.PRINT_LOCATIONS)
+
+    fun shouldPrintFiles() = config.configuration.getBoolean(KonanConfigKeys.PRINT_FILES)
 
     fun shouldProfilePhases() = config.phaseConfig.needProfiling
 
