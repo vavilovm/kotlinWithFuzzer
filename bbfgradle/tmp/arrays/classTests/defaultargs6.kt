@@ -1,7 +1,22 @@
-interface A {
-    fun foo(x: Int, y: Int = x + 20, z: Int = y * 2) = z
+// !JVM_DEFAULT_MODE: all-compatibility
+// TARGET_BACKEND: JVM
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+interface Test {
+    fun test(s: String ="OK"): String {
+        return s
+    }
 }
 
-class B : A {}
+class TestClass : Test {
 
-fun box() = if (B().foo(1) == 42) "OK" else "Fail"
+}
+
+fun box(): String {
+    val defaultImpls = java.lang.Class.forName(Test::class.java.canonicalName + "\$DefaultImpls")
+
+    val declaredMethod = defaultImpls.getDeclaredMethod("test\$default", Test::class.java, String::class.java, Int::class.java, Any::class.java)
+    return declaredMethod.invoke(null, TestClass(), null, 1, null) as String
+}

@@ -1,17 +1,7 @@
-// FILE: JavaClass.java
-
-class JavaClass {
-    JavaClass(Runnable r) {
-        if (r != null) r.run();
-    }
-}
-
-// FILE: 1.kt
-
-internal class KotlinClass(): JavaClass(null) {
-}
+open class Base<T>(val value: T)
+class Box(): Base<Long>(-1)
 
 fun box(): String {
-    KotlinClass()
-    return "OK"
+    val expected: Long? = -1L
+    return if (Box().value == expected) "OK" else "fail"
 }

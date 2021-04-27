@@ -1,10 +1,15 @@
-fun <T> T.toPrefixedString(prefix: String = "", suffix: String="") = prefix + this.toString() + suffix
+// DONT_RUN_GENERATED_CODE: JS
+
+tailrec fun test(x : Int = 0, e : Any = "a") {
+    if (!e.equals("a")) {
+        throw IllegalArgumentException()
+    }
+    if (x > 0) {
+        test(x - 1)
+    }
+}
 
 fun box() : String {
-    if("mama".toPrefixedString(suffix="321", prefix="papa") != "papamama321") return "fail"
-    if("mama".toPrefixedString(prefix="papa") != "papamama") return "fail"
-    if("mama".toPrefixedString("papa", "239") != "papamama239") return "fail"
-    if("mama".toPrefixedString("papa") != "papamama") return "fail"
-    if("mama".toPrefixedString() != "mama") return "fail"
+    test(100000)
     return "OK"
 }

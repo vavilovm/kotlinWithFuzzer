@@ -1,24 +1,20 @@
-// DONT_TARGET_EXACT_BACKEND: WASM
-// WASM_MUTE_REASON: EXCEPTIONS_NOT_IMPLEMENTED
-enum class Color {
-  RED,
-  BLUE
+// FILE: 1.kt
+// WITH_RUNTIME
+package test
+
+inline fun <reified X : Enum<X>> myValueOf(): String {
+    return enumValueOf<X>("OK").name
 }
 
-fun throwsOnGreen(): Boolean {
-    try {
-        Color.valueOf("GREEN")
-        return false
-    }
-    catch (e: Exception) {
-        return true
-    }
+enum class Z {
+    OK
 }
 
-fun box() = if(
-     Color.valueOf("RED") == Color.RED
-  && Color.valueOf("BLUE") == Color.BLUE
-  && Color.values()[0] == Color.RED
-  && Color.values()[1] == Color.BLUE
-  && throwsOnGreen()
-  ) "OK" else "fail"
+
+// FILE: 2.kt
+
+import test.*
+
+fun box(): String {
+    return myValueOf<Z>()
+}

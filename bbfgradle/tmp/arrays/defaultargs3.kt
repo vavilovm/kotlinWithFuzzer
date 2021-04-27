@@ -1,15 +1,14 @@
+// TARGET_BACKEND: JVM
+// JVM_TARGET: 1.8
 
-class C() {
-    fun Any.toMyPrefixedString(prefix: String = "", suffix: String="") : String = prefix + " " + suffix
-
-    fun testReceiver() : String {
-        val res : String = "mama".toMyPrefixedString("111", "222")
-        return res
+interface Z {
+    fun test(s: String = "OK"): String {
+        return s
     }
-
 }
 
-fun box() : String {
-    if(C().testReceiver() != "111 222") return "fail"
-    return "OK"
+class Test: Z
+
+fun box(): String {
+    return Test().test()
 }

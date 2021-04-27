@@ -1,30 +1,12 @@
-// !USE_EXPERIMENTAL: kotlin.contracts.ExperimentalContracts
-// IGNORE_BACKEND: NATIVE
-
-// FILE: 1.kt
-
-package test
-
-import kotlin.contracts.*
-
-public inline fun <R> myrun(block: () -> R): R {
-    contract {
-        callsInPlace(block, InvocationKind.EXACTLY_ONCE)
-    }
-    return block()
+class A {
+    operator fun component1() = 1
+    operator fun component2() = 2
 }
 
-// FILE: 2.kt
+fun A.getA() = this
 
-import test.*
+fun box() : String {
+    val (a, b) = A().getA().getA()
 
-fun cond() = true
-fun test(s: String) = s
-
-fun box(): String {
-    val x: String
-    myrun {
-        x = if (cond()) test("OK") else test("fail")
-    }
-    return x
+    return if (a == 1 && b == 2) "OK" else "fail"
 }

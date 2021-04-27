@@ -1,14 +1,17 @@
-// IGNORE_BACKEND_FIR: JVM_IR
-open abstract class B {
-    abstract fun foo2(arg: Int = 239) : Int
+// !JVM_DEFAULT_MODE: enable
+// TARGET_BACKEND: JVM
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+
+interface Z {
+    @JvmDefault
+    fun test(s: String = "OK"): String {
+        return s
+    }
 }
 
-class C : B() {
-    override fun foo2(arg: Int) : Int = arg
-}
+class Test: Z
 
-fun box() : String {
-    if(C().foo2() != 239) return "fail"
-    if(C().foo2(10) != 10) return "fail"
-    return "OK"
+fun box(): String {
+    return Test().test()
 }

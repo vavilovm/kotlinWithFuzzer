@@ -1,7 +1,17 @@
-interface A {
-    fun foo(x: Int, y: Int = x + 20, z: Int = y * 2) = z
+// !JVM_DEFAULT_MODE: enable
+// TARGET_BACKEND: JVM
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+
+interface Z {
+    @JvmDefault
+    fun test(s: String = "OK"): String {
+        return s
+    }
 }
 
-class B : A {}
+class Test: Z
 
-fun box() = if (B().foo(1) == 42) "OK" else "Fail"
+fun box(): String {
+    return Test().test()
+}

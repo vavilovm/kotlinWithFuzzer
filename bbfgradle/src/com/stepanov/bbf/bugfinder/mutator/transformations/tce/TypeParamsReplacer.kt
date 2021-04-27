@@ -38,7 +38,7 @@ object TypeParamsReplacer {
             val name = it.name
             val index = implSupertypeTypeParams
                 .indexOf(name)
-                .let { if (it == -1) implSupertypeTypeParams.indexOf("$name?") else it }
+                .let { if (it == -1) implSupertypeTypeParams.map { it.asString() }.indexOf("$name?") else it }
             if (index != -1)
                 realTypeParams[index].toString()
             else typeGenerator.generateRandomTypeWithCtx(it.upperBounds.firstOrNull()).toString()

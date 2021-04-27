@@ -1,7 +1,27 @@
-// WITH_SIGNATURES
+// TARGET_BACKEND: JVM
 
-abstract class GenericListIterator<T> : ListIterator<T>
+class MyListIterator<T> : ListIterator<T> {
+    override fun next(): T = null!!
+    override fun hasNext(): Boolean = null!!
+    override fun hasPrevious(): Boolean = null!!
+    override fun previous(): T = null!!
+    override fun nextIndex(): Int = null!!
+    override fun previousIndex(): Int = null!!
+}
 
-abstract class DoubleListIterator : ListIterator<Double>
+fun expectUoe(block: () -> Any) {
+    try {
+        block()
+        throw AssertionError()
+    } catch (e: UnsupportedOperationException) {
+    }
+}
 
-abstract class StringListIterator : ListIterator<String>
+fun box(): String {
+    val list = MyListIterator<String>() as java.util.ListIterator<String>
+
+    expectUoe { list.set("") }
+    expectUoe { list.add("") }
+
+    return "OK"
+}

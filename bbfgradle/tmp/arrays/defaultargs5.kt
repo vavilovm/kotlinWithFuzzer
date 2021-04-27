@@ -1,13 +1,24 @@
-open abstract class B {
-    abstract fun foo2(arg: Int = 239) : Int
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+interface Test {
+    fun test(s: String ="OK"): String {
+        return s
+    }
 }
 
-class C : B() {
-    override fun foo2(arg: Int) : Int = arg
+class TestClass : Test {
+
 }
 
-fun box() : String {
-    if(C().foo2() != 239) return "fail"
-    if(C().foo2(10) != 10) return "fail"
-    return "OK"
+fun box(): String {
+    try {
+        val defaultImpls = java.lang.Class.forName(Test::class.java.canonicalName + "\$DefaultImpls")
+    } catch (e: ClassNotFoundException) {
+        return "OK"
+    }
+    return "fail: DefaultImpls shouldn't be generated"
 }
