@@ -6,6 +6,9 @@
 package com.stepanov.bbf
 
 import com.intellij.codeInsight.intention.IntentionAction
+import com.intellij.openapi.application.ApplicationManager
+import com.intellij.openapi.application.impl.ApplicationImpl
+import com.intellij.testFramework.TestApplicationManager
 import com.intellij.testFramework.fixtures.LightJavaCodeInsightFixtureTestCase
 import org.jetbrains.kotlin.idea.KotlinFileType
 import org.jetbrains.kotlin.idea.util.application.executeCommand
@@ -13,16 +16,26 @@ import org.jetbrains.kotlin.idea.util.application.executeWriteCommand
 
 class IntentionTestClass(val text: String) : LightJavaCodeInsightFixtureTestCase() {
 
+    private var isConfigured = false
 
     init {
         setUp()
+        myFixture.configureByText(KotlinFileType.INSTANCE, text)
+        isConfigured = true
     }
 
     public override fun tearDown() {
         super.tearDown()
+
+
+        val app = ApplicationManager.getApplication() as ApplicationImpl? ?: return
+        app.invokeAndWait {
+            // `ApplicationManager#ourApplication` will be automatically set to `null`
+            app.disposeContainer()
+//            TestApplicationManager.ourInstance = null
+        }
     }
 
-    private var isConfigured = false
 
 
     private val intentionNames = arrayOf(
@@ -137,14 +150,17 @@ class IntentionTestClass(val text: String) : LightJavaCodeInsightFixtureTestCase
         if (!isConfigured)
             myFixture.configureByText(KotlinFileType.INSTANCE, text)
 
-        if (editor.caretModel.offset != pos)
-            editor.caretModel.moveToOffset(pos)
-        isConfigured = true
+        TestApplicationManager.getInstance()
+        ApplicationManager.getApplication().invokeAndWait {
+            if (editor.caretModel.offset != pos)
+                editor.caretModel.moveToOffset(pos)
+            isConfigured = true
 
 
-        if (runIntention(intention)) {
-            newText = editor.document.text
-            isConfigured = false
+            if (runIntention(intention)) {
+                newText = editor.document.text
+                isConfigured = false
+            }
         }
         return newText
     }

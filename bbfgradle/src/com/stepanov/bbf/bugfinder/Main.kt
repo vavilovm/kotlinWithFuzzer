@@ -12,6 +12,7 @@ import org.apache.log4j.PropertyConfigurator
 import java.io.File
 import kotlin.system.exitProcess
 
+import org.junit.runner.JUnitCore
 
 fun main(args: Array<String>) {
     //Init log4j
