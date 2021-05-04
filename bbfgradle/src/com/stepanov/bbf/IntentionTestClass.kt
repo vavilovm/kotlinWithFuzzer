@@ -20,20 +20,24 @@ class IntentionTestClass(val text: String) : LightJavaCodeInsightFixtureTestCase
 
     init {
         setUp()
-        myFixture.configureByText(KotlinFileType.INSTANCE, text)
-        isConfigured = true
+//        myFixture.configureByText(KotlinFileType.INSTANCE, text)
+//        isConfigured = true
     }
 
-    public override fun tearDown() {
+    public override fun tearDown(){
+//        myFixture.testRootDisposable.dispose()
+//        myFixture.projectDisposable.dispose()
+//        print("disposed!")
+
         super.tearDown()
 
 
-        val app = ApplicationManager.getApplication() as ApplicationImpl? ?: return
-        app.invokeAndWait {
-            // `ApplicationManager#ourApplication` will be automatically set to `null`
-            app.disposeContainer()
-//            TestApplicationManager.ourInstance = null
-        }
+//        val app = ApplicationManager.getApplication() as ApplicationImpl? ?: return
+//        app.invokeAndWait {
+//            // `ApplicationManager#ourApplication` will be automatically set to `null`
+//            app.disposeContainer()
+////            TestApplicationManager.ourInstance = null
+//        }
     }
 
 
