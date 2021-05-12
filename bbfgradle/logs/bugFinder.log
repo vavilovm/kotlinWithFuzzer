@@ -1,1 +1,2 @@
-2021-04-27 01:12:28,930 [main:25] - Name = /Users/mark/IdeaProjects/kotlinWithFuzzer/./bbfgradle/tmp/arrays/inlineClassMemberFun.kt
+2021-05-12 13:32:19,819 [AWT-EventQueue-0:39] - Mutation of ./bbfgradle/tmp/myTest.kt started
+2021-05-12 13:32:19,829 [AWT-EventQueue-0:18] - Cur transformation AddPossibleModifiers

@@ -195,6 +195,42 @@ dependencies {
     if (Ide.AS41.orHigher()) {
         testRuntime(intellijPluginDep("platform-images"))
     }
+
+
+
+    //BBF
+    testCompile("commons-cli:commons-cli:1.4")
+    testImplementation("net.sourceforge.argparse4j:argparse4j:0.8.1")
+    testImplementation(kotlin("stdlib-jdk8"))
+    testImplementation("org.apache.commons:commons-exec:1.3")
+
+    testImplementation("io.github.java-diff-utils:java-diff-utils:4.5")
+    testImplementation("org.bitbucket.cowwoc:diff-match-patch:1.1")
+
+    //AbiComparator
+    testImplementation("org.jsoup:jsoup:1.13.1")
+    //testImplementation "org.ow2.asm:asm-debug-all:$asm_debug_version"
+    testImplementation("org.ow2.asm:asm:8.0.1")
+    testImplementation("org.ow2.asm:asm-commons:8.0.1")
+    testImplementation("org.apache.commons:commons-text:1.8")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.1.0")
+    testImplementation("io.github.java-diff-utils:java-diff-utils:4.5")
+
+    //Antlr4
+    testImplementation("org.antlr:antlr4-runtime:4.8-1")
+    testImplementation("org.antlr:antlr4:4.8-1")
+
+    //Kootstrap
+    testImplementation("org.apache.maven:maven-model-builder:3.3.9")
+    testImplementation("org.apache.maven:maven-aether-provider:3.3.3")
+    testImplementation("org.eclipse.aether:aether-api:1.1.0")
+    testImplementation("org.eclipse.aether:aether-util:1.1.0")
+    testImplementation("org.eclipse.aether:aether-impl:1.1.0")
+    testImplementation("org.eclipse.aether:aether-connector-basic:1.1.0")
+    testImplementation("org.eclipse.aether:aether-transport-file:1.1.0")
+    testImplementation("org.eclipse.aether:aether-transport-http:1.1.0")
+    testImplementation("org.eclipse.aether:aether-transport-wagon:1.1.0")
+    testImplementation("org.apache.maven:maven-aether-provider:3.3.3")
 }
 
 tasks.named<Copy>("processResources") {
