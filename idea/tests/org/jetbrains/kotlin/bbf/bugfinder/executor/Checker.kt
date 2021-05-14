@@ -15,6 +15,7 @@ import org.jetbrains.kotlin.bbf.bugfinder.executor.checkers.IntentionsChecker
 import org.jetbrains.kotlin.bbf.bugfinder.manager.BugManager
 import org.jetbrains.kotlin.bbf.reduktor.util.getAllChildren
 import kotlin.system.exitProcess
+import org.jetbrains.kotlin.psi.KtFile
 
 //Project adaptation
 open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck: Boolean = true) :
@@ -85,10 +86,15 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
             var posExecuted = -1;
             for (pos in 0 until length) {
                 try {
-                    val newCode = IntentionsChecker.runIntentionInPos(text, intention, pos)
+                    val psiFile = IntentionsChecker.runIntentionInPosReturnPsi(text, intention, pos)
+                    val newCode = psiFile?.text
+
+
                     if (newCode != null && !checkedConfigurations.containsKey(newCode)) {
                         log.debug("After applying of ${intention.familyName}:\n$newCode")
                         val psiForNewCode = Factory.psiFactory.createFile(newCode)
+//                            psiFile as KtFile
+                            // Factory.psiFactory.createFile(newCode)
                         if (psiForNewCode.getAllChildren().any { it is PsiErrorElement }) {
                             BugManager.saveIntentionBug(text, newCode, intention.familyName)
                             checkedConfigurations[newCode] = false
@@ -104,12 +110,15 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                             checkedConfigurations[newCode] = false
                         } else {
                             println("RES = YES")
-                            val createFromCode = Project.createFromCode(newCode)
-                            println("created")
 
-                            checkTracesOnTmpProject(createFromCode)
-//                            println("checked")
                             checkedConfigurations[newCode] = true
+
+                            println("create from psi")
+                            val createFromPsi = Project.createFromPsi(psiForNewCode)
+//                            println("traces start")
+                            checkTracesOnTmpProject(createFromPsi)
+//                            println("traces end")
+
                         }
                         project.files.first().unsafeReplacingOfPsiFile(oldPsiFile)
                         println("REPLACED BACK")
@@ -128,5 +137,6 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
     val additionalConditions: MutableList<(PsiFile) -> Boolean> = mutableListOf()
 
     private val checkedConfigurations = hashMapOf<String, Boolean>()
+//    private val checkedPsiConfigurations = hashMapOf<PsiFile, Boolean>()
     private val log = Logger.getLogger("mutatorLogger")
 }

@@ -14,6 +14,10 @@ import org.jetbrains.kotlin.cli.jvm.K2JVMCompiler
 import org.jetbrains.kotlin.psi.KtNamedFunction
 import java.io.File
 import org.jetbrains.kotlin.bbf.bugfinder.util.flatMap
+import org.jetbrains.kotlin.bbf.reduktor.parser.PSICreator
+
+import org.jetbrains.kotlin.psi.KtFile;
+import org.jetbrains.kotlin.resolve.BindingContext
 
 class Project(
     var configuration: Header,
@@ -27,6 +31,18 @@ class Project(
         fun createFromCode(code: String): Project {
             val configuration = Header.createHeader(getCommentSection(code))
             val files = BBFFileFactory(code, configuration).createBBFFiles() ?: return Project(configuration, listOf())
+            val language = if (files.any { it.getLanguage() == LANGUAGE.JAVA }) LANGUAGE.KJAVA else LANGUAGE.KOTLIN
+            return Project(configuration, files, language)
+        }
+        
+        fun createFromPsi(ktFile: KtFile) : Project {
+            val code = ktFile.text
+            
+            val configuration = Header.createHeader(getCommentSection(code))
+//            val analyze: BindingContext? = PSICreator.analyze(ktFile)
+            val bbfFile = BBFFile(ktFile.name, ktFile)
+            val files: List<BBFFile> = listOf(bbfFile)
+
             val language = if (files.any { it.getLanguage() == LANGUAGE.JAVA }) LANGUAGE.KJAVA else LANGUAGE.KOTLIN
             return Project(configuration, files, language)
         }
