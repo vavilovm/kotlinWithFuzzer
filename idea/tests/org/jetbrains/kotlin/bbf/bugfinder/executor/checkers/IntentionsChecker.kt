@@ -8,9 +8,10 @@ package org.jetbrains.kotlin.bbf.bugfinder.executor.checkers
 import com.intellij.codeInsight.intention.IntentionAction
 import com.intellij.psi.PsiFile
 import org.jetbrains.kotlin.SingleFileBugFinderWrapper
+import org.jetbrains.kotlin.idea.intentions.AbstractBBFIntentionTest
 
 object IntentionsChecker {
-    lateinit var intentionExecutor: SingleFileBugFinderWrapper
+    lateinit var intentionExecutor: AbstractBBFIntentionTest
 
 //    fun run(text: String) {
 //        println("check intentions")
