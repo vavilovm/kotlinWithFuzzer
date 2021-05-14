@@ -34,11 +34,7 @@ class Tracer(val compiler: CommonCompiler, val project: Project) : KtVisitorVoid
             if (it.getLanguage() == LANGUAGE.KOTLIN) {
                 checker = MutationChecker(compiler, project, it, false)
                 tree = it.psiFile as KtFile
-//                ctx = it.ctx as BindingContext
-                val traceCurFile = traceCurFile()
-
-                it.psiFile = Factory.psiFactory.createFile(traceCurFile.text)
-//                it.replacePsiFile(traceCurFile)
+                traceCurFile()
             }
         }
     }
@@ -60,8 +56,11 @@ class Tracer(val compiler: CommonCompiler, val project: Project) : KtVisitorVoid
         tree.getAllPSIChildrenOfType<KtTryExpression>().forEach { it.accept(this) }
         //Saving
 //        tree.name = tree.name.dropLastWhile { it != '/' } + "traced/traced_" + tree.name.split('/').last()
-//        saveTracedFile(tree)
+
+        saveTracedFile(tree)
+
         return tree
+
 //        return PSICreator("").getPSIForFile(tree.name)
     }
 

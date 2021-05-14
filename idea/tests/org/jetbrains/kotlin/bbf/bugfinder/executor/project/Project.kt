@@ -39,7 +39,6 @@ class Project(
             val code = ktFile.text
             
             val configuration = Header.createHeader(getCommentSection(code))
-//            val analyze: BindingContext? = PSICreator.analyze(ktFile)
             val bbfFile = BBFFile(ktFile.name, ktFile)
             val files: List<BBFFile> = listOf(bbfFile)
 

@@ -93,8 +93,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                     if (newCode != null && !checkedConfigurations.containsKey(newCode)) {
                         log.debug("After applying of ${intention.familyName}:\n$newCode")
                         val psiForNewCode = Factory.psiFactory.createFile(newCode)
-//                            psiFile as KtFile
-                            // Factory.psiFactory.createFile(newCode)
+
                         if (psiForNewCode.getAllChildren().any { it is PsiErrorElement }) {
                             BugManager.saveIntentionBug(text, newCode, intention.familyName)
                             checkedConfigurations[newCode] = false
@@ -115,9 +114,9 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
 
                             println("create from psi")
                             val createFromPsi = Project.createFromPsi(psiForNewCode)
-//                            println("traces start")
+                            println("traces start")
                             checkTracesOnTmpProject(createFromPsi)
-//                            println("traces end")
+                            println("traces end")
 
                         }
                         project.files.first().unsafeReplacingOfPsiFile(oldPsiFile)
