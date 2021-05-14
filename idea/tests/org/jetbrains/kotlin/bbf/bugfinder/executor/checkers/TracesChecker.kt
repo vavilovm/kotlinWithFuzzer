@@ -25,6 +25,96 @@ class TracesChecker(compilers: List<CommonCompiler>) : CompilationChecker(compil
         )
     }
 
+
+    fun checkBehavior(old: Project, new: Project, intention: String): Boolean {
+        val groupedRes = checkTest(listOf(old, new))
+
+
+        if (groupedRes.size > 1) {
+            if (groupedRes.keys.first().split("\n").any { it.matches(Regex(""".+@[0-9a-z]""")) }) {
+                val comment = Factory.psiFactory.createComment("// DIFF_ONLY_IN_ADDRESSES")
+                old.files.first().psiFile.addToTheTop(comment)
+            }
+            println("different!")
+            BugManager.saveIntentionBug(
+                old.toString(), new.toString(), intention
+            )
+            return false
+        }
+        if (CompilerArgs.isStrictMode && CompilerArgs.isMiscompilationMode) {
+            if (groupedRes.keys.firstOrNull() == "-1Exception") {
+                return false
+            }
+        }
+        return true
+    }
+
+    fun traceText(project: Project): String? {
+        log.debug("Trying to compile with main function:")
+        val comp = compilers[0]
+
+        log.debug("Executing traced code:\n$project")
+        val status = comp.compile(project)
+        if (status.status == -1)
+            return null
+
+        val res = comp.exec(status.pathToCompiled)
+        val errors = comp.exec(status.pathToCompiled, Stream.ERROR)
+        log.debug("Result of ${comp.compilerInfo}: $res\n")
+        log.debug("Errors: $errors")
+        if (exclErrorMessages.any { errors.contains(it) })
+            return null
+
+        return res + errors
+    }
+
+    private fun checkTest(projects: List<Project>): Map<String, List<Project>> {
+        log.debug("Trying to compile with main function:")
+        val comp = compilers[0]
+
+//        if (!extendedCompilerList.checkCompilingForAllBackends(project)) {
+//            log.debug("Cannot compile with main + \n$project")
+//            return mapOf()
+//        }
+
+
+        val results = mutableListOf<Pair<Project, String>>()
+        val errorsMap = mutableListOf<Pair<Project, String>>()
+
+        for (project in projects) {
+            log.debug("Executing traced code:\n$projects")
+            val status = comp.compile(project)
+            if (status.status == -1)
+                return mapOf()
+            val res = comp.exec(status.pathToCompiled)
+            val errors = comp.exec(status.pathToCompiled, Stream.ERROR)
+            log.debug("Result of ${comp.compilerInfo}: $res\n")
+            log.debug("Errors: $errors")
+            if (exclErrorMessages.any { errors.contains(it) })
+                return mapOf()
+            results.add(project to res.trim())
+            errorsMap.add(project to errors.trim())
+        }
+        if (results.all { it.second.trim().isEmpty() }) {
+            return mapOf("-1Exception" to listOf())
+        }
+//        //Compare with java
+//        if (CompilerArgs.useJavaAsOracle) {
+//            try {
+//                val res = JCompiler().compile(pathToFile)
+//                if (res.status == 0) {
+//                    val execRes = JCompiler().exec(res.pathToCompiled, Stream.BOTH)
+//                    log.debug("Result of JAVA: $execRes")
+//                    results.add(JCompiler() to execRes.trim())
+//                } else log.debug("Cant compile with Java")
+//            } catch (e: Exception) {
+//                log.debug("Exception with Java compilation")
+//            }
+//        }
+        return results.groupBy({ it.second }, valueTransform = { it.first }).toMutableMap()
+    }
+
+
     fun checkBehavior(project: Project): Boolean {
         val groupedRes = checkTest(project)
         if (groupedRes.size > 1) {

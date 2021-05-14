@@ -13,9 +13,8 @@ import org.jetbrains.kotlin.bbf.reduktor.util.getAllPSIChildrenOfType
 import org.apache.log4j.Logger
 import org.jetbrains.kotlin.bbf.bugfinder.executor.checkers.IntentionsChecker
 import org.jetbrains.kotlin.bbf.bugfinder.manager.BugManager
+import org.jetbrains.kotlin.bbf.bugfinder.tracer.Tracer
 import org.jetbrains.kotlin.bbf.reduktor.util.getAllChildren
-import kotlin.system.exitProcess
-import org.jetbrains.kotlin.psi.KtFile
 
 //Project adaptation
 open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck: Boolean = true) :
@@ -80,10 +79,28 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         } else false
     }
 
-    private fun checkIntentions(project: Project, text: String) {
+    private fun checkIntentions(project: Project, startCode: String) {
+
+        val startPsi = Factory.psiFactory.createFile("dummy_start.kt", startCode)
+
+        val startProject = Project.createFromPsi(startPsi)
+        Tracer(compilers.first(), startProject).trace()
+
+
+        val text = startPsi.text
         val length = text.length
+
+
+        // get traced text
+        val startExecText = getText(startProject)
+        if (startExecText == null) {
+            println("EXECUTION FAILED");
+            println("text: " + text)
+            return
+        }
+
+
         for (intention in IntentionsChecker.intentions) {
-            var posExecuted = -1;
             for (pos in 0 until length) {
                 try {
                     val psiFile = IntentionsChecker.runIntentionInPosReturnPsi(text, intention, pos)
@@ -95,33 +112,42 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                         val psiForNewCode = Factory.psiFactory.createFile(newCode)
 
                         if (psiForNewCode.getAllChildren().any { it is PsiErrorElement }) {
-                            BugManager.saveIntentionBug(text, newCode, intention.familyName)
+                            BugManager.saveIntentionBug(text, newCode, intention.familyName, "PSI ERROR")
+                            println("PSI ERROR FOR" + newCode)
                             checkedConfigurations[newCode] = false
                             continue
                         }
-                        val oldPsiFile = project.files.first().psiFile
-                        project.files.first().unsafeReplacingOfPsiFile(psiForNewCode)
-                        println("CHECKING COMPILATION OF\n ${project}")
+
+
+                        val newProject = Project.createFromPsi(psiForNewCode)
+
+                        //println("CHECKING COMPILATION OF\n ${newProject}")
                         //Check correctness
-                        if (compileAndGetStatuses(project).first() != COMPILE_STATUS.OK) {
+                        if (compileAndGetStatuses(newProject).first() != COMPILE_STATUS.OK) {
                             println("RES = NO")
-                            BugManager.saveIntentionBug(text, newCode, intention.familyName)
+
+                            BugManager.saveIntentionBug(text, newCode, intention.familyName, "COMPILE != OK")
                             checkedConfigurations[newCode] = false
                         } else {
                             println("RES = YES")
 
-                            checkedConfigurations[newCode] = true
+                            val exec = getText(newProject)
+                            if (exec == null) {
+                                println("EXECUTION FAILED AFTER INTENTION")
+                                println("text: " + newCode)
+                                continue
+                            }
 
-                            println("create from psi")
-                            val createFromPsi = Project.createFromPsi(psiForNewCode)
-                            println("traces start")
-                            checkTracesOnTmpProject(createFromPsi)
-                            println("traces end")
+                            if (startExecText != exec) {
+                                println("different!")
 
+                                BugManager.saveIntentionBug(
+                                    startCode, newCode, intention.familyName, exec ?: ""
+                                )
+                                checkedConfigurations[newCode] = false
+                            } else checkedConfigurations[newCode] = true
                         }
-                        project.files.first().unsafeReplacingOfPsiFile(oldPsiFile)
-                        println("REPLACED BACK")
-                        posExecuted = pos
+
                     } //else println("NO")
                 } catch (e: Exception) {
                     continue
@@ -136,6 +162,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
     val additionalConditions: MutableList<(PsiFile) -> Boolean> = mutableListOf()
 
     private val checkedConfigurations = hashMapOf<String, Boolean>()
-//    private val checkedPsiConfigurations = hashMapOf<PsiFile, Boolean>()
+
+    //    private val checkedPsiConfigurations = hashMapOf<PsiFile, Boolean>()
     private val log = Logger.getLogger("mutatorLogger")
 }

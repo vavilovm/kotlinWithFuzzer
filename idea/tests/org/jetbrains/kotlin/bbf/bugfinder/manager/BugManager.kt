@@ -75,6 +75,18 @@ object BugManager {
         File("$pathToDirectory/${Random.getRandomVariableName(5)}.kt").writeText(bugFileText)
     }
 
+    fun saveIntentionBug(originalCode: String, modifiedCode: String, intentionName: String, newOutput: String) {
+
+        val pathToDirectory = "./bbfgradle/tmp/results/intentionBugs/"
+        val commentedOriginalCode = "// ORIGINAL CODE:\n" + originalCode.split("\n").joinToString("\n") { "// $it" }
+        val output = newOutput.split("\n").joinToString("\n") { "// $it" }
+        val bugFileText = "$output\n// MODIFIED by $intentionName intention:\n$commentedOriginalCode\n\n$modifiedCode\n"
+
+        println(bugFileText)
+        File("$pathToDirectory/${Random.getRandomVariableName(5)}.kt").writeText(bugFileText)
+
+    }
+
     fun saveBug(
         compilers: List<CommonCompiler>,
         msg: String,

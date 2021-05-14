@@ -23,18 +23,30 @@ open class CompilationChecker(val compilers: List<CommonCompiler>) /*: Checker()
 
     fun compileAndGetStatuses(project: Project): List<COMPILE_STATUS> =
         compilers.map { it.tryToCompileWithStatus(project) }
+//
+//    fun checkTraces(project: Project): Boolean {
+//        val compilers = CompilerArgs.getCompilersList()
+//        val copyOfProject = project.copy()
+//        Tracer(compilers.first(), copyOfProject).trace()
+//        return TracesChecker(compilers).checkBehavior(copyOfProject)
+//    }
 
-    fun checkTraces(project: Project): Boolean {
+    fun getText(project: Project) : String? {
         val compilers = CompilerArgs.getCompilersList()
-        val copyOfProject = project.copy()
-        Tracer(compilers.first(), copyOfProject).trace()
-        return TracesChecker(compilers).checkBehavior(copyOfProject)
+        return TracesChecker(compilers).traceText(project)
     }
 
-    fun checkTracesOnTmpProject(project: Project): Boolean {
+    fun checkTracesOnTmpProject(old: Project, new: Project, intention: String): Boolean {
         val compilers = CompilerArgs.getCompilersList()
-        Tracer(compilers.first(), project).trace()
-        return TracesChecker(compilers).checkBehavior(project)
+        Tracer(compilers.first(), new).trace()
+        Tracer(compilers.first(), old).trace()
+
+
+        println("old: " + old)
+        println("new: " + new)
+
+        return TracesChecker(compilers).checkBehavior(old, new, intention)
+//        return TracesChecker(compilers).checkBehavior(project)
     }
 
     //${Kostyl.name.substringBefore("_")}$index.jar"
@@ -44,7 +56,7 @@ open class CompilationChecker(val compilers: List<CommonCompiler>) /*: Checker()
         val compiled = compilers.mapIndexed { index, comp ->
             comp.pathToCompiled =
                 comp.pathToCompiled.replace(".jar", "$index.jar")
-                //comp.pathToCompiled.replace("tmp.jar", "${Kostyl.name.substringBefore("_")}$index.jar")
+            //comp.pathToCompiled.replace("tmp.jar", "${Kostyl.name.substringBefore("_")}$index.jar")
             comp.compile(project).pathToCompiled
         }
         if (compiled.any { it == "" }) return null
