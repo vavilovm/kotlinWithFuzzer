@@ -79,36 +79,37 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         } else false
     }
 
-    private fun checkIntentions(project: Project, startCode: String) {
+    private fun checkIntentions(project: Project, notTracedCode: String) {
+        println("Check intentions\n\n")
 
-        val startPsi = Factory.psiFactory.createFile("dummy_start.kt", startCode)
+        val startPsi = Factory.psiFactory.createFile("dummy_start.kt", notTracedCode)
 
         val startProject = Project.createFromPsi(startPsi)
         Tracer(compilers.first(), startProject).trace()
 
+        val tracedCode = startPsi.text
+        val length = tracedCode.length
 
-        val text = startPsi.text
-        val length = text.length
+        log.debug("traced code: $tracedCode")
 
-
-        // get traced text
-        val startExecText = getText(startProject)
+        // get execution text
+        val startExecText = getExecText(startProject)
         if (startExecText == null) {
             println("EXECUTION FAILED");
             println("text: " + text)
             return
         }
 
+        log.debug("EXECUTION TEXT: $startExecText")
 
         for (intention in IntentionsChecker.intentions) {
             for (pos in 0 until length) {
                 try {
-                    val psiFile = IntentionsChecker.runIntentionInPosReturnPsi(text, intention, pos)
-                    val newCode = psiFile?.text
-
+                    val newCode = IntentionsChecker.runIntentionInPos(tracedCode, intention, pos)
 
                     if (newCode != null && !checkedConfigurations.containsKey(newCode)) {
                         log.debug("After applying of ${intention.familyName}:\n$newCode")
+
                         val psiForNewCode = Factory.psiFactory.createFile(newCode)
 
                         if (psiForNewCode.getAllChildren().any { it is PsiErrorElement }) {
@@ -121,31 +122,43 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
 
                         val newProject = Project.createFromPsi(psiForNewCode)
 
-                        //println("CHECKING COMPILATION OF\n ${newProject}")
+//                        println("CHECKING COMPILATION OF\n ${newProject}")
                         //Check correctness
                         if (compileAndGetStatuses(newProject).first() != COMPILE_STATUS.OK) {
+                            log.debug("COMPILE ERROR")
                             println("RES = NO")
-
-                            BugManager.saveIntentionBug(text, newCode, intention.familyName, "COMPILE != OK")
                             checkedConfigurations[newCode] = false
-                        } else {
-                            println("RES = YES")
 
-                            val exec = getText(newProject)
+                            BugManager.saveIntentionBug(tracedCode, newCode, intention.familyName, "COMPILE != OK. Modified in $pos")
+                        } else {
+
+
+                            val exec = getExecText(newProject)
                             if (exec == null) {
-                                println("EXECUTION FAILED AFTER INTENTION")
-                                println("text: " + newCode)
+                                println("\n\nEXEC FAIL! \n\n")
+                                log.debug("EXEC FAIL AFTER INTENTION ${intention.familyName}")
+                                BugManager.saveIntentionBug(
+                                    tracedCode, newCode, intention.familyName,
+                                    "EXECUTION FAILED AFTER INTENTION pos $pos"
+                                )
                                 continue
                             }
+                            log.debug("intention exec: $exec")
 
                             if (startExecText != exec) {
-                                println("different!")
+                                log.debug("different exec: $startExecText\nvs\n$exec")
+
+                                checkedConfigurations[newCode] = false
+                                println("RES = NO")
 
                                 BugManager.saveIntentionBug(
-                                    startCode, newCode, intention.familyName, exec ?: ""
+                                    tracedCode, newCode, intention.familyName,
+                                    "EXECUTION DIFFERENT. Modified in $pos.\nOriginal:\n" + startExecText + "\nnew:\n" + exec
                                 )
-                                checkedConfigurations[newCode] = false
-                            } else checkedConfigurations[newCode] = true
+                            } else {
+                                checkedConfigurations[newCode] = true
+                                println("RES = YES")
+                            }
                         }
 
                     } //else println("NO")

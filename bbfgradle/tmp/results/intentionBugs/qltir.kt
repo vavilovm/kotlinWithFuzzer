@@ -1,0 +1,96 @@
+// COMPILE != OK. Modified in 177
+// MODIFIED by Move to class body intention:
+// ORIGINAL CODE:
+// // DONT_TARGET_EXACT_BACKEND: WASM
+// // WASM_MUTE_REASON: PROPERTY_REFERENCES
+// // !LANGUAGE: +InlineClasses
+// 
+// var setterInvoked = 0
+// internal var backing = 42
+// 
+// inline class Delegate(val ignored: Int) {
+// 
+//     tailrec operator fun getValue(thisRef: Any?, prop: Any?) =
+//         backing
+// 
+//     tailrec operator fun setValue(thisRef: Any?, prop: Any?, newValue: Int) {
+//         setterInvoked++
+//         backing = newValue
+//     }
+// override fun toString(): String{
+// var res = ""
+// return res
+// }}
+// 
+// public var topLevelD by Delegate(0)
+// 
+// fun box(): String {
+//     if (topLevelD != 42) {
+// println("""THEN""");
+// AssertionError()
+// }
+// 
+//     topLevelD = 1234
+//     if (topLevelD != 1234) {
+// println("""THEN""");
+// throw AssertionError()
+// }
+//     if (backing != 1234) {
+// println("""THEN""");
+// throw AssertionError()
+// }
+// 
+//     if (setterInvoked != 1) {
+// println("""THEN""");
+// throw AssertionError()
+// }
+// 
+//     return "OK"
+// }
+
+// DONT_TARGET_EXACT_BACKEND: WASM
+// WASM_MUTE_REASON: PROPERTY_REFERENCES
+// !LANGUAGE: +InlineClasses
+
+var setterInvoked = 0
+internal var backing = 42
+
+inline class Delegate( ignored: Int) {
+
+    val ignored = ignoredtailrec operator fun getValue(thisRef: Any?, prop: Any?) =
+        backing
+
+    tailrec operator fun setValue(thisRef: Any?, prop: Any?, newValue: Int) {
+        setterInvoked++
+        backing = newValue
+    }
+override fun toString(): String{
+var res = ""
+return res
+}}
+
+public var topLevelD by Delegate(0)
+
+fun box(): String {
+    if (topLevelD != 42) {
+println("""THEN""");
+AssertionError()
+}
+
+    topLevelD = 1234
+    if (topLevelD != 1234) {
+println("""THEN""");
+throw AssertionError()
+}
+    if (backing != 1234) {
+println("""THEN""");
+throw AssertionError()
+}
+
+    if (setterInvoked != 1) {
+println("""THEN""");
+throw AssertionError()
+}
+
+    return "OK"
+}

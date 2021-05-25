@@ -18,7 +18,8 @@ fun main(args: Array<String>) {
         testGroup("idea/tests", "idea/testData") {
             testClass<AbstractBBFIntentionTest> {
                 //model("intentions", pattern = "^([\\w\\-_]+)\\.(kt|kts)$")
-                model("intentionTests", pattern = "^([\\w\\-_]+)\\.(kt|kts)$")
+                model("intentionTests", pattern = "^([\\w\\-_]+)\\.(kt|kts)$", recursive = false)
+                model("intentionTests/arrays", pattern = "^([\\w\\-_]+)\\.(kt|kts)$", recursive = false)
             }
         }
     }

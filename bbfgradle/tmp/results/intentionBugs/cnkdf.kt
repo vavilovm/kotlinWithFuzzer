@@ -1,0 +1,74 @@
+// PSI ERROR. Modified in 196
+// MODIFIED by Convert to secondary constructor intention:
+// ORIGINAL CODE:
+// // WITH_RUNTIME
+// 
+// import kotlin.coroutines.*
+// 
+// tailrec fun builder(c: suspend () -> Unit) {
+//     c.startCoroutine(Continuation(EmptyCoroutineContext) {
+//         it.getOrThrow()
+//     })
+// }
+// 
+// inline class IC(val s: String){
+// override fun toString(): String{
+// var res = ""
+// return res
+// }
+// }
+// 
+// internal var c: Continuation<Any>? = null
+// 
+// public var res = "FAIL"
+// 
+// fun box(): String {
+//     val lambda: suspend (IC, IC) -> String = { _, _ ->
+//         suspendCoroutine<String> {
+//             @Suppress("UNCHECKED_CAST")
+//             c = it as Continuation<Any>
+//         }
+//     }
+//     builder {
+//         res = lambda(IC("_"), IC("_"))
+//     }
+//     c?.resume("OK")
+//     return res
+// }
+
+// WITH_RUNTIME
+
+import kotlin.coroutines.*
+
+tailrec fun builder(c: suspend () -> Unit) {
+    c.startCoroutine(Continuation(EmptyCoroutineContext) {
+        it.getOrThrow()
+    })
+}
+
+inline class IC{
+val s:Stringconstructor(  s: String) {
+this.s = s
+}override fun toString(): String{
+var res = ""
+return res
+}
+}
+
+internal var c: Continuation<Any>? = null
+
+public var res = "FAIL"
+
+fun box(): String {
+    val lambda: suspend (IC, IC) -> String = { _, _ ->
+        suspendCoroutine<String> {
+            @Suppress("UNCHECKED_CAST")
+            c = it as Continuation<Any>
+        }
+    }
+    builder {
+        res = lambda(IC("_"), IC("_"))
+    }
+    c?.resume("OK")
+    return res
+}

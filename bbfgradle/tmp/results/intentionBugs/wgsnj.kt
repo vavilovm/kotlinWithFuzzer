@@ -1,0 +1,64 @@
+// PSI ERROR. Modified in 61
+// MODIFIED by Convert to secondary constructor intention:
+// ORIGINAL CODE:
+//  class Outer() {
+//   final val s = "xyzzy"
+// 
+//   open inner class InnerBase(public val name: String) {
+//   override fun toString(): String{
+// var res = ""
+// return res
+// }}
+// 
+//   inner class InnerDerived(): InnerBase(s) {
+//   }
+// 
+//   val x = InnerDerived()
+// override fun toString(): String{
+// var res = ""
+// return res
+// }}
+// 
+// fun box() : String {
+//   val o = Outer()
+//   return if (o.x.name != "xyzzy") {
+// println("""THEN""");
+// "fail"
+// } else {
+// println("""ELSE""");
+// "OK"
+// }
+// }
+// 
+
+ class Outer() {
+  final val s = "xyzzy"
+
+  open inner class InnerBase {
+  public  val name:Stringconstructor(  name: String) {
+this.name = name
+}override fun toString(): String{
+var res = ""
+return res
+}}
+
+  inner class InnerDerived(): InnerBase(s) {
+  }
+
+  val x = InnerDerived()
+override fun toString(): String{
+var res = ""
+return res
+}}
+
+fun box() : String {
+  val o = Outer()
+  return if (o.x.name != "xyzzy") {
+println("""THEN""");
+"fail"
+} else {
+println("""ELSE""");
+"OK"
+}
+}
+

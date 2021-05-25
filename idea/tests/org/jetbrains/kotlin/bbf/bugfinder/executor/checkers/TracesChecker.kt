@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.bbf.bugfinder.util.Stream
 import org.jetbrains.kotlin.bbf.bugfinder.util.addToTheTop
 import org.jetbrains.kotlin.bbf.bugfinder.util.checkCompilingForAllBackends
 import org.apache.log4j.Logger
+import org.jetbrains.kotlin.bbf.bugfinder.executor.COMPILE_STATUS
 
 // Transformation is here only for PSIFactory
 class TracesChecker(compilers: List<CommonCompiler>) : CompilationChecker(compilers) {
@@ -49,23 +50,28 @@ class TracesChecker(compilers: List<CommonCompiler>) : CompilationChecker(compil
         return true
     }
 
-    fun traceText(project: Project): String? {
+    fun execText(project: Project): String? {
+
         log.debug("Trying to compile with main function:")
         val comp = compilers[0]
 
         log.debug("Executing traced code:\n$project")
         val status = comp.compile(project)
-        if (status.status == -1)
+        if (status.status == -1) {
+            log.debug("DID NOT COMPILE!")
             return null
-
+        }
         val res = comp.exec(status.pathToCompiled)
         val errors = comp.exec(status.pathToCompiled, Stream.ERROR)
         log.debug("Result of ${comp.compilerInfo}: $res\n")
         log.debug("Errors: $errors")
-        if (exclErrorMessages.any { errors.contains(it) })
-            return null
 
-        return res + errors
+        if (errors != "") return null
+//        if (exclErrorMessages.any { errors.contains(it) })
+//            return null
+
+        return res
+
     }
 
     private fun checkTest(projects: List<Project>): Map<String, List<Project>> {

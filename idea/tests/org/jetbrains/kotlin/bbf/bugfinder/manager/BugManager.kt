@@ -76,7 +76,8 @@ object BugManager {
     }
 
     fun saveIntentionBug(originalCode: String, modifiedCode: String, intentionName: String, newOutput: String) {
-
+        println(newOutput)
+        log.debug(newOutput)
         val pathToDirectory = "./bbfgradle/tmp/results/intentionBugs/"
         val commentedOriginalCode = "// ORIGINAL CODE:\n" + originalCode.split("\n").joinToString("\n") { "// $it" }
         val output = newOutput.split("\n").joinToString("\n") { "// $it" }

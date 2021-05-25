@@ -1,0 +1,42 @@
+// PSI ERROR. Modified in 124
+// MODIFIED by Move to class body intention:
+// ORIGINAL CODE:
+// // TARGET_BACKEND: JVM
+// 
+// // WITH_RUNTIME
+// 
+// class Outer {
+//     open inner class Inner @JvmOverloads constructor(val s1: String, val s2: String = "OK") {
+// 
+//     override fun toString(): String{
+// var res = ""
+// return res
+// }}
+// }
+// 
+// fun box(): String {
+//     val outer = Outer()
+//     val c = (Outer.Inner::class.java.getConstructor(Outer::class.java, String::class.java).newInstance(outer, "shazam"))
+//     return c.s2
+// }
+// 
+
+// TARGET_BACKEND: JVM
+
+// WITH_RUNTIME
+
+class Outer {
+    open inner class Inner @JvmOverloads constructor(val s1: String, s2: String = "OK") {
+
+    val s2 = s2override fun toString(): String{
+var res = ""
+return res
+}}
+}
+
+fun box(): String {
+    val outer = Outer()
+    val c = (Outer.Inner::class.java.getConstructor(Outer::class.java, String::class.java).newInstance(outer, "shazam"))
+    return c.s2
+}
+

@@ -111,6 +111,7 @@ abstract class AbstractIntentionTest : KotlinLightCodeInsightFixtureTestCase() {
                         val minJavaVersion = InTextDirectivesUtils.findStringWithPrefixes(fileText, "// MIN_JAVA_VERSION: ")
                         if (minJavaVersion != null && !SystemInfo.isJavaVersionAtLeast(minJavaVersion)) return@configureRegistryAndRun
 
+
                         checkForErrorsBefore(fileText)
 
                         doTestFor(mainFile, pathToFiles, intentionAction, fileText)

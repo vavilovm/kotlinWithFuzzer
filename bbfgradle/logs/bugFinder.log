@@ -1,2 +1,803 @@
-2021-05-12 13:32:19,819 [AWT-EventQueue-0:39] - Mutation of ./bbfgradle/tmp/myTest.kt started
-2021-05-12 13:32:19,829 [AWT-EventQueue-0:18] - Cur transformation AddPossibleModifiers
+2021-05-25 13:11:08,962 [AWT-EventQueue-0:39] - Mutation of ./bbfgradle/tmp/bridgeInInterface20.kt started
+2021-05-25 13:11:08,970 [AWT-EventQueue-0:18] - Cur transformation AddPossibleModifiers
+2021-05-25 13:11:15,371 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:11:15,372 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:11:17,597 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:11:17,597 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:11:24,992 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:11:24,992 [AWT-EventQueue-0:58] - Executing traced code:
+dummy.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(
+        Test2::class.java,
+        "test",
+        Any::class.java
+    )
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:11:26,724 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:11:26,724 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:11:32,001 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:11:32,001 [AWT-EventQueue-0:58] - Executing traced code:
+dummy.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(
+        Test2::class.java,
+        "test",
+        String::class.java
+    )
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:11:33,565 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:11:33,565 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:11:38,487 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:11:38,487 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:11:40,161 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:11:40,161 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:11:43,327 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:11:43,327 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+sealed class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:11:44,868 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:11:44,868 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:12:03,883 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:12:03,884 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+private sealed class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:12:05,605 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:12:05,605 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:12:11,966 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:12:11,967 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+private sealed class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+tailrec fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:12:13,380 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:12:13,380 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:12:16,278 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:12:16,278 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    infix fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override fun test(p: String): String {
+        return p
+    }
+}
+
+private sealed class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+tailrec fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:12:17,670 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:12:17,670 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:12:20,579 [AWT-EventQueue-0:55] - Trying to compile with main function:
+2021-05-25 13:12:20,579 [AWT-EventQueue-0:58] - Executing traced code:
+dummy_start.kt
+// !JVM_DEFAULT_MODE: all
+// TARGET_BACKEND: JVM
+// IGNORE_BACKEND: ANDROID
+// JVM_TARGET: 1.8
+// WITH_RUNTIME
+// FULL_JDK
+
+public interface Test<T> {
+    infix fun test(p: T): T {
+        return null!!
+    }
+}
+
+sealed interface Test2: Test<String> {
+    override infix fun test(p: String): String {
+        return p
+    }
+}
+
+private sealed class TestClass : Test2
+
+fun box(): String {
+    checkMethodExists(Test2::class.java, "test", Any::class.java)
+    checkMethodExists(Test2::class.java, "test", String::class.java)
+
+    checkNoMethod(TestClass::class.java, "test", String::class.java)
+    checkNoMethod(TestClass::class.java, "test", Any::class.java)
+
+    try{
+println("""TRY""");
+
+        val test2DefaultImpls = java.lang.Class.forName("Test2\$DefaultImpls")
+        checkNoMethod(test2DefaultImpls, "test", String::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+        checkNoMethod(test2DefaultImpls, "test", Test2::class.java, Any::class.java)
+} catch (e: ClassNotFoundException){
+println("""CATCH e: ClassNotFoundException""");
+
+        //or no class
+}
+    return "OK"
+}
+
+fun checkNoMethod(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        return
+}
+    throw AssertionError("fail: method $name was found in " + clazz)
+}
+
+tailrec fun checkMethodExists(clazz: Class<*>, name: String, vararg parameterTypes: Class<*>) {
+    try{
+println("""TRY""");
+
+        clazz.getDeclaredMethod(name, *parameterTypes)
+        return
+}
+    catch (e: NoSuchMethodException){
+println("""CATCH e: NoSuchMethodException""");
+
+        throw AssertionError("fail: method $name was not found in " + clazz, e)
+}
+
+}
+
+2021-05-25 13:12:21,947 [AWT-EventQueue-0:66] - Result of JVM : TRY
+TRY
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: NoSuchMethodException
+TRY
+CATCH e: ClassNotFoundException
+OK
+
+
+2021-05-25 13:12:21,947 [AWT-EventQueue-0:67] - Errors: 
+2021-05-25 13:12:24,943 [AWT-EventQueue-0:45] - End

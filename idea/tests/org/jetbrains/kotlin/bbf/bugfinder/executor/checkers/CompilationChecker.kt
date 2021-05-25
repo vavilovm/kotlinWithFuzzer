@@ -31,23 +31,23 @@ open class CompilationChecker(val compilers: List<CommonCompiler>) /*: Checker()
 //        return TracesChecker(compilers).checkBehavior(copyOfProject)
 //    }
 
-    fun getText(project: Project) : String? {
+    fun getExecText(project: Project) : String? {
         val compilers = CompilerArgs.getCompilersList()
-        return TracesChecker(compilers).traceText(project)
+        return TracesChecker(compilers).execText(project)
     }
 
-    fun checkTracesOnTmpProject(old: Project, new: Project, intention: String): Boolean {
-        val compilers = CompilerArgs.getCompilersList()
-        Tracer(compilers.first(), new).trace()
-        Tracer(compilers.first(), old).trace()
-
-
-        println("old: " + old)
-        println("new: " + new)
-
-        return TracesChecker(compilers).checkBehavior(old, new, intention)
-//        return TracesChecker(compilers).checkBehavior(project)
-    }
+//    fun checkTracesOnTmpProject(old: Project, new: Project, intention: String): Boolean {
+//        val compilers = CompilerArgs.getCompilersList()
+//        Tracer(compilers.first(), new).trace()
+//        Tracer(compilers.first(), old).trace()
+//
+//
+//        println("old: " + old)
+//        println("new: " + new)
+//
+//        return TracesChecker(compilers).checkBehavior(old, new, intention)
+////        return TracesChecker(compilers).checkBehavior(project)
+//    }
 
     //${Kostyl.name.substringBefore("_")}$index.jar"
     fun checkABI(project: Project): Pair<Int, File>? {
