@@ -2,19 +2,19 @@ package org.jetbrains.kotlin.bbf.bugfinder.executor
 
 import com.intellij.psi.PsiErrorElement
 import com.intellij.psi.PsiFile
+import org.apache.log4j.Logger
 import org.jetbrains.kotlin.bbf.bugfinder.executor.checkers.CompilationChecker
+import org.jetbrains.kotlin.bbf.bugfinder.executor.checkers.IntentionsChecker
 import org.jetbrains.kotlin.bbf.bugfinder.executor.project.BBFFile
 import org.jetbrains.kotlin.bbf.bugfinder.executor.project.LANGUAGE
 import org.jetbrains.kotlin.bbf.bugfinder.executor.project.Project
+import org.jetbrains.kotlin.bbf.bugfinder.manager.BugManager
 import org.jetbrains.kotlin.bbf.bugfinder.mutator.transformations.Factory
+import org.jetbrains.kotlin.bbf.bugfinder.tracer.Tracer
 import org.jetbrains.kotlin.bbf.bugfinder.util.StatisticCollector
 import org.jetbrains.kotlin.bbf.reduktor.parser.PSICreator
-import org.jetbrains.kotlin.bbf.reduktor.util.getAllPSIChildrenOfType
-import org.apache.log4j.Logger
-import org.jetbrains.kotlin.bbf.bugfinder.executor.checkers.IntentionsChecker
-import org.jetbrains.kotlin.bbf.bugfinder.manager.BugManager
-import org.jetbrains.kotlin.bbf.bugfinder.tracer.Tracer
 import org.jetbrains.kotlin.bbf.reduktor.util.getAllChildren
+import org.jetbrains.kotlin.bbf.reduktor.util.getAllPSIChildrenOfType
 
 //Project adaptation
 open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck: Boolean = true) :
@@ -43,7 +43,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
 
 
     fun checkCompiling(project: Project): Boolean {
-        val allTexts = project.files.map { it.psiFile.text }.joinToString()
+        val allTexts = project.files.joinToString { it.psiFile.text }
         checkedConfigurations[allTexts]?.let { log.debug("Already checked"); return it }
         //Checking syntax correction
         if (!checkSyntaxCorrectnessAndAddCond(project, null)) {
@@ -63,7 +63,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
 
     fun checkCompilingWithBugSaving(project: Project, curFile: BBFFile? = null): Boolean {
         log.debug("Compilation checking started")
-        val allTexts = project.files.map { it.psiFile.text }.joinToString()
+        val allTexts = project.files.joinToString { it.psiFile.text }
         checkedConfigurations[allTexts]?.let { log.debug("Already checked"); return it }
         //Checking syntax correction
         if (!checkSyntaxCorrectnessAndAddCond(project, curFile)) {
@@ -95,10 +95,10 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
         // get execution text
         val startExecText = getExecText(startProject)
         if (startExecText == null) {
-            println("EXECUTION FAILED");
-            println("text: " + text)
+            log.debug("START EXECUTION FAILED")
             return
         }
+
 
         log.debug("EXECUTION TEXT: $startExecText")
 
@@ -113,9 +113,9 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
                         val psiForNewCode = Factory.psiFactory.createFile(newCode)
 
                         if (psiForNewCode.getAllChildren().any { it is PsiErrorElement }) {
-                            BugManager.saveIntentionBug(text, newCode, intention.familyName, "PSI ERROR")
-                            println("PSI ERROR FOR" + newCode)
+                            log.debug("PSI ERROR")
                             checkedConfigurations[newCode] = false
+                            BugManager.saveIntentionBug(tracedCode, newCode, intention.familyName, "PSI ERROR. Modified in $pos")
                             continue
                         }
 
@@ -153,7 +153,7 @@ open class Checker(compilers: List<CommonCompiler>, private val withTracesCheck:
 
                                 BugManager.saveIntentionBug(
                                     tracedCode, newCode, intention.familyName,
-                                    "EXECUTION DIFFERENT. Modified in $pos.\nOriginal:\n" + startExecText + "\nnew:\n" + exec
+                                    "EXECUTION DIFFERENT. Modified in $pos.\nOriginal:\n$startExecText\nnew:\n$exec"
                                 )
                             } else {
                                 checkedConfigurations[newCode] = true

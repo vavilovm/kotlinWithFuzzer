@@ -69,10 +69,13 @@ object IntentionsChecker {
     }
 
     private val intentionNames = arrayOf(
-        "org.jetbrains.kotlin.idea.intentions.ConvertReferenceToLambdaIntention",
+/*        "org.jetbrains.kotlin.idea.intentions.ConvertReferenceToLambdaIntention",
         "org.jetbrains.kotlin.idea.intentions.ConvertLambdaToReferenceIntention",
-        "org.jetbrains.kotlin.idea.intentions.branchedTransformations.intentions.IfToWhenIntention",
+
         "org.jetbrains.kotlin.idea.intentions.branchedTransformations.intentions.WhenToIfIntention",
+*/
+
+        "org.jetbrains.kotlin.idea.intentions.branchedTransformations.intentions.IfToWhenIntention",
 
         "org.jetbrains.kotlin.idea.intentions.AddBracesIntention",
         "org.jetbrains.kotlin.idea.intentions.InvertIfConditionIntention",

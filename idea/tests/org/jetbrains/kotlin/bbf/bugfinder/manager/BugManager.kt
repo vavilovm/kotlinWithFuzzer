@@ -83,7 +83,6 @@ object BugManager {
         val output = newOutput.split("\n").joinToString("\n") { "// $it" }
         val bugFileText = "$output\n// MODIFIED by $intentionName intention:\n$commentedOriginalCode\n\n$modifiedCode\n"
 
-        println(bugFileText)
         File("$pathToDirectory/${Random.getRandomVariableName(5)}.kt").writeText(bugFileText)
 
     }
